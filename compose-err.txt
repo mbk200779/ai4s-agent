@@ -1,0 +1,255 @@
+﻿name: 2026-10-21-16-54-36
+services:
+  api:
+    build:
+      context: D:\workbuddy\2026-10-21-16-54-36\backend
+      dockerfile: Dockerfile
+    container_name: ai4s-api
+    depends_on:
+      minio:
+        condition: service_healthy
+        required: true
+      qdrant:
+        condition: service_healthy
+        required: true
+      redis:
+        condition: service_healthy
+        required: true
+    environment:
+      ANTHROPIC_API_KEY: ""
+      DASHSCOPE_API_KEY: ""
+      JUDGE_PASSWORD: ai4s2024
+      JUDGE_USERNAME: judge
+      LITELLM_CHEAP_MODEL: openai/gpt-4o-mini
+      LITELLM_MODEL: openai/gpt-4o-mini
+      LITELLM_VISION_MODEL: openai/gpt-4o-mini
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_BUCKET_FIGURES: figures
+      MINIO_BUCKET_PAPERS: papers
+      MINIO_BUCKET_PROVENANCE: provenance
+      MINIO_ENDPOINT: minio:9000
+      MINIO_SECRET_KEY: minioadmin
+      MINIO_SECURE: "false"
+      OPENAI_API_KEY: ""
+      PROMPT_VERSION: v1.0.0
+      QDRANT_COLLECTION: ai4s_papers
+      QDRANT_PAPER_META_COLLECTION: ai4s_paper_meta
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://redis:6379/0
+      S2_API_KEY: ""
+      TEMPERATURE: "0"
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:8000/api/v1/health/
+      timeout: 5s
+      interval: 15s
+      retries: 10
+      start_period: 1m0s
+    networks:
+      ai4s-net: null
+    ports:
+      - mode: ingress
+        target: 8000
+        published: "8000"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: model_cache
+        target: /app/.cache
+        volume: {}
+  minio:
+    container_name: ai4s-minio
+    entrypoint:
+      - /bin/sh
+      - /init-minio.sh
+    environment:
+      MINIO_ROOT_PASSWORD: minioadmin
+      MINIO_ROOT_USER: minioadmin
+    healthcheck:
+      test:
+        - CMD
+        - mc
+        - ready
+        - local
+      timeout: 5s
+      interval: 10s
+      retries: 8
+      start_period: 15s
+    image: minio/minio:RELEASE.2024-06-13T22-53-53Z
+    networks:
+      ai4s-net: null
+    ports:
+      - mode: ingress
+        target: 9000
+        published: "9000"
+        protocol: tcp
+      - mode: ingress
+        target: 9001
+        published: "9001"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: minio_data
+        target: /data
+        volume: {}
+      - type: bind
+        source: D:\workbuddy\2026-10-21-16-54-36\scripts\init-minio.sh
+        target: /init-minio.sh
+        read_only: true
+        bind: {}
+  qdrant:
+    container_name: ai4s-qdrant
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:6333/healthz
+      timeout: 5s
+      interval: 10s
+      retries: 6
+      start_period: 10s
+    image: qdrant/qdrant:v1.11.0
+    networks:
+      ai4s-net: null
+    ports:
+      - mode: ingress
+        target: 6333
+        published: "6333"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: qdrant_storage
+        target: /qdrant/storage
+        volume: {}
+  redis:
+    container_name: ai4s-redis
+    healthcheck:
+      test:
+        - CMD
+        - redis-cli
+        - ping
+      timeout: 3s
+      interval: 5s
+      retries: 6
+      start_period: 5s
+    image: redis:7-alpine
+    networks:
+      ai4s-net: null
+    ports:
+      - mode: ingress
+        target: 6379
+        published: "6379"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: redis_data
+        target: /data
+        volume: {}
+  web:
+    build:
+      context: D:\workbuddy\2026-10-21-16-54-36\frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    container_name: ai4s-web
+    depends_on:
+      api:
+        condition: service_healthy
+        required: true
+    environment:
+      PORT: "3000"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl -f http://localhost:3000/ || exit 1
+      timeout: 5s
+      interval: 15s
+      retries: 10
+      start_period: 1m0s
+    networks:
+      ai4s-net: null
+    ports:
+      - mode: ingress
+        target: 3000
+        published: "3000"
+        protocol: tcp
+  worker:
+    build:
+      context: D:\workbuddy\2026-10-21-16-54-36\backend
+      dockerfile: Dockerfile
+    command:
+      - celery
+      - -A
+      - app.tasks.celery_app
+      - worker
+      - -l
+      - info
+      - -c
+      - "1"
+      - -n
+      - worker@%h
+      - -B
+    container_name: ai4s-worker
+    depends_on:
+      minio:
+        condition: service_healthy
+        required: true
+      qdrant:
+        condition: service_healthy
+        required: true
+      redis:
+        condition: service_healthy
+        required: true
+    environment:
+      ANTHROPIC_API_KEY: ""
+      DASHSCOPE_API_KEY: ""
+      LITELLM_CHEAP_MODEL: openai/gpt-4o-mini
+      LITELLM_MODEL: openai/gpt-4o-mini
+      LITELLM_VISION_MODEL: openai/gpt-4o-mini
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_BUCKET_FIGURES: figures
+      MINIO_BUCKET_PAPERS: papers
+      MINIO_BUCKET_PROVENANCE: provenance
+      MINIO_ENDPOINT: minio:9000
+      MINIO_SECRET_KEY: minioadmin
+      MINIO_SECURE: "false"
+      OPENAI_API_KEY: ""
+      PROMPT_VERSION: v1.0.0
+      QDRANT_COLLECTION: ai4s_papers
+      QDRANT_PAPER_META_COLLECTION: ai4s_paper_meta
+      QDRANT_URL: http://qdrant:6333
+      REDIS_URL: redis://redis:6379/0
+      S2_API_KEY: ""
+      TEMPERATURE: "0"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - celery -A app.tasks.celery_app inspect ping --timeout 5 || exit 1
+      timeout: 10s
+      interval: 20s
+      retries: 8
+      start_period: 2m0s
+    networks:
+      ai4s-net: null
+    volumes:
+      - type: volume
+        source: model_cache
+        target: /app/.cache
+        volume: {}
+networks:
+  ai4s-net:
+    name: 2026-10-21-16-54-36_ai4s-net
+    driver: bridge
+volumes:
+  minio_data:
+    name: 2026-10-21-16-54-36_minio_data
+  model_cache:
+    name: 2026-10-21-16-54-36_model_cache
+  qdrant_storage:
+    name: 2026-10-21-16-54-36_qdrant_storage
+  redis_data:
+    name: 2026-10-21-16-54-36_redis_data

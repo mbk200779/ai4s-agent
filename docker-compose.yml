@@ -1,0 +1,183 @@
+# AI4S 学术研究 Agent 第 0 阶段：6 服务全栈骨架
+# 关键设计决策：所有服务挂在同一 bridge 网络 ai4s-net 上，使用服务名作为 DNS 地址；
+# 对象存储初始化内嵌在 minio 容器启动脚本中，不额外创建一次性服务，保证一键起停后恰好 6 个服务。
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.11.0
+    container_name: ai4s-qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    networks:
+      - ai4s-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 10s
+
+  minio:
+    image: minio/minio:RELEASE.2024-06-13T22-53-53Z
+    container_name: ai4s-minio
+    entrypoint: ["/bin/sh", "/init-minio.sh"]
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+      - ./scripts/init-minio.sh:/init-minio.sh:ro
+    networks:
+      - ai4s-net
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+      start_period: 15s
+
+  redis:
+    image: redis:7-alpine
+    container_name: ai4s-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ai4s-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 6
+      start_period: 5s
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ai4s-api
+    ports:
+      - "8000:8000"
+    environment:
+      TEMPERATURE: "0"
+      PROMPT_VERSION: "v1.0.0"
+      QDRANT_URL: "http://qdrant:6333"
+      QDRANT_COLLECTION: "${QDRANT_COLLECTION:-ai4s_papers}"
+      QDRANT_PAPER_META_COLLECTION: ${QDRANT_PAPER_META_COLLECTION:-ai4s_paper_meta}
+      REDIS_URL: "redis://redis:6379/0"
+      MINIO_ENDPOINT: "minio:9000"
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      MINIO_BUCKET_PAPERS: ${MINIO_BUCKET_PAPERS:-papers}
+      MINIO_BUCKET_FIGURES: ${MINIO_BUCKET_FIGURES:-figures}
+      MINIO_BUCKET_PROVENANCE: ${MINIO_BUCKET_PROVENANCE:-provenance}
+      MINIO_SECURE: "false"
+      LITELLM_MODEL: ${LITELLM_MODEL:-openai/gpt-4o-mini}
+      LITELLM_CHEAP_MODEL: ${LITELLM_CHEAP_MODEL:-openai/gpt-4o-mini}
+      LITELLM_VISION_MODEL: ${LITELLM_VISION_MODEL:-openai/gpt-4o-mini}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      S2_API_KEY: ${S2_API_KEY:-}
+      JUDGE_USERNAME: ${JUDGE_USERNAME:-judge}
+      JUDGE_PASSWORD: ${JUDGE_PASSWORD:-ai4s2024}
+    networks:
+      - ai4s-net
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    volumes:
+      - model_cache:/app/.cache
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health/"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ai4s-worker
+    command: celery -A app.tasks.celery_app worker -l info -c 1 -n worker@%h -B
+    environment:
+      TEMPERATURE: "0"
+      PROMPT_VERSION: "v1.0.0"
+      QDRANT_URL: "http://qdrant:6333"
+      QDRANT_COLLECTION: "${QDRANT_COLLECTION:-ai4s_papers}"
+      QDRANT_PAPER_META_COLLECTION: ${QDRANT_PAPER_META_COLLECTION:-ai4s_paper_meta}
+      REDIS_URL: "redis://redis:6379/0"
+      MINIO_ENDPOINT: "minio:9000"
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      MINIO_BUCKET_PAPERS: ${MINIO_BUCKET_PAPERS:-papers}
+      MINIO_BUCKET_FIGURES: ${MINIO_BUCKET_FIGURES:-figures}
+      MINIO_BUCKET_PROVENANCE: ${MINIO_BUCKET_PROVENANCE:-provenance}
+      MINIO_SECURE: "false"
+      LITELLM_MODEL: ${LITELLM_MODEL:-openai/gpt-4o-mini}
+      LITELLM_CHEAP_MODEL: ${LITELLM_CHEAP_MODEL:-openai/gpt-4o-mini}
+      LITELLM_VISION_MODEL: ${LITELLM_VISION_MODEL:-openai/gpt-4o-mini}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      DASHSCOPE_API_KEY: ${DASHSCOPE_API_KEY:-}
+      S2_API_KEY: ${S2_API_KEY:-}
+    networks:
+      - ai4s-net
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    volumes:
+      - model_cache:/app/.cache
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A app.tasks.celery_app inspect ping --timeout 5 || exit 1"]
+      interval: 20s
+      timeout: 10s
+      retries: 8
+      start_period: 120s
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    container_name: ai4s-web
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+    networks:
+      - ai4s-net
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/ || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+networks:
+  ai4s-net:
+    driver: bridge
+
+volumes:
+  qdrant_storage:
+  minio_data:
+  redis_data:
+  model_cache:

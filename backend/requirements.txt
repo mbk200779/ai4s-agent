@@ -1,0 +1,38 @@
+# AI4S 学术研究 Agent 后端依赖
+# 固定主版本，避免自动升级导致行为漂移。
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# 异步任务队列
+celery[redis]==5.4.0
+redis==5.1.0
+
+# 向量库与对象存储
+qdrant-client==1.11.0
+minio==7.2.8
+
+# PDF 解析与图片处理
+PyMuPDF==1.24.10
+pdfplumber==0.11.4
+Pillow==10.4.0
+
+# 数据接入
+arxiv==1.2.1
+sickle==0.7.0
+requests==2.32.3
+
+# embedding：fastembed 同时支持 dense(bge-m3) 与 sparse(BM25)
+fastembed==0.3.6
+
+# LLM 统一抽象
+litellm==1.48.0
+
+# 图谱与数据处理
+networkx==3.3
+numpy==1.26.4
+
+# 科研绘图
+matplotlib==3.9.2

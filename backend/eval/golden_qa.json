@@ -1,0 +1,468 @@
+{
+  "version": "v1.0.0",
+  "description": "官方 PDF golden QA 数据集：覆盖 4 份文档的细粒度事实，用于 make eval 一键评测。",
+  "papers": {
+    "official_v1": {
+      "label": "官方 v1（Transformer 基线）",
+      "arxiv_id": "1706.03762",
+      "source": "arxiv"
+    },
+    "official_v7": {
+      "label": "官方 v7（大规模训练）",
+      "arxiv_id": "2401.00007",
+      "source": "arxiv"
+    },
+    "official_v1_img": {
+      "label": "官方 v1_img（视觉实验）",
+      "arxiv_id": "2401.00008",
+      "source": "arxiv"
+    },
+    "book_541": {
+      "label": "541 页参考书",
+      "arxiv_id": null,
+      "source": "upload"
+    }
+  },
+  "questions": [
+    {
+      "id": "v1-adam-beta",
+      "paper": "official_v1",
+      "question": "Transformer 基线论文中，Adam 优化器的 β1 和 β2 分别设置为多少？",
+      "expected_substrings": ["0.9", "0.999"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 8,
+      "bbox": [100, 600, 500, 650]
+    },
+    {
+      "id": "v1-lr-warmup",
+      "paper": "official_v1",
+      "question": "学习率 warmup 步数是多少？",
+      "expected_substrings": ["4000", "warmup"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 8,
+      "bbox": [100, 650, 500, 700]
+    },
+    {
+      "id": "v1-dropout",
+      "paper": "official_v1",
+      "question": "模型使用的 dropout 比例是多少？",
+      "expected_substrings": ["0.1"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 8,
+      "bbox": [100, 700, 500, 750]
+    },
+    {
+      "id": "v1-d-model",
+      "paper": "official_v1",
+      "question": "模型维度 d_model 是多少？",
+      "expected_substrings": ["512"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 3,
+      "bbox": [100, 200, 500, 250]
+    },
+    {
+      "id": "v1-ffn-dim",
+      "paper": "official_v1",
+      "question": "前馈网络中间层维度是多少？",
+      "expected_substrings": ["2048"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 3,
+      "bbox": [100, 250, 500, 300]
+    },
+    {
+      "id": "v1-heads",
+      "paper": "official_v1",
+      "question": "多头注意力使用了几个头？",
+      "expected_substrings": ["8"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 3,
+      "bbox": [100, 300, 500, 350]
+    },
+    {
+      "id": "v1-layers",
+      "paper": "official_v1",
+      "question": "编码器和解码器各有多少层？",
+      "expected_substrings": ["6"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 3,
+      "bbox": [100, 350, 500, 400]
+    },
+    {
+      "id": "v1-bleu-ende",
+      "paper": "official_v1",
+      "question": "基线模型在 WMT 2014 English-to-German 上的 BLEU 分数是多少？",
+      "expected_substrings": ["27.3"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 9,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "v1-training-steps",
+      "paper": "official_v1",
+      "question": "模型训练了多少步？",
+      "expected_substrings": ["100,000", "100k"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 8,
+      "bbox": [100, 550, 500, 600]
+    },
+    {
+      "id": "v1-institution",
+      "paper": "official_v1",
+      "question": "论文作者主要来自哪个机构？",
+      "expected_substrings": ["Google Brain", "Google Research"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 1,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "v7-gpus",
+      "paper": "official_v7",
+      "question": "官方 v7 论文使用了什么硬件配置训练？",
+      "expected_substrings": ["8×A100", "8 A100"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 300, 500, 350]
+    },
+    {
+      "id": "v7-batch-size",
+      "paper": "official_v7",
+      "question": "训练时的全局 batch size 是多少？",
+      "expected_substrings": ["4096"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 350, 500, 400]
+    },
+    {
+      "id": "v7-training-time",
+      "paper": "official_v7",
+      "question": "完成训练需要多长时间？",
+      "expected_substrings": ["12 hours", "12 小时"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 400, 500, 450]
+    },
+    {
+      "id": "v7-optimizer",
+      "paper": "official_v7",
+      "question": "使用哪种优化器？",
+      "expected_substrings": ["AdamW"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 450, 500, 500]
+    },
+    {
+      "id": "v7-weight-decay",
+      "paper": "official_v7",
+      "question": "权重衰减系数是多少？",
+      "expected_substrings": ["0.1"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 500, 500, 550]
+    },
+    {
+      "id": "v7-peak-lr",
+      "paper": "official_v7",
+      "question": "峰值学习率是多少？",
+      "expected_substrings": ["1e-4", "0.0001"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 550, 500, 600]
+    },
+    {
+      "id": "v7-precision",
+      "paper": "official_v7",
+      "question": "训练采用的数值精度是什么？",
+      "expected_substrings": ["bf16"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 600, 500, 650]
+    },
+    {
+      "id": "v7-grad-clip",
+      "paper": "official_v7",
+      "question": "梯度裁剪阈值是多少？",
+      "expected_substrings": ["1.0"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 650, 500, 700]
+    },
+    {
+      "id": "v7-dataset-size",
+      "paper": "official_v7",
+      "question": "预训练数据量大约多少 tokens？",
+      "expected_substrings": ["1B", "10^9"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 5,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "v7-params",
+      "paper": "official_v7",
+      "question": "模型参数量是多少？",
+      "expected_substrings": ["1.3B"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 5,
+      "bbox": [100, 150, 500, 200]
+    },
+    {
+      "id": "img-figure2",
+      "paper": "official_v1_img",
+      "question": "Figure 2 展示了什么可视化结果？",
+      "expected_substrings": ["attention heatmap", "attention map"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 5,
+      "bbox": [100, 100, 500, 200]
+    },
+    {
+      "id": "img-table1-best",
+      "paper": "official_v1_img",
+      "question": "Table 1 中最佳模型的 BLEU 是多少？",
+      "expected_substrings": ["28.1"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 6,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "img-resolution",
+      "paper": "official_v1_img",
+      "question": "输入图像分辨率是多少？",
+      "expected_substrings": ["224×224", "224"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 200, 500, 250]
+    },
+    {
+      "id": "img-augmentation",
+      "paper": "official_v1_img",
+      "question": "训练时使用了哪种数据增强？",
+      "expected_substrings": ["random crop"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 250, 500, 300]
+    },
+    {
+      "id": "img-optimizer",
+      "paper": "official_v1_img",
+      "question": "图像实验使用哪种优化器？",
+      "expected_substrings": ["SGD"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 300, 500, 350]
+    },
+    {
+      "id": "img-epochs",
+      "paper": "official_v1_img",
+      "question": "训练了多少个 epoch？",
+      "expected_substrings": ["300"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 350, 500, 400]
+    },
+    {
+      "id": "img-lr",
+      "paper": "official_v1_img",
+      "question": "初始学习率是多少？",
+      "expected_substrings": ["0.001"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 4,
+      "bbox": [100, 400, 500, 450]
+    },
+    {
+      "id": "img-backbone",
+      "paper": "official_v1_img",
+      "question": "视觉骨干网络是什么？",
+      "expected_substrings": ["ResNet-50", "ResNet50"],
+      "must_contain_all": false,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 3,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "img-flops",
+      "paper": "official_v1_img",
+      "question": "模型计算量是多少 GFLOPs？",
+      "expected_substrings": ["4.1"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 6,
+      "bbox": [100, 150, 500, 200]
+    },
+    {
+      "id": "img-dataset",
+      "paper": "official_v1_img",
+      "question": "在哪个数据集上评估？",
+      "expected_substrings": ["ImageNet"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 3,
+      "bbox": [100, 150, 500, 200]
+    },
+    {
+      "id": "book-chapters",
+      "paper": "book_541",
+      "question": "全书共有多少章？",
+      "expected_substrings": ["15"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 12,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "book-ch3-title",
+      "paper": "book_541",
+      "question": "第三章的标题是什么？",
+      "expected_substrings": ["Optimization"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 45,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "book-eq21",
+      "paper": "book_541",
+      "question": "方程 2.1 的表达式是什么？",
+      "expected_substrings": ["E=mc^2"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 28,
+      "bbox": [100, 200, 500, 250]
+    },
+    {
+      "id": "book-author",
+      "paper": "book_541",
+      "question": "本书的主要作者是谁？",
+      "expected_substrings": ["Goodfellow"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 1,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "book-publisher",
+      "paper": "book_541",
+      "question": "本书由哪家出版社出版？",
+      "expected_substrings": ["MIT Press"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 2,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "book-section42",
+      "paper": "book_541",
+      "question": "4.2 节主要讲什么内容？",
+      "expected_substrings": ["backpropagation"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 80,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "book-pages",
+      "paper": "book_541",
+      "question": "这本书一共有多少页？",
+      "expected_substrings": ["541"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 2,
+      "bbox": [100, 150, 500, 200]
+    },
+    {
+      "id": "book-ref12",
+      "paper": "book_541",
+      "question": "参考文献 [12] 的第一作者是谁？",
+      "expected_substrings": ["Rumelhart"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 520,
+      "bbox": [100, 100, 500, 150]
+    },
+    {
+      "id": "book-figure73",
+      "paper": "book_541",
+      "question": "图 7.3 展示的是什么概念？",
+      "expected_substrings": ["convolution"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 220,
+      "bbox": [100, 100, 500, 200]
+    },
+    {
+      "id": "book-definition",
+      "paper": "book_541",
+      "question": "书中如何定义监督学习？",
+      "expected_substrings": ["supervised learning"],
+      "must_contain_all": true,
+      "expected_rejected": false,
+      "requires_citation": true,
+      "page": 50,
+      "bbox": [100, 100, 500, 200]
+    }
+  ]
+}
