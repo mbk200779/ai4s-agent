@@ -39,9 +39,9 @@ const ICONS: Record<ToastType, React.ReactNode> = {
 };
 
 const STYLES: Record<ToastType, string> = {
-  success: 'border-emerald-400/30 bg-emerald-500/15 text-emerald-200',
-  error: 'border-red-400/30 bg-red-500/15 text-red-200',
-  info: 'border-white/10 bg-[#24304d] text-slate-200',
+  success: 'border-[var(--ok)]/30 bg-[var(--signal-soft)] text-[var(--ink)]',
+  error: 'border-[var(--danger)]/30 bg-[#fef2f2] text-[var(--ink)]',
+  info: 'border-[var(--line)] bg-[var(--surface)] text-[var(--ink)]',
 };
 
 export default function ToastProvider({ children }: { children: React.ReactNode }) {
@@ -64,7 +64,7 @@ export default function ToastProvider({ children }: { children: React.ReactNode 
           <div
             key={t.id}
             role="status"
-            className={`pointer-events-auto flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-sm font-medium shadow-lg ${STYLES[t.type]}`}
+            className={`pointer-events-auto flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-sm font-medium shadow-sm ${STYLES[t.type]}`}
           >
             <span className="shrink-0">{ICONS[t.type]}</span>
             <span className="flex-1">{t.message}</span>

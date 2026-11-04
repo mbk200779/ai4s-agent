@@ -2,116 +2,265 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   AI4S 设计系统 —— 「航天测控 / 精密仪器」风
+   冷灰蓝底 · 墨白文字 · 单一信号青强调 · 衬线标题 + 等宽数字
+   ============================================================ */
+
 :root {
-  /* 深色科技风 —— 单一靛蓝主色，中性灰蓝铺底，克制统一 */
-  --background: #141b2e;
-  --surface: #1c2740;
-  --surface-2: #24304d;
-  --border: #33405f;
+  /* 背景：冷灰蓝，中高明度，不刺眼不死黑 */
+  --bg-0: #eef1f6;        /* 页面最底 */
+  --bg-1: #e4e8f0;        /* 分区底 */
+  --surface: #ffffff;     /* 卡片表面 */
+  --surface-2: #f5f7fb;   /* 次级表面 / 输入框 */
+  --surface-3: #e9edf5;   /* hover 表面 */
 
-  /* 文字：浅色，保证 WCAG AA 对比度 */
-  --foreground: #eef1f8;
-  --foreground-soft: #b6bdd1;
-  --muted: #7d87a3;
+  /* 边框：冷灰，细刻度感 */
+  --line: #d4dae6;
+  --line-strong: #b9c2d4;
 
-  /* 唯一主色：靛蓝紫 */
-  --primary: #6366f1;
-  --primary-hover: #818cf8;
-  --accent: #818cf8;
+  /* 文字：墨色为主，克制 */
+  --ink: #1a2233;         /* 主文字 */
+  --ink-2: #4a5568;       /* 次级 */
+  --ink-3: #7a8699;       /* 弱化/提示 */
 
-  /* 状态色：仅成功 / 错误两种信号 */
-  --success: #34d399;
-  --danger: #f87171;
+  /* 唯一强调色：信号青（仪器指示灯） */
+  --signal: #0d9488;      /* 主信号青 */
+  --signal-hover: #0f766e;
+  --signal-soft: #e6f4f1; /* 信号青浅底 */
 
-  /* 圆角体系 */
-  --radius-card: 1rem;
-  --radius-ctl: 0.75rem;
+  /* 状态色：仅成功/警告/危险 */
+  --ok: #16a34a;
+  --warn: #d97706;
+  --danger: #dc2626;
 
-  /* 聚焦环（与主色同源，避免杂色） */
-  --focus-ring: 0 0 0 3px rgba(99, 102, 241, 0.28);
+  /* 字体 */
+  --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Georgia", "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", "Consolas", "Liberation Mono", ui-monospace, monospace;
+
+  /* 圆角 */
+  --radius-card: 10px;
+  --radius-ctl: 8px;
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  transition: background-color 0.25s ease;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* 背景：单一靛蓝色相的顶部微光，略微增强提亮 */
-  background-image:
-    radial-gradient(1200px 640px at 50% -10%, rgba(99, 102, 241, 0.18), transparent 60%);
-  background-attachment: fixed;
+* {
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-a {
-  color: var(--primary-hover);
+body {
+  margin: 0;
+  background-color: var(--bg-0);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 细腻网格底纹，营造测控面板感 */
+  background-image:
+    linear-gradient(rgba(13, 148, 136, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 148, 136, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-button:disabled {
+/* ============ 排版 ============ */
+.display {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+  font-weight: 600;
+}
+
+/* ============ 卡片 ============ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+
+/* 卡片顶部的仪表刻度条 */
+.card-tick {
+  position: relative;
+}
+.card-tick::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--line-strong) 0,
+    var(--line-strong) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+/* ============ 按钮 ============ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--signal);
+  color: #fff;
+  border: 1px solid var(--signal);
+  border-radius: var(--radius-ctl);
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.16s ease, transform 0.1s ease, box-shadow 0.16s ease;
+  text-decoration: none;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--signal-hover);
+  box-shadow: 0 2px 10px rgba(13, 148, 136, 0.22);
+}
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.btn-primary:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-input,
-textarea {
-  color: var(--foreground);
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-ctl);
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background 0.16s ease;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  border-color: var(--signal);
+  background: var(--signal-soft);
 }
 
-/* 统一可聚焦控件：双层无障碍聚焦环 */
+/* ============ 输入控件 ============ */
+.field {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-ctl);
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+.field::placeholder {
+  color: var(--ink-3);
+}
+.field:focus {
+  border-color: var(--signal);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+/* ============ 聚焦环 ============ */
+button:focus-visible,
+a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
-select:focus-visible,
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--primary);
+select:focus-visible {
+  outline: 2px solid var(--signal);
   outline-offset: 2px;
 }
 
-/* 按钮点击微反馈 */
-.btn-press {
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+a {
+  color: var(--signal);
+  text-decoration: none;
 }
-.btn-press:active:not(:disabled) {
-  transform: scale(0.97);
-}
-
-/* 玻璃拟态卡片 */
-.glass-card {
-  background: rgba(36, 48, 77, 0.55);
-  border: 1px solid rgba(130, 145, 180, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+a:hover {
+  text-decoration: underline;
 }
 
-/* 主按钮：青蓝渐变 */
-.btn-primary {
-  background-image: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
-}
-.btn-primary:hover:not(:disabled) {
-  background-image: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
-  box-shadow: 0 6px 22px rgba(99, 102, 241, 0.5);
+/* ============ 入场动效（CSS-only，错落出现） ============ */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 细滚动条（深色） */
+.reveal {
+  opacity: 0;
+  animation: rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 信号灯脉冲 */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ============ 滚动条 ============ */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--bg-1);
 }
 ::-webkit-scrollbar-thumb {
-  background: #3a4768;
+  background: var(--line-strong);
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4a5a82;
+  background: #a5b0c4;
+}
+
+/* ============ 无障碍：减少动态 ============ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    animation: none;
+  }
+  .status-dot {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

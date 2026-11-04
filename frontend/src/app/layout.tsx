@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import NavBar from '@/components/NavBar';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
 import ToastProvider from '@/components/Toast';
 
 export const metadata: Metadata = {
@@ -19,8 +18,7 @@ export default function RootLayout({
       <body className="min-h-screen">
         <ToastProvider>
           <NavBar />
-          <main className="mx-auto max-w-6xl px-6 py-10">{children}</main>
-          <ThemeSwitcher />
+          <main className="mx-auto max-w-6xl px-6 py-12">{children}</main>
         </ToastProvider>
       </body>
     </html>
