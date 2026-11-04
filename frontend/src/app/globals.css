@@ -128,8 +128,10 @@ body {
   border: 1px solid var(--signal);
   border-radius: var(--radius-ctl);
   padding: 10px 20px;
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 14px;
+  line-height: 1.25;
   cursor: pointer;
   transition: background 0.16s ease, transform 0.1s ease, box-shadow 0.16s ease;
   text-decoration: none;
@@ -155,8 +157,10 @@ body {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-ctl);
   padding: 10px 20px;
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 14px;
+  line-height: 1.25;
   cursor: pointer;
   transition: border-color 0.16s ease, background 0.16s ease;
   text-decoration: none;

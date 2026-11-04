@@ -86,7 +86,7 @@ export default function QAPage() {
             key={idx}
             onClick={() => citation && openCitation(citation)}
             disabled={!citation}
-            className="mx-0.5 rounded bg-amber-500/20 px-1 text-sm text-amber-300 hover:bg-amber-500/30 disabled:opacity-50"
+            className="mx-0.5 rounded bg-[var(--signal-soft)] px-1 text-sm font-medium text-[var(--signal-hover)] hover:bg-[#d2e9e4] disabled:opacity-50"
             title={citation ? `跳转 ${citation.title} 第 ${citation.page} 页` : '未知引用'}
           >
             {part}
@@ -99,51 +99,49 @@ export default function QAPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-300">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">
+      {/* 页头 */}
+      <div className="flex items-center gap-4">
+        <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--line)] bg-[var(--surface)] text-[var(--signal)]">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.76 9.76 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
           </svg>
         </span>
         <div>
-          <h2 className="text-xl font-bold text-white">可溯源问答</h2>
-          <p className="text-sm text-slate-400">基于论文原文回答，引用可回跳原文</p>
+          <span className="eyebrow">Question & Answer</span>
+          <h1 className="display text-2xl">可溯源问答</h1>
         </div>
       </div>
+
       <div className="flex gap-2">
         <input
           type="text"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           placeholder="输入科研问题..."
-          className="flex-1 rounded-xl border border-white/10 bg-[#1c2740] p-3 text-slate-200 outline-none transition placeholder:text-slate-500 focus:border-indigo-400 focus:shadow-ring"
+          className="field flex-1"
           onKeyDown={(e) => e.key === 'Enter' && ask()}
         />
-        <button
-          onClick={ask}
-          disabled={loading}
-          className="btn-press btn-primary rounded-xl px-6 py-2 font-medium"
-        >
+        <button onClick={ask} disabled={loading} className="btn-primary">
           {loading ? '思考中...' : '提问'}
         </button>
       </div>
 
       <div className="space-y-6">
         {messages.map((msg, i) => (
-          <div key={i} className="space-y-4 rounded-2xl border border-white/[0.08] bg-[#1c2740]/80 p-6">
+          <div key={i} className="card card-tick space-y-4 p-6">
             <div>
-              <h3 className="mb-1 text-sm text-slate-500">问题</h3>
-              <p className="text-slate-100">{msg.question}</p>
+              <div className="eyebrow mb-1">Question</div>
+              <p className="text-base font-medium text-[var(--ink)]">{msg.question}</p>
             </div>
 
             {msg.response.rejected ? (
-              <div className="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-red-300">
+              <div className="rounded-lg border border-[var(--danger)] bg-red-50 p-4 text-[var(--danger)]">
                 拒答：{msg.response.reject_reason}
               </div>
             ) : (
               <div>
-                <h3 className="mb-2 font-semibold text-indigo-300">回答</h3>
-                <p className="leading-relaxed text-slate-200">
+                <div className="eyebrow mb-2">Answer</div>
+                <p className="leading-relaxed text-[var(--ink)]">
                   {renderAnswer(msg.response.answer, msg.response.citations)}
                 </p>
               </div>
@@ -151,19 +149,22 @@ export default function QAPage() {
 
             {msg.response.citations.length > 0 && (
               <div>
-                <h3 className="mb-2 text-sm font-semibold text-slate-500">引用来源（点击引用可高亮回跳原文）</h3>
-                <div className="space-y-3">
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="mono text-xs text-[var(--ink-3)]">CITATIONS</span>
+                  <span className="text-xs text-[var(--ink-3)]">点击引用可高亮回跳原文</span>
+                </div>
+                <div className="space-y-2">
                   {msg.response.citations.map((c, idx) => (
                     <button
                       key={idx}
                       onClick={() => openCitation(c)}
-                      className="w-full rounded-xl border border-white/[0.08] bg-[#1c2740] p-4 text-left text-sm transition hover:border-indigo-400/40 hover:bg-[#24304d]"
+                      className="w-full rounded-lg border border-[var(--line)] bg-[var(--surface-2)] p-4 text-left text-sm transition hover:border-[var(--signal)] hover:bg-[var(--signal-soft)]"
                     >
-                      <div className="mb-1 text-slate-400">
+                      <div className="mb-1 mono text-xs text-[var(--ink-3)]">
                         [{idx + 1}] {c.title} (arXiv:{c.arxiv_id}, 页 {c.page})
                         {c.bbox && ' · 含 bbox 高亮'}
                       </div>
-                      <div className="text-slate-300">{c.chunk_text}</div>
+                      <div className="text-[var(--ink-2)]">{c.chunk_text}</div>
                     </button>
                   ))}
                 </div>
@@ -175,18 +176,18 @@ export default function QAPage() {
 
       {viewer && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
           onClick={() => setViewer(null)}
         >
           <div
-            className="max-h-[90vh] max-w-[90vw] overflow-auto rounded-xl border border-white/10 bg-[#1c2740] p-4"
+            className="card max-h-[90vh] max-w-[90vw] overflow-auto p-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-2 flex items-center justify-between">
-              <h3 className="font-semibold text-indigo-300">{viewer.title}</h3>
+              <h3 className="font-semibold text-[var(--ink)]">{viewer.title}</h3>
               <button
                 onClick={() => setViewer(null)}
-                className="rounded-lg bg-white/10 px-3 py-1 text-sm text-slate-200 hover:bg-white/20"
+                className="btn-ghost px-3 py-1 text-sm"
               >
                 关闭
               </button>
