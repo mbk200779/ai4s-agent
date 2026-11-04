@@ -1,0 +1,141 @@
+﻿docker :  Image 2026-10-21-16-54-36-api Building 
+所在位置 行:451 字符: 1
++ docker compose -f "D:\workbuddy\2026-10-21-16-54-36\docker-compose.ym ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image 2026-10-21-16-54-36-api Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Image 2026-10-21-16-54-36-web Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.19kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 917B 0.0s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/node:20-alpine
+#3 DONE 1.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 78B 0.0s done
+#4 DONE 0.1s
+
+#5 [builder 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+#5 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 0.1s done
+#5 DONE 0.1s
+
+#6 [internal] load build context
+#6 transferring context: 4.48kB 0.0s done
+#6 DONE 0.0s
+
+#7 [builder 2/6] WORKDIR /app
+#7 CACHED
+
+#8 [builder 3/6] COPY package.json ./
+#8 DONE 0.1s
+
+#9 [builder 4/6] RUN npm config set registry https://registry.npmmirror.com && npm install
+#9 57.52 
+#9 57.52 added 108 packages in 56s
+#9 57.52 
+#9 57.52 26 packages are looking for funding
+#9 57.52   run `npm fund` for details
+#9 DONE 58.4s
+
+#10 [builder 5/6] COPY . .
+#10 DONE 0.5s
+
+#11 [builder 6/6] RUN npm run build
+#11 1.667 
+#11 1.667 > ai4s-frontend@0.1.0 build
+#11 1.667 > next build
+#11 1.667 
+#11 3.900 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+#11 3.906 This information is used to shape Next.js' roadmap and prioritize features.
+#11 3.906 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#11 3.906 https://nextjs.org/telemetry
+#11 3.906 
+#11 4.066   鈻?Next.js 14.2.15
+#11 4.067 
+#11 4.336    Creating an optimized production build ...
+#11 27.12  鉁?Compiled successfully
+#11 27.12    Linting and checking validity of types ...
+#11 31.95    Collecting page data ...
+#11 33.42    Generating static pages (0/9) ...
+#11 33.99    Generating static pages (2/9) 
+#11 34.09    Generating static pages (4/9) 
+#11 34.23    Generating static pages (6/9) 
+#11 34.27  鉁?Generating static pages (9/9)
+#11 34.90    Finalizing page optimization ...
+#11 34.90    Collecting build traces ...
+#11 46.35 
+#11 46.35 Route (app)                              Size     First Load JS
+#11 46.35 鈹?鈼?/                                    4.4 kB         91.6 kB
+#11 46.35 鈹?鈼?/_not-found                          873 B          88.1 kB
+#11 46.35 鈹?鈼?/eval                                1.67 kB        88.9 kB
+#11 46.35 鈹?鈼?/graph                               2.28 kB        89.5 kB
+#11 46.35 鈹?鈼?/qa                                  2.75 kB          90 kB
+#11 46.35 鈹?鈼?/review                              1.67 kB        88.9 kB
+#11 46.35 鈹?鈼?/writing                             4.07 kB        91.3 kB
+#11 46.35 + First Load JS shared by all            87.2 kB
+#11 46.35   鈹?chunks/117-f1440ad76292f941.js       31.6 kB
+#11 46.35   鈹?chunks/fd9d1056-13baa9b2029d31fe.js  53.6 kB
+#11 46.35   鈹?other shared chunks (total)          2 kB
+#11 46.35 
+#11 46.35 
+#11 46.35 鈼? (Static)  prerendered as static content
+#11 46.35 
+#11 DONE 46.4s
+
+#12 [runner 3/6] RUN apk add --no-cache curl
+#12 CACHED
+
+#13 [runner 4/6] COPY --from=builder /app/public ./public
+#13 CACHED
+
+#14 [runner 5/6] COPY --from=builder /app/.next/standalone ./
+#14 DONE 0.3s
+
+#15 [runner 6/6] COPY --from=builder /app/.next/static ./.next/static
+#15 DONE 0.1s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 0.8s done
+#16 exporting manifest sha256:1144d9808e26f2dfdcc7b35184e81ee2cd1edbb90f2cd1f93a3dcb5e7b19f687 0.0s done
+#16 exporting config sha256:5fb598b93fa8c1180984c322b40e0ba5bd2fb4364a07300b2341783c48c20490 0.0s done
+#16 exporting attestation manifest sha256:299dc02edd4fca79cf0d925078428cc0ee26d3ebf0bb6bbd0b73b76e7bc313f6 0.0s done
+#16 exporting manifest list sha256:d6dcc76430f101f68c929291d0f1fcdc527d8c36ff4c1c730760bbf150740e62 0.0s done
+#16 naming to docker.io/library/2026-10-21-16-54-36-web:latest done
+#16 unpacking to docker.io/library/2026-10-21-16-54-36-web:latest
+#16 unpacking to docker.io/library/2026-10-21-16-54-36-web:latest 0.3s done
+#16 DONE 1.2s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.0s
+ Image 2026-10-21-16-54-36-web Built 
+
+docker :  Container ai4s-redis Running 
+所在位置 行:451 字符: 229
++ ... | Out-Null; docker compose -f "D:\workbuddy\2026-10-21-16-54-36\docke ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container ai4s-redis Running :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container ai4s-qdrant Running 
+ Container ai4s-minio Running 
+ Container ai4s-api Running 
+ Container ai4s-web Creating 
+ Container ai4s-web Created 
+ Container ai4s-minio Waiting 
+ Container ai4s-qdrant Waiting 
+ Container ai4s-redis Waiting 
+ Container ai4s-redis Healthy 
+ Container ai4s-qdrant Healthy 
+ Container ai4s-minio Healthy 
+ Container ai4s-api Waiting 
+ Container ai4s-api Healthy 
+ Container ai4s-web Starting 
+ Container ai4s-web Started 
+

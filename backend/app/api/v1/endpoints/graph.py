@@ -19,11 +19,21 @@ async def build_graph(req: GraphRequest):
     if not req.seed_arxiv_id:
         raise HTTPException(status_code=400, detail="seed_arxiv_id 不能为空")
     service = GraphService()
-    data = service.build_graph(
-        req.seed_arxiv_id,
-        depth=req.depth,
-        filter_perfunctory=req.filter_perfunctory,
-    )
+    try:
+        data = service.build_graph(
+            req.seed_arxiv_id,
+            depth=req.depth,
+            filter_perfunctory=req.filter_perfunctory,
+        )
+    except Exception as e:
+        # Semantic Scholar 无 key 时易被 429 限流，给出友好提示而非 500
+        msg = str(e)
+        if "429" in msg or "rate" in msg.lower():
+            raise HTTPException(
+                status_code=429,
+                detail="Semantic Scholar 接口限流，请稍后重试；建议配置 S2_API_KEY 提升配额",
+            )
+        raise HTTPException(status_code=502, detail=f"图谱构建失败：{msg}")
     nodes = [GraphNode(**n) for n in data["nodes"]]
     edges = [GraphEdge(**e) for e in data["edges"]]
     return GraphResponse(nodes=nodes, edges=edges)

@@ -6,19 +6,20 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # 安装系统依赖：编译工具、PDF/图片处理库
+# 注意：Debian trixie 中 libgl1-mesa-glx 已更名为 libgl1，libglib2.0-0 更名为 libglib2.0-0t64
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
+    libgl1 \
+    libglib2.0-0t64 \
     libsm6 \
     libxext6 \
     libxrender-dev \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Python 依赖
+# Python 依赖（走国内镜像源，加速下载）
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 # 下载 embedding 模型到镜像层（可选；运行时也会自动下载到 /app/.cache）
 # 关键设计决策：模型落盘 /app/.cache，挂载为命名卷，防止容器重建导致重复下载与随机 diff。

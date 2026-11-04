@@ -1,0 +1,24 @@
+﻿docker :  Container ai4s-qdrant Running 
+所在位置 行:445 字符: 1
++ docker compose -f "D:\workbuddy\2026-10-21-16-54-36\docker-compose.ym ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container ai4s-qdrant Running :S 
+   tring) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container ai4s-redis Running 
+ Container ai4s-minio Recreate 
+ Container ai4s-minio Recreated 
+ Container ai4s-api Creating 
+ Container ai4s-api Created 
+ Container ai4s-minio Starting 
+ Container ai4s-minio Started 
+ Container ai4s-minio Waiting 
+ Container ai4s-qdrant Waiting 
+ Container ai4s-redis Waiting 
+ Container ai4s-qdrant Healthy 
+ Container ai4s-redis Healthy 
+ Container ai4s-minio Healthy 
+ Container ai4s-api Starting 
+ Container ai4s-api Started 
+

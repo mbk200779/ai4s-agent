@@ -1,0 +1,25 @@
+﻿总文件数: 110
+
+=== 目录结构 ===
+作品文档
+作品源码
+演示与评测
+
+=== 作品文档 ===
+\作品文档\ARCHITECTURE.md
+\作品文档\DEMO_SCRIPT.md
+\作品文档\README.md
+\作品文档\SUBMISSION_CHECKLIST.md
+\作品文档\TECH_DOC.md
+\作品文档\技术文档.md
+\作品文档\assets\generate_defense_image.png
+
+=== 作品源码(根) ===
+.env.example
+.gitignore
+docker-compose.yml
+Makefile
+README.md
+
+backend 文件数: 63
+frontend 文件数: 21

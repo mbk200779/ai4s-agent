@@ -2,7 +2,7 @@
 Provenance 日志 schema：每条结论必须可追溯到原始片段。
 """
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Any
 from datetime import datetime
 
 

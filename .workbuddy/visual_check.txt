@@ -1,0 +1,3 @@
+﻿STATUS: 200
+hasHero: True
+hasLogo: True

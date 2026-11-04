@@ -51,6 +51,10 @@ class LLMClient:
                 "禁止输出解释。代码必须可复现：不使用随机数据，若需要随机必须显式设置 np.random.seed(42)；"
                 "图表必须包含数据来源标注；不要包含文件 I/O、网络请求、plt.show() 或系统调用。"
             ),
+            "translate_system": (
+                "You are a translator. Translate the user's research question into English. "
+                "Output only the English translation, nothing else."
+            ),
         }
     }
 

@@ -1,0 +1,26 @@
+﻿
+Name                    Mode  
+----                    ----  
+.git                    d--h--
+.vscode                 d-----
+.workbuddy              d-----
+backend                 d-----
+docs                    d-----
+frontend                d-----
+scripts                 d-----
+.env                    -a----
+.env.example            -a----
+.gitignore              -a----
+compose-code.txt        -a----
+compose-config-code.txt -a----
+compose-config-out.txt  -a----
+compose-err.txt         -a----
+docker-compose.yml      -a----
+git_status.log          -a----
+Makefile                -a----
+push-to-github.bat      -a----
+push-to-github.sh       -a----
+README.md               -a----
+
+
+

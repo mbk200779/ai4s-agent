@@ -1,0 +1,21 @@
+﻿NAMES                    STATUS
+ai4s-web                 Up 5 minutes (unhealthy)
+ai4s-api                 Up 50 minutes (healthy)
+ai4s-minio               Up 50 minutes (healthy)
+ai4s-worker              Up 50 minutes (unhealthy)
+ai4s-qdrant              Up 50 minutes (healthy)
+ai4s-redis               Up 50 minutes (healthy)
+nervous_saha             Up 50 minutes
+docker-plugin_daemon-1   Up 50 minutes
+docker-worker-1          Up 50 minutes
+docker-api-1             Up 50 minutes
+docker-worker_beat-1     Up 50 minutes
+docker-sandbox-1         Up 50 minutes (healthy)
+docker-nginx-1           Up 50 minutes
+docker-web-1             Up 50 minutes
+docker-weaviate-1        Up 50 minutes
+docker-db_postgres-1     Up 50 minutes (healthy)
+docker-redis-1           Up 50 minutes (healthy)
+docker-ssrf_proxy-1      Up 50 minutes
+
+WEB: 200

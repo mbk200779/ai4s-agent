@@ -1,0 +1,203 @@
+﻿docker : [2026-11-03 05:58:53,720: INFO/MainProcess] Task app.tasks.tasks.parse_and_index_pdf[4db353c7-5d2e-40da-b150-4958e8a9f312] received
+所在位置 行:445 字符: 1
++ docker logs ai4s-worker --since 10m 2>&1 | Out-String -Width 250 | Ou ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([2026-11-03 05:...9f312] received    :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[2026-11-03 05:58:56,594: INFO/ForkPoolWorker-2] Task app.tasks.tasks.parse_and_index_pdf[4db353c7-5d2e-40da-b150-4958e8a9f312] succeeded in 2.873419356999875s: {'arxiv_id': 'upload_8bb215cdfabf4f40', 'version': 'v1', 'status': 'dispatched', 'pages':
+ 7, 'chunks': 1, 'merge_task_id': '2ff0ec1a-7e65-45ff-b845-f59ebfb1c730'}
+[2026-11-03 05:58:56,596: INFO/MainProcess] Task app.tasks.tasks.parse_pdf_page_range[35f5593b-3069-4739-95cd-77ff4c199182] received
+[92m05:58:57 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:58:57,371: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:00 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:00,543: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:00 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:00,555: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:03 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:03,615: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:03 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:03,669: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:04 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:04,453: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:04 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:04,456: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:05 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:05,143: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:05 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:05,146: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:05 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:05,925: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:05 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:05,927: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:06 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:06,644: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:06 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:06,647: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:07 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:07,484: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:07 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:07,489: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:08 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:08,169: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:08 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:08,180: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:09 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:09,037: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:09 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:09,055: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:09 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:09,862: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:09 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:09,870: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:11 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:11,086: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:11 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:11,091: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:12 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:12,339: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:12 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:12,343: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:13 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:13,103: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:13 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:13,107: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:14 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:14,434: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:14 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:14,445: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:15 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:15,325: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:15 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:15,329: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:16 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:16,073: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:16 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:16,080: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:16 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:16,874: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:16 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:16,886: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:17 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:17,648: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:17 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:17,661: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:18 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:18,489: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:21 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:21,240: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:22 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:22,103: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:22 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:22,131: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:23 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:23,087: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:23 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:23,098: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:23 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:23,915: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:23 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:23,919: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:24 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:24,598: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:24 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:24,601: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:25 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:25,319: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:25 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:25,614: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:26 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:26,308: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:26 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:26,328: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:27 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:27,049: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:27,358: INFO/ForkPoolWorker-2] Task app.tasks.tasks.parse_pdf_page_range[35f5593b-3069-4739-95cd-77ff4c199182] succeeded in 30.760869566999645s: {'start_page': 0, 'end_page': 6, 'fragments': [{'kind': 'figure', 'text': '璇ュ浘琛ㄥ睍绀轰簡涓嶅悓
+瀹為獙缁勫湪鍏抽敭鎬ц兘鎸囨爣锛堝鍑嗙‘鐜囥€佸搷搴旀椂闂翠笌璧勬簮鍗犵敤鐜囷級涓婄殑瀵规瘮缁撴灉銆傛í杞翠负瀹為獙鏉′欢鎴栨ā鍨嬪彉浣擄紝绾佃酱涓哄悇椤规寚鏍囩殑褰掍竴鍖栨暟鍊硷紱閫氳繃鏌辩姸鍥句笌鎶樼嚎鍥剧粨鍚堢殑鏂瑰紡锛岀洿瑙傚憟鐜颁簡鎵€鎻愭柟娉曠浉杈冧簬鍩虹嚎妯″瀷锛堝BERT銆丩STM绛夛級鍦ㄧ簿搴︽彁鍗囷紙+3.2%锛夈€佸欢杩熼檷浣庯紙-22%锛夊強鍐呭瓨娑堣€楀噺灏戯紙-15%锛夌瓑鏂归潰鐨勭患鍚堜紭鍔匡紝楠岃瘉浜嗗叾鍦ㄦ晥鐜囦笌鏁堟灉涓婄殑鍗忓悓浼樺寲鏁堟灉銆?, 'pa
+ge': 1, 'section': 'Figures', 'caption': None, 'description': '璇ュ浘琛ㄥ睍绀轰簡涓嶅悓瀹為獙缁勫湪鍏抽敭鎬ц兘鎸囨爣锛堝鍑嗙‘鐜囥€佸搷搴旀椂闂翠笌璧勬簮鍗犵敤鐜囷級涓婄殑瀵规瘮缁撴灉銆傛í杞翠负瀹為獙鏉′欢鎴栨ā鍨嬪彉浣擄紝绾佃酱涓哄悇椤规寚鏍囩殑褰掍竴鍖栨暟鍊硷紱閫氳繃鏌辩姸鍥句笌鎶樼嚎鍥剧粨鍚堢殑鏂瑰紡锛岀洿瑙傚憟鐜颁簡鎵€鎻愭柟娉曠浉杈冧簬鍩虹嚎妯″瀷锛堝BERT銆丩STM绛夛級鍦ㄧ簿搴︽彁鍗囷紙+3.2%锛夈€佸欢杩熼
+檷浣庯紙-22%锛夊強鍐呭瓨娑堣€楀噺灏戯紙-15%锛夌瓑鏂归潰鐨勭患鍚堜紭鍔匡紝楠岃瘉浜嗗叾鍦ㄦ晥鐜囦笌鏁堟灉涓婄殑鍗忓悓浼樺寲鏁堟灉銆?, 'key': 'upload_8bb215cdfabf4f40/v1/figures/page_0001_fig_001.png'}, {'kind': 'figure', 'text': '璇ュ浘琛ㄥ睍绀轰簡涓嶅悓瀹為獙缁勫湪鍏抽敭鎬ц兘鎸囨爣锛堝鍑嗙‘鐜囥€佸搷搴旀椂闂翠笌璧勬簮鍗犵敤鐜囷級涓婄殑瀵规瘮缁撴灉銆傛í杞翠负瀹為獙鏉′欢鎴栨ā鍨嬪彉浣擄
+紝绾佃酱涓哄悇椤规寚鏍囩殑褰掍竴鍖栨暟鍊硷紱閫氳繃鏌辩姸鍥句笌鎶樼嚎鍥剧粨鍚堢殑鏂瑰紡锛岀洿瑙傚憟鐜颁簡鎵€鎻愭柟娉曠浉杈冧簬鍩虹嚎妯″瀷锛堝BERT銆丩STM绛夛級鍦ㄧ簿搴︽彁鍗囷紙+3.2%锛夈€佸欢杩熼檷浣庯紙-22%锛夊強鍐呭瓨娑堣€楀噺灏戯紙-15%锛夌瓑鏂归潰鐨勭患鍚堜紭鍔匡紝楠岃瘉浜嗗叾鍦ㄦ晥鐜囦笌鏁堟灉涓婄殑鍗忓悓浼樺寲鏁堟灉銆?, 'page': 1, 'section': 'Figures', 'caption': None, 'description': '璇ュ浘琛ㄥ睍绀
+轰簡涓嶅悓瀹為獙缁勫湪鍏抽敭鎬ц兘鎸囨爣锛堝鍑嗙‘鐜囥€佸搷搴旀椂闂翠笌璧勬簮鍗犵敤鐜囷級涓婄殑瀵规瘮缁撴灉銆傛í杞翠负瀹為獙鏉′欢鎴栨ā鍨嬪彉浣擄紝绾佃酱涓哄悇椤规寚鏍囩殑褰掍竴鍖栨暟鍊硷紱閫氳繃鏌辩姸鍥句笌鎶樼嚎鍥剧粨鍚堢殑鏂瑰紡锛岀洿瑙傚憟鐜颁簡鎵€鎻愭柟娉曠浉杈冧簬鍩虹嚎妯″瀷锛堝BERT銆丩STM绛夛級鍦ㄧ簿搴︽彁鍗囷紙+3.2%锛夈€佸欢杩熼檷浣庯紙-22%锛夊強鍐呭瓨娑堣€楀噺灏戯紙-15%锛夌瓑鏂归潰鐨勭患鍚堜紭鍔匡紝楠岃瘉浜嗗叾鍦ㄦ晥鐜囦笌鏁堟灉涓婄殑鍗忓悓浼樺寲鏁堟灉銆?
+, 'k...', ...}]}
+[2026-11-03 05:59:27,361: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_chunks[2ff0ec1a-7e65-45ff-b845-f59ebfb1c730] received
+[92m05:59:30 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:30,485: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:32 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:32,125: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:32 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:32,126: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:00:43 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:00:43,143: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:01:55,167: INFO/ForkPoolWorker-2] Task app.tasks.tasks.merge_parsed_chunks[2ff0ec1a-7e65-45ff-b845-f59ebfb1c730] retry: Retry in 30s: AttributeError("'NoneType' object has no attribute 'get'")
+[2026-11-03 06:01:55,291: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_chunks[2ff0ec1a-7e65-45ff-b845-f59ebfb1c730] received
+[92m06:02:30 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 06:02:30,276: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:02:32 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:02:32,409: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m06:02:32 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 06:02:32,412: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:03:43 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:03:43,494: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:05:45,670: INFO/ForkPoolWorker-2] Task app.tasks.tasks.merge_parsed_chunks[2ff0ec1a-7e65-45ff-b845-f59ebfb1c730] retry: Retry in 30s: AttributeError("'NoneType' object has no attribute 'get'")
+[2026-11-03 06:05:45,673: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_chunks[2ff0ec1a-7e65-45ff-b845-f59ebfb1c730] received
+

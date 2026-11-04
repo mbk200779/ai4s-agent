@@ -1,0 +1,5 @@
+﻿/qa -> 200
+/graph -> 200
+/review -> 200
+/writing -> 200
+/eval -> 200

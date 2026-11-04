@@ -1,0 +1,10 @@
+﻿docker : grep: /app/node_modules/pdfjs-dist/package.json: No such file or direc
+tory
+所在位置 行:445 字符: 1
++ docker exec ai4s-web grep '"version"' /app/node_modules/pdfjs-dist/pa ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (grep: /app/node...le or directory 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+

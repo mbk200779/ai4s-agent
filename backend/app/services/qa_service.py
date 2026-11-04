@@ -41,8 +41,23 @@ class QAService:
         问答入口。
         返回：{answer, rejected, reject_reason, sources, invalid_citations, provenance_key}
         """
+        # 0. 跨语言检索优化：中文问题先翻译成英文再检索（论文正文多为英文），
+        #    回答仍基于原问题与中文系统提示，最终用中文作答。
+        search_query = question
+        if re.search(r"[\u4e00-\u9fff]", question):
+            try:
+                translated = self.llm.chat(
+                    f"Translate this research question to English:\n\n{question}",
+                    system_key="translate_system",
+                    model=settings.litellm_cheap_model,
+                ).strip()
+                if translated:
+                    search_query = translated
+            except Exception:
+                search_query = question  # 翻译失败则回退原始问题
+
         # 1. 检索
-        result = self.retrieval.search(question, top_k=top_k, rrf_k=rrf_k)
+        result = self.retrieval.search(search_query, top_k=top_k, rrf_k=rrf_k)
         sources: List[RetrievalResult] = result["fusion"]
 
         # 2. 拒答判断：无结果或最高分过低

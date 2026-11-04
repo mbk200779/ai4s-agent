@@ -1,0 +1,1 @@
+﻿{"result":{"collections":[{"name":"ai4s_paper_meta"},{"name":"ai4s_papers"}]},"status":"ok","time":0.000058991}

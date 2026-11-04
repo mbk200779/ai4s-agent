@@ -20,15 +20,16 @@ pdfplumber==0.11.4
 Pillow==10.4.0
 
 # 数据接入
-arxiv==1.2.1
+arxiv==1.4.3
 sickle==0.7.0
 requests==2.32.3
 
 # embedding：fastembed 同时支持 dense(bge-m3) 与 sparse(BM25)
-fastembed==0.3.6
+# 0.3.6 不支持 bge-m3，需升级到支持该模型的新版本
+fastembed>=0.4.0
 
 # LLM 统一抽象
-litellm==1.48.0
+litellm>=1.44,<2
 
 # 图谱与数据处理
 networkx==3.3

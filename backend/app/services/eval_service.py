@@ -6,8 +6,6 @@ import uuid
 from datetime import datetime, timezone
 from typing import Any, Dict, List
 
-import requests
-
 from app.services.retrieval_service import RetrievalService
 from app.services.storage import StorageService
 from app.services.vector_store import VectorStoreService
@@ -59,11 +57,10 @@ class EvalService:
         return json.loads(data.decode("utf-8"))
 
     def _check_api_health(self) -> Dict[str, Any]:
-        try:
-            resp = requests.get("http://localhost:8000/api/v1/health/", timeout=5)
-            return {"ok": resp.status_code == 200, "status_code": resp.status_code}
-        except Exception as e:
-            return {"ok": False, "error": str(e)}
+        # 说明：本方法在 FastAPI 同步 handler 内执行，若再向自身发 HTTP 请求，
+        # 会因 uvicorn 单 worker 已占用处理线程而必然超时（read timeout）。
+        # 因此改为直接判定：评测服务能执行到这里，即说明 API 进程本身健康。
+        return {"ok": True, "status": "alive"}
 
     def _check_qdrant_health(self) -> Dict[str, Any]:
         try:

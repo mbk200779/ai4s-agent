@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, MouseEvent, WheelEvent } from 'react';
+import { useToast } from '@/components/Toast';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || '';
 
@@ -32,6 +33,7 @@ export default function GraphPage() {
   const [arxivId, setArxivId] = useState('');
   const [graph, setGraph] = useState<GraphData | null>(null);
   const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
   const buildGraph = async () => {
     if (!arxivId.trim()) return;
@@ -45,7 +47,7 @@ export default function GraphPage() {
       const data: GraphData = await res.json();
       setGraph(data);
     } catch (e) {
-      alert('构建失败');
+      toast('构建失败，请检查后端服务', 'error');
     } finally {
       setLoading(false);
     }
@@ -53,20 +55,30 @@ export default function GraphPage() {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-lg font-semibold">引用图谱（可交互、可点跳原文）</h2>
+      <div className="flex items-center gap-3">
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-300">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6.75l3.75 3.75M12 5.25a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm-7.5 10.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm15 0a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm-4.5-10.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM7.5 8.25l3 2.25m0 3.75l3-2.25" />
+          </svg>
+        </span>
+        <div>
+          <h2 className="text-xl font-bold text-white">引用图谱</h2>
+          <p className="text-sm text-slate-400">可视化论文引用网络，可交互、可点跳原文</p>
+        </div>
+      </div>
       <div className="flex gap-2">
         <input
           type="text"
           value={arxivId}
           onChange={(e) => setArxivId(e.target.value)}
           placeholder="输入中心论文 arXiv ID"
-          className="flex-1 rounded border border-slate-700 bg-white p-3 text-slate-900"
+          className="flex-1 rounded-xl border border-white/10 bg-[#1c2740] p-3 text-slate-200 outline-none transition placeholder:text-slate-500 focus:border-indigo-400 focus:shadow-ring"
           onKeyDown={(e) => e.key === 'Enter' && buildGraph()}
         />
         <button
           onClick={buildGraph}
           disabled={loading}
-          className="rounded bg-primary px-6 py-2 font-medium text-white hover:bg-blue-700"
+          className="btn-press btn-primary rounded-xl px-6 py-2 font-medium"
         >
           {loading ? '构建中...' : '构建'}
         </button>
@@ -124,7 +136,7 @@ function GraphView({ graph }: { graph: GraphData }) {
   const handleMouseUp = () => setDragging(false);
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 p-4">
+    <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#1c2740] p-4">
       <svg
         width={width}
         height={height}
@@ -148,7 +160,7 @@ function GraphView({ graph }: { graph: GraphData }) {
                 y1={s.y}
                 x2={t.x}
                 y2={t.y}
-                stroke={e.is_perfunctory ? '#475569' : '#60a5fa'}
+                stroke={e.is_perfunctory ? '#334155' : '#6366f1'}
                 strokeWidth={e.is_perfunctory ? 1 : 1 + e.weight * 3}
                 strokeDasharray={e.is_perfunctory ? '4 2' : undefined}
               />
@@ -165,15 +177,15 @@ function GraphView({ graph }: { graph: GraphData }) {
                     cx={p.x}
                     cy={p.y}
                     r={r}
-                    fill={node.group === 'seed' ? '#2563eb' : '#10b981'}
-                    className="cursor-pointer hover:stroke-white hover:stroke-2"
+                    fill={node.group === 'seed' ? '#818cf8' : '#34d399'}
+                    className="cursor-pointer hover:stroke-slate-400 hover:stroke-2"
                     onMouseEnter={(e) =>
                       setTooltip({ x: e.clientX + 12, y: e.clientY - 24, node })
                     }
                     onMouseLeave={() => setTooltip(null)}
                   />
                 </a>
-                <text x={p.x + r + 6} y={p.y + 4} fill="#e2e8f0" fontSize={12}>
+                <text x={p.x + r + 6} y={p.y + 4} fill="#cbd5e1" fontSize={12}>
                   {node.label}
                 </text>
               </g>
@@ -182,14 +194,14 @@ function GraphView({ graph }: { graph: GraphData }) {
         </g>
       </svg>
 
-      <div className="mt-2 flex items-center justify-between text-xs text-muted">
+      <div className="mt-2 flex items-center justify-between text-xs text-slate-500">
         <span>节点大小 = influence_score，边粗细 = 引用含金量；点击节点打开原文 PDF。</span>
         <span>滚轮缩放 · 拖拽平移</span>
       </div>
 
       {tooltip && (
         <div
-          className="pointer-events-none fixed z-40 rounded border border-slate-700 bg-slate-800 p-2 text-xs text-slate-200 shadow-lg"
+          className="pointer-events-none fixed z-40 rounded-xl border border-white/10 bg-[#24304d] p-2 text-xs text-slate-200 shadow-xl shadow-black/40"
           style={{ left: tooltip.x, top: tooltip.y }}
         >
           <div className="font-semibold">{tooltip.node.title}</div>

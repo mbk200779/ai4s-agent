@@ -1,0 +1,3 @@
+5f47fc7 Add team member details to README
+ README.md | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)

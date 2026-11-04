@@ -261,7 +261,7 @@ graph TB
 
 | 组件 | 文件 | 职责 |
 |---|---|---|
-| 图谱服务 | `backend/app/services/graph_service.py` | 用 S2/OpenAlex 建图，计算引用含金量，过滤应付式引用 |
+| 图谱服务 | `backend/app/services/graph_service.py` | 用 OpenAlex 建图，计算引用含金量，过滤应付式引用 |
 | 图谱接口 | `backend/app/api/v1/endpoints/graph.py` | `/graph/build`、`/graph/{arxiv_id}/high-impact` |
 | 综述服务 | `backend/app/services/review_service.py` | 强制句句引用、Markdown 导出 |
 | 综述接口 | `backend/app/api/v1/endpoints/review.py` | `/review/generate`、`/review/export` |

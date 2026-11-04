@@ -78,6 +78,8 @@ class DrawingService:
     }
 
     # 给 matplotlib 代码执行时开放的安全 builtins
+    # __import__ 为受控实现：仅放行白名单模块，其他一律拒绝，
+    # 否则 exec 环境里 import 语句会因缺少 __import__ 内建而报 "__import__ not found"。
     SAFE_BUILTINS: Dict[str, Any] = {
         "abs": abs,
         "all": all,
@@ -112,10 +114,39 @@ class DrawingService:
         "math": math,
     }
 
+    # import 语句可放行的模块白名单（与 AST 白名单保持一致）
+    IMPORTABLE_MODULES: Dict[str, Any] = {
+        "matplotlib": matplotlib,
+        "matplotlib.pyplot": plt,
+        "numpy": np,
+    }
+
+    @classmethod
+    def _make_safe_import(cls):
+        """构造受控 __import__：仅返回白名单模块，其余抛 ImportError。"""
+
+        def _safe_import(name, globals=None, locals=None, fromlist=(), level=0):
+            top = name.split(".")[0]
+            if top not in cls.IMPORTABLE_MODULES:
+                raise ImportError(f"沙箱禁止导入模块：{name}")
+            top_mod = cls.IMPORTABLE_MODULES[top]
+            if not fromlist:
+                # `import a.b as c`：CPython 会再 getattr(top_mod, "b")，
+                # 故必须返回顶层模块而非子模块
+                return top_mod
+            # `from a.b import x`：返回完整路径映射的模块（若有），否则顶层
+            return cls.IMPORTABLE_MODULES.get(name, top_mod)
+
+        return _safe_import
+
     def __init__(self):
         self.search = SearchService()
         self.llm = LLMClient()
         self.storage = StorageService()
+        # 受控 __import__ 注入 builtins，让 import 语句可执行
+        self.safe_builtins = dict(self.SAFE_BUILTINS)
+        self.safe_builtins["__import__"] = self._make_safe_import()
+        self.safe_builtins["__name__"] = "__drawing__"
 
     def generate(self, req: DrawingRequest) -> DrawingResponse:
         """入口：生成代码、渲染图片、写入 MinIO、返回下载链接。"""
@@ -301,7 +332,7 @@ class DrawingService:
         _AllowedCodeVisitor().visit(tree)
 
         safe_globals: Dict[str, Any] = {
-            "__builtins__": self.SAFE_BUILTINS,
+            "__builtins__": self.safe_builtins,
             "matplotlib": matplotlib,
             "plt": plt,
             "numpy": np,
@@ -375,7 +406,9 @@ class DrawingService:
     def _url(self, key: Optional[str]) -> Optional[str]:
         if not key:
             return None
-        return self.storage.get_presigned_url(self.storage.figures_bucket, key)
+        # presigned URL 在容器内签名后浏览器不可达，改走后端流式代理
+        # （与 /papers/{arxiv_id}/pdf 代理同模式）
+        return f"/api/v1/drawing/figure/{key}"
 
     def _reject(self, reason: str) -> DrawingResponse:
         return DrawingResponse(

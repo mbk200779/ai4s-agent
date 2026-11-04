@@ -287,7 +287,14 @@ def merge_parsed_chunks(
         )
 
         # 7. 外部元数据
-        s2_graph = SemanticScholarClient().fetch_citation_graph(arxiv_id)
+        # 本地上传的论文（arxiv_id 以 upload_ 开头）没有真实 arXiv ID，
+        # Semantic Scholar 必然查不到（429/404），直接跳过避免阻塞索引。
+        s2_graph = None
+        if not arxiv_id.startswith("upload_"):
+            try:
+                s2_graph = SemanticScholarClient().fetch_citation_graph(arxiv_id)
+            except Exception:
+                s2_graph = None  # S2 限流/失败不阻塞索引，可后续补抓
         openalex = None
         crossref = None
         try:
@@ -327,6 +334,8 @@ def merge_parsed_chunks(
             "figures": len(figure_keys),
         }
     except Exception as exc:
+        import traceback
+        traceback.print_exc()
         raise self.retry(exc=exc)
 
 

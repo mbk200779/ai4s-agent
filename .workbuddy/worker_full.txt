@@ -1,0 +1,99 @@
+﻿ 
+ -------------- worker@7585b9bf9f23 v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.41 2026-11-03 05:48:21
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         ai4s_agent:0x7e5f38b9f450
+- ** ---------- .> transport:   redis://redis:6379/0
+- ** ---------- .> results:     redis://redis:6379/0
+- *** --- * --- .> concurrency: 1 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . app.tasks.tasks.fetch_arxiv_category_updates
+  . app.tasks.tasks.merge_parsed_chunks
+  . app.tasks.tasks.parse_and_index_pdf
+  . app.tasks.tasks.parse_pdf_page_range
+
+docker : /usr/local/lib/python3.11/site-packages/celery/platforms.py:829: Secur
+ityWarning: You're running the worker with superuser privileges: this is
+所在位置 行:445 字符: 1
++ docker logs ai4s-worker --since 2m 2>&1 | Out-String | Out-File "D:\w ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (/usr/local/lib/...ileges: this is 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
+[2026-11-03 05:48:21,799: INFO/Beat] beat: Starting...
+[2026-11-03 05:48:22,238: WARNING/MainProcess] /usr/local/lib/python3.11/site-p
+ackages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The
+ broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and abo
+ve.
+If you wish to retain the existing behavior for retrying connections on startup
+,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-11-03 05:48:22,251: INFO/MainProcess] Connected to redis://redis:6379/0
+[2026-11-03 05:48:22,253: WARNING/MainProcess] /usr/local/lib/python3.11/site-p
+ackages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The
+ broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and abo
+ve.
+If you wish to retain the existing behavior for retrying connections on startup
+,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-11-03 05:48:22,256: INFO/MainProcess] mingle: searching for neighbors
+[2026-11-03 05:48:23,269: INFO/MainProcess] mingle: all alone
+[2026-11-03 05:48:23,285: INFO/MainProcess] worker@7585b9bf9f23 ready.
+[2026-11-03 05:48:23,288: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_c
+hunks[929cbcad-119f-420d-8502-71c424c126be] received
+[92m05:48:29 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:48:29,777: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:48:31 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, call
+ing success_handler
+[2026-11-03 05:48:31,771: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calli
+ng success_handler
+[92m05:48:31 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:48:31,776: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:49:43 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, call
+ing success_handler
+[2026-11-03 05:49:43,101: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calli
+ng success_handler
+[2026-11-03 05:49:43,134: INFO/ForkPoolWorker-2] Task app.tasks.tasks.merge_par
+sed_chunks[929cbcad-119f-420d-8502-71c424c126be] retry: Retry in 30s: Unexpecte
+dResponse()
+[2026-11-03 05:49:43,141: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_c
+hunks[929cbcad-119f-420d-8502-71c424c126be] received
+[92m05:50:14 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:50:14,622: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:50:16 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, call
+ing success_handler
+[2026-11-03 05:50:16,420: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calli
+ng success_handler
+[92m05:50:16 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:50:16,421: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+

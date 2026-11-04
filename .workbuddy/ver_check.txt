@@ -1,0 +1,9 @@
+﻿docker : sh: syntax error: unexpected "("
+所在位置 行:445 字符: 1
++ docker exec ai4s-web sh -c "node -e `"console.log(require('pdfjs-dist ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (sh: syntax error: unexpected "(": 
+   String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+

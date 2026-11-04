@@ -1,0 +1,1520 @@
+﻿docker :  Image 2026-10-21-16-54-36-api Building 
+所在位置 行:445 字符: 50
++ ... workbuddy\2026-10-21-16-54-36"; docker compose build api 2>&1 | Out-S ...
++                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Image 2026-10-21-16-54-36-api Building :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+#1 [internal] load local bake definitions
+#1 reading from stdin 603B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.41kB 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 3.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 124B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 11.30kB done
+#5 DONE 0.0s
+
+#6 [1/8] FROM docker.io/library/python:3.11-slim@sha256:673719e071ecf27434fd2635bbd8d00f49f4fdd81f243143438a42ced8bedf60
+#6 resolve docker.io/library/python:3.11-slim@sha256:673719e071ecf27434fd2635bbd8d00f49f4fdd81f243143438a42ced8bedf60 0.0s done
+#6 sha256:361db81715472ecba5e656c314c299bd945309020483159596a8d123c2b1d580 0B / 251B 0.2s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 0B / 14.46MB 0.2s
+#6 sha256:ee5aaeba9945927662bea2702989dfd74d9273796415b896363e6a9c44d9a8ce 0B / 1.29MB 0.2s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 0B / 29.86MB 0.2s
+#6 sha256:361db81715472ecba5e656c314c299bd945309020483159596a8d123c2b1d580 251B / 251B 1.5s done
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 1.05MB / 14.46MB 2.9s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 2.10MB / 14.46MB 3.0s
+#6 sha256:ee5aaeba9945927662bea2702989dfd74d9273796415b896363e6a9c44d9a8ce 1.29MB / 1.29MB 2.9s done
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 2.10MB / 29.86MB 2.9s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 3.15MB / 14.46MB 3.2s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 4.19MB / 29.86MB 3.0s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 6.29MB / 29.86MB 3.2s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 5.24MB / 14.46MB 3.5s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 8.39MB / 29.86MB 3.3s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 8.39MB / 14.46MB 3.6s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 9.44MB / 14.46MB 3.8s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 12.58MB / 29.86MB 3.6s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 10.49MB / 14.46MB 3.9s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 14.68MB / 29.86MB 3.8s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 12.58MB / 14.46MB 4.2s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 17.83MB / 29.86MB 4.1s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 19.92MB / 29.86MB 4.2s
+#6 sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 14.46MB / 14.46MB 4.5s done
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 22.02MB / 29.86MB 4.4s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 26.21MB / 29.86MB 4.7s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 28.31MB / 29.86MB 4.8s
+#6 sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 29.86MB / 29.86MB 4.9s done
+#6 extracting sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5
+#6 extracting sha256:6fc242d221a673263eabd14a9ad9584d3177c96e5cb504c891497338e2f912f5 0.4s done
+#6 DONE 5.4s
+
+#6 [1/8] FROM docker.io/library/python:3.11-slim@sha256:673719e071ecf27434fd2635bbd8d00f49f4fdd81f243143438a42ced8bedf60
+#6 extracting sha256:ee5aaeba9945927662bea2702989dfd74d9273796415b896363e6a9c44d9a8ce 0.0s done
+#6 extracting sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932
+#6 extracting sha256:24ff04c921070df4f4dc987278926d5dabde59d57b55ae3665439331f79af932 0.2s done
+#6 DONE 5.7s
+
+#6 [1/8] FROM docker.io/library/python:3.11-slim@sha256:673719e071ecf27434fd2635bbd8d00f49f4fdd81f243143438a42ced8bedf60
+#6 extracting sha256:361db81715472ecba5e656c314c299bd945309020483159596a8d123c2b1d580 0.0s done
+#6 DONE 5.7s
+
+#7 [2/8] WORKDIR /app
+#7 DONE 0.3s
+
+#8 [3/8] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     libgl1     libglib2.0-0t64     libsm6     libxext6     libxrender-dev     curl     && rm -rf /var/lib/apt/lists/*
+#8 0.551 Hit:1 http://deb.debian.org/debian trixie InRelease
+#8 0.701 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#8 1.028 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#8 1.233 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9678 kB]
+#8 9.038 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [1108 B]
+#8 9.202 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [293 kB]
+#8 9.550 Fetched 10.1 MB in 9s (1071 kB/s)
+#8 9.550 Reading package lists...
+#8 10.02 Reading package lists...
+#8 10.53 Building dependency tree...
+#8 10.65 Reading state information...
+#8 10.81 The following additional packages will be installed:
+#8 10.81   binutils binutils-common binutils-x86-64-linux-gnu bzip2 cpp cpp-14
+#8 10.81   cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu dpkg-dev g++ g++-14
+#8 10.81   g++-14-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-14
+#8 10.81   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu libasan8 libatomic1 libbinutils
+#8 10.81   libbrotli1 libc-dev-bin libc6-dev libcc1-0 libcom-err2 libcrypt-dev
+#8 10.81   libctf-nobfd0 libctf0 libcurl4t64 libdpkg-perl libdrm-amdgpu1 libdrm-common
+#8 10.81   libdrm-intel1 libdrm2 libedit2 libelf1t64 libexpat1 libgbm1 libgcc-14-dev
+#8 10.81   libgdbm-compat4t64 libgl1-mesa-dri libglvnd0 libglx-mesa0 libglx0
+#8 10.81   libgnutls30t64 libgomp1 libgprofng0 libgssapi-krb5-2 libhwasan0 libice6
+#8 10.81   libidn2-0 libisl23 libitm1 libjansson4 libk5crypto3 libkeyutils1 libkrb5-3
+#8 10.81   libkrb5support0 libldap2 libllvm19 liblsan0 libmpc3 libmpfr6 libnghttp2-14
+#8 10.81   libnghttp3-9 libp11-kit0 libpciaccess0 libperl5.40 libpsl5t64 libquadmath0
+#8 10.81   librtmp1 libsasl2-2 libsasl2-modules-db libsensors-config libsensors5
+#8 10.81   libsframe1 libssh2-1t64 libstdc++-14-dev libtasn1-6 libtsan2 libubsan1
+#8 10.81   libunistring5 libvulkan1 libwayland-server0 libx11-6 libx11-data libx11-dev
+#8 10.81   libx11-xcb1 libxau-dev libxau6 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+#8 10.81   libxcb-randr0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb1 libxcb1-dev
+#8 10.81   libxdmcp-dev libxdmcp6 libxml2 libxrender1 libxshmfence1 libxxf86vm1 libz3-4
+#8 10.81   linux-libc-dev make mesa-libgallium patch perl perl-modules-5.40
+#8 10.81   rpcsvc-proto x11-common x11proto-dev xorg-sgml-doctools xtrans-dev xz-utils
+#8 10.81 Suggested packages:
+#8 10.81   binutils-doc gprofng-gui binutils-gold bzip2-doc cpp-doc gcc-14-locales
+#8 10.81   cpp-14-doc debian-keyring debian-tag2upload-keyring g++-multilib
+#8 10.81   g++-14-multilib gcc-14-doc gcc-multilib manpages-dev autoconf automake
+#8 10.81   libtool flex bison gdb gcc-doc gcc-14-multilib gdb-x86-64-linux-gnu
+#8 10.81   libc-devtools glibc-doc sq | sqop | rsop | gosop | pgpainless-cli | gpg-sq
+#8 10.81   | gnupg sensible-utils git bzr low-memory-monitor gnutls-bin krb5-doc
+#8 10.81   krb5-user pciutils lm-sensors libstdc++-14-doc libx11-doc libxcb-doc
+#8 10.81   make-doc ed diffutils-doc perl-doc libterm-readline-gnu-perl
+#8 10.81   | libterm-readline-perl-perl libtap-harness-archive-perl
+#8 10.81 Recommended packages:
+#8 10.81   bash-completion fakeroot sq | sqop | rsop | gosop | pgpainless-cli | gpg-sq
+#8 10.81   | gnupg libalgorithm-merge-perl manpages manpages-dev libfile-fcntllock-perl
+#8 10.81   liblocale-gettext-perl libglib2.0-data shared-mime-info xdg-user-dirs
+#8 10.81   krb5-locales libldap-common publicsuffix libsasl2-modules
+#8 10.81   mesa-vulkan-drivers | vulkan-icd
+#8 11.20 The following NEW packages will be installed:
+#8 11.20   binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2 cpp
+#8 11.20   cpp-14 cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu curl dpkg-dev g++ g++-14
+#8 11.20   g++-14-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-14
+#8 11.20   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu libasan8 libatomic1 libbinutils
+#8 11.20   libbrotli1 libc-dev-bin libc6-dev libcc1-0 libcom-err2 libcrypt-dev
+#8 11.20   libctf-nobfd0 libctf0 libcurl4t64 libdpkg-perl libdrm-amdgpu1 libdrm-common
+#8 11.20   libdrm-intel1 libdrm2 libedit2 libelf1t64 libexpat1 libgbm1 libgcc-14-dev
+#8 11.20   libgdbm-compat4t64 libgl1 libgl1-mesa-dri libglib2.0-0t64 libglvnd0
+#8 11.20   libglx-mesa0 libglx0 libgnutls30t64 libgomp1 libgprofng0 libgssapi-krb5-2
+#8 11.20   libhwasan0 libice6 libidn2-0 libisl23 libitm1 libjansson4 libk5crypto3
+#8 11.20   libkeyutils1 libkrb5-3 libkrb5support0 libldap2 libllvm19 liblsan0 libmpc3
+#8 11.20   libmpfr6 libnghttp2-14 libnghttp3-9 libp11-kit0 libpciaccess0 libperl5.40
+#8 11.20   libpsl5t64 libquadmath0 librtmp1 libsasl2-2 libsasl2-modules-db
+#8 11.20   libsensors-config libsensors5 libsframe1 libsm6 libssh2-1t64
+#8 11.20   libstdc++-14-dev libtasn1-6 libtsan2 libubsan1 libunistring5 libvulkan1
+#8 11.20   libwayland-server0 libx11-6 libx11-data libx11-dev libx11-xcb1 libxau-dev
+#8 11.20   libxau6 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-randr0 libxcb-shm0
+#8 11.20   libxcb-sync1 libxcb-xfixes0 libxcb1 libxcb1-dev libxdmcp-dev libxdmcp6
+#8 11.20   libxext6 libxml2 libxrender-dev libxrender1 libxshmfence1 libxxf86vm1
+#8 11.20   libz3-4 linux-libc-dev make mesa-libgallium patch perl perl-modules-5.40
+#8 11.20   rpcsvc-proto x11-common x11proto-dev xorg-sgml-doctools xtrans-dev xz-utils
+#8 11.56 0 upgraded, 125 newly installed, 0 to remove and 1 not upgraded.
+#8 11.56 Need to get 140 MB of archives.
+#8 11.56 After this operation, 576 MB of additional disk space will be used.
+#8 11.56 Get:1 http://deb.debian.org/debian-security trixie-security/main amd64 libexpat1 amd64 2.9.0-1~deb13u1 [126 kB]
+#8 12.05 Get:2 http://deb.debian.org/debian trixie/main amd64 bzip2 amd64 1.0.8-6 [40.5 kB]
+#8 12.07 Get:3 http://deb.debian.org/debian trixie/main amd64 perl-modules-5.40 all 5.40.1-6+deb13u1 [3014 kB]
+#8 13.20 Get:4 http://deb.debian.org/debian trixie/main amd64 libgdbm-compat4t64 amd64 1.24-2 [50.3 kB]
+#8 13.21 Get:5 http://deb.debian.org/debian trixie/main amd64 libperl5.40 amd64 5.40.1-6+deb13u1 [4326 kB]
+#8 14.23 Get:6 http://deb.debian.org/debian trixie/main amd64 perl amd64 5.40.1-6+deb13u1 [268 kB]
+#8 14.28 Get:7 http://deb.debian.org/debian-security trixie-security/main amd64 xz-utils amd64 5.8.1-1+deb13u2 [660 kB]
+#8 14.48 Get:8 http://deb.debian.org/debian trixie/main amd64 libsframe1 amd64 2.44-3 [78.4 kB]
+#8 14.52 Get:9 http://deb.debian.org/debian trixie/main amd64 binutils-common amd64 2.44-3 [2509 kB]
+#8 15.25 Get:10 http://deb.debian.org/debian trixie/main amd64 libbinutils amd64 2.44-3 [534 kB]
+#8 15.41 Get:11 http://deb.debian.org/debian trixie/main amd64 libgprofng0 amd64 2.44-3 [808 kB]
+#8 15.63 Get:12 http://deb.debian.org/debian trixie/main amd64 libctf-nobfd0 amd64 2.44-3 [156 kB]
+#8 15.69 Get:13 http://deb.debian.org/debian trixie/main amd64 libctf0 amd64 2.44-3 [88.6 kB]
+#8 15.71 Get:14 http://deb.debian.org/debian trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+#8 15.72 Get:15 http://deb.debian.org/debian trixie/main amd64 binutils-x86-64-linux-gnu amd64 2.44-3 [1014 kB]
+#8 16.17 Get:16 http://deb.debian.org/debian trixie/main amd64 binutils amd64 2.44-3 [265 kB]
+#8 16.22 Get:17 http://deb.debian.org/debian trixie/main amd64 libc-dev-bin amd64 2.41-12+deb13u4 [60.0 kB]
+#8 16.24 Get:18 http://deb.debian.org/debian-security trixie-security/main amd64 linux-libc-dev all 6.12.113-1 [3021 kB]
+#8 17.07 Get:19 http://deb.debian.org/debian trixie/main amd64 libcrypt-dev amd64 1:4.4.38-1 [119 kB]
+#8 17.10 Get:20 http://deb.debian.org/debian trixie/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#8 17.12 Get:21 http://deb.debian.org/debian trixie/main amd64 libc6-dev amd64 2.41-12+deb13u4 [1995 kB]
+#8 17.86 Get:22 http://deb.debian.org/debian trixie/main amd64 libisl23 amd64 0.27-1 [659 kB]
+#8 18.05 Get:23 http://deb.debian.org/debian trixie/main amd64 libmpfr6 amd64 4.2.2-1 [729 kB]
+#8 18.16 Get:24 http://deb.debian.org/debian trixie/main amd64 libmpc3 amd64 1.3.1-1+b3 [52.2 kB]
+#8 18.38 Get:25 http://deb.debian.org/debian trixie/main amd64 cpp-14-x86-64-linux-gnu amd64 14.2.0-19 [11.0 MB]
+#8 23.51 Get:26 http://deb.debian.org/debian trixie/main amd64 cpp-14 amd64 14.2.0-19 [1280 B]
+#8 23.51 Get:27 http://deb.debian.org/debian trixie/main amd64 cpp-x86-64-linux-gnu amd64 4:14.2.0-1 [4840 B]
+#8 23.51 Get:28 http://deb.debian.org/debian trixie/main amd64 cpp amd64 4:14.2.0-1 [1568 B]
+#8 23.51 Get:29 http://deb.debian.org/debian trixie/main amd64 libcc1-0 amd64 14.2.0-19 [42.8 kB]
+#8 23.54 Get:30 http://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+#8 23.61 Get:31 http://deb.debian.org/debian trixie/main amd64 libitm1 amd64 14.2.0-19 [26.0 kB]
+#8 23.62 Get:32 http://deb.debian.org/debian trixie/main amd64 libatomic1 amd64 14.2.0-19 [9308 B]
+#8 23.62 Get:33 http://deb.debian.org/debian trixie/main amd64 libasan8 amd64 14.2.0-19 [2725 kB]
+#8 25.06 Get:34 http://deb.debian.org/debian trixie/main amd64 liblsan0 amd64 14.2.0-19 [1204 kB]
+#8 25.74 Get:35 http://deb.debian.org/debian trixie/main amd64 libtsan2 amd64 14.2.0-19 [2460 kB]
+#8 26.99 Get:36 http://deb.debian.org/debian trixie/main amd64 libubsan1 amd64 14.2.0-19 [1074 kB]
+#8 27.68 Get:37 http://deb.debian.org/debian trixie/main amd64 libhwasan0 amd64 14.2.0-19 [1488 kB]
+#8 28.42 Get:38 http://deb.debian.org/debian trixie/main amd64 libquadmath0 amd64 14.2.0-19 [145 kB]
+#8 28.52 Get:39 http://deb.debian.org/debian trixie/main amd64 libgcc-14-dev amd64 14.2.0-19 [2672 kB]
+#8 30.65 Get:40 http://deb.debian.org/debian trixie/main amd64 gcc-14-x86-64-linux-gnu amd64 14.2.0-19 [21.4 MB]
+#8 53.59 Get:41 http://deb.debian.org/debian trixie/main amd64 gcc-14 amd64 14.2.0-19 [540 kB]
+#8 54.23 Get:42 http://deb.debian.org/debian trixie/main amd64 gcc-x86-64-linux-gnu amd64 4:14.2.0-1 [1436 B]
+#8 54.23 Get:43 http://deb.debian.org/debian trixie/main amd64 gcc amd64 4:14.2.0-1 [5136 B]
+#8 54.24 Get:44 http://deb.debian.org/debian trixie/main amd64 libstdc++-14-dev amd64 14.2.0-19 [2376 kB]
+#8 56.93 Get:45 http://deb.debian.org/debian trixie/main amd64 g++-14-x86-64-linux-gnu amd64 14.2.0-19 [12.1 MB]
+#8 75.25 Get:46 http://deb.debian.org/debian trixie/main amd64 g++-14 amd64 14.2.0-19 [22.5 kB]
+#8 75.27 Get:47 http://deb.debian.org/debian trixie/main amd64 g++-x86-64-linux-gnu amd64 4:14.2.0-1 [1200 B]
+#8 75.27 Get:48 http://deb.debian.org/debian trixie/main amd64 g++ amd64 4:14.2.0-1 [1344 B]
+#8 75.27 Get:49 http://deb.debian.org/debian trixie/main amd64 make amd64 4.4.1-2 [463 kB]
+#8 75.80 Get:50 http://deb.debian.org/debian trixie/main amd64 libdpkg-perl all 1.22.22 [651 kB]
+#8 76.45 Get:51 http://deb.debian.org/debian trixie/main amd64 patch amd64 2.8-2 [134 kB]
+#8 76.58 Get:52 http://deb.debian.org/debian trixie/main amd64 dpkg-dev all 1.22.22 [1337 kB]
+#8 77.62 Get:53 http://deb.debian.org/debian trixie/main amd64 build-essential amd64 12.12 [4624 B]
+#8 77.62 Get:54 http://deb.debian.org/debian-security trixie-security/main amd64 libbrotli1 amd64 1.1.0-2+deb13u1 [304 kB]
+#8 77.83 Get:55 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u1 [33.1 kB]
+#8 77.85 Get:56 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b12 [25.0 kB]
+#8 77.86 Get:57 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u1 [81.2 kB]
+#8 77.91 Get:58 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#8 77.91 Get:59 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u1 [326 kB]
+#8 78.32 Get:60 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u1 [138 kB]
+#8 78.33 Get:61 http://deb.debian.org/debian trixie/main amd64 libunistring5 amd64 1.3-2 [477 kB]
+#8 78.54 Get:62 http://deb.debian.org/debian trixie/main amd64 libidn2-0 amd64 2.3.8-2 [109 kB]
+#8 78.64 Get:63 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#8 78.65 Get:64 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#8 78.69 Get:65 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#8 78.84 Get:66 http://deb.debian.org/debian trixie/main amd64 libnghttp2-14 amd64 1.64.0-1.1+deb13u1 [76.2 kB]
+#8 78.89 Get:67 http://deb.debian.org/debian trixie/main amd64 libnghttp3-9 amd64 1.8.0-1 [67.7 kB]
+#8 78.95 Get:68 http://deb.debian.org/debian trixie/main amd64 libpsl5t64 amd64 0.21.2-1.1+b1 [57.2 kB]
+#8 78.99 Get:69 http://deb.debian.org/debian trixie/main amd64 libp11-kit0 amd64 0.25.5-3 [425 kB]
+#8 79.29 Get:70 http://deb.debian.org/debian trixie/main amd64 libtasn1-6 amd64 4.20.0-2+deb13u1 [50.1 kB]
+#8 79.32 Get:71 http://deb.debian.org/debian trixie/main amd64 libgnutls30t64 amd64 3.8.9-3+deb13u4 [1469 kB]
+#8 80.28 Get:72 http://deb.debian.org/debian trixie/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b5 [58.8 kB]
+#8 80.31 Get:73 http://deb.debian.org/debian trixie/main amd64 libssh2-1t64 amd64 1.11.1-1+deb13u2 [245 kB]
+#8 80.46 Get:74 http://deb.debian.org/debian-security trixie-security/main amd64 libcurl4t64 amd64 8.14.1-2+deb13u7 [392 kB]
+#8 80.70 Get:75 http://deb.debian.org/debian-security trixie-security/main amd64 curl amd64 8.14.1-2+deb13u7 [270 kB]
+#8 80.86 Get:76 http://deb.debian.org/debian trixie/main amd64 libdrm-common all 2.4.124-2 [8288 B]
+#8 80.86 Get:77 http://deb.debian.org/debian trixie/main amd64 libdrm2 amd64 2.4.124-2 [39.0 kB]
+#8 80.88 Get:78 http://deb.debian.org/debian trixie/main amd64 libdrm-amdgpu1 amd64 2.4.124-2 [22.6 kB]
+#8 80.90 Get:79 http://deb.debian.org/debian trixie/main amd64 libpciaccess0 amd64 0.17-3+b3 [51.9 kB]
+#8 80.94 Get:80 http://deb.debian.org/debian trixie/main amd64 libdrm-intel1 amd64 2.4.124-2 [64.1 kB]
+#8 80.98 Get:81 http://deb.debian.org/debian trixie/main amd64 libedit2 amd64 3.1-20250104-1 [93.8 kB]
+#8 81.26 Get:82 http://deb.debian.org/debian trixie/main amd64 libelf1t64 amd64 0.192-4 [189 kB]
+#8 81.31 Get:83 http://deb.debian.org/debian trixie/main amd64 libwayland-server0 amd64 1.23.1-3 [34.4 kB]
+#8 81.32 Get:84 http://deb.debian.org/debian trixie/main amd64 libxml2 amd64 2.12.7+dfsg+really2.9.14-2.1+deb13u3 [700 kB]
+#8 81.98 Get:85 http://deb.debian.org/debian trixie/main amd64 libz3-4 amd64 4.13.3-1 [8560 kB]
+#8 88.59 Get:86 http://deb.debian.org/debian trixie/main amd64 libllvm19 amd64 1:19.1.7-3+b1 [26.0 MB]
+#8 118.5 Get:87 http://deb.debian.org/debian trixie/main amd64 libsensors-config all 1:3.6.2-2 [16.2 kB]
+#8 118.5 Get:88 http://deb.debian.org/debian trixie/main amd64 libsensors5 amd64 1:3.6.2-2 [37.5 kB]
+#8 118.6 Get:89 http://deb.debian.org/debian trixie/main amd64 libxau6 amd64 1:1.0.11-1 [20.4 kB]
+#8 118.6 Get:90 http://deb.debian.org/debian trixie/main amd64 libxdmcp6 amd64 1:1.1.5-1 [27.8 kB]
+#8 118.6 Get:91 http://deb.debian.org/debian trixie/main amd64 libxcb1 amd64 1.17.0-2+b1 [144 kB]
+#8 118.8 Get:92 http://deb.debian.org/debian trixie/main amd64 libx11-data all 2:1.8.12-1 [343 kB]
+#8 119.1 Get:93 http://deb.debian.org/debian trixie/main amd64 libx11-6 amd64 2:1.8.12-1 [815 kB]
+#8 120.0 Get:94 http://deb.debian.org/debian trixie/main amd64 libx11-xcb1 amd64 2:1.8.12-1 [247 kB]
+#8 120.2 Get:95 http://deb.debian.org/debian trixie/main amd64 libxcb-dri3-0 amd64 1.17.0-2+b1 [107 kB]
+#8 120.3 Get:96 http://deb.debian.org/debian trixie/main amd64 libxcb-present0 amd64 1.17.0-2+b1 [106 kB]
+#8 120.5 Get:97 http://deb.debian.org/debian trixie/main amd64 libxcb-randr0 amd64 1.17.0-2+b1 [117 kB]
+#8 120.6 Get:98 http://deb.debian.org/debian trixie/main amd64 libxcb-sync1 amd64 1.17.0-2+b1 [109 kB]
+#8 120.7 Get:99 http://deb.debian.org/debian trixie/main amd64 libxcb-xfixes0 amd64 1.17.0-2+b1 [109 kB]
+#8 120.8 Get:100 http://deb.debian.org/debian trixie/main amd64 libxshmfence1 amd64 1.3.3-1 [10.9 kB]
+#8 120.8 Get:101 http://deb.debian.org/debian trixie/main amd64 mesa-libgallium amd64 25.0.7-2+deb13u1 [9630 kB]
+#8 129.6 Get:102 http://deb.debian.org/debian trixie/main amd64 libgbm1 amd64 25.0.7-2+deb13u1 [44.6 kB]
+#8 129.6 Get:103 http://deb.debian.org/debian trixie/main amd64 libglvnd0 amd64 1.7.0-1+b2 [52.0 kB]
+#8 129.6 Get:104 http://deb.debian.org/debian trixie/main amd64 libxcb-glx0 amd64 1.17.0-2+b1 [122 kB]
+#8 129.7 Get:105 http://deb.debian.org/debian trixie/main amd64 libxcb-shm0 amd64 1.17.0-2+b1 [105 kB]
+#8 129.8 Get:106 http://deb.debian.org/debian trixie/main amd64 libxext6 amd64 2:1.3.4-1+b3 [50.4 kB]
+#8 129.9 Get:107 http://deb.debian.org/debian trixie/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b4 [19.3 kB]
+#8 129.9 Get:108 http://deb.debian.org/debian trixie/main amd64 libvulkan1 amd64 1.4.309.0-1 [130 kB]
+#8 130.0 Get:109 http://deb.debian.org/debian trixie/main amd64 libgl1-mesa-dri amd64 25.0.7-2+deb13u1 [46.2 kB]
+#8 130.0 Get:110 http://deb.debian.org/debian trixie/main amd64 libglx-mesa0 amd64 25.0.7-2+deb13u1 [143 kB]
+#8 130.1 Get:111 http://deb.debian.org/debian trixie/main amd64 libglx0 amd64 1.7.0-1+b2 [34.9 kB]
+#8 130.2 Get:112 http://deb.debian.org/debian trixie/main amd64 libgl1 amd64 1.7.0-1+b2 [89.5 kB]
+#8 130.2 Get:113 http://deb.debian.org/debian trixie/main amd64 libglib2.0-0t64 amd64 2.84.4-3~deb13u5 [1521 kB]
+#8 131.4 Get:114 http://deb.debian.org/debian trixie/main amd64 x11-common all 1:7.7+24+deb13u1 [217 kB]
+#8 131.6 Get:115 http://deb.debian.org/debian trixie/main amd64 libice6 amd64 2:1.1.1-1 [65.4 kB]
+#8 131.7 Get:116 http://deb.debian.org/debian trixie/main amd64 libsm6 amd64 2:1.2.6-1 [37.3 kB]
+#8 131.7 Get:117 http://deb.debian.org/debian trixie/main amd64 xorg-sgml-doctools all 1:1.11-1.1 [22.1 kB]
+#8 131.9 Get:118 http://deb.debian.org/debian trixie/main amd64 x11proto-dev all 2024.1-1 [603 kB]
+#8 132.2 Get:119 http://deb.debian.org/debian trixie/main amd64 libxau-dev amd64 1:1.0.11-1 [23.6 kB]
+#8 132.2 Get:120 http://deb.debian.org/debian trixie/main amd64 libxdmcp-dev amd64 1:1.1.5-1 [44.3 kB]
+#8 132.2 Get:121 http://deb.debian.org/debian trixie/main amd64 xtrans-dev all 1.4.0-1 [98.7 kB]
+#8 132.3 Get:122 http://deb.debian.org/debian trixie/main amd64 libxcb1-dev amd64 1.17.0-2+b1 [181 kB]
+#8 132.4 Get:123 http://deb.debian.org/debian trixie/main amd64 libx11-dev amd64 2:1.8.12-1 [894 kB]
+#8 132.9 Get:124 http://deb.debian.org/debian trixie/main amd64 libxrender1 amd64 1:0.9.12-1 [27.9 kB]
+#8 132.9 Get:125 http://deb.debian.org/debian trixie/main amd64 libxrender-dev amd64 1:0.9.12-1 [39.0 kB]
+#8 133.1 debconf: unable to initialize frontend: Dialog
+#8 133.1 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#8 133.1 debconf: falling back to frontend: Readline
+#8 133.1 debconf: unable to initialize frontend: Readline
+#8 133.1 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 125.)
+#8 133.1 debconf: falling back to frontend: Teletype
+#8 133.1 debconf: unable to initialize frontend: Teletype
+#8 133.1 debconf: (This frontend requires a controlling tty.)
+#8 133.1 debconf: falling back to frontend: Noninteractive
+#8 135.5 Fetched 140 MB in 2min 2s (1149 kB/s)
+#8 135.6 Selecting previously unselected package libexpat1:amd64.
+#8 135.6 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 5658 files and directories currently installed.)
+#8 135.6 Preparing to unpack .../000-libexpat1_2.9.0-1~deb13u1_amd64.deb ...
+#8 135.6 Unpacking libexpat1:amd64 (2.9.0-1~deb13u1) ...
+#8 135.6 Selecting previously unselected package bzip2.
+#8 135.6 Preparing to unpack .../001-bzip2_1.0.8-6_amd64.deb ...
+#8 135.6 Unpacking bzip2 (1.0.8-6) ...
+#8 135.6 Selecting previously unselected package perl-modules-5.40.
+#8 135.6 Preparing to unpack .../002-perl-modules-5.40_5.40.1-6+deb13u1_all.deb ...
+#8 135.6 Unpacking perl-modules-5.40 (5.40.1-6+deb13u1) ...
+#8 135.8 Selecting previously unselected package libgdbm-compat4t64:amd64.
+#8 135.8 Preparing to unpack .../003-libgdbm-compat4t64_1.24-2_amd64.deb ...
+#8 135.8 Unpacking libgdbm-compat4t64:amd64 (1.24-2) ...
+#8 135.8 Selecting previously unselected package libperl5.40:amd64.
+#8 135.8 Preparing to unpack .../004-libperl5.40_5.40.1-6+deb13u1_amd64.deb ...
+#8 135.8 Unpacking libperl5.40:amd64 (5.40.1-6+deb13u1) ...
+#8 136.0 Selecting previously unselected package perl.
+#8 136.0 Preparing to unpack .../005-perl_5.40.1-6+deb13u1_amd64.deb ...
+#8 136.0 Unpacking perl (5.40.1-6+deb13u1) ...
+#8 136.1 Selecting previously unselected package xz-utils.
+#8 136.1 Preparing to unpack .../006-xz-utils_5.8.1-1+deb13u2_amd64.deb ...
+#8 136.1 Unpacking xz-utils (5.8.1-1+deb13u2) ...
+#8 136.1 Selecting previously unselected package libsframe1:amd64.
+#8 136.1 Preparing to unpack .../007-libsframe1_2.44-3_amd64.deb ...
+#8 136.1 Unpacking libsframe1:amd64 (2.44-3) ...
+#8 136.1 Selecting previously unselected package binutils-common:amd64.
+#8 136.1 Preparing to unpack .../008-binutils-common_2.44-3_amd64.deb ...
+#8 136.1 Unpacking binutils-common:amd64 (2.44-3) ...
+#8 136.3 Selecting previously unselected package libbinutils:amd64.
+#8 136.3 Preparing to unpack .../009-libbinutils_2.44-3_amd64.deb ...
+#8 136.3 Unpacking libbinutils:amd64 (2.44-3) ...
+#8 136.3 Selecting previously unselected package libgprofng0:amd64.
+#8 136.3 Preparing to unpack .../010-libgprofng0_2.44-3_amd64.deb ...
+#8 136.3 Unpacking libgprofng0:amd64 (2.44-3) ...
+#8 136.4 Selecting previously unselected package libctf-nobfd0:amd64.
+#8 136.4 Preparing to unpack .../011-libctf-nobfd0_2.44-3_amd64.deb ...
+#8 136.4 Unpacking libctf-nobfd0:amd64 (2.44-3) ...
+#8 136.4 Selecting previously unselected package libctf0:amd64.
+#8 136.4 Preparing to unpack .../012-libctf0_2.44-3_amd64.deb ...
+#8 136.4 Unpacking libctf0:amd64 (2.44-3) ...
+#8 136.4 Selecting previously unselected package libjansson4:amd64.
+#8 136.4 Preparing to unpack .../013-libjansson4_2.14-2+b3_amd64.deb ...
+#8 136.4 Unpacking libjansson4:amd64 (2.14-2+b3) ...
+#8 136.5 Selecting previously unselected package binutils-x86-64-linux-gnu.
+#8 136.5 Preparing to unpack .../014-binutils-x86-64-linux-gnu_2.44-3_amd64.deb ...
+#8 136.5 Unpacking binutils-x86-64-linux-gnu (2.44-3) ...
+#8 136.5 Selecting previously unselected package binutils.
+#8 136.5 Preparing to unpack .../015-binutils_2.44-3_amd64.deb ...
+#8 136.6 Unpacking binutils (2.44-3) ...
+#8 136.6 Selecting previously unselected package libc-dev-bin.
+#8 136.6 Preparing to unpack .../016-libc-dev-bin_2.41-12+deb13u4_amd64.deb ...
+#8 136.6 Unpacking libc-dev-bin (2.41-12+deb13u4) ...
+#8 136.6 Selecting previously unselected package linux-libc-dev.
+#8 136.6 Preparing to unpack .../017-linux-libc-dev_6.12.113-1_all.deb ...
+#8 136.6 Unpacking linux-libc-dev (6.12.113-1) ...
+#8 136.8 Selecting previously unselected package libcrypt-dev:amd64.
+#8 136.8 Preparing to unpack .../018-libcrypt-dev_1%3a4.4.38-1_amd64.deb ...
+#8 136.8 Unpacking libcrypt-dev:amd64 (1:4.4.38-1) ...
+#8 136.8 Selecting previously unselected package rpcsvc-proto.
+#8 136.8 Preparing to unpack .../019-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#8 136.8 Unpacking rpcsvc-proto (1.4.3-1) ...
+#8 136.8 Selecting previously unselected package libc6-dev:amd64.
+#8 136.8 Preparing to unpack .../020-libc6-dev_2.41-12+deb13u4_amd64.deb ...
+#8 136.8 Unpacking libc6-dev:amd64 (2.41-12+deb13u4) ...
+#8 137.0 Selecting previously unselected package libisl23:amd64.
+#8 137.0 Preparing to unpack .../021-libisl23_0.27-1_amd64.deb ...
+#8 137.0 Unpacking libisl23:amd64 (0.27-1) ...
+#8 137.0 Selecting previously unselected package libmpfr6:amd64.
+#8 137.0 Preparing to unpack .../022-libmpfr6_4.2.2-1_amd64.deb ...
+#8 137.0 Unpacking libmpfr6:amd64 (4.2.2-1) ...
+#8 137.0 Selecting previously unselected package libmpc3:amd64.
+#8 137.0 Preparing to unpack .../023-libmpc3_1.3.1-1+b3_amd64.deb ...
+#8 137.1 Unpacking libmpc3:amd64 (1.3.1-1+b3) ...
+#8 137.1 Selecting previously unselected package cpp-14-x86-64-linux-gnu.
+#8 137.1 Preparing to unpack .../024-cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#8 137.1 Unpacking cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 137.4 Selecting previously unselected package cpp-14.
+#8 137.4 Preparing to unpack .../025-cpp-14_14.2.0-19_amd64.deb ...
+#8 137.4 Unpacking cpp-14 (14.2.0-19) ...
+#8 137.4 Selecting previously unselected package cpp-x86-64-linux-gnu.
+#8 137.4 Preparing to unpack .../026-cpp-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#8 137.5 Unpacking cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 137.5 Selecting previously unselected package cpp.
+#8 137.5 Preparing to unpack .../027-cpp_4%3a14.2.0-1_amd64.deb ...
+#8 137.5 Unpacking cpp (4:14.2.0-1) ...
+#8 137.5 Selecting previously unselected package libcc1-0:amd64.
+#8 137.5 Preparing to unpack .../028-libcc1-0_14.2.0-19_amd64.deb ...
+#8 137.5 Unpacking libcc1-0:amd64 (14.2.0-19) ...
+#8 137.6 Selecting previously unselected package libgomp1:amd64.
+#8 137.6 Preparing to unpack .../029-libgomp1_14.2.0-19_amd64.deb ...
+#8 137.6 Unpacking libgomp1:amd64 (14.2.0-19) ...
+#8 137.6 Selecting previously unselected package libitm1:amd64.
+#8 137.6 Preparing to unpack .../030-libitm1_14.2.0-19_amd64.deb ...
+#8 137.6 Unpacking libitm1:amd64 (14.2.0-19) ...
+#8 137.6 Selecting previously unselected package libatomic1:amd64.
+#8 137.6 Preparing to unpack .../031-libatomic1_14.2.0-19_amd64.deb ...
+#8 137.6 Unpacking libatomic1:amd64 (14.2.0-19) ...
+#8 137.7 Selecting previously unselected package libasan8:amd64.
+#8 137.7 Preparing to unpack .../032-libasan8_14.2.0-19_amd64.deb ...
+#8 137.7 Unpacking libasan8:amd64 (14.2.0-19) ...
+#8 137.8 Selecting previously unselected package liblsan0:amd64.
+#8 137.8 Preparing to unpack .../033-liblsan0_14.2.0-19_amd64.deb ...
+#8 137.8 Unpacking liblsan0:amd64 (14.2.0-19) ...
+#8 137.9 Selecting previously unselected package libtsan2:amd64.
+#8 137.9 Preparing to unpack .../034-libtsan2_14.2.0-19_amd64.deb ...
+#8 137.9 Unpacking libtsan2:amd64 (14.2.0-19) ...
+#8 138.0 Selecting previously unselected package libubsan1:amd64.
+#8 138.0 Preparing to unpack .../035-libubsan1_14.2.0-19_amd64.deb ...
+#8 138.0 Unpacking libubsan1:amd64 (14.2.0-19) ...
+#8 138.1 Selecting previously unselected package libhwasan0:amd64.
+#8 138.1 Preparing to unpack .../036-libhwasan0_14.2.0-19_amd64.deb ...
+#8 138.1 Unpacking libhwasan0:amd64 (14.2.0-19) ...
+#8 138.1 Selecting previously unselected package libquadmath0:amd64.
+#8 138.1 Preparing to unpack .../037-libquadmath0_14.2.0-19_amd64.deb ...
+#8 138.1 Unpacking libquadmath0:amd64 (14.2.0-19) ...
+#8 138.2 Selecting previously unselected package libgcc-14-dev:amd64.
+#8 138.2 Preparing to unpack .../038-libgcc-14-dev_14.2.0-19_amd64.deb ...
+#8 138.2 Unpacking libgcc-14-dev:amd64 (14.2.0-19) ...
+#8 138.3 Selecting previously unselected package gcc-14-x86-64-linux-gnu.
+#8 138.3 Preparing to unpack .../039-gcc-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#8 138.3 Unpacking gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 138.7 Selecting previously unselected package gcc-14.
+#8 138.7 Preparing to unpack .../040-gcc-14_14.2.0-19_amd64.deb ...
+#8 138.7 Unpacking gcc-14 (14.2.0-19) ...
+#8 138.8 Selecting previously unselected package gcc-x86-64-linux-gnu.
+#8 138.8 Preparing to unpack .../041-gcc-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#8 138.8 Unpacking gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 138.8 Selecting previously unselected package gcc.
+#8 138.8 Preparing to unpack .../042-gcc_4%3a14.2.0-1_amd64.deb ...
+#8 138.8 Unpacking gcc (4:14.2.0-1) ...
+#8 138.8 Selecting previously unselected package libstdc++-14-dev:amd64.
+#8 138.8 Preparing to unpack .../043-libstdc++-14-dev_14.2.0-19_amd64.deb ...
+#8 138.8 Unpacking libstdc++-14-dev:amd64 (14.2.0-19) ...
+#8 139.0 Selecting previously unselected package g++-14-x86-64-linux-gnu.
+#8 139.0 Preparing to unpack .../044-g++-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+#8 139.0 Unpacking g++-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 139.3 Selecting previously unselected package g++-14.
+#8 139.3 Preparing to unpack .../045-g++-14_14.2.0-19_amd64.deb ...
+#8 139.3 Unpacking g++-14 (14.2.0-19) ...
+#8 139.3 Selecting previously unselected package g++-x86-64-linux-gnu.
+#8 139.3 Preparing to unpack .../046-g++-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+#8 139.3 Unpacking g++-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 139.4 Selecting previously unselected package g++.
+#8 139.4 Preparing to unpack .../047-g++_4%3a14.2.0-1_amd64.deb ...
+#8 139.4 Unpacking g++ (4:14.2.0-1) ...
+#8 139.4 Selecting previously unselected package make.
+#8 139.4 Preparing to unpack .../048-make_4.4.1-2_amd64.deb ...
+#8 139.4 Unpacking make (4.4.1-2) ...
+#8 139.4 Selecting previously unselected package libdpkg-perl.
+#8 139.4 Preparing to unpack .../049-libdpkg-perl_1.22.22_all.deb ...
+#8 139.4 Unpacking libdpkg-perl (1.22.22) ...
+#8 139.5 Selecting previously unselected package patch.
+#8 139.5 Preparing to unpack .../050-patch_2.8-2_amd64.deb ...
+#8 139.5 Unpacking patch (2.8-2) ...
+#8 139.5 Selecting previously unselected package dpkg-dev.
+#8 139.5 Preparing to unpack .../051-dpkg-dev_1.22.22_all.deb ...
+#8 139.5 Unpacking dpkg-dev (1.22.22) ...
+#8 139.6 Selecting previously unselected package build-essential.
+#8 139.6 Preparing to unpack .../052-build-essential_12.12_amd64.deb ...
+#8 139.6 Unpacking build-essential (12.12) ...
+#8 139.6 Selecting previously unselected package libbrotli1:amd64.
+#8 139.6 Preparing to unpack .../053-libbrotli1_1.1.0-2+deb13u1_amd64.deb ...
+#8 139.6 Unpacking libbrotli1:amd64 (1.1.0-2+deb13u1) ...
+#8 139.7 Selecting previously unselected package libkrb5support0:amd64.
+#8 139.7 Preparing to unpack .../054-libkrb5support0_1.21.3-5+deb13u1_amd64.deb ...
+#8 139.7 Unpacking libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#8 139.7 Selecting previously unselected package libcom-err2:amd64.
+#8 139.7 Preparing to unpack .../055-libcom-err2_1.47.2-3+b12_amd64.deb ...
+#8 139.7 Unpacking libcom-err2:amd64 (1.47.2-3+b12) ...
+#8 139.8 Selecting previously unselected package libk5crypto3:amd64.
+#8 139.8 Preparing to unpack .../056-libk5crypto3_1.21.3-5+deb13u1_amd64.deb ...
+#8 139.8 Unpacking libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#8 139.8 Selecting previously unselected package libkeyutils1:amd64.
+#8 139.8 Preparing to unpack .../057-libkeyutils1_1.6.3-6_amd64.deb ...
+#8 139.8 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#8 139.8 Selecting previously unselected package libkrb5-3:amd64.
+#8 139.8 Preparing to unpack .../058-libkrb5-3_1.21.3-5+deb13u1_amd64.deb ...
+#8 139.8 Unpacking libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#8 139.9 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#8 139.9 Preparing to unpack .../059-libgssapi-krb5-2_1.21.3-5+deb13u1_amd64.deb ...
+#8 139.9 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#8 139.9 Selecting previously unselected package libunistring5:amd64.
+#8 139.9 Preparing to unpack .../060-libunistring5_1.3-2_amd64.deb ...
+#8 140.0 Unpacking libunistring5:amd64 (1.3-2) ...
+#8 140.0 Selecting previously unselected package libidn2-0:amd64.
+#8 140.0 Preparing to unpack .../061-libidn2-0_2.3.8-2_amd64.deb ...
+#8 140.0 Unpacking libidn2-0:amd64 (2.3.8-2) ...
+#8 140.0 Selecting previously unselected package libsasl2-modules-db:amd64.
+#8 140.0 Preparing to unpack .../062-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#8 140.0 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#8 140.1 Selecting previously unselected package libsasl2-2:amd64.
+#8 140.1 Preparing to unpack .../063-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#8 140.1 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#8 140.1 Selecting previously unselected package libldap2:amd64.
+#8 140.1 Preparing to unpack .../064-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#8 140.1 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#8 140.2 Selecting previously unselected package libnghttp2-14:amd64.
+#8 140.2 Preparing to unpack .../065-libnghttp2-14_1.64.0-1.1+deb13u1_amd64.deb ...
+#8 140.2 Unpacking libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#8 140.2 Selecting previously unselected package libnghttp3-9:amd64.
+#8 140.2 Preparing to unpack .../066-libnghttp3-9_1.8.0-1_amd64.deb ...
+#8 140.2 Unpacking libnghttp3-9:amd64 (1.8.0-1) ...
+#8 140.2 Selecting previously unselected package libpsl5t64:amd64.
+#8 140.2 Preparing to unpack .../067-libpsl5t64_0.21.2-1.1+b1_amd64.deb ...
+#8 140.2 Unpacking libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#8 140.3 Selecting previously unselected package libp11-kit0:amd64.
+#8 140.3 Preparing to unpack .../068-libp11-kit0_0.25.5-3_amd64.deb ...
+#8 140.3 Unpacking libp11-kit0:amd64 (0.25.5-3) ...
+#8 140.3 Selecting previously unselected package libtasn1-6:amd64.
+#8 140.3 Preparing to unpack .../069-libtasn1-6_4.20.0-2+deb13u1_amd64.deb ...
+#8 140.3 Unpacking libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#8 140.3 Selecting previously unselected package libgnutls30t64:amd64.
+#8 140.3 Preparing to unpack .../070-libgnutls30t64_3.8.9-3+deb13u4_amd64.deb ...
+#8 140.3 Unpacking libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#8 140.4 Selecting previously unselected package librtmp1:amd64.
+#8 140.4 Preparing to unpack .../071-librtmp1_2.4+20151223.gitfa8646d.1-2+b5_amd64.deb ...
+#8 140.4 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#8 140.5 Selecting previously unselected package libssh2-1t64:amd64.
+#8 140.5 Preparing to unpack .../072-libssh2-1t64_1.11.1-1+deb13u2_amd64.deb ...
+#8 140.5 Unpacking libssh2-1t64:amd64 (1.11.1-1+deb13u2) ...
+#8 140.5 Selecting previously unselected package libcurl4t64:amd64.
+#8 140.5 Preparing to unpack .../073-libcurl4t64_8.14.1-2+deb13u7_amd64.deb ...
+#8 140.5 Unpacking libcurl4t64:amd64 (8.14.1-2+deb13u7) ...
+#8 140.6 Selecting previously unselected package curl.
+#8 140.6 Preparing to unpack .../074-curl_8.14.1-2+deb13u7_amd64.deb ...
+#8 140.6 Unpacking curl (8.14.1-2+deb13u7) ...
+#8 140.6 Selecting previously unselected package libdrm-common.
+#8 140.6 Preparing to unpack .../075-libdrm-common_2.4.124-2_all.deb ...
+#8 140.6 Unpacking libdrm-common (2.4.124-2) ...
+#8 140.6 Selecting previously unselected package libdrm2:amd64.
+#8 140.6 Preparing to unpack .../076-libdrm2_2.4.124-2_amd64.deb ...
+#8 140.6 Unpacking libdrm2:amd64 (2.4.124-2) ...
+#8 140.7 Selecting previously unselected package libdrm-amdgpu1:amd64.
+#8 140.7 Preparing to unpack .../077-libdrm-amdgpu1_2.4.124-2_amd64.deb ...
+#8 140.7 Unpacking libdrm-amdgpu1:amd64 (2.4.124-2) ...
+#8 140.7 Selecting previously unselected package libpciaccess0:amd64.
+#8 140.7 Preparing to unpack .../078-libpciaccess0_0.17-3+b3_amd64.deb ...
+#8 140.7 Unpacking libpciaccess0:amd64 (0.17-3+b3) ...
+#8 140.8 Selecting previously unselected package libdrm-intel1:amd64.
+#8 140.8 Preparing to unpack .../079-libdrm-intel1_2.4.124-2_amd64.deb ...
+#8 140.8 Unpacking libdrm-intel1:amd64 (2.4.124-2) ...
+#8 140.8 Selecting previously unselected package libedit2:amd64.
+#8 140.8 Preparing to unpack .../080-libedit2_3.1-20250104-1_amd64.deb ...
+#8 140.8 Unpacking libedit2:amd64 (3.1-20250104-1) ...
+#8 140.8 Selecting previously unselected package libelf1t64:amd64.
+#8 140.8 Preparing to unpack .../081-libelf1t64_0.192-4_amd64.deb ...
+#8 140.9 Unpacking libelf1t64:amd64 (0.192-4) ...
+#8 140.9 Selecting previously unselected package libwayland-server0:amd64.
+#8 140.9 Preparing to unpack .../082-libwayland-server0_1.23.1-3_amd64.deb ...
+#8 140.9 Unpacking libwayland-server0:amd64 (1.23.1-3) ...
+#8 140.9 Selecting previously unselected package libxml2:amd64.
+#8 140.9 Preparing to unpack .../083-libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u3_amd64.deb ...
+#8 141.0 Unpacking libxml2:amd64 (2.12.7+dfsg+really2.9.14-2.1+deb13u3) ...
+#8 141.0 Selecting previously unselected package libz3-4:amd64.
+#8 141.0 Preparing to unpack .../084-libz3-4_4.13.3-1_amd64.deb ...
+#8 141.0 Unpacking libz3-4:amd64 (4.13.3-1) ...
+#8 141.3 Selecting previously unselected package libllvm19:amd64.
+#8 141.3 Preparing to unpack .../085-libllvm19_1%3a19.1.7-3+b1_amd64.deb ...
+#8 141.3 Unpacking libllvm19:amd64 (1:19.1.7-3+b1) ...
+#8 141.8 Selecting previously unselected package libsensors-config.
+#8 141.8 Preparing to unpack .../086-libsensors-config_1%3a3.6.2-2_all.deb ...
+#8 141.8 Unpacking libsensors-config (1:3.6.2-2) ...
+#8 141.8 Selecting previously unselected package libsensors5:amd64.
+#8 141.8 Preparing to unpack .../087-libsensors5_1%3a3.6.2-2_amd64.deb ...
+#8 141.8 Unpacking libsensors5:amd64 (1:3.6.2-2) ...
+#8 141.9 Selecting previously unselected package libxau6:amd64.
+#8 141.9 Preparing to unpack .../088-libxau6_1%3a1.0.11-1_amd64.deb ...
+#8 141.9 Unpacking libxau6:amd64 (1:1.0.11-1) ...
+#8 141.9 Selecting previously unselected package libxdmcp6:amd64.
+#8 141.9 Preparing to unpack .../089-libxdmcp6_1%3a1.1.5-1_amd64.deb ...
+#8 141.9 Unpacking libxdmcp6:amd64 (1:1.1.5-1) ...
+#8 142.0 Selecting previously unselected package libxcb1:amd64.
+#8 142.0 Preparing to unpack .../090-libxcb1_1.17.0-2+b1_amd64.deb ...
+#8 142.0 Unpacking libxcb1:amd64 (1.17.0-2+b1) ...
+#8 142.0 Selecting previously unselected package libx11-data.
+#8 142.0 Preparing to unpack .../091-libx11-data_2%3a1.8.12-1_all.deb ...
+#8 142.0 Unpacking libx11-data (2:1.8.12-1) ...
+#8 142.1 Selecting previously unselected package libx11-6:amd64.
+#8 142.1 Preparing to unpack .../092-libx11-6_2%3a1.8.12-1_amd64.deb ...
+#8 142.1 Unpacking libx11-6:amd64 (2:1.8.12-1) ...
+#8 142.1 Selecting previously unselected package libx11-xcb1:amd64.
+#8 142.1 Preparing to unpack .../093-libx11-xcb1_2%3a1.8.12-1_amd64.deb ...
+#8 142.1 Unpacking libx11-xcb1:amd64 (2:1.8.12-1) ...
+#8 142.1 Selecting previously unselected package libxcb-dri3-0:amd64.
+#8 142.1 Preparing to unpack .../094-libxcb-dri3-0_1.17.0-2+b1_amd64.deb ...
+#8 142.2 Unpacking libxcb-dri3-0:amd64 (1.17.0-2+b1) ...
+#8 142.2 Selecting previously unselected package libxcb-present0:amd64.
+#8 142.2 Preparing to unpack .../095-libxcb-present0_1.17.0-2+b1_amd64.deb ...
+#8 142.2 Unpacking libxcb-present0:amd64 (1.17.0-2+b1) ...
+#8 142.2 Selecting previously unselected package libxcb-randr0:amd64.
+#8 142.2 Preparing to unpack .../096-libxcb-randr0_1.17.0-2+b1_amd64.deb ...
+#8 142.2 Unpacking libxcb-randr0:amd64 (1.17.0-2+b1) ...
+#8 142.3 Selecting previously unselected package libxcb-sync1:amd64.
+#8 142.3 Preparing to unpack .../097-libxcb-sync1_1.17.0-2+b1_amd64.deb ...
+#8 142.3 Unpacking libxcb-sync1:amd64 (1.17.0-2+b1) ...
+#8 142.3 Selecting previously unselected package libxcb-xfixes0:amd64.
+#8 142.3 Preparing to unpack .../098-libxcb-xfixes0_1.17.0-2+b1_amd64.deb ...
+#8 142.3 Unpacking libxcb-xfixes0:amd64 (1.17.0-2+b1) ...
+#8 142.3 Selecting previously unselected package libxshmfence1:amd64.
+#8 142.3 Preparing to unpack .../099-libxshmfence1_1.3.3-1_amd64.deb ...
+#8 142.3 Unpacking libxshmfence1:amd64 (1.3.3-1) ...
+#8 142.4 Selecting previously unselected package mesa-libgallium:amd64.
+#8 142.4 Preparing to unpack .../100-mesa-libgallium_25.0.7-2+deb13u1_amd64.deb ...
+#8 142.4 Unpacking mesa-libgallium:amd64 (25.0.7-2+deb13u1) ...
+#8 142.7 Selecting previously unselected package libgbm1:amd64.
+#8 142.7 Preparing to unpack .../101-libgbm1_25.0.7-2+deb13u1_amd64.deb ...
+#8 142.7 Unpacking libgbm1:amd64 (25.0.7-2+deb13u1) ...
+#8 142.7 Selecting previously unselected package libglvnd0:amd64.
+#8 142.7 Preparing to unpack .../102-libglvnd0_1.7.0-1+b2_amd64.deb ...
+#8 142.7 Unpacking libglvnd0:amd64 (1.7.0-1+b2) ...
+#8 142.8 Selecting previously unselected package libxcb-glx0:amd64.
+#8 142.8 Preparing to unpack .../103-libxcb-glx0_1.17.0-2+b1_amd64.deb ...
+#8 142.8 Unpacking libxcb-glx0:amd64 (1.17.0-2+b1) ...
+#8 142.8 Selecting previously unselected package libxcb-shm0:amd64.
+#8 142.8 Preparing to unpack .../104-libxcb-shm0_1.17.0-2+b1_amd64.deb ...
+#8 142.8 Unpacking libxcb-shm0:amd64 (1.17.0-2+b1) ...
+#8 142.9 Selecting previously unselected package libxext6:amd64.
+#8 142.9 Preparing to unpack .../105-libxext6_2%3a1.3.4-1+b3_amd64.deb ...
+#8 142.9 Unpacking libxext6:amd64 (2:1.3.4-1+b3) ...
+#8 142.9 Selecting previously unselected package libxxf86vm1:amd64.
+#8 142.9 Preparing to unpack .../106-libxxf86vm1_1%3a1.1.4-1+b4_amd64.deb ...
+#8 142.9 Unpacking libxxf86vm1:amd64 (1:1.1.4-1+b4) ...
+#8 142.9 Selecting previously unselected package libvulkan1:amd64.
+#8 142.9 Preparing to unpack .../107-libvulkan1_1.4.309.0-1_amd64.deb ...
+#8 142.9 Unpacking libvulkan1:amd64 (1.4.309.0-1) ...
+#8 143.0 Selecting previously unselected package libgl1-mesa-dri:amd64.
+#8 143.0 Preparing to unpack .../108-libgl1-mesa-dri_25.0.7-2+deb13u1_amd64.deb ...
+#8 143.0 Unpacking libgl1-mesa-dri:amd64 (25.0.7-2+deb13u1) ...
+#8 143.0 Selecting previously unselected package libglx-mesa0:amd64.
+#8 143.0 Preparing to unpack .../109-libglx-mesa0_25.0.7-2+deb13u1_amd64.deb ...
+#8 143.0 Unpacking libglx-mesa0:amd64 (25.0.7-2+deb13u1) ...
+#8 143.0 Selecting previously unselected package libglx0:amd64.
+#8 143.0 Preparing to unpack .../110-libglx0_1.7.0-1+b2_amd64.deb ...
+#8 143.1 Unpacking libglx0:amd64 (1.7.0-1+b2) ...
+#8 143.1 Selecting previously unselected package libgl1:amd64.
+#8 143.1 Preparing to unpack .../111-libgl1_1.7.0-1+b2_amd64.deb ...
+#8 143.1 Unpacking libgl1:amd64 (1.7.0-1+b2) ...
+#8 143.1 Selecting previously unselected package libglib2.0-0t64:amd64.
+#8 143.1 Preparing to unpack .../112-libglib2.0-0t64_2.84.4-3~deb13u5_amd64.deb ...
+#8 143.1 Unpacking libglib2.0-0t64:amd64 (2.84.4-3~deb13u5) ...
+#8 143.2 Selecting previously unselected package x11-common.
+#8 143.2 Preparing to unpack .../113-x11-common_1%3a7.7+24+deb13u1_all.deb ...
+#8 143.2 Unpacking x11-common (1:7.7+24+deb13u1) ...
+#8 143.3 Selecting previously unselected package libice6:amd64.
+#8 143.3 Preparing to unpack .../114-libice6_2%3a1.1.1-1_amd64.deb ...
+#8 143.3 Unpacking libice6:amd64 (2:1.1.1-1) ...
+#8 143.3 Selecting previously unselected package libsm6:amd64.
+#8 143.3 Preparing to unpack .../115-libsm6_2%3a1.2.6-1_amd64.deb ...
+#8 143.3 Unpacking libsm6:amd64 (2:1.2.6-1) ...
+#8 143.3 Selecting previously unselected package xorg-sgml-doctools.
+#8 143.3 Preparing to unpack .../116-xorg-sgml-doctools_1%3a1.11-1.1_all.deb ...
+#8 143.3 Unpacking xorg-sgml-doctools (1:1.11-1.1) ...
+#8 143.4 Selecting previously unselected package x11proto-dev.
+#8 143.4 Preparing to unpack .../117-x11proto-dev_2024.1-1_all.deb ...
+#8 143.4 Unpacking x11proto-dev (2024.1-1) ...
+#8 143.4 Selecting previously unselected package libxau-dev:amd64.
+#8 143.4 Preparing to unpack .../118-libxau-dev_1%3a1.0.11-1_amd64.deb ...
+#8 143.4 Unpacking libxau-dev:amd64 (1:1.0.11-1) ...
+#8 143.4 Selecting previously unselected package libxdmcp-dev:amd64.
+#8 143.4 Preparing to unpack .../119-libxdmcp-dev_1%3a1.1.5-1_amd64.deb ...
+#8 143.5 Unpacking libxdmcp-dev:amd64 (1:1.1.5-1) ...
+#8 143.5 Selecting previously unselected package xtrans-dev.
+#8 143.5 Preparing to unpack .../120-xtrans-dev_1.4.0-1_all.deb ...
+#8 143.5 Unpacking xtrans-dev (1.4.0-1) ...
+#8 143.5 Selecting previously unselected package libxcb1-dev:amd64.
+#8 143.5 Preparing to unpack .../121-libxcb1-dev_1.17.0-2+b1_amd64.deb ...
+#8 143.5 Unpacking libxcb1-dev:amd64 (1.17.0-2+b1) ...
+#8 143.5 Selecting previously unselected package libx11-dev:amd64.
+#8 143.6 Preparing to unpack .../122-libx11-dev_2%3a1.8.12-1_amd64.deb ...
+#8 143.6 Unpacking libx11-dev:amd64 (2:1.8.12-1) ...
+#8 143.6 Selecting previously unselected package libxrender1:amd64.
+#8 143.6 Preparing to unpack .../123-libxrender1_1%3a0.9.12-1_amd64.deb ...
+#8 143.6 Unpacking libxrender1:amd64 (1:0.9.12-1) ...
+#8 143.6 Selecting previously unselected package libxrender-dev:amd64.
+#8 143.6 Preparing to unpack .../124-libxrender-dev_1%3a0.9.12-1_amd64.deb ...
+#8 143.6 Unpacking libxrender-dev:amd64 (1:0.9.12-1) ...
+#8 143.7 Setting up libexpat1:amd64 (2.9.0-1~deb13u1) ...
+#8 143.7 Setting up libwayland-server0:amd64 (1.23.1-3) ...
+#8 143.7 Setting up libpciaccess0:amd64 (0.17-3+b3) ...
+#8 143.7 Setting up libxau6:amd64 (1:1.0.11-1) ...
+#8 143.7 Setting up libxdmcp6:amd64 (1:1.1.5-1) ...
+#8 143.7 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#8 143.7 Setting up libxcb1:amd64 (1.17.0-2+b1) ...
+#8 143.8 Setting up libxcb-xfixes0:amd64 (1.17.0-2+b1) ...
+#8 143.8 Setting up libgdbm-compat4t64:amd64 (1.24-2) ...
+#8 143.8 Setting up libglvnd0:amd64 (1.7.0-1+b2) ...
+#8 143.8 Setting up libxcb-glx0:amd64 (1.17.0-2+b1) ...
+#8 143.8 Setting up libbrotli1:amd64 (1.1.0-2+deb13u1) ...
+#8 143.8 Setting up libedit2:amd64 (3.1-20250104-1) ...
+#8 143.8 Setting up binutils-common:amd64 (2.44-3) ...
+#8 143.8 Setting up x11-common (1:7.7+24+deb13u1) ...
+#8 143.9 debconf: unable to initialize frontend: Dialog
+#8 143.9 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#8 143.9 debconf: falling back to frontend: Readline
+#8 143.9 debconf: unable to initialize frontend: Readline
+#8 143.9 debconf: (This frontend requires a controlling tty.)
+#8 143.9 debconf: falling back to frontend: Teletype
+#8 143.9 debconf: unable to initialize frontend: Teletype
+#8 143.9 debconf: (This frontend requires a controlling tty.)
+#8 143.9 debconf: falling back to frontend: Noninteractive
+#8 143.9 invoke-rc.d: could not determine current runlevel
+#8 144.0 invoke-rc.d: policy-rc.d denied execution of start.
+#8 144.0 Setting up libsensors-config (1:3.6.2-2) ...
+#8 144.0 Setting up libnghttp2-14:amd64 (1.64.0-1.1+deb13u1) ...
+#8 144.0 Setting up linux-libc-dev (6.12.113-1) ...
+#8 144.0 Setting up libctf-nobfd0:amd64 (2.44-3) ...
+#8 144.0 Setting up libxcb-shm0:amd64 (1.17.0-2+b1) ...
+#8 144.0 Setting up libcom-err2:amd64 (1.47.2-3+b12) ...
+#8 144.0 Setting up libgomp1:amd64 (14.2.0-19) ...
+#8 144.0 Setting up bzip2 (1.0.8-6) ...
+#8 144.1 Setting up libsframe1:amd64 (2.44-3) ...
+#8 144.1 Setting up libelf1t64:amd64 (0.192-4) ...
+#8 144.1 Setting up libjansson4:amd64 (2.14-2+b3) ...
+#8 144.1 Setting up libkrb5support0:amd64 (1.21.3-5+deb13u1) ...
+#8 144.1 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#8 144.1 Setting up libxcb-present0:amd64 (1.17.0-2+b1) ...
+#8 144.1 Setting up xtrans-dev (1.4.0-1) ...
+#8 144.1 Setting up libz3-4:amd64 (4.13.3-1) ...
+#8 144.1 Setting up rpcsvc-proto (1.4.3-1) ...
+#8 144.2 Setting up libx11-data (2:1.8.12-1) ...
+#8 144.2 Setting up make (4.4.1-2) ...
+#8 144.2 Setting up libmpfr6:amd64 (4.2.2-1) ...
+#8 144.2 Setting up libxcb-sync1:amd64 (1.17.0-2+b1) ...
+#8 144.2 Setting up xz-utils (5.8.1-1+deb13u2) ...
+#8 144.2 update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzma.1.gz because associated file /usr/share/man/man1/xz.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/unlzma.1.gz because associated file /usr/share/man/man1/unxz.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcat.1.gz because associated file /usr/share/man/man1/xzcat.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzmore.1.gz because associated file /usr/share/man/man1/xzmore.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzless.1.gz because associated file /usr/share/man/man1/xzless.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzdiff.1.gz because associated file /usr/share/man/man1/xzdiff.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzcmp.1.gz because associated file /usr/share/man/man1/xzcmp.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzgrep.1.gz because associated file /usr/share/man/man1/xzgrep.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzegrep.1.gz because associated file /usr/share/man/man1/xzegrep.1.gz (of link group lzma) doesn't exist
+#8 144.2 update-alternatives: warning: skip creation of /usr/share/man/man1/lzfgrep.1.gz because associated file /usr/share/man/man1/xzfgrep.1.gz (of link group lzma) doesn't exist
+#8 144.2 Setting up libquadmath0:amd64 (14.2.0-19) ...
+#8 144.2 Setting up libp11-kit0:amd64 (0.25.5-3) ...
+#8 144.3 Setting up libunistring5:amd64 (1.3-2) ...
+#8 144.3 Setting up libmpc3:amd64 (1.3.1-1+b3) ...
+#8 144.3 Setting up libatomic1:amd64 (14.2.0-19) ...
+#8 144.3 Setting up patch (2.8-2) ...
+#8 144.3 Setting up libsensors5:amd64 (1:3.6.2-2) ...
+#8 144.3 Setting up libk5crypto3:amd64 (1.21.3-5+deb13u1) ...
+#8 144.3 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#8 144.3 Setting up libvulkan1:amd64 (1.4.309.0-1) ...
+#8 144.3 Setting up libnghttp3-9:amd64 (1.8.0-1) ...
+#8 144.3 Setting up libubsan1:amd64 (14.2.0-19) ...
+#8 144.4 Setting up perl-modules-5.40 (5.40.1-6+deb13u1) ...
+#8 144.4 Setting up libxshmfence1:amd64 (1.3.3-1) ...
+#8 144.4 Setting up libhwasan0:amd64 (14.2.0-19) ...
+#8 144.4 Setting up libcrypt-dev:amd64 (1:4.4.38-1) ...
+#8 144.4 Setting up libxcb-randr0:amd64 (1.17.0-2+b1) ...
+#8 144.4 Setting up libasan8:amd64 (14.2.0-19) ...
+#8 144.4 Setting up libtasn1-6:amd64 (4.20.0-2+deb13u1) ...
+#8 144.4 Setting up libx11-6:amd64 (2:1.8.12-1) ...
+#8 144.5 Setting up xorg-sgml-doctools (1:1.11-1.1) ...
+#8 144.5 Setting up libkrb5-3:amd64 (1.21.3-5+deb13u1) ...
+#8 144.5 Setting up libssh2-1t64:amd64 (1.11.1-1+deb13u2) ...
+#8 144.5 Setting up libtsan2:amd64 (14.2.0-19) ...
+#8 144.5 Setting up libbinutils:amd64 (2.44-3) ...
+#8 144.5 Setting up libisl23:amd64 (0.27-1) ...
+#8 144.5 Setting up libc-dev-bin (2.41-12+deb13u4) ...
+#8 144.5 Setting up libdrm-common (2.4.124-2) ...
+#8 144.5 Setting up libxml2:amd64 (2.12.7+dfsg+really2.9.14-2.1+deb13u3) ...
+#8 144.5 Setting up libcc1-0:amd64 (14.2.0-19) ...
+#8 144.6 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#8 144.6 Setting up liblsan0:amd64 (14.2.0-19) ...
+#8 144.6 Setting up libitm1:amd64 (14.2.0-19) ...
+#8 144.6 Setting up libctf0:amd64 (2.44-3) ...
+#8 144.6 Setting up x11proto-dev (2024.1-1) ...
+#8 144.6 Setting up libxcb-dri3-0:amd64 (1.17.0-2+b1) ...
+#8 144.6 Setting up libllvm19:amd64 (1:19.1.7-3+b1) ...
+#8 144.6 Setting up libx11-xcb1:amd64 (2:1.8.12-1) ...
+#8 144.6 Setting up libice6:amd64 (2:1.1.1-1) ...
+#8 144.7 Setting up libxau-dev:amd64 (1:1.0.11-1) ...
+#8 144.7 Setting up libxrender1:amd64 (1:0.9.12-1) ...
+#8 144.7 Setting up libxext6:amd64 (2:1.3.4-1+b3) ...
+#8 144.7 Setting up libidn2-0:amd64 (2.3.8-2) ...
+#8 144.7 Setting up libxxf86vm1:amd64 (1:1.1.4-1+b4) ...
+#8 144.7 Setting up libperl5.40:amd64 (5.40.1-6+deb13u1) ...
+#8 144.7 Setting up libxdmcp-dev:amd64 (1:1.1.5-1) ...
+#8 144.7 Setting up perl (5.40.1-6+deb13u1) ...
+#8 144.8 Setting up libglib2.0-0t64:amd64 (2.84.4-3~deb13u5) ...
+#8 144.8 No schema files found: doing nothing.
+#8 144.8 Setting up libgprofng0:amd64 (2.44-3) ...
+#8 144.8 Setting up libgssapi-krb5-2:amd64 (1.21.3-5+deb13u1) ...
+#8 144.8 Setting up cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 144.8 Setting up libdpkg-perl (1.22.22) ...
+#8 144.8 Setting up cpp-14 (14.2.0-19) ...
+#8 144.8 Setting up libdrm2:amd64 (2.4.124-2) ...
+#8 144.8 Setting up libc6-dev:amd64 (2.41-12+deb13u4) ...
+#8 144.8 Setting up libgcc-14-dev:amd64 (14.2.0-19) ...
+#8 144.9 Setting up libstdc++-14-dev:amd64 (14.2.0-19) ...
+#8 144.9 Setting up libsm6:amd64 (2:1.2.6-1) ...
+#8 144.9 Setting up binutils-x86-64-linux-gnu (2.44-3) ...
+#8 144.9 Setting up libdrm-amdgpu1:amd64 (2.4.124-2) ...
+#8 144.9 Setting up cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 144.9 Setting up libgnutls30t64:amd64 (3.8.9-3+deb13u4) ...
+#8 144.9 Setting up libxcb1-dev:amd64 (1.17.0-2+b1) ...
+#8 144.9 Setting up libdrm-intel1:amd64 (2.4.124-2) ...
+#8 144.9 Setting up libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#8 145.0 Setting up libx11-dev:amd64 (2:1.8.12-1) ...
+#8 145.0 Setting up binutils (2.44-3) ...
+#8 145.0 Setting up dpkg-dev (1.22.22) ...
+#8 145.0 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#8 145.0 Setting up cpp (4:14.2.0-1) ...
+#8 145.0 Setting up gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 145.0 Setting up libxrender-dev:amd64 (1:0.9.12-1) ...
+#8 145.0 Setting up mesa-libgallium:amd64 (25.0.7-2+deb13u1) ...
+#8 145.1 Setting up gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 145.1 Setting up libcurl4t64:amd64 (8.14.1-2+deb13u7) ...
+#8 145.1 Setting up libgbm1:amd64 (25.0.7-2+deb13u1) ...
+#8 145.1 Setting up libgl1-mesa-dri:amd64 (25.0.7-2+deb13u1) ...
+#8 145.1 Setting up gcc-14 (14.2.0-19) ...
+#8 145.1 Setting up g++-14-x86-64-linux-gnu (14.2.0-19) ...
+#8 145.1 Setting up g++-x86-64-linux-gnu (4:14.2.0-1) ...
+#8 145.1 Setting up curl (8.14.1-2+deb13u7) ...
+#8 145.2 Setting up g++-14 (14.2.0-19) ...
+#8 145.2 Setting up libglx-mesa0:amd64 (25.0.7-2+deb13u1) ...
+#8 145.2 Setting up libglx0:amd64 (1.7.0-1+b2) ...
+#8 145.2 Setting up gcc (4:14.2.0-1) ...
+#8 145.2 Setting up libgl1:amd64 (1.7.0-1+b2) ...
+#8 145.2 Setting up g++ (4:14.2.0-1) ...
+#8 145.2 update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+#8 145.2 Setting up build-essential (12.12) ...
+#8 145.3 Processing triggers for libc-bin (2.41-12+deb13u4) ...
+#8 DONE 146.0s
+
+#9 [4/8] COPY requirements.txt .
+#9 DONE 0.1s
+
+#10 [5/8] RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+#10 1.068 Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+#10 2.893 Collecting fastapi==0.115.0 (from -r requirements.txt (line 3))
+#10 3.073   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/06/ab/a1f7eed031aeb1c406a6e9d45ca04bff401c8a25a30dd0e4fd2caae767c3/fastapi-0.115.0-py3-none-any.whl (94 kB)
+#10 3.104      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 94.6/94.6 kB 2.9 MB/s eta 0:00:00
+#10 3.344 Collecting uvicorn==0.30.6 (from uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 3.526   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f5/8e/cdc7d6263db313030e4c257dd5ba3909ebc4e4fb53ad62d5f09b1a2f5458/uvicorn-0.30.6-py3-none-any.whl (62 kB)
+#10 3.548      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 62.8/62.8 kB 2.5 MB/s eta 0:00:00
+#10 3.719 Collecting python-multipart==0.0.9 (from -r requirements.txt (line 5))
+#10 3.812   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3d/47/444768600d9e0ebc82f8e347775d24aef8f6348cf00e9fa0e81910814e6d/python_multipart-0.0.9-py3-none-any.whl (22 kB)
+#10 4.171 Collecting pydantic==2.9.2 (from -r requirements.txt (line 6))
+#10 4.292   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/df/e4/ba44652d562cbf0bf320e0f3810206149c8a4e99cdbf66da82e97ab53a15/pydantic-2.9.2-py3-none-any.whl (434 kB)
+#10 4.431      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?434.9/434.9 kB 3.1 MB/s eta 0:00:00
+#10 4.551 Collecting pydantic-settings==2.5.2 (from -r requirements.txt (line 7))
+#10 4.672   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/29/8d/29e82e333f32d9e2051c10764b906c2a6cd140992910b5f49762790911ba/pydantic_settings-2.5.2-py3-none-any.whl (26 kB)
+#10 4.828 Collecting celery==5.4.0 (from celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 4.968   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/90/c4/6a4d3772e5407622feb93dd25c86ce3c0fee746fa822a777a627d56b4f2a/celery-5.4.0-py3-none-any.whl (425 kB)
+#10 5.155      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?426.0/426.0 kB 2.2 MB/s eta 0:00:00
+#10 5.326 Collecting redis==5.1.0 (from -r requirements.txt (line 11))
+#10 5.467   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fd/d6/37ba7502c5144c93e2e63c81fbfd69c8b97c275328eb85734ce996d3dc13/redis-5.1.0-py3-none-any.whl (261 kB)
+#10 5.482      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 261.2/261.2 kB 19.2 MB/s eta 0:00:00
+#10 5.651 Collecting qdrant-client==1.11.0 (from -r requirements.txt (line 14))
+#10 5.808   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d9/08/6175fe5191e0c4adee7df1416ae361bc0d02d65ca9c1ce397679afa1484a/qdrant_client-1.11.0-py3-none-any.whl (258 kB)
+#10 5.825      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 258.9/258.9 kB 16.0 MB/s eta 0:00:00
+#10 5.993 Collecting minio==7.2.8 (from -r requirements.txt (line 15))
+#10 6.159   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/34/89/f4d5cfb0a5494e7dae1c11d6d1ab82811d93f6af8ca54e1393c046ff0e75/minio-7.2.8-py3-none-any.whl (93 kB)
+#10 6.164      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 93.5/93.5 kB 26.6 MB/s eta 0:00:00
+#10 6.663 Collecting PyMuPDF==1.24.10 (from -r requirements.txt (line 18))
+#10 6.831   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c5/39/3aaa1e8822c55c71bb37911b5b1c3157ef38d731581224b29a682d80a17b/PyMuPDF-1.24.10-cp311-none-manylinux2014_x86_64.whl (3.5 MB)
+#10 7.518      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 3.5/3.5 MB 5.1 MB/s eta 0:00:00
+#10 7.683 Collecting pdfplumber==0.11.4 (from -r requirements.txt (line 19))
+#10 7.829   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d0/87/415cb472981a8d2e36beeeadf074ebb686cc2bfe8d18de973232da291bd5/pdfplumber-0.11.4-py3-none-any.whl (59 kB)
+#10 7.837      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 59.2/59.2 kB 7.5 MB/s eta 0:00:00
+#10 8.364 Collecting Pillow==10.4.0 (from -r requirements.txt (line 20))
+#10 8.516   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ba/e5/8c68ff608a4203085158cff5cc2a3c534ec384536d9438c405ed6370d080/pillow-10.4.0-cp311-cp311-manylinux_2_28_x86_64.whl (4.5 MB)
+#10 9.545      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 4.5/4.5 MB 4.4 MB/s eta 0:00:00
+#10 9.730 Collecting arxiv==1.4.3 (from -r requirements.txt (line 23))
+#10 9.908   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f4/27/873dec85286c7137379c232ba2e0576af5e23579407f3f46ad53247e04ea/arxiv-1.4.3-py3-none-any.whl (12 kB)
+#10 10.09 Collecting sickle==0.7.0 (from -r requirements.txt (line 24))
+#10 10.26   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/59/c4/e98ed4dfc15f51245e17626dab983ffde53f9f03ef5100938bcb4996427f/Sickle-0.7.0-py3-none-any.whl (12 kB)
+#10 10.45 Collecting requests==2.32.3 (from -r requirements.txt (line 25))
+#10 10.62   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl (64 kB)
+#10 10.63      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 64.9/64.9 kB 6.3 MB/s eta 0:00:00
+#10 10.81 Collecting fastembed>=0.4.0 (from -r requirements.txt (line 29))
+#10 10.98   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/25/9f/04650110be2c2554655e8b2c216567e6028cc767a2a0ad26f84972829c60/fastembed-0.9.1-py3-none-any.whl (150 kB)
+#10 11.01      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?150.2/150.2 kB 6.5 MB/s eta 0:00:00
+#10 11.67 Collecting litellm<2,>=1.44 (from -r requirements.txt (line 32))
+#10 11.81   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ef/c9/490d712bf9512131106c03cd6566fa0a1f9c0bdc54c19f3250aa72e77d74/litellm-1.106.6-cp310-abi3-manylinux_2_28_x86_64.whl (36.6 MB)
+#10 23.84      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 36.6/36.6 MB 2.4 MB/s eta 0:00:00
+#10 24.17 Collecting networkx==3.3 (from -r requirements.txt (line 35))
+#10 24.38   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/38/e9/5f72929373e1a0e8d142a130f3f97e6ff920070f87f91c4e13e40e0fba5a/networkx-3.3-py3-none-any.whl (1.7 MB)
+#10 25.04      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.7/1.7 MB 2.6 MB/s eta 0:00:00
+#10 26.10 Collecting numpy==1.26.4 (from -r requirements.txt (line 36))
+#10 26.32   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3a/d0/edc009c27b406c4f9cbc79274d6e46d634d139075492ad055e3d68445925/numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
+#10 37.19      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 18.3/18.3 MB 1.4 MB/s eta 0:00:00
+#10 38.32 Collecting matplotlib==3.9.2 (from -r requirements.txt (line 39))
+#10 38.56   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/01/75/6c7ce560e95714a10fcbb3367d1304975a1a3e620f72af28921b796403f3/matplotlib-3.9.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (8.3 MB)
+#10 44.23      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 8.3/8.3 MB 1.5 MB/s eta 0:00:00
+#10 44.58 Collecting starlette<0.39.0,>=0.37.2 (from fastapi==0.115.0->-r requirements.txt (line 3))
+#10 44.81   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b7/9c/93f7bc03ff03199074e81974cc148908ead60dcf189f68ba1761a0ee35cf/starlette-0.38.6-py3-none-any.whl (71 kB)
+#10 44.84      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 71.5/71.5 kB 2.0 MB/s eta 0:00:00
+#10 45.11 Collecting typing-extensions>=4.8.0 (from fastapi==0.115.0->-r requirements.txt (line 3))
+#10 45.35   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#10 45.36      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 45.6/45.6 kB 2.0 MB/s eta 0:00:00
+#10 45.56 Collecting click>=7.0 (from uvicorn==0.30.6->uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 45.65   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl (125 kB)
+#10 45.70      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?125.3/125.3 kB 2.3 MB/s eta 0:00:00
+#10 45.78 Collecting h11>=0.8 (from uvicorn==0.30.6->uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 45.89   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl (37 kB)
+#10 46.13 Collecting annotated-types>=0.6.0 (from pydantic==2.9.2->-r requirements.txt (line 6))
+#10 46.32   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#10 53.40 Collecting pydantic-core==2.23.4 (from pydantic==2.9.2->-r requirements.txt (line 6))
+#10 53.60   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/44/31/a3899b5ce02c4316865e390107f145089876dff7e1dfc770a231d836aed8/pydantic_core-2.23.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+#10 56.83      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 2.1/2.1 MB 632.4 kB/s eta 0:00:00
+#10 57.05 Collecting python-dotenv>=0.21.0 (from pydantic-settings==2.5.2->-r requirements.txt (line 7))
+#10 57.23   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/60/d1/38f3a3405989a89ac18390803e70c6ad7c7760da4f9b83cbeca0c44a0c72/python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+#10 57.50 Collecting billiard<5.0,>=4.2.0 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 57.67   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/21/05/3d445479b3f7e4ae0901cdf2c45f561b436d1a5b8ed1c5c97e260152ae50/billiard-4.3.2-py3-none-any.whl (90 kB)
+#10 57.78      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?90.6/90.6 kB 810.8 kB/s eta 0:00:00
+#10 58.11 Collecting kombu<6.0,>=5.3.4 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 58.29   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fb/0f/834427d8c03ff1d7e867d3db3d176470c64871753252b21b4f4897d1fa45/kombu-5.6.2-py3-none-any.whl (214 kB)
+#10 58.58      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?214.2/214.2 kB 706.2 kB/s eta 0:00:00
+#10 58.73 Collecting vine<6.0,>=5.1.0 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 58.90   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/03/ff/7c0c86c43b3cbb927e0ccc0255cb4057ceba4799cd44ae95174ce8e8b5b2/vine-5.1.0-py3-none-any.whl (9.6 kB)
+#10 59.07 Collecting click-didyoumean>=0.3.0 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 59.24   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1b/5b/974430b5ffdb7a4f1941d13d83c64a0395114503cc357c6b9ae4ce5047ed/click_didyoumean-0.3.1-py3-none-any.whl (3.6 kB)
+#10 59.41 Collecting click-repl>=0.2.0 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 59.57   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a4/f6/12dc0f2e0159c2b416818b7fedcda15b520043773364a81d7389809a5af5/click_repl-0.4.1-py3-none-any.whl (14 kB)
+#10 59.73 Collecting click-plugins>=1.1.1 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 59.87   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3d/9a/2abecb28ae875e39c8cad711eb1186d8d14eab564705325e77e4e6ab9ae5/click_plugins-1.1.1.2-py2.py3-none-any.whl (11 kB)
+#10 60.05 Collecting tzdata>=2022.7 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 60.20   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0a/66/9a06c2227fedfd4919f0eaaa8b94377d9730882a7e4f95823c9a331ab5e1/tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+#10 60.81      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?348.2/348.2 kB 558.0 kB/s eta 0:00:00
+#10 61.03 Collecting python-dateutil>=2.8.2 (from celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 61.23   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2f/a9/52b89563d154433d79b51ed1eb4842bf7334cb2696891a7fe135618853d7/python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+#10 61.39      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?92.9/92.9 kB 506.4 kB/s eta 0:00:00
+#10 69.96 Collecting grpcio>=1.41.0 (from qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 70.12   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1a/4f/30f66cedfec6c03bc304b28fbe073ed53179cf37a511b8ee8e8e7e2d3f17/grpcio-1.85.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (7.4 MB)
+#10 82.34      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 7.4/7.4 MB 603.9 kB/s eta 0:00:00
+#10 91.02 Collecting grpcio-tools>=1.41.0 (from qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 91.21   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/17/8b/d251ffe7b8411a93986b518d4c68c38f9c0ae69c4c8a09898cc7ff2278ec/grpcio_tools-1.85.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.8 MB)
+#10 96.57      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 2.8/2.8 MB 522.5 kB/s eta 0:00:00
+#10 96.84 Collecting httpx>=0.20.0 (from httpx[http2]>=0.20.0->qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 97.03   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl (73 kB)
+#10 97.16      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?73.5/73.5 kB 481.7 kB/s eta 0:00:00
+#10 97.52 Collecting portalocker<3.0.0,>=2.7.0 (from qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 97.62   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9b/fb/a70a4214956182e0d7a9099ab17d50bfcba1056188e9b14f35b9e2b62a0d/portalocker-2.10.1-py3-none-any.whl (18 kB)
+#10 97.91 Collecting urllib3<3,>=1.26.14 (from qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 98.05   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl (135 kB)
+#10 98.33      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?135.7/135.7 kB 457.1 kB/s eta 0:00:00
+#10 98.60 Collecting certifi (from minio==7.2.8->-r requirements.txt (line 15))
+#10 98.78   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl (135 kB)
+#10 99.06      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?135.1/135.1 kB 447.8 kB/s eta 0:00:00
+#10 99.40 Collecting argon2-cffi (from minio==7.2.8->-r requirements.txt (line 15))
+#10 99.57   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/4f/d3/a8b22fa575b297cd6e3e3b0155c7e25db170edf1c74783d6a31a2490b8d9/argon2_cffi-25.1.0-py3-none-any.whl (14 kB)
+#10 101.3 Collecting pycryptodome (from minio==7.2.8->-r requirements.txt (line 15))
+#10 101.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/18/88/33df6b1176b63aed427745696d88ed38f7877104cf0f6004ee9ad600f897/pycryptodome-4.2.0-cp39-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.0 MB)
+#10 107.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 3.0/3.0 MB 500.9 kB/s eta 0:00:00
+#10 107.7 Collecting PyMuPDFb==1.24.10 (from PyMuPDF==1.24.10->-r requirements.txt (line 18))
+#10 107.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/62/b9/ad3f076e86328880797fe7e98c43b2879df56cf6cb75ac3058da06d6e6cb/PyMuPDFb-1.24.10-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (15.9 MB)
+#10 137.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?15.9/15.9 MB 522.6 kB/s eta 0:00:00
+#10 137.4 Collecting pdfminer.six==20231228 (from pdfplumber==0.11.4->-r requirements.txt (line 19))
+#10 137.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/eb/9c/e46fe7502b32d7db6af6e36a9105abb93301fa1ec475b5ddcba8b35ae23a/pdfminer.six-20231228-py3-none-any.whl (5.6 MB)
+#10 148.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 5.6/5.6 MB 542.6 kB/s eta 0:00:00
+#10 149.2 Collecting pypdfium2>=4.18.0 (from pdfplumber==0.11.4->-r requirements.txt (line 19))
+#10 149.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/4f/a3/c9cc797fc8bdfb8f37b9b0f8b9d02a5fc196b2015f408d53624cab5b0519/pypdfium2-5.14.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.8 MB)
+#10 154.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 3.8/3.8 MB 718.1 kB/s eta 0:00:00
+#10 154.8 Collecting feedparser (from arxiv==1.4.3->-r requirements.txt (line 23))
+#10 154.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7f/61/f04912e63702e73fb2a378f9c0a1ad9eb17a334a11a6b3fe1daa593903c2/feedparser-6.0.14-py3-none-any.whl (80 kB)
+#10 155.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?80.7/80.7 kB 645.1 kB/s eta 0:00:00
+#10 159.9 Collecting lxml>=3.2.3 (from sickle==0.7.0->-r requirements.txt (line 24))
+#10 160.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/94/2a/25d128872f4d51753542bfc3feb482c2ea7c8a2d6d81a0bc5c6a00779ed4/lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+#10 169.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 5.2/5.2 MB 563.4 kB/s eta 0:00:00
+#10 172.1 Collecting charset-normalizer<4,>=2 (from requests==2.32.3->-r requirements.txt (line 25))
+#10 172.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e4/ed/cf505d3011ffceb12c2067a7a5d3cfe92b875d4d44bb0ff0d69375e2c184/charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+#10 172.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?270.0/270.0 kB 555.0 kB/s eta 0:00:00
+#10 172.9 Collecting idna<4,>=2.5 (from requests==2.32.3->-r requirements.txt (line 25))
+#10 173.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl (69 kB)
+#10 173.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?69.6/69.6 kB 658.7 kB/s eta 0:00:00
+#10 174.4 Collecting contourpy>=1.0.1 (from matplotlib==3.9.2->-r requirements.txt (line 39))
+#10 174.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/5f/4b/6157f24ca425b89fe2eb7e7be642375711ab671135be21e6faa100f7448c/contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+#10 175.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?355.2/355.2 kB 519.4 kB/s eta 0:00:00
+#10 175.4 Collecting cycler>=0.10 (from matplotlib==3.9.2->-r requirements.txt (line 39))
+#10 175.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+#10 178.3 Collecting fonttools>=4.22.0 (from matplotlib==3.9.2->-r requirements.txt (line 39))
+#10 178.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/00/01/e0f5b3d648ddd2eae35c4bcddcc2cffc059279e9d2cdb325bed10458f606/fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
+#10 188.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 5.5/5.5 MB 548.9 kB/s eta 0:00:00
+#10 189.7 Collecting kiwisolver>=1.3.1 (from matplotlib==3.9.2->-r requirements.txt (line 39))
+#10 189.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/89/00/05c2d0369ac322d22d5c05f84b5c4a6856fa6207fbae42869108a28f0383/kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+#10 192.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.4/1.4 MB 520.2 kB/s eta 0:00:00
+#10 192.6 Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.11/site-packages (from matplotlib==3.9.2->-r requirements.txt (line 39)) (26.3)
+#10 193.0 Collecting pyparsing>=2.3.1 (from matplotlib==3.9.2->-r requirements.txt (line 39))
+#10 193.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/38/bb/d215ee7c73b61497b28a5503f9f53523f294fcc936762b7caf90e0c1c2b5/pyparsing-3.3.3-py3-none-any.whl (126 kB)
+#10 193.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?126.4/126.4 kB 614.0 kB/s eta 0:00:00
+#10 194.1 Collecting httptools>=0.5.0 (from uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 194.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f7/0b/6498fe8218db1ed5f785010c303bfef50516d0988e64988bb8f9f59d70ab/httptools-0.9.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (499 kB)
+#10 195.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?499.1/499.1 kB 556.7 kB/s eta 0:00:00
+#10 195.8 Collecting pyyaml>=5.1 (from uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 196.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/71/60/917329f640924b18ff085ab889a11c763e0b573da888e8404ff486657602/pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+#10 197.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?806.6/806.6 kB 560.7 kB/s eta 0:00:00
+#10 198.1 Collecting uvloop!=0.15.0,!=0.15.1,>=0.14.0 (from uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 198.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/16/fd/8cbf6124607863399008ae4b0d2bb50c22ed83526deec28dca08d635eb6d/uvloop-0.23.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.0 MB)
+#10 204.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 4.0/4.0 MB 615.3 kB/s eta 0:00:00
+#10 205.8 Collecting watchfiles>=0.13 (from uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 206.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/8a/cf/e3ad894ed5909a7c44b0707e89bc25d19a3d78b3a7aec846119443b6ae56/watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
+#10 206.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?458.4/458.4 kB 711.3 kB/s eta 0:00:00
+#10 208.5 Collecting websockets>=10.4 (from uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 208.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/57/70/80f870701f8610e88649d3cd173a0e7ce66433913da3683035a4370063ad/websockets-17.4-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (226 kB)
+#10 209.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?226.0/226.0 kB 646.8 kB/s eta 0:00:00
+#10 211.6 Collecting cryptography>=36.0.0 (from pdfminer.six==20231228->pdfplumber==0.11.4->-r requirements.txt (line 19))
+#10 211.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d3/69/2c833a049475e0a3444e94c7d0aca0aa51d166374a449b09e92ac98138de/cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+#10 220.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 4.8/4.8 MB 549.3 kB/s eta 0:00:00
+#10 221.7 Collecting onnxruntime!=1.20.0,!=1.24.0,!=1.24.1,>=1.17.0 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 221.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b4/1d/0f85ee31a3d93f2243a5cc29252becf858f53ac5cfa6c9c15d9ffe107eea/onnxruntime-1.31.1-cp311-cp311-manylinux_2_28_x86_64.whl (23.8 MB)
+#10 264.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?23.8/23.8 MB 598.6 kB/s eta 0:00:00
+#10 265.0 Collecting tqdm<5,>=4.66 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 265.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl (80 kB)
+#10 265.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?80.2/80.2 kB 624.6 kB/s eta 0:00:00
+#10 267.6 Collecting tokenizers<1.0,>=0.15 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 267.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3a/40/6706b82693715581457c6d5423eaa7faae576bb0526c5738a57085eb4449/tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+#10 274.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 3.4/3.4 MB 471.7 kB/s eta 0:00:00
+#10 275.5 Collecting huggingface-hub<2.0,>=0.20 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 275.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fc/16/963096d224b80909432dc16561a615fd33d2d13beef3ce4c63fa25e40867/huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+#10 277.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?846.4/846.4 kB 566.8 kB/s eta 0:00:00
+#10 277.3 Collecting loguru<0.8,>=0.7.2 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 277.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0c/29/0348de65b8cc732daa3e33e67806420b2ae89bdce2b04af740289c5c6c8c/loguru-0.7.3-py3-none-any.whl (61 kB)
+#10 277.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?61.6/61.6 kB 661.0 kB/s eta 0:00:00
+#10 278.5 Collecting mmh3<6.0.0,>=4.1.0 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 278.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/56/a7/1345f0a2f3babd780d9f01fc934559938c05ef009459c5c8385112acf3e4/mmh3-5.3.1-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (102 kB)
+#10 278.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?102.9/102.9 kB 584.2 kB/s eta 0:00:00
+#10 279.2 Collecting py-rust-stemmers<0.2,>=0.1.0 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 279.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/eb/0d/2976bb288240e25110be687e6be5ecb0623a17f667f186e07033e429985f/py_rust_stemmers-0.1.8-cp311-cp311-manylinux_2_28_x86_64.whl (320 kB)
+#10 279.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?320.3/320.3 kB 565.8 kB/s eta 0:00:00
+#10 280.4 Collecting fastuuid<1.0,>=0.14.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 280.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fc/c2/f84c90167cc7765cb82b3ff7808057608b21c14a38531845d933a4637307/fastuuid-0.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (279 kB)
+#10 281.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?279.7/279.7 kB 506.5 kB/s eta 0:00:00
+#10 281.4 Collecting filelock<4.0,>=3.16.1 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 281.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/15/df/31098c5aeb4d966b553641472bd55fcf5fdfac953549894b8a765ba44e91/filelock-3.32.7-py3-none-any.whl (100 kB)
+#10 281.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?100.2/100.2 kB 671.0 kB/s eta 0:00:00
+#10 282.5 Collecting openai<3.0.0,>=2.20.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 282.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/64/a8/bb76c7356de8ad57f59d5ff993d434df0607f07f08bcc9c9a5c275e399c0/openai-2.54.0-py3-none-any.whl (1.7 MB)
+#10 286.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.7/1.7 MB 449.1 kB/s eta 0:00:00
+#10 286.8 Collecting importlib-metadata<9.0,>=8.0.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 287.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7d/f9/97f2ca8bb3ec6e4b1d64f983ebe98b9a192faddff67fac3d6303a537e670/importlib_metadata-8.9.0-py3-none-any.whl (27 kB)
+#10 287.7 Collecting tiktoken<1.0,>=0.8.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 287.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/24/65/8c5dddd7cb67f6571d154a58d7c6e2f07da54bf84c49b6a1839965b7c35e/tiktoken-0.14.0-cp311-cp311-manylinux_2_28_x86_64.whl (1.2 MB)
+#10 289.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.2/1.2 MB 630.5 kB/s eta 0:00:00
+#10 290.0 Collecting jinja2<4.0,>=3.1.6 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 290.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl (134 kB)
+#10 290.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?134.9/134.9 kB 741.6 kB/s eta 0:00:00
+#10 298.4 Collecting aiohttp<4.0,>=3.14.2 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 298.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/42/74/2a2b22953de15c6c8a80debf26db3047e4e8a5a5db6dd7c2c6c01eec0605/aiohttp-3.14.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+#10 301.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.9/1.9 MB 658.2 kB/s eta 0:00:00
+#10 301.6 INFO: pip is looking at multiple versions of litellm to determine which version is compatible with other requirements. This could take a while.
+#10 301.6 Collecting litellm<2,>=1.44 (from -r requirements.txt (line 32))
+#10 301.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2c/07/b3b5368722ad2178070be969bc9cd74c9819bfdb993840288989911bf9f6/litellm-1.106.5-cp310-abi3-manylinux_2_28_x86_64.whl (36.6 MB)
+#10 356.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.6/36.6 MB 596.1 kB/s eta 0:00:00
+#10 356.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/06/db/0e42dc7945e27f0633eb00a10e8ff6ecdb93d6fd2798a1ca15e63fc7c54c/litellm-1.106.4-cp310-abi3-manylinux_2_28_x86_64.whl (36.6 MB)
+#10 424.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.6/36.6 MB 596.1 kB/s eta 0:00:00
+#10 425.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/59/06/1cfb1cb1cbede3a884e6a2b3c1ba2ab3f1b784af333eb9709f1672d8b845/litellm-1.106.3-cp310-abi3-manylinux_2_28_x86_64.whl (36.6 MB)
+#10 484.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.6/36.6 MB 637.1 kB/s eta 0:00:00
+#10 484.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6b/30/4a38c22181ef7169b6c044b8294f2e5b06236aeeccfbe57c2f0e85a51bfe/litellm-1.106.2-cp310-abi3-manylinux_2_28_x86_64.whl (36.8 MB)
+#10 545.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.8/36.8 MB 529.4 kB/s eta 0:00:00
+#10 546.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/86/50/83d885f944f0bb865aa889f4c4179a408730687a216161eb06b34deea998/litellm-1.106.1-cp310-abi3-manylinux_2_28_x86_64.whl (36.8 MB)
+#10 608.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.8/36.8 MB 586.7 kB/s eta 0:00:00
+#10 608.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/30/88/9df7400940ebe10b21e8aa763c802e81486f3aa85e8ef8ec7228bf0876d6/litellm-1.106.0-cp310-abi3-manylinux_2_28_x86_64.whl (36.7 MB)
+#10 662.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.7/36.7 MB 876.6 kB/s eta 0:00:00
+#10 663.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e7/6b/2aa9ca10e58cef769fae74a8746440b1893f9661640306beacae1502662c/litellm-1.105.7-cp310-abi3-manylinux_2_28_x86_64.whl (38.6 MB)
+#10 730.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.6/38.6 MB 556.4 kB/s eta 0:00:00
+#10 730.9 INFO: pip is still looking at multiple versions of litellm to determine which version is compatible with other requirements. This could take a while.
+#10 731.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b9/af/8023ec77cdd63605ecf4f5540b8eab57891b71a5261421c1be3be11b9b64/litellm-1.105.6-cp310-abi3-manylinux_2_28_x86_64.whl (38.6 MB)
+#10 796.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.6/38.6 MB 588.5 kB/s eta 0:00:00
+#10 796.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e1/89/c22ec08c6a8b9799ca3369442b8d1a905a6e94fccacadf2d88da8b192994/litellm-1.105.5-cp310-abi3-manylinux_2_28_x86_64.whl (38.6 MB)
+#10 854.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.6/38.6 MB 820.3 kB/s eta 0:00:00
+#10 855.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fa/38/14fd78b090c2248d8c8bfe6c0b84d3bd861ec59e3f76da962f8772aad686/litellm-1.105.4-cp310-abi3-manylinux_2_28_x86_64.whl (38.6 MB)
+#10 915.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.6/38.6 MB 615.8 kB/s eta 0:00:00
+#10 915.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3c/e9/9190c8743ac31f1f455e0155dc9e631d032b263db66844f89e429fdfc7e9/litellm-1.105.3-cp310-abi3-manylinux_2_28_x86_64.whl (38.8 MB)
+#10 965.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.8/38.8 MB 851.9 kB/s eta 0:00:00
+#10 965.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2c/54/b0c4737490f8fcacf2807ef89f08ce41e86be823bd9e3af0d1aa14d19a94/litellm-1.105.2-cp310-abi3-manylinux_2_28_x86_64.whl (38.8 MB)
+#10 1017.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.8/38.8 MB 783.5 kB/s eta 0:00:00
+#10 1017.1 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+#10 1017.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/07/1d/44e5c54df750ccb610285c778f92651794534a480dcce730eaf9d0aa8b31/litellm-1.105.1-cp310-abi3-manylinux_2_28_x86_64.whl (38.8 MB)
+#10 1073.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.8/38.8 MB 763.0 kB/s eta 0:00:00
+#10 1073.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/16/b6/f6a239ce53a75fbfb779bdeff3737edb5f2521f064caa0302f846c1f3269/litellm-1.105.0-cp310-abi3-manylinux_2_28_x86_64.whl (38.8 MB)
+#10 1115.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.8/38.8 MB 787.5 kB/s eta 0:00:00
+#10 1115.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3d/cb/3f584e942ed9569c9d07c29acf009f106a93208df8512fdfa0a9b9c10574/litellm-1.104.8-cp310-abi3-manylinux_2_28_x86_64.whl (38.6 MB)
+#10 1164.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.6/38.6 MB 819.0 kB/s eta 0:00:00
+#10 1164.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d4/9b/879ef9b6fc8d809e22629b900444ce9606edf8082416ddf84233ff6b0b30/litellm-1.104.7-cp310-abi3-manylinux_2_28_x86_64.whl (38.6 MB)
+#10 1218.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.6/38.6 MB 751.6 kB/s eta 0:00:00
+#10 1218.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e7/0d/866b0c12d8d20c52b7782c90f3bd7743eaba6e576b0e593eefd87089858d/litellm-1.104.6-cp310-abi3-manylinux_2_28_x86_64.whl (38.6 MB)
+#10 1268.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?38.6/38.6 MB 720.3 kB/s eta 0:00:00
+#10 1268.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/60/ae/40c016f955d6bd1857f11e5741be8038f8dae6b5ff5a368221783f1880e1/litellm-1.104.5-cp310-abi3-manylinux_2_28_x86_64.whl (36.9 MB)
+#10 1308.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.9/36.9 MB 914.3 kB/s eta 0:00:00
+#10 1308.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/90/3c/29a03477266641250342fd5c2a55bb283a9fe1ac0b45e04d72e8f911eebb/litellm-1.104.4-cp310-abi3-manylinux_2_28_x86_64.whl (36.9 MB)
+#10 1344.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.9/36.9 MB 904.0 kB/s eta 0:00:00
+#10 1345.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ab/09/34ee9a5a260a9093317760738cb719425644ce3b00d9494d101b0d9f4c16/litellm-1.104.3-cp310-abi3-manylinux_2_28_x86_64.whl (36.9 MB)
+#10 1386.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.9/36.9 MB 748.4 kB/s eta 0:00:00
+#10 1386.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/28/45/0e11648a403763c7346d41def733784aee8c1d9d39386ababf72f5ad93b0/litellm-1.104.2-cp310-abi3-manylinux_2_28_x86_64.whl (36.9 MB)
+#10 1432.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.9/36.9 MB 945.5 kB/s eta 0:00:00
+#10 1432.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/24/d8/5f753b88051cc3a4789e384255d8e757e3be5a92b451d8c066778d3f9821/litellm-1.104.1-cp310-abi3-manylinux_2_28_x86_64.whl (36.8 MB)
+#10 1475.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.8/36.8 MB 741.4 kB/s eta 0:00:00
+#10 1475.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/cb/44/fd2733a47dbe201819ddfe61078d7b3e26fc9a0a20ec93bae72219dcfaa9/litellm-1.104.0-cp310-abi3-manylinux_2_28_x86_64.whl (36.8 MB)
+#10 1521.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?36.8/36.8 MB 792.0 kB/s eta 0:00:00
+#10 1521.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e9/a1/6b49bbaa6bd180f981e51f03d56f86c3e3f47dc41d7994b54b0a893f57f6/litellm-1.103.10-cp310-abi3-manylinux_2_28_x86_64.whl (27.9 MB)
+#10 1556.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?27.9/27.9 MB 853.6 kB/s eta 0:00:00
+#10 1556.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/82/f1/a4c8e7ce1681275e5e2fcfd6500b838a769a5b162b91b6fce4d11c0fc2d5/litellm-1.103.9-cp310-abi3-manylinux_2_28_x86_64.whl (27.9 MB)
+#10 1580.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 27.9/27.9 MB 1.2 MB/s eta 0:00:00
+#10 1581.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b7/17/6427c2e19aeff24428bc82309efcdf67bb6cd77f68c159614b71718a3a47/litellm-1.103.8-cp310-abi3-manylinux_2_28_x86_64.whl (27.9 MB)
+#10 1615.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?27.9/27.9 MB 836.0 kB/s eta 0:00:00
+#10 1615.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fd/ea/2c3a787d2d9a92aa1eda8447c6b7bd89633351f2018ca3afdc6630289ae9/litellm-1.103.7-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1644.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?28.1/28.1 MB 803.4 kB/s eta 0:00:00
+#10 1644.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b8/40/7fb79a3508a16351230ba84a73fdf37cf0df60f5f9934ea955d14abb20d2/litellm-1.103.6-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1663.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 28.1/28.1 MB 1.6 MB/s eta 0:00:00
+#10 1664.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b7/e6/7449294a5a82516237c2d43b18607c201840d7d09eba6400aa6ee996edaf/litellm-1.103.5-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1695.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?28.1/28.1 MB 811.5 kB/s eta 0:00:00
+#10 1695.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f8/9b/166430315b9d80ac3be626d5a7e0f3401803876d95ef03bfd88ef4f1cdd9/litellm-1.103.4-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1729.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?28.1/28.1 MB 840.5 kB/s eta 0:00:00
+#10 1729.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2c/19/a2f3f19470be5ad6a4d05872e9248eb920fa5734fff26dc29b847c3b45d7/litellm-1.103.3-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1756.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?28.1/28.1 MB 919.2 kB/s eta 0:00:00
+#10 1756.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/40/a6/21554ab56309662a81e143cfc7f233e2a48a2ee0b162a7f8955df9219f99/litellm-1.103.2-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1790.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?28.1/28.1 MB 957.7 kB/s eta 0:00:00
+#10 1790.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/89/60/c375dbaa4b0210238428a73d2d7456a07a2e788b6b980385e9574beed9a3/litellm-1.103.1-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1822.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?28.1/28.1 MB 873.9 kB/s eta 0:00:00
+#10 1822.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ce/8f/a24d0f7f8b6cce3de0177a03ffe350d863abc43d90ec01af44bd857459bc/litellm-1.103.0-cp310-abi3-manylinux_2_28_x86_64.whl (28.1 MB)
+#10 1844.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 28.1/28.1 MB 1.2 MB/s eta 0:00:00
+#10 1844.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/78/72/6838bec38ec297ccf5134474e480a88044d400f0037dcaf9418c0f13f5c7/litellm-1.102.4-cp310-abi3-manylinux_2_28_x86_64.whl (27.4 MB)
+#10 1870.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 27.4/27.4 MB 1.0 MB/s eta 0:00:00
+#10 1870.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d4/9b/e9c2cf9f7ddc2453c904644e2f46157a51e6819d4f779614f4af5bda89e5/litellm-1.102.3-cp310-abi3-manylinux_2_28_x86_64.whl (27.4 MB)
+#10 1893.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 27.4/27.4 MB 1.5 MB/s eta 0:00:00
+#10 1893.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fb/61/a5639d62aee813ae7b0d352fee080b4ec32730fb8179f72604402e9860e4/litellm-1.102.2-cp310-abi3-manylinux_2_28_x86_64.whl (27.4 MB)
+#10 1916.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?27.4/27.4 MB 996.8 kB/s eta 0:00:00
+#10 1917.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e0/ff/ef3186da67f297edfa5c01a6b92ee7b2b2406056b0a7415945e0cf490a2d/litellm-1.102.1-cp310-abi3-manylinux_2_28_x86_64.whl (27.4 MB)
+#10 1947.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?27.4/27.4 MB 838.9 kB/s eta 0:00:00
+#10 1947.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7f/9b/0db0c6327a31efe808ebc245b3ab3290196fb50f5e2a649d4f2835d722d4/litellm-1.102.0-cp310-abi3-manylinux_2_28_x86_64.whl (27.3 MB)
+#10 1975.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 27.3/27.3 MB 1.1 MB/s eta 0:00:00
+#10 1975.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/55/30/5fe651566eedf77286ea73c72f1932b047c237d5fde3a2a208151084b5cc/litellm-1.101.6-cp310-abi3-manylinux_2_28_x86_64.whl (24.0 MB)
+#10 1998.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.0/24.0 MB 1.1 MB/s eta 0:00:00
+#10 1998.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3f/b1/64e289ffec4f9a6ab57fcba7943e36e735151eb87f4057f3b045bb0db028/litellm-1.101.5-cp310-abi3-manylinux_2_28_x86_64.whl (24.0 MB)
+#10 2020.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.0/24.0 MB 1.0 MB/s eta 0:00:00
+#10 2020.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d1/9d/d65b0c94fbaf0a0ee284a331441450cfed9f61c4ab904317bad39940450f/litellm-1.101.4-cp310-abi3-manylinux_2_28_x86_64.whl (24.0 MB)
+#10 2038.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.0/24.0 MB 1.4 MB/s eta 0:00:00
+#10 2038.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/96/d7/232b70b9870876d991c05895ed1777145c7ba77953d628eed1bda9527679/litellm-1.101.3-cp310-abi3-manylinux_2_28_x86_64.whl (24.0 MB)
+#10 2056.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.0/24.0 MB 1.3 MB/s eta 0:00:00
+#10 2057.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e2/8e/c57a4e157f97b1bcef9b410d51e17507047bbb11c676f5c81b22e7190c7c/litellm-1.101.2-cp310-abi3-manylinux_2_28_x86_64.whl (24.0 MB)
+#10 2076.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.0/24.0 MB 1.4 MB/s eta 0:00:00
+#10 2076.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e6/14/6de6fe28d6e2f6327bf9a60070556787b36f19237e500e2557bd762e6ebc/litellm-1.101.1-cp310-abi3-manylinux_2_28_x86_64.whl (24.0 MB)
+#10 2098.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.0/24.0 MB 1.1 MB/s eta 0:00:00
+#10 2098.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0c/0e/561d7a314a08940688814be590544907fdfde9225dce35badbd79fc9ad4c/litellm-1.101.0-cp310-abi3-manylinux_2_28_x86_64.whl (23.9 MB)
+#10 2123.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 23.9/23.9 MB 1.2 MB/s eta 0:00:00
+#10 2123.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/5e/3a/08baa2b0d2757627c4257a317026df11bdb06a881db67edb575d665ca643/litellm-1.100.5-cp310-abi3-manylinux_2_28_x86_64.whl (23.5 MB)
+#10 2152.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?23.5/23.5 MB 848.7 kB/s eta 0:00:00
+#10 2152.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ff/09/d99612074d3e114c449fc928d7374f09d8e87cc74dc36fdbb466fc1b9f5a/litellm-1.100.4-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+#10 2172.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.1/24.1 MB 1.2 MB/s eta 0:00:00
+#10 2173.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/86/a5/6076b97fc9bd2abf42ab9736cf67c94fc494257d315f29ed831ccacf619f/litellm-1.100.3-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+#10 2194.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.1/24.1 MB 1.2 MB/s eta 0:00:00
+#10 2195.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c5/ce/ec0ade07f2c95a7b57b322dd7dda8d02f77cd5b79292903623687a256148/litellm-1.100.2-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+#10 2211.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.1/24.1 MB 1.4 MB/s eta 0:00:00
+#10 2212.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1c/76/e087de4ea74635a790e2d8e65870409eae872a3d2dc9773a65b9d0559a35/litellm-1.100.1-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+#10 2226.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.1/24.1 MB 1.7 MB/s eta 0:00:00
+#10 2226.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e9/05/34a1df3a5fe1db92bf43d3b25af2e5a9c36c54ab6813acef0c31cce2b4e0/litellm-1.100.0-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+#10 2239.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.1/24.1 MB 2.0 MB/s eta 0:00:00
+#10 2239.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1e/72/f28467160fd8f8a8ae2caa325ea5de731cee1ad65d34bb635b541fd22c0a/litellm-1.99.4-cp310-abi3-manylinux_2_28_x86_64.whl (23.5 MB)
+#10 2247.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 23.5/23.5 MB 4.2 MB/s eta 0:00:00
+#10 2247.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/df/15/3896384c2e68c383a400e5e68276f74da5159bad7236d8cd52201e6368ee/litellm-1.99.3-cp310-abi3-manylinux_2_28_x86_64.whl (23.5 MB)
+#10 2256.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 23.5/23.5 MB 1.8 MB/s eta 0:00:00
+#10 2257.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ab/24/e68dc6add3c6d1a81d9ec39cd366cff3b76f4b0a8bfb65cbb7e7a63c08ea/litellm-1.99.2-cp310-abi3-manylinux_2_28_x86_64.whl (23.5 MB)
+#10 2274.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 23.5/23.5 MB 1.6 MB/s eta 0:00:00
+#10 2274.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/db/c4/8e92a6277e28096784616cfda16b2cd839c7bdaabce692ae950e2f0cf72e/litellm-1.99.0-cp310-abi3-manylinux_2_28_x86_64.whl (23.5 MB)
+#10 2288.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 23.5/23.5 MB 1.8 MB/s eta 0:00:00
+#10 2288.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/df/9a/509a54afc1e77cd28e4d188c46e62fc26d23fc6c6d90a8b4898dd705343f/litellm-1.98.1-cp310-abi3-manylinux_2_28_x86_64.whl (24.2 MB)
+#10 2304.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.2/24.2 MB 1.6 MB/s eta 0:00:00
+#10 2304.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/69/de/ab46b521e2a6e6a94a5cb91ba3debd6c4e922feaeb47158a389400b0a0fe/litellm-1.98.0-cp310-abi3-manylinux_2_28_x86_64.whl (24.2 MB)
+#10 2318.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.2/24.2 MB 1.5 MB/s eta 0:00:00
+#10 2319.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/08/4a/22c49e8bd068bfdab0daba235cc2d2752d76d855ccb8f6dafe7dabf01ca4/litellm-1.97.0-cp310-abi3-manylinux_2_28_x86_64.whl (24.4 MB)
+#10 2335.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.4/24.4 MB 1.5 MB/s eta 0:00:00
+#10 2335.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b5/84/993c40c116c699383741fd27da515c71b395609859148ea32720925eaeaf/litellm-1.96.2-cp310-abi3-manylinux_2_28_x86_64.whl (24.3 MB)
+#10 2353.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 24.3/24.3 MB 1.7 MB/s eta 0:00:00
+#10 2354.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/8b/2f/d1dc6b7fc54a36f21dd7761fdc44c42516cea017391b9a6dbfefae719bf0/litellm-1.96.0-cp311-cp311-manylinux_2_28_x86_64.whl (26.4 MB)
+#10 2377.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 26.4/26.4 MB 1.1 MB/s eta 0:00:00
+#10 2377.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d6/78/410fb31cca5aaf6a0223206c7c832365ed6f9ee759ee073081bb391538f0/litellm-1.95.1-cp311-cp311-manylinux_2_28_x86_64.whl (26.3 MB)
+#10 2405.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?26.3/26.3 MB 855.7 kB/s eta 0:00:00
+#10 2406.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ec/c1/54c79849f4b60aab55772d69099557e49c86c6a43a863d65c1bc985246b3/litellm-1.95.0-cp311-cp311-manylinux_2_28_x86_64.whl (26.3 MB)
+#10 2428.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 26.3/26.3 MB 1.2 MB/s eta 0:00:00
+#10 2428.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/98/48/57ad8f6a0b878bcc449b3de63890fa78b2ea518e6d3a8f44ce73a0b4c8fe/litellm-1.94.3-cp311-cp311-manylinux_2_28_x86_64.whl (20.7 MB)
+#10 2443.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 20.7/20.7 MB 1.6 MB/s eta 0:00:00
+#10 2443.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/bd/27/a41f03750cf52dfb38967978156376df1c5d4e97f657226b1ba2fadf38a7/litellm-1.94.2-cp311-cp311-manylinux_2_28_x86_64.whl (20.7 MB)
+#10 2457.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 20.7/20.7 MB 1.5 MB/s eta 0:00:00
+#10 2457.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/25/91/1b79a585c836eb6eb6db5c2b3524cb285d4de2439002757c7e3f8b7f04b5/litellm-1.94.1-cp311-cp311-manylinux_2_28_x86_64.whl (20.7 MB)
+#10 2472.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 20.7/20.7 MB 1.4 MB/s eta 0:00:00
+#10 2472.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6d/b6/4da45a08fd9711648ff1ec8e5b3dadff192d259fa757be59a3160b0eb991/litellm-1.94.0-cp311-cp311-manylinux_2_28_x86_64.whl (20.7 MB)
+#10 2484.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 20.7/20.7 MB 1.4 MB/s eta 0:00:00
+#10 2485.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d7/ca/559ca0f5e0b99b9f641086ae924c782f8d521d09384fbe9abbe0bddb6e61/litellm-1.93.2-cp311-cp311-manylinux_2_28_x86_64.whl (20.2 MB)
+#10 2501.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 20.2/20.2 MB 1.3 MB/s eta 0:00:00
+#10 2501.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9c/61/cb1eb3c887a4e4141be0b7158a686dc8d99477662279983a810b77b284b8/litellm-1.93.1-cp311-cp311-manylinux_2_28_x86_64.whl (20.2 MB)
+#10 2514.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 20.2/20.2 MB 1.6 MB/s eta 0:00:00
+#10 2514.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7d/15/52ee5e4743ad656a4d408ca6fcd8bca844b572b6a8e9776f1232bd7d9d8d/litellm-1.93.0-cp311-cp311-manylinux_2_28_x86_64.whl (20.2 MB)
+#10 2525.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 20.2/20.2 MB 1.7 MB/s eta 0:00:00
+#10 2526.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/61/ef/d6f840ea8cea4c5fb00c37d88c26da4c638740cfaf3460aba0b4fc18b6db/litellm-1.92.2-cp311-cp311-manylinux_2_28_x86_64.whl (19.3 MB)
+#10 2543.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 19.3/19.3 MB 1.1 MB/s eta 0:00:00
+#10 2543.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/09/98/68bdd1d597c96d530b115ff0f37ea7bbf14928c1b5a3adb6bff42f6ada87/litellm-1.92.1-cp311-cp311-manylinux_2_28_x86_64.whl (19.3 MB)
+#10 2563.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?19.3/19.3 MB 905.4 kB/s eta 0:00:00
+#10 2563.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/51/29/f4d671762611a88ff7818e891094984202c7502e2984eed0e440a11332bd/litellm-1.92.0-cp311-cp311-manylinux_2_28_x86_64.whl (19.3 MB)
+#10 2577.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 19.3/19.3 MB 1.5 MB/s eta 0:00:00
+#10 2577.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0d/21/268c8febd55265d9bbb611c06496356186bdea37b64e1142eb92e9d48b7e/litellm-1.91.5-py3-none-any.whl (16.7 MB)
+#10 2589.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 1.6 MB/s eta 0:00:00
+#10 2589.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/37/8c/da17d91fc56532b36a27109447016d67e4618afc4447e8c4023240e920f5/litellm-1.91.4-py3-none-any.whl (16.7 MB)
+#10 2598.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 1.8 MB/s eta 0:00:00
+#10 2598.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d6/3c/157c54c924f9e6025797545a0cd915a98e98ad8d3f9011502a575781d4b5/litellm-1.91.3-py3-none-any.whl (16.7 MB)
+#10 2609.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 1.4 MB/s eta 0:00:00
+#10 2609.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/50/54/760eb0a5ffbfdb57364963e5330abe542b1292f7163a51963e88eb649a8d/litellm-1.91.2-py3-none-any.whl (16.7 MB)
+#10 2622.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 1.2 MB/s eta 0:00:00
+#10 2622.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3d/52/166a934d194afcff2a7ec4e1928f1865504ade2e26f62e24d49aaec400d1/litellm-1.91.1-py3-none-any.whl (16.7 MB)
+#10 2638.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 1.1 MB/s eta 0:00:00
+#10 2639.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a4/15/81fc2d162513803fe08b359c2e2a98f7a33195034fb94b005e263e272c6b/litellm-1.91.0-py3-none-any.whl (16.7 MB)
+#10 2654.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 1.2 MB/s eta 0:00:00
+#10 2655.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/20/aa/69b8aa6b3fd42308dc4beb91ac7b9694b404c1c253ba3ece20302cb52162/litellm-1.90.7-py3-none-any.whl (16.6 MB)
+#10 2667.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.6/16.6 MB 1.3 MB/s eta 0:00:00
+#10 2667.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fb/6e/e9823e0b0e613e44fa8d8abb5b928f37cc42495ffb6c192c36be646348e7/litellm-1.90.6-py3-none-any.whl (16.6 MB)
+#10 2684.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?16.6/16.6 MB 988.4 kB/s eta 0:00:00
+#10 2684.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1a/c2/557d3f35facab22c531497dc7a365dedd0f910875f73cab0f5369ac3601a/litellm-1.90.5-py3-none-any.whl (16.6 MB)
+#10 2698.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.6/16.6 MB 1.2 MB/s eta 0:00:00
+#10 2698.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/38/81/d9695a8aabba3f514a8ba41cffc405b1ab96c1daaeb6e15656cf8a8c243c/litellm-1.90.4-py3-none-any.whl (16.6 MB)
+#10 2711.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.6/16.6 MB 1.3 MB/s eta 0:00:00
+#10 2711.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c5/ad/b40e8a29ec9b4564c5fd96829c4b22512c24ca76045304b1b521d6ea68c1/litellm-1.90.3-py3-none-any.whl (16.6 MB)
+#10 2722.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.6/16.6 MB 1.6 MB/s eta 0:00:00
+#10 2722.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/24/30/3afa7b212ce1f9bb8b6fa5f58c631f437c1d7b3a025e4e4ed6b01b3d28ad/litellm-1.90.2-py3-none-any.whl (16.6 MB)
+#10 2731.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.6/16.6 MB 1.8 MB/s eta 0:00:00
+#10 2731.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d0/86/86063e003e0ca31f8304a5ba808d51d91b959512b33b6cab5e0c55e936e8/litellm-1.90.1-py3-none-any.whl (16.6 MB)
+#10 2740.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.6/16.6 MB 1.9 MB/s eta 0:00:00
+#10 2741.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c7/f7/0864ca487526ed478b857c704244255c7be4e13ed4dde7aeec13f679c904/litellm-1.90.0-py3-none-any.whl (16.6 MB)
+#10 2747.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.6/16.6 MB 2.6 MB/s eta 0:00:00
+#10 2747.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f6/1a/f087e0555d91ab5f93fb8c740447423aa785468b8edca9987724815b51ec/litellm-1.89.7-py3-none-any.whl (15.5 MB)
+#10 2760.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.5/15.5 MB 1.1 MB/s eta 0:00:00
+#10 2760.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7a/16/872bd33d3c4f161e8de673107d881c6295e69e23418a368bea7d3fd71e6b/litellm-1.89.6-py3-none-any.whl (15.5 MB)
+#10 2782.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?15.5/15.5 MB 679.6 kB/s eta 0:00:00
+#10 2782.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/46/38/d33ec44792a55c3cb59a4f87ce11a4c847e80eb41e9ed4f9e1e44bb6f8d4/litellm-1.89.5-py3-none-any.whl (15.5 MB)
+#10 2799.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?15.5/15.5 MB 920.6 kB/s eta 0:00:00
+#10 2799.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b8/cc/6fc72581a3ad22b7a53e8dddcc4ccc3ac679795d2200629f0fab35cb6d34/litellm-1.89.4-py3-none-any.whl (15.5 MB)
+#10 2813.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.5/15.5 MB 1.1 MB/s eta 0:00:00
+#10 2813.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d1/f1/34d174ff1d84e459b30f971606ac9cb7078ad24cd7661e9786b25adf7def/litellm-1.89.3-py3-none-any.whl (15.5 MB)
+#10 2828.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.5/15.5 MB 1.1 MB/s eta 0:00:00
+#10 2828.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/32/c8/51c93e8d017e7af02600171b5b6cc3805b07507acb2b94de7235ce764015/litellm-1.89.2-py3-none-any.whl (15.5 MB)
+#10 2843.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.5/15.5 MB 1.1 MB/s eta 0:00:00
+#10 2843.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ec/24/81f03088876a13b628fdbaf746ee746e1dff127d63f339ef72f1a3801c91/litellm-1.89.1-py3-none-any.whl (15.5 MB)
+#10 2854.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.5/15.5 MB 1.4 MB/s eta 0:00:00
+#10 2854.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/eb/86/49cf94af8c51cacc15fd9bff1e6f9de1fb07ab10b8bb09961675ab389af4/litellm-1.89.0-py3-none-any.whl (15.5 MB)
+#10 2862.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.5/15.5 MB 1.8 MB/s eta 0:00:00
+#10 2863.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f7/0b/2e42b95ccca2e2a8a524808e9c414f70a0352165dac589efa01192afb8ba/litellm-1.88.6-py3-none-any.whl (15.3 MB)
+#10 2868.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.3/15.3 MB 2.9 MB/s eta 0:00:00
+#10 2868.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/de/73/04f0b1ed787f3e7c7b000fa6a11d2ff6e264b9336581a83a4e196876d9ae/litellm-1.88.5-py3-none-any.whl (15.3 MB)
+#10 2874.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.3/15.3 MB 2.5 MB/s eta 0:00:00
+#10 2874.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/18/80/9624bca129d101772503aa6c2b14700cf82d0142fa14898f3a213162fca2/litellm-1.88.4-py3-none-any.whl (15.3 MB)
+#10 2886.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.3/15.3 MB 1.2 MB/s eta 0:00:00
+#10 2886.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d9/79/3b23dca483e3bdec1b2102d08709dd7c386e97bb97079a851817333c4136/litellm-1.88.3-py3-none-any.whl (15.3 MB)
+#10 2899.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.3/15.3 MB 1.1 MB/s eta 0:00:00
+#10 2900.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/01/90/c93eb77a3e26af75fdc97f7e533ad65c12b9a34e7966bf5e13c9bc5d3b70/litellm-1.88.2-py3-none-any.whl (15.3 MB)
+#10 2915.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?15.3/15.3 MB 902.2 kB/s eta 0:00:00
+#10 2916.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/42/9a/8f8909201b4bebaf96498c09226f6baa8540086a4c4188ad57d7dfbd97c1/litellm-1.88.1-py3-none-any.whl (15.3 MB)
+#10 2927.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.3/15.3 MB 1.3 MB/s eta 0:00:00
+#10 2927.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/da/71/deb6637475253b83eb4577c058863eec4b4ddaef2d08dcd93981b1aa4209/litellm-1.88.0-py3-none-any.whl (15.3 MB)
+#10 2937.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.3/15.3 MB 1.5 MB/s eta 0:00:00
+#10 2937.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ab/cb/12700dfe8a7b3fbaea8e9fac17d0cfaab59c42bfe34b5523598e559caf9c/litellm-1.87.5-py3-none-any.whl (17.2 MB)
+#10 2945.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.2/17.2 MB 2.2 MB/s eta 0:00:00
+#10 2945.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/09/ed/796fc350784ccc9c93a13675cc8adee7e13b025d4840f605b5b8dab0a556/litellm-1.87.4-py3-none-any.whl (17.1 MB)
+#10 2951.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.1/17.1 MB 3.2 MB/s eta 0:00:00
+#10 2951.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9f/95/6e4d66aceb2cdeb768c8301500d6a966840c7daf3d8f596820dcf6009c0a/litellm-1.87.3-py3-none-any.whl (17.1 MB)
+#10 2956.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.1/17.1 MB 3.1 MB/s eta 0:00:00
+#10 2957.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/46/5d/aac1831ada451a3fdd27ed26548ef775a8b29751ac79ea1a105ce693d628/litellm-1.87.2-py3-none-any.whl (17.1 MB)
+#10 2961.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.1/17.1 MB 3.8 MB/s eta 0:00:00
+#10 2961.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ff/18/8275c95ef09e81ab0c01a162c7b780ce3fbc49066b5d532c6b6ab3dc0118/litellm-1.87.1-py3-none-any.whl (17.1 MB)
+#10 2966.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.1/17.1 MB 3.3 MB/s eta 0:00:00
+#10 2967.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/98/20/88a372fa7e50fc2c33458c6eef94a79afcf7bdfa43610079531b82b484a3/litellm-1.87.0-py3-none-any.whl (17.1 MB)
+#10 2974.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.1/17.1 MB 1.9 MB/s eta 0:00:00
+#10 2975.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/46/c4/b377150cb5ea9634c45bad7c2d07de6683ee74950eff1eaec13e52fbfd17/litellm-1.86.7-py3-none-any.whl (17.1 MB)
+#10 2990.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.1/17.1 MB 1.1 MB/s eta 0:00:00
+#10 2990.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/21/fe/dcd9a721bf5411bae36213365945b79971176ed7f8775dc550b0cebe6383/litellm-1.86.6-py3-none-any.whl (17.0 MB)
+#10 3007.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 1.1 MB/s eta 0:00:00
+#10 3007.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7e/03/baa73376a73146dc627a8d767f4542983782e6a22d3d2c4a1bf24e8e26ba/litellm-1.86.5-py3-none-any.whl (17.0 MB)
+#10 3019.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 1.8 MB/s eta 0:00:00
+#10 3019.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3b/47/ad9cd76da945b3ba0cbe499170402d9dd01caf97b01d25862fb248aa424d/litellm-1.86.4-py3-none-any.whl (17.0 MB)
+#10 3027.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 2.1 MB/s eta 0:00:00
+#10 3027.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/72/65/1336b928007931fae7e65da43134172e6fd5cdd12dbd162edd278eed458b/litellm-1.86.3-py3-none-any.whl (17.0 MB)
+#10 3039.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 1.4 MB/s eta 0:00:00
+#10 3039.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/4d/37/4da1dd67157aaa11477d6c63e4725216bfc46b4661e581b490d17e5b2831/litellm-1.86.2-py3-none-any.whl (17.0 MB)
+#10 3048.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 1.9 MB/s eta 0:00:00
+#10 3048.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/76/47/e6e874857f45ff47762c6c29ec3dad9ea4757300e034400642cab90e4982/litellm-1.86.1-py3-none-any.whl (17.0 MB)
+#10 3053.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 3.7 MB/s eta 0:00:00
+#10 3054.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ff/0b/9a044c061a69e801de042e962c34f5bc2e094810e28b49ce0b3bedee9327/litellm-1.86.0-py3-none-any.whl (17.0 MB)
+#10 3058.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 3.6 MB/s eta 0:00:00
+#10 3058.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/bd/3b/baf1f8736c572f308eea14100372c39b3f70ee540e8cda537edd594628fc/litellm-1.85.7-py3-none-any.whl (17.0 MB)
+#10 3062.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 4.4 MB/s eta 0:00:00
+#10 3062.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/da/10/afa78df887c036b655db69effa0db55965e972b4bcf8ae722fc8408c925b/litellm-1.85.6-py3-none-any.whl (17.0 MB)
+#10 3066.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 5.0 MB/s eta 0:00:00
+#10 3066.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e2/6f/66946c2a3a6e8bd0ab85e05dc0598eeed77022f3e7d0ebad77268e41b99d/litellm-1.85.5-py3-none-any.whl (17.0 MB)
+#10 3070.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 3.9 MB/s eta 0:00:00
+#10 3070.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d1/95/11d405f6841f3ddfa4f20229a119bc8e4210ba4842dc1b206d473ccb7e14/litellm-1.85.4-py3-none-any.whl (17.0 MB)
+#10 3073.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 5.8 MB/s eta 0:00:00
+#10 3074.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b3/6f/4445675ac98431270c3188fdf3fd566665f2c1fd8b7b09e2abd16f041ff9/litellm-1.85.3-py3-none-any.whl (17.0 MB)
+#10 3076.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 6.3 MB/s eta 0:00:00
+#10 3077.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/85/89/d8c1566085dcf2274374094abdee3b76b84623b46a0cf01115d078a7bd9d/litellm-1.85.2-py3-none-any.whl (17.0 MB)
+#10 3080.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 4.7 MB/s eta 0:00:00
+#10 3080.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/17/a0/263a13c2253201aa11563a69d9a87f3510030aa765a16f57fc40ceefcdf5/litellm-1.85.1-py3-none-any.whl (17.0 MB)
+#10 3084.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 4.9 MB/s eta 0:00:00
+#10 3084.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1c/38/e6a4abb062e039d18d59538cc4e6fc370c2c10cd2bff4a2e546acb69dcb9/litellm-1.85.0-py3-none-any.whl (17.0 MB)
+#10 3088.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 17.0/17.0 MB 4.3 MB/s eta 0:00:00
+#10 3088.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/5b/88/e45bcdefc7a85bbef8eb852111dd4e02b92ea25727b6009c78893a768deb/litellm-1.84.10-py3-none-any.whl (16.8 MB)
+#10 3092.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.8/16.8 MB 4.8 MB/s eta 0:00:00
+#10 3092.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/57/da/58c241f0efa100f02fcad215106edbc42f8196f682b66b9ff11dd1b399d9/litellm-1.84.9-py3-none-any.whl (16.7 MB)
+#10 3095.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 5.1 MB/s eta 0:00:00
+#10 3095.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/12/9b/70a4f3378130564505046e94ce521363f50d075198e16b7663b66b11eb23/litellm-1.84.8-py3-none-any.whl (16.7 MB)
+#10 3099.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 5.1 MB/s eta 0:00:00
+#10 3099.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3c/42/87d4075d29bf2512b3be7983142aaf54ddc55dd4d370fd8d66ffd6622cfe/litellm-1.84.7-py3-none-any.whl (16.7 MB)
+#10 3103.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 4.2 MB/s eta 0:00:00
+#10 3103.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/73/fb/43df8bb9d72b420fdcb49b137f695a5bba21cf958e529eb4918d1bc20b83/litellm-1.84.6-py3-none-any.whl (16.7 MB)
+#10 3107.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 4.1 MB/s eta 0:00:00
+#10 3107.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/30/45/b4a6f2defbb2c59afc0ee595e145d254459396af86a6986387f5ebd23231/litellm-1.84.5-py3-none-any.whl (16.7 MB)
+#10 3112.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 3.2 MB/s eta 0:00:00
+#10 3112.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d6/db/70f2b12127b3db98d19146bd974e1a53bfcbd8755a5bac7667e02753c3cf/litellm-1.84.4-py3-none-any.whl (16.7 MB)
+#10 3116.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 4.9 MB/s eta 0:00:00
+#10 3116.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/ba/6f/c55e534afbcc14e72e5c41508158c9cf319657880dfd9c6d3ff3a3cce2af/litellm-1.84.3-py3-none-any.whl (16.7 MB)
+#10 3119.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 5.3 MB/s eta 0:00:00
+#10 3119.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a9/9c/58a4f9f189a8d9821a14844c0bcfbadc33477c663087a3fb9d2baba731be/litellm-1.84.2-py3-none-any.whl (16.7 MB)
+#10 3123.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 4.4 MB/s eta 0:00:00
+#10 3123.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1d/b0/11913b4b4d02f1fde11a2331b4122b090bd635a79cedbeeb70ef4f8f03b9/litellm-1.84.1-py3-none-any.whl (16.7 MB)
+#10 3127.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 5.0 MB/s eta 0:00:00
+#10 3127.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/01/a6/77fa1bbf5e42eb596b06318b3f7e6af5d0f44028046d1d598c6a595d028f/litellm-1.84.0-py3-none-any.whl (16.7 MB)
+#10 3131.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.7/16.7 MB 4.6 MB/s eta 0:00:00
+#10 3131.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7f/5c/1b5691575420135e90578543b2bf219497caa33cfd0af64cb38f30288450/litellm-1.83.14-py3-none-any.whl (16.5 MB)
+#10 3133.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.5/16.5 MB 7.5 MB/s eta 0:00:00
+#10 3133.7 Collecting openai==2.24.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3133.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c9/30/844dc675ee6902579b8eef01ed23917cc9319a1c9c0c14ec6e39340c96d0/openai-2.24.0-py3-none-any.whl (1.1 MB)
+#10 3134.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.1/1.1 MB 7.3 MB/s eta 0:00:00
+#10 3134.0 Collecting python-dotenv>=0.21.0 (from pydantic-settings==2.5.2->-r requirements.txt (line 7))
+#10 3134.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+#10 3134.1 Collecting tiktoken==0.12.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3134.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6a/d0/3d9275198e067f8b65076a68894bb52fd253875f3644f0a321a720277b8a/tiktoken-0.12.0-cp311-cp311-manylinux_2_28_x86_64.whl (1.2 MB)
+#10 3134.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.2/1.2 MB 7.0 MB/s eta 0:00:00
+#10 3134.4 Collecting importlib-metadata==8.5.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3134.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a0/d9/a1e041c5e7caa9a05c925f4bdbdfb7f006d1f74996af53467bc394c97be7/importlib_metadata-8.5.0-py3-none-any.whl (26 kB)
+#10 3134.5 Collecting tokenizers<1.0,>=0.15 (from fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 3134.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2e/76/932be4b50ef6ccedf9d3c6639b056a967a86258c6d9200643f01269211ca/tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+#10 3135.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 3.3/3.3 MB 6.9 MB/s eta 0:00:00
+#10 3135.1 Collecting click>=7.0 (from uvicorn==0.30.6->uvicorn[standard]==0.30.6->-r requirements.txt (line 4))
+#10 3135.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7e/d4/7ebdbd03970677812aac39c869717059dbb71a4cfc033ca6e5221787892c/click-8.1.8-py3-none-any.whl (98 kB)
+#10 3135.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 98.2/98.2 kB 10.9 MB/s eta 0:00:00
+#10 3135.2 Collecting aiohttp==3.13.4 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3135.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/af/53/29f9e2054ea6900413f3b4c3eb9d8331f60678ec855f13ba8714c47fd48d/aiohttp-3.13.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+#10 3135.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.8/1.8 MB 7.8 MB/s eta 0:00:00
+#10 3135.6 Collecting litellm<2,>=1.44 (from -r requirements.txt (line 32))
+#10 3135.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c5/57/99d553839018ba4c1b94fbe540f218fefb725fba79ecc2abf462cd39d719/litellm-1.83.13-py3-none-any.whl (16.4 MB)
+#10 3138.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.4/16.4 MB 6.9 MB/s eta 0:00:00
+#10 3138.1 Collecting python-dotenv>=0.21.0 (from pydantic-settings==2.5.2->-r requirements.txt (line 7))
+#10 3138.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6a/3e/b68c118422ec867fa7ab88444e1274aa40681c606d59ac27de5a5588f082/python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+#10 3138.3 Collecting aiohttp==3.13.3 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3138.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a1/7e/6815aab7d3a56610891c76ef79095677b8b5be6646aaf00f69b221765021/aiohttp-3.13.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+#10 3138.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.7/1.7 MB 6.7 MB/s eta 0:00:00
+#10 3138.7 Collecting litellm<2,>=1.44 (from -r requirements.txt (line 32))
+#10 3138.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a2/4c/93c0d7c65ac110e27f53febd4e3e249bc6a0df6cf8024cd5e0817bc1fedd/litellm-1.83.12-py3-none-any.whl (16.4 MB)
+#10 3141.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.4/16.4 MB 5.1 MB/s eta 0:00:00
+#10 3141.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/61/90/55095f450803ee7ea1b66961a33ba69e3c980e171d3cfad9eeec91c08f94/litellm-1.83.11-py3-none-any.whl (16.4 MB)
+#10 3146.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.4/16.4 MB 3.5 MB/s eta 0:00:00
+#10 3146.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6f/58/8dd69d5b1ab11f206a9c9f21b6fd191bcdd4fb3ed90b8efbf3a1291fd47c/litellm-1.83.10-py3-none-any.whl (16.3 MB)
+#10 3154.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.3/16.3 MB 1.8 MB/s eta 0:00:00
+#10 3154.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f8/54/8e288b0a5ac203dfe75210e694d75ddc27a87aa91ed769bf8eb97bb787e8/litellm-1.83.9-py3-none-any.whl (16.4 MB)
+#10 3160.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.4/16.4 MB 3.5 MB/s eta 0:00:00
+#10 3161.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f0/02/ee86522b2cb359079596d224db9b23dc12c02d7eeaf3d458abd7a0c54444/litellm-1.83.8-py3-none-any.whl (16.3 MB)
+#10 3163.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.3/16.3 MB 5.9 MB/s eta 0:00:00
+#10 3164.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/75/80/caeb4cdcad96451ba83ad3ba2a9da08b1e1a915fa845c489f56ea044488b/litellm-1.83.7-py3-none-any.whl (16.1 MB)
+#10 3167.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.1/16.1 MB 5.2 MB/s eta 0:00:00
+#10 3167.0 Collecting aiohttp==3.13.5 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3167.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7e/a5/0521aa32c1ddf3aa1e71dcc466be0b7db2771907a13f18cddaa45967d97b/aiohttp-3.13.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+#10 3167.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.8/1.8 MB 5.8 MB/s eta 0:00:00
+#10 3167.5 Collecting jsonschema==4.23.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3167.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/69/4a/4f9dbeb84e8850557c02365a0eee0649abe5eb1d84af92a25731c6c0f922/jsonschema-4.23.0-py3-none-any.whl (88 kB)
+#10 3167.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 88.5/88.5 kB 7.5 MB/s eta 0:00:00
+#10 3167.6 Collecting openai==2.30.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3167.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2a/9e/5bfa2270f902d5b92ab7d41ce0475b8630572e71e349b2a4996d14bdda93/openai-2.30.0-py3-none-any.whl (1.1 MB)
+#10 3167.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 1.1/1.1 MB 6.1 MB/s eta 0:00:00
+#10 3167.9 Collecting litellm<2,>=1.44 (from -r requirements.txt (line 32))
+#10 3168.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9c/64/e97def4d7a0434b0d921a6ef6120f417a40e8ca46a81526a85406c2ef297/litellm-1.83.6-py3-none-any.whl (16.0 MB)
+#10 3171.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.0/16.0 MB 4.8 MB/s eta 0:00:00
+#10 3171.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/16/8d/296a89452f71637099157d89419fe2a4cf68ccaf7cb8c7cc1d191948a5f4/litellm-1.83.5-py3-none-any.whl (16.0 MB)
+#10 3174.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.0/16.0 MB 6.6 MB/s eta 0:00:00
+#10 3174.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b8/bd/df19d3f8f6654535ee343a341fd921f81c411abf601a53e3eaef58129b02/litellm-1.83.4-py3-none-any.whl (16.0 MB)
+#10 3176.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.0/16.0 MB 7.3 MB/s eta 0:00:00
+#10 3176.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7a/cc/626df09cd4c31a13d5c6df097a228cac155f3739e0fa54dd0abc3479c88e/litellm-1.83.3-py3-none-any.whl (16.0 MB)
+#10 3179.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 16.0/16.0 MB 6.8 MB/s eta 0:00:00
+#10 3179.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/1c/65/ad643a729fea25a3905a854e10962353edd028c653bb7c63ea6278c959b7/litellm-1.83.2-py3-none-any.whl (15.6 MB)
+#10 3181.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.6/15.6 MB 5.6 MB/s eta 0:00:00
+#10 3182.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/95/ee/8dca6781464160a8ad856fb8d2e89ac1d918731323d5523b681f3c2ccc92/litellm-1.83.1-py3-none-any.whl (15.6 MB)
+#10 3184.3      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.6/15.6 MB 7.1 MB/s eta 0:00:00
+#10 3184.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/19/2c/a670cc050fcd6f45c6199eb99e259c73aea92edba8d5c2fc1b3686d36217/litellm-1.83.0-py3-none-any.whl (15.6 MB)
+#10 3186.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 15.6/15.6 MB 7.7 MB/s eta 0:00:00
+#10 3186.5 Collecting importlib-metadata>=6.8.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3186.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/65/b6/495438ad95e0102aff8f6786b5474202f38cd5d4700d03a72b77977dec10/importlib_metadata-10.1.0-py3-none-any.whl (32 kB)
+#10 3186.6 Collecting jsonschema<5.0.0,>=4.23.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3186.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl (90 kB)
+#10 3186.7      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 90.6/90.6 kB 12.1 MB/s eta 0:00:00
+#10 3186.8 Collecting openai>=2.8.0 (from litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3186.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fd/11/37b847d8a057000193974eeea1bcc681355ae50d35865f2eb2b323de6153/openai-3.42.1-py3-none-any.whl (2.4 MB)
+#10 3187.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 2.4/2.4 MB 8.0 MB/s eta 0:00:00
+#10 3187.3 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4.0,>=3.14.2->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3187.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/71/43/1947f06babed6b3f1d7f38b0c767f52df66bfb2bc10b468c4a7de9eceff2/aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+#10 3187.4 Collecting aiosignal>=1.4.0 (from aiohttp<4.0,>=3.14.2->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3187.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fb/76/641ae371508676492379f16e2fa48f4e2c11741bd63c48be4b12a6b09cba/aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+#10 3187.6 Collecting attrs>=17.3.0 (from aiohttp<4.0,>=3.14.2->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3187.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl (67 kB)
+#10 3187.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 67.5/67.5 kB 12.8 MB/s eta 0:00:00
+#10 3188.0 Collecting frozenlist>=1.1.1 (from aiohttp<4.0,>=3.14.2->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3188.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/11/b1/71a477adc7c36e5fb628245dfbdea2166feae310757dea848d02bd0689fd/frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
+#10 3188.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 231.1/231.1 kB 10.2 MB/s eta 0:00:00
+#10 3188.7 Collecting multidict<8.0,>=4.5 (from aiohttp<4.0,>=3.14.2->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3188.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d0/38/b8403d97ae5273002fa664c3c440c5cc186082fa0ba20fcc93885d13a686/multidict-7.2.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (510 kB)
+#10 3188.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?510.1/510.1 kB 6.7 MB/s eta 0:00:00
+#10 3189.1 Collecting propcache>=0.2.0 (from aiohttp<4.0,>=3.14.2->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3189.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/c7/06/519a5ebb48b6f94beb48396e55c905f12246a25c3a3608a7ec7bceabf50e/propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (235 kB)
+#10 3189.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?235.4/235.4 kB 8.1 MB/s eta 0:00:00
+#10 3189.8 Collecting yarl<2.0,>=1.25.1 (from aiohttp<4.0,>=3.14.2->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3189.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/95/0c/a71501bbc1a674ff72c4d6c2b75f4d9a5af819f5244c3a7558080a8802c5/yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+#10 3189.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?117.7/117.7 kB 8.7 MB/s eta 0:00:00
+#10 3190.1 Collecting prompt_toolkit>=3.0.36 (from click-repl>=0.2.0->celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 3190.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/54/6f/84908cad2d6aa5144abcf7b42709fe4fdb459bc640ec7ac5786e7693dabc/prompt_toolkit-3.0.53-py3-none-any.whl (392 kB)
+#10 3190.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?392.3/392.3 kB 7.1 MB/s eta 0:00:00
+#10 3190.6 Collecting protobuf<8.0.0,>=7.35.1 (from grpcio-tools>=1.41.0->qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 3190.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/db/f3/3996583dd2906297a637af12114deddf7658af6e683fedb83be061983fb5/protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+#10 3190.8      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?343.2/343.2 kB 6.9 MB/s eta 0:00:00
+#10 3190.8 Requirement already satisfied: setuptools>=77.0.1 in /usr/local/lib/python3.11/site-packages (from grpcio-tools>=1.41.0->qdrant-client==1.11.0->-r requirements.txt (line 14)) (79.0.1)
+#10 3190.9 Collecting anyio (from httpx>=0.20.0->httpx[http2]>=0.20.0->qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 3191.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/a9/16/7757fb84c819accc7d7e9af5291b261e4abb8627ee040f99e7d35ef2457a/anyio-4.16.0-py3-none-any.whl (134 kB)
+#10 3191.0      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 134.5/134.5 kB 10.5 MB/s eta 0:00:00
+#10 3191.1 Collecting httpcore==1.* (from httpx>=0.20.0->httpx[http2]>=0.20.0->qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 3191.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl (78 kB)
+#10 3191.2      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 78.8/78.8 kB 18.9 MB/s eta 0:00:00
+#10 3191.4 Collecting h2<5,>=3 (from httpx[http2]>=0.20.0->qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 3191.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7e/22/e85faf23bd72a92d1921e37d674ca56eb298a3c8be31fdecef0ff2b3aaac/h2-4.4.1-py3-none-any.whl (62 kB)
+#10 3191.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 62.6/62.6 kB 9.6 MB/s eta 0:00:00
+#10 3191.5 Collecting filelock>=3.10.0 (from huggingface-hub<2.0,>=0.20->fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 3191.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b7/8d/3f849fcb79359259737bc2d8ddcaee6149ffb773239a260c9ff20179736f/filelock-4.2.6-py3-none-any.whl (164 kB)
+#10 3191.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?164.4/164.4 kB 8.6 MB/s eta 0:00:00
+#10 3191.7 Collecting fsspec>=2023.5.0 (from huggingface-hub<2.0,>=0.20->fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 3191.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6c/c0/a98505f18594f1bce828bb159cec0fcf9860562f1a2c85913409fc8f3d9e/fsspec-2026.9.0-py3-none-any.whl (221 kB)
+#10 3191.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?221.7/221.7 kB 8.2 MB/s eta 0:00:00
+#10 3192.0 Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<2.0,>=0.20->fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 3192.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f8/1e/1e8ecc05ef034e9a95c18ed32d2ec07905a7cd2ca611a9d88e25ee1f4850/hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+#10 3192.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 4.3/4.3 MB 7.6 MB/s eta 0:00:00
+#10 3192.7 Collecting zipp>=3.20 (from importlib-metadata>=6.8.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3192.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b8/44/7bd2007260da11cccca29ba2d4c345f1287aa663db38ee7cefeabf6386a5/zipp-4.1.2-py3-none-any.whl (10 kB)
+#10 3193.0 Collecting MarkupSafe>=2.0 (from jinja2<4.0,>=3.1.6->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3193.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/81/a5/a513b76c139a3915b43404324e55c0b7979ae4f0d39eb6f075b0282e90a8/markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+#10 3193.2 Collecting jsonschema-specifications>=2023.03.6 (from jsonschema<5.0.0,>=4.23.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3193.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+#10 3193.4 Collecting referencing>=0.28.4 (from jsonschema<5.0.0,>=4.23.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3193.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl (26 kB)
+#10 3194.2 Collecting rpds-py>=0.25.0 (from jsonschema<5.0.0,>=4.23.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3194.3   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/2d/5c/aac3b960fd55d37b49f77c0eebbe043eaf36762ebd48e7b46951e59c1c05/rpds_py-2026.9.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (375 kB)
+#10 3194.4      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 375.4/375.4 kB 10.8 MB/s eta 0:00:00
+#10 3194.5 Collecting amqp<6.0.0,>=5.1.1 (from kombu<6.0,>=5.3.4->celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 3194.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e1/1d/2da3a059d2736e2ad8104762f93ad2145b6b0586aaa6be5290bab5d96c68/amqp-5.4.2-py3-none-any.whl (51 kB)
+#10 3194.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 52.0/52.0 kB 14.5 MB/s eta 0:00:00
+#10 3194.8 Collecting flatbuffers (from onnxruntime!=1.20.0,!=1.24.0,!=1.24.1,>=1.17.0->fastembed>=0.4.0->-r requirements.txt (line 29))
+#10 3194.9   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e8/2d/d2a548598be01649e2d46231d151a6c56d10b964d94043a335ae56ea2d92/flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+#10 3195.0 Collecting httpx2<3,>=2.12.0 (from openai>=2.8.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3195.1   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7b/3d/2e4bc4fd1ef9770871669adb348d612a6e4786b303a23f9935b81c48dd60/httpx2-2.16.0-py3-none-any.whl (97 kB)
+#10 3195.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 97.9/97.9 kB 14.1 MB/s eta 0:00:00
+#10 3195.4 Collecting jiter<1,>=0.16.0 (from openai>=2.8.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3195.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/85/93/f133c7b38cc1bc7516929e9d82a28caa6a4403b4d4c5c9c1d39170128dee/jiter-0.18.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (337 kB)
+#10 3195.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?337.1/337.1 kB 7.4 MB/s eta 0:00:00
+#10 3195.6 Collecting sniffio (from openai>=2.8.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3195.7   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl (10 kB)
+#10 3196.7 Collecting regex (from tiktoken<1.0,>=0.8.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3196.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/8a/70/aa08d1d2b294894b365e5f8ba5380fe3f8546acdb81f10639dfd74209c37/regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+#10 3196.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?805.0/805.0 kB 6.4 MB/s eta 0:00:00
+#10 3197.1 Collecting argon2-cffi-bindings (from argon2-cffi->minio==7.2.8->-r requirements.txt (line 15))
+#10 3197.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/6f/86/5363df11b86d02cf3662208e7406496327649cc90eb365bf6f4e8a54a41f/argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (26 kB)
+#10 3197.3 Collecting feedparser-sgmllib<3,>=2 (from feedparser->arxiv==1.4.3->-r requirements.txt (line 23))
+#10 3197.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/85/a0/79a31f898092e145bd66e2b338fb0656979acb2bbbcae8220940fbfcd820/feedparser_sgmllib-2.1.0-py3-none-any.whl (11 kB)
+#10 3197.7 Collecting cffi>=2.0.0 (from cryptography>=36.0.0->pdfminer.six==20231228->pdfplumber==0.11.4->-r requirements.txt (line 19))
+#10 3197.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f7/a4/4399daaf8f7dfee9d7c3327fdb0426ee041cc63edc358b93911ceb2bfc7a/cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+#10 3197.9      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?217.8/217.8 kB 1.8 MB/s eta 0:00:00
+#10 3198.1 Collecting hyperframe<7,>=6.1 (from h2<5,>=3->httpx[http2]>=0.20.0->qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 3198.2   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/48/30/47d0bf6072f7252e6521f3447ccfa40b421b6824517f82854703d0f5a98b/hyperframe-6.1.0-py3-none-any.whl (13 kB)
+#10 3198.3 Collecting hpack<5,>=4.2 (from h2<5,>=3->httpx[http2]>=0.20.0->qdrant-client==1.11.0->-r requirements.txt (line 14))
+#10 3198.4   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/71/b4/4a9fcfb2aef6ba44d9073ecd301443aa00b3dac95de5619f2a7de7ec8a91/hpack-4.2.0-py3-none-any.whl (34 kB)
+#10 3198.5 Collecting httpcore2==2.16.0 (from httpx2<3,>=2.12.0->openai>=2.8.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3198.6   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/af/c2/ce417c397afa5181f0e3c6ff01a4d01639414e1adef08730d97571297151/httpcore2-2.16.0-py3-none-any.whl (85 kB)
+#10 3198.6      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 85.1/85.1 kB 9.0 MB/s eta 0:00:00
+#10 3198.7 Collecting truststore>=0.10 (from httpx2<3,>=2.12.0->openai>=2.8.0->litellm<2,>=1.44->-r requirements.txt (line 32))
+#10 3198.8   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/51/e9/3a7820be2bb0fe53b6bc9c3be26d3d1158004e4c3ab953aa6840b955b1e9/truststore-0.10.5-py3-none-any.whl (19 kB)
+#10 3198.9 Collecting wcwidth>=0.1.4 (from prompt_toolkit>=3.0.36->click-repl>=0.2.0->celery==5.4.0->celery[redis]==5.4.0->-r requirements.txt (line 10))
+#10 3199.0   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fa/e8/0485850748dfdba9443f4151c7b2442cfa4987ba6cd871038eb5d6b8eca9/wcwidth-0.9.4-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (785 kB)
+#10 3199.1      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹?785.9/785.9 kB 5.5 MB/s eta 0:00:00
+#10 3199.4 Collecting pycparser (from cffi>=2.0.0->cryptography>=36.0.0->pdfminer.six==20231228->pdfplumber==0.11.4->-r requirements.txt (line 19))
+#10 3199.5   Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b6/ae/315bbeee126a769cbde43cf4908acb4b40408d8bf8bbf334dd7368d8dadf/pycparser-3.12-py3-none-any.whl (62 kB)
+#10 3199.5      鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣鈹佲攣 62.6/62.6 kB 8.7 MB/s eta 0:00:00
+#10 3200.0 Installing collected packages: flatbuffers, zipp, websockets, wcwidth, vine, uvloop, urllib3, tzdata, typing-extensions, truststore, tqdm, sniffio, rpds-py, regex, redis, pyyaml, python-multipart, python-dotenv, pypdfium2, pyparsing, PyMuPDFb, pycryptodome, pycparser, py-rust-stemmers, protobuf, propcache, portalocker, Pillow, numpy, networkx, multidict, mmh3, MarkupSafe, lxml, loguru, kiwisolver, jiter, idna, hyperframe, httptools, hpack, hf-xet, h11, fsspec, frozenlist, fonttools, filelock, feedparser-sgmllib, fastuuid, cycler, click, charset-normalizer, certifi, billiard, attrs, annotated-types, aiohappyeyeballs, yarl, uvicorn, requests, referencing, python-dateutil, PyMuPDF, pydantic-core, prompt_toolkit, onnxruntime, jinja2, importlib-metadata, httpcore2, httpcore, h2, grpcio, feedparser, contourpy, click-plugins, click-didyoumean, cffi, anyio, amqp, aiosignal, watchfiles, tiktoken, starlette, sickle, pydantic, matplotlib, kombu, jsonschema-specifications, httpx2, httpx, grpcio-tools, cryptography, click-repl, arxiv, argon2-cffi-bindings, aiohttp, pydantic-settings, pdfminer.six, openai, jsonschema, huggingface-hub, fastapi, celery, argon2-cffi, tokenizers, qdrant-client, pdfplumber, minio, litellm, fastembed
+#10 3215.3 Successfully installed MarkupSafe-3.0.4 Pillow-10.4.0 PyMuPDF-1.24.10 PyMuPDFb-1.24.10 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 amqp-5.4.2 annotated-types-0.8.0 anyio-4.16.0 argon2-cffi-25.1.0 argon2-cffi-bindings-26.1.0 arxiv-1.4.3 attrs-26.1.0 billiard-4.3.2 celery-5.4.0 certifi-2026.10.23 cffi-2.1.1 charset-normalizer-3.5.2 click-8.5.0 click-didyoumean-0.3.1 click-plugins-1.1.1.2 click-repl-0.4.1 contourpy-1.3.3 cryptography-50.0.2 cycler-0.12.1 fastapi-0.115.0 fastembed-0.9.1 fastuuid-0.14.0 feedparser-6.0.14 feedparser-sgmllib-2.1.0 filelock-4.2.6 flatbuffers-25.12.19 fonttools-4.68.0 frozenlist-1.8.0 fsspec-2026.9.0 grpcio-1.85.1 grpcio-tools-1.85.1 h11-0.16.0 h2-4.4.1 hf-xet-1.8.0 hpack-4.2.0 httpcore-1.0.9 httpcore2-2.16.0 httptools-0.9.0 httpx-0.28.1 httpx2-2.16.0 huggingface-hub-1.33.0 hyperframe-6.1.0 idna-3.20 importlib-metadata-10.1.0 jinja2-3.1.6 jiter-0.18.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 kiwisolver-1.5.1 kombu-5.6.2 litellm-1.83.0 loguru-0.7.3 lxml-6.1.3 matplotlib-3.9.2 minio-7.2.8 mmh3-5.3.1 multidict-7.2.1 networkx-3.3 numpy-1.26.4 onnxruntime-1.31.1 openai-3.42.1 pdfminer.six-20231228 pdfplumber-0.11.4 portalocker-2.10.1 prompt_toolkit-3.0.53 propcache-0.5.4 protobuf-7.36.2 py-rust-stemmers-0.1.8 pycparser-3.12 pycryptodome-4.2.0 pydantic-2.9.2 pydantic-core-2.23.4 pydantic-settings-2.5.2 pyparsing-3.3.3 pypdfium2-5.14.0 python-dateutil-4.0.0 python-dotenv-1.2.4 python-multipart-0.0.9 pyyaml-6.0.3 qdrant-client-1.11.0 redis-5.1.0 referencing-0.37.0 regex-2026.9.29 requests-2.32.3 rpds-py-2026.9.1 sickle-0.7.0 sniffio-1.3.1 starlette-0.38.6 tiktoken-0.14.0 tokenizers-0.23.3 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 tzdata-2026.6 urllib3-2.8.0 uvicorn-0.30.6 uvloop-0.23.0 vine-5.1.0 watchfiles-1.3.0 wcwidth-0.9.4 websockets-17.4 yarl-1.25.1 zipp-4.1.2
+#10 3215.3 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#10 3216.2 
+#10 3216.2 [notice] A new release of pip is available: 24.0 -> 26.2.2
+#10 3216.2 [notice] To update, run: pip install --upgrade pip
+#10 DONE 3219.7s
+
+#11 [6/8] COPY app ./app
+#11 DONE 0.2s
+
+#12 [7/8] COPY scripts ./scripts
+#12 DONE 0.0s
+
+#13 [8/8] COPY eval ./eval
+#13 DONE 0.0s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 13.9s done
+#14 exporting manifest sha256:e406540989e74a1f617666bd97e04c4008f07be72d3265caf5ae66c1097c06b3 0.0s done
+#14 exporting config sha256:4b5f4f26520e8cbe59fe4df878bfe0e77721fd6e3ed4b7bb8f065dc1ecb99f34 done
+#14 exporting attestation manifest sha256:13a108b421a27ab503825ee82b5b1c446c7a918429b511cab258ae583b502c34 0.0s done
+#14 exporting manifest list sha256:cf46bc2dc847e6afa4dc6983cc99f2df25fd88d347783b02000712bbc76cb882 0.0s done
+#14 naming to docker.io/library/2026-10-21-16-54-36-api:latest done
+#14 unpacking to docker.io/library/2026-10-21-16-54-36-api:latest
+#14 unpacking to docker.io/library/2026-10-21-16-54-36-api:latest 5.0s done
+#14 DONE 19.0s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image 2026-10-21-16-54-36-api Built 
+

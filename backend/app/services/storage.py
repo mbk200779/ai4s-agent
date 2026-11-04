@@ -65,16 +65,39 @@ class StorageService:
         return self.put_object(self.provenance_bucket, key, data, content_type)
 
     def get_presigned_url(self, bucket: str, key: str, expires: int = 3600) -> str:
-        """获取临时访问链接。"""
+        """获取临时访问链接。新版 minio SDK 要求 timedelta 类型；
+        用外部 endpoint（localhost:9000）签名，保证浏览器可直接访问。"""
         try:
-            return self.client.presigned_get_object(bucket, key, expires=expires)
-        except S3Error:
+            from datetime import timedelta
+            import os
+            # 容器内 endpoint（minio:9000）签名出的 URL 浏览器无法访问，
+            # 改用宿主机可达的 localhost:9000 生成签名（端口已映射）。
+            external_endpoint = os.environ.get("MINIO_EXTERNAL_ENDPOINT", "localhost:9000")
+            external_client = Minio(
+                external_endpoint,
+                access_key=settings.minio_access_key,
+                secret_key=settings.minio_secret_key,
+                secure=settings.minio_secure,
+            )
+            return external_client.presigned_get_object(
+                bucket, key, expires=timedelta(seconds=expires)
+            )
+        except Exception:
+            # S3Error 之外还可能出现连接错误（容器内 localhost 不可达等），
+            # 统一降级为空串，避免 500；调用方走代理端点兜底。
             return ""
 
     def get_pdf_bytes(self, key: str) -> bytes:
         """下载 PDF 字节。"""
         resp = self.client.get_object(self.papers_bucket, key)
         return resp.read()
+
+    def get_figure_bytes(self, key: str) -> tuple:
+        """下载 figures bucket 对象，返回 (bytes, content_type)。"""
+        resp = self.client.get_object(self.figures_bucket, key)
+        data = resp.read()
+        ctype = resp.headers.get("Content-Type") if resp.headers else None
+        return data, ctype
 
     def list_objects(self, bucket: str, prefix: str = "", recursive: bool = True, limit: int = 100):
         """列出对象，返回 {key, size, last_modified} 列表。"""

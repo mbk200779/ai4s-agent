@@ -29,10 +29,10 @@ export default function PdfViewer({ pdfUrl, page, bbox, scale = 1.5 }: PdfViewer
       setHighlight(null);
 
       try {
-        // 动态导入避免 SSR 问题；worker 使用 CDN，版本与 package 一致
+        // 动态导入避免 SSR 问题；worker 使用 CDN，版本需与实际安装的 pdfjs-dist 一致
         const pdfjsLib = await import('pdfjs-dist');
         pdfjsLib.GlobalWorkerOptions.workerSrc =
-          'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/build/pdf.worker.mjs';
+          'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';
 
         const pdf = await pdfjsLib.getDocument(pdfUrl).promise;
         const p = await pdf.getPage(page);
@@ -71,10 +71,10 @@ export default function PdfViewer({ pdfUrl, page, bbox, scale = 1.5 }: PdfViewer
 
   return (
     <div className="relative inline-block">
-      <canvas ref={canvasRef} className="rounded border border-slate-700 bg-white" />
+      <canvas ref={canvasRef} className="rounded border border-white/10 bg-white" />
       {loaded && highlight && (
         <div
-          className="pointer-events-none absolute border-2 border-yellow-400 bg-yellow-300/30"
+          className="pointer-events-none absolute border-2 border-amber-500 bg-amber-300/40"
           style={{
             left: highlight.left,
             top: highlight.top,
@@ -83,7 +83,7 @@ export default function PdfViewer({ pdfUrl, page, bbox, scale = 1.5 }: PdfViewer
           }}
         />
       )}
-      {error && <div className="mt-2 text-sm text-red-400">{error}</div>}
+      {error && <div className="mt-2 text-sm text-red-500">{error}</div>}
     </div>
   );
 }

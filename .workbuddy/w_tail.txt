@@ -1,0 +1,32 @@
+﻿docker : LiteLLM completion() model= qwen-plus; provider = dashscope
+所在位置 行:445 字符: 1
++ docker logs ai4s-worker --tail 25 2>&1 | Out-String -Width 220 | Out- ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (LiteLLM complet...der = dashscope    :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[2026-11-03 05:59:30,485: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m05:59:32 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 05:59:32,125: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m05:59:32 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 05:59:32,126: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:00:43 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:00:43,143: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:01:55,167: INFO/ForkPoolWorker-2] Task app.tasks.tasks.merge_parsed_chunks[2ff0ec1a-7e65-45ff-b845-f59ebfb1c730] retry: Retry in 30s: AttributeError("'NoneType' object has no attribute 'get'")
+[2026-11-03 06:01:55,291: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_chunks[2ff0ec1a-7e65-45ff-b845-f59ebfb1c730] received
+[92m06:02:30 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 06:02:30,276: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:02:32 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:02:32,409: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m06:02:32 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 06:02:32,412: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:03:43 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:03:43,494: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+

@@ -52,6 +52,15 @@ class FormulaExtractor:
                     img_bytes, self.llm._system_prompt("formula_latex")
                 ).strip()
 
+                # 过滤视觉模型的拒绝/无效回复，避免垃圾片段入库污染检索
+                if (
+                    not latex
+                    or len(latex) < 2
+                    or any(kw in latex for kw in ("请提供", "无法", "抱歉", "I cannot", "cannot", "Sorry"))
+                    or not any(ch in latex for ch in ("\\", "^", "_", "{", "/"))
+                ):
+                    continue
+
                 key = f"{arxiv_id}/{version}/formulas/page_{page_idx:04d}_formula_{formula_index:03d}.png"
                 self.storage.upload_figure(key, img_bytes, content_type="image/png")
 

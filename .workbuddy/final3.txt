@@ -1,0 +1,26 @@
+﻿docker :   File "/usr/local/lib/python3.11/site-packages/qdrant_client/http/api/points_api.py", line 1346, in delete_points
+所在位置 行:445 字符: 1
++ docker logs ai4s-worker --tail 12 2>&1 | Out-String -Width 200 | Out- ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "/usr/lo...n delete_points    :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    return self._build_for_delete_points(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/qdrant_client/http/api/points_api.py", line 212, in _build_for_delete_points
+    return self.api_client.request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/qdrant_client/http/api_client.py", line 79, in request
+    return self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/qdrant_client/http/api_client.py", line 102, in send
+    raise UnexpectedResponse.for_response(response)
+qdrant_client.http.exceptions.ApiException
+
+
+Length
+------
+  1111
+
+
+

@@ -1,0 +1,20 @@
+﻿docker :   File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 886, in urlopen
+所在位置 行:445 字符: 1
++ docker logs ai4s-api --tail 12 2>&1 | Out-String -Width 250 | Out-Fil ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (  File "/usr/lo...886, in urlopen    :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  [Previous line repeated 2 more times]
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/util/retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=9000): Max retries exceeded with url: /papers?location= (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9000): Failed to establish a new connection: [Err
+no 111] Connection refused"))
+INFO:     127.0.0.1:59464 - "GET /api/v1/health/ HTTP/1.1" 200 OK
+

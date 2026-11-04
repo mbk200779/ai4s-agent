@@ -77,7 +77,7 @@ graph TB
 
 | 组件 | 文件 | 职责 |
 |---|---|---|
-| 图谱服务 | `backend/app/services/graph_service.py` | 用 S2/OpenAlex 建图，计算引用含金量 |
+| 图谱服务 | `backend/app/services/graph_service.py` | 用 OpenAlex 建图，计算引用含金量 |
 | 综述服务 | `backend/app/services/review_service.py` | 强制句句引用、Markdown 导出 |
 
 **关键决策**：引用含金量 = `log1p(influentialCitationCount)` 归一化，低于 0.1 的边标记 `is_perfunctory` 并过滤，从而剔除应付式引用；图谱节点 `source_url` 优先 MinIO presigned，其次回退 arXiv PDF。

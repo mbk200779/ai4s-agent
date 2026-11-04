@@ -19,11 +19,15 @@ class BibliographyExtractor:
         将参考文献原始文本拆分为结构化条目。
         model 可指定为 qwen-max 等降本模型。
         """
-        # 截断到约 12k 字符，避免单次请求过长；更长文献可分批次调用
+        # 截断到约 12k 字符，避免单次请求过长；更长文献可分批处理，降低 token 成本
         truncated = raw_text[:12000]
         prompt = f"原始文本：\n{truncated}\n\n请按 JSON 格式输出参考文献条目。"
-        result = self.llm.json_chat(prompt, system_key="references", model=model)
-        refs = result.get("references", [])
+        try:
+            result = self.llm.json_chat(prompt, system_key="references", model=model)
+        except Exception:
+            result = None
+        # LLM 输出解析失败时 json_chat 可能返回 None，此时降级为不结构化而非崩溃
+        refs = (result or {}).get("references", [])
         if not isinstance(refs, list):
             return []
         # 保证每条有 id

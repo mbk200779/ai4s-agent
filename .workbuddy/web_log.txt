@@ -1,0 +1,7 @@
+﻿  鈻?Next.js 14.2.15
+  - Local:        http://31ca4b2a4d38:3000
+  - Network:      http://172.22.0.7:3000
+
+ 鉁?Starting...
+ 鉁?Ready in 46ms
+

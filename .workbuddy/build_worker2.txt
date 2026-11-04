@@ -1,0 +1,20 @@
+﻿docker :  Container ai4s-redis Running 
+所在位置 行:445 字符: 103
++ ... | Out-Null; docker compose -f "D:\workbuddy\2026-10-21-16-54-36\docke ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container ai4s-redis Running :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container ai4s-qdrant Running 
+ Container ai4s-minio Running 
+ Container ai4s-worker Recreate 
+ Container ai4s-worker Recreated 
+ Container ai4s-minio Waiting 
+ Container ai4s-qdrant Waiting 
+ Container ai4s-redis Waiting 
+ Container ai4s-minio Healthy 
+ Container ai4s-qdrant Healthy 
+ Container ai4s-redis Healthy 
+ Container ai4s-worker Starting 
+ Container ai4s-worker Started 
+

@@ -1,0 +1,8 @@
+﻿LEN: 8053
+背景 -> False
+bottom-6 -> True
+right-6 -> True
+fixed -> True
+色 -> False
+switcher -> False
+theme -> False

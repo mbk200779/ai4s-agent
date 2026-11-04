@@ -18,7 +18,8 @@ class EmbedderService:
 
     def __init__(self):
         if EmbedderService._dense_model is None:
-            EmbedderService._dense_model = TextEmbedding(model_name="BAAI/bge-m3")
+            # fastembed 0.9.x 不支持 bge-m3，改用同为 1024 维的多语言模型 e5-large
+            EmbedderService._dense_model = TextEmbedding(model_name="intfloat/multilingual-e5-large")
         if EmbedderService._sparse_model is None:
             EmbedderService._sparse_model = SparseTextEmbedding(model_name="Qdrant/bm25")
         self.dense_model = EmbedderService._dense_model

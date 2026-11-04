@@ -1,0 +1,27 @@
+﻿docker : [92m06:10:32 - LiteLLM:INFO[0m: utils.py:4004 - 
+所在位置 行:445 字符: 1
++ docker logs ai4s-worker --tail 20 2>&1 | Out-String -Width 220 | Out- ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([92m06:10:32 -...tils.py:4004 -     :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 06:10:32,592: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:11:43 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:11:43,677: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:13:59,989: INFO/ForkPoolWorker-2] Task app.tasks.tasks.merge_parsed_chunks[eb8a1d1d-676a-4c68-9059-725df2f414d6] retry: Retry in 30s: AttributeError("'NoneType' object has no attribute 'get'")
+[2026-11-03 06:14:00,005: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_chunks[eb8a1d1d-676a-4c68-9059-725df2f414d6] received
+[92m06:14:32 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 06:14:32,488: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:14:34 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:14:34,544: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+[92m06:14:34 - LiteLLM:INFO[0m: utils.py:4004 - 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[2026-11-03 06:14:34,546: INFO/ForkPoolWorker-2] 
+LiteLLM completion() model= qwen-plus; provider = dashscope
+[92m06:15:45 - LiteLLM:INFO[0m: utils.py:1652 - Wrapper: Completed Call, calling success_handler
+[2026-11-03 06:15:45,522: INFO/ForkPoolWorker-2] Wrapper: Completed Call, calling success_handler
+

@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🚀 启动 AI4S Agent（docker compose up）",
+      "type": "shell",
+      "command": "docker compose up --build -d",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🛑 停止 AI4S Agent（docker compose down）",
+      "type": "shell",
+      "command": "docker compose down",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "📊 运行 Eval（无 API Key 也能跑 fallback 模式）",
+      "type": "shell",
+      "command": "docker compose exec -T api python /app/scripts/eval_runner.py",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "🔍 查看服务状态",
+      "type": "shell",
+      "command": "docker compose ps",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

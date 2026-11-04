@@ -1,0 +1,9 @@
+﻿docker : sh: 1: wget: not found
+所在位置 行:445 字符: 1
++ docker exec ai4s-qdrant sh -c "wget -qO- http://localhost:6333/collec ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (sh: 1: wget: not found:String) [] 
+   , RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+

@@ -149,6 +149,35 @@ async def retrieve_papers(req: PaperQueryRequest):
     return retrieval.search(req.query, top_k=req.top_k, rrf_k=req.rrf_k)
 
 
+@router.get("/{arxiv_id}/pdf")
+async def get_pdf_stream(arxiv_id: str):
+    """
+    后端代理论文 PDF 原文件流。
+    浏览器/前端 pdf.js 直接访问该端点，无需 presigned URL（容器内
+    minio:9000 地址浏览器不可达，签名换域后又会失效，故走代理最稳）。
+    """
+    arxiv_id = _normalize_arxiv_id(arxiv_id)
+    vs = VectorStoreService()
+    meta = vs.get_paper_meta_by_arxiv_id(arxiv_id)
+    storage = StorageService()
+    s3_key = None
+    if meta and meta.get("pdf_s3_key"):
+        s3_key = meta["pdf_s3_key"]
+    else:
+        # 本地上传论文兜底：按已知 key 规则尝试
+        s3_key = f"{arxiv_id}/v1/paper.pdf"
+    try:
+        data = storage.get_pdf_bytes(s3_key)
+    except Exception:
+        raise HTTPException(status_code=404, detail="未找到论文 PDF，请重新上传")
+    from fastapi import Response
+    return Response(
+        content=data,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'inline; filename="{arxiv_id}.pdf"'},
+    )
+
+
 @router.get("/{arxiv_id}/pdf-url")
 async def get_pdf_url(arxiv_id: str):
     """

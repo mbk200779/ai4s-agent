@@ -1,0 +1,11 @@
+﻿[2026-11-03 05:48:22,238: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer 
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+[2026-11-03 05:48:22,253: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer 
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+[2026-11-03 05:48:23,288: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_chunks[929cbcad-119f-420d-8502-71c424c126be] received
+[2026-11-03 05:49:43,134: INFO/ForkPoolWorker-2] Task app.tasks.tasks.merge_parsed_chunks[929cbcad-119f-420d-8502-71c424c126be] retry: Retry in 30s: UnexpectedResponse()
+[2026-11-03 05:49:43,141: INFO/MainProcess] Task app.tasks.tasks.merge_parsed_chunks[929cbcad-119f-420d-8502-71c424c126be] received
+  . app.tasks.tasks.merge_parsed_chunks
+

@@ -1,0 +1,50 @@
+schema_version: 1
+request_id: 1b704a0f-eb54-482a-bbce-b0297b60f8ab
+created_at: 2026-10-28T16:48:12.065890
+updated_at: 2026-10-28T16:48:12.065890
+entry_type: full_pipeline
+stage_chain: [1, 2, 3]
+output_docx_path: C:////Users////36574////Desktop////作品介绍文档.docx
+output_docx_user_specified: true
+current_stage: completed
+stages:
+  stage_0:
+    status: completed
+    completed_at: 2026-10-28T16:48:12.065890
+    decision: full_pipeline
+  stage_1:
+    status: completed
+    started_at: 2026-10-28T16:48:12.065890
+    completed_at: 2026-10-28T16:48:12.065890
+    output_path: stage1/final_draft.md
+    genre: tech-blog
+    expert_used: general-writer
+    route_tag: general_writing
+    critic_decision: null
+  stage_2:
+    status: completed
+    started_at: 2026-10-28T16:48:12.065890
+    completed_at: null
+    route: html
+    html_sub: template
+    output_path: stage2/formatted-作品介绍文档.html
+    output_format: html
+    skills_invoked: []
+    design_tokens_path: null
+    fallback: false
+    fallback_reason: null
+  stage_3:
+    status: completed
+    started_at: null
+    completed_at: null
+    executor: doc-converter
+    input_format: html
+    output_path: C:////Users////36574////Desktop////作品介绍文档.docx/n    skill_used: ["python-docx"]
+    present_files_opened: true
+    fallback: false
+    fallback_reason: null
+consistency_check:
+  output_files_exist: pass
+  stage_chain_complete: pass
+  last_checked_at: 2026-10-28T16:52:11.131176
+  errors: []
