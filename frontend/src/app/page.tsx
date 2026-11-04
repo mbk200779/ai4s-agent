@@ -4,11 +4,20 @@ import { useState } from 'react';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || '';
 
-// 功能入口（六宫格 → 改为带编号的仪器式列表）
+// 功能入口（论文入库置于首位，其余依次排列）
 const FEATURES = [
   {
+    href: '/#upload-section',
+    title: '论文入库',
+    desc: '上传 PDF 或导入 arXiv，一键解析入库',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+      </svg>
+    ),
+  },
+  {
     href: '/qa',
-    code: '01',
     title: '可溯源问答',
     desc: '基于论文原文回答，每个答案都能回跳原句',
     icon: (
@@ -19,7 +28,6 @@ const FEATURES = [
   },
   {
     href: '/graph',
-    code: '02',
     title: '引用图谱',
     desc: '可视化论文引用网络，影响力一目了然',
     icon: (
@@ -30,7 +38,6 @@ const FEATURES = [
   },
   {
     href: '/review',
-    code: '03',
     title: '综述生成',
     desc: '一句话主题，自动生成句句有出处的综述',
     icon: (
@@ -41,7 +48,6 @@ const FEATURES = [
   },
   {
     href: '/writing',
-    code: '04',
     title: '写作辅助',
     desc: '论文大纲 + 可复现科研图表一站式生成',
     icon: (
@@ -52,23 +58,11 @@ const FEATURES = [
   },
   {
     href: '/eval',
-    code: '05',
     title: '可信评测',
     desc: '自动运行全套质量检查，可复现可审计',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    href: '/qa',
-    code: '06',
-    title: '论文入库',
-    desc: '上传 PDF 或导入 arXiv，一键解析入库',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
       </svg>
     ),
   },
@@ -195,14 +189,11 @@ export default function HomePage() {
               className="group relative bg-[var(--surface)] p-6 transition-colors hover:bg-[var(--signal-soft)]"
               style={{ animationDelay: `${i * 60}ms` }}
             >
-              <div className="mb-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[var(--line)] text-[var(--signal)] transition-colors group-hover:border-[var(--signal)] group-hover:bg-[var(--surface)]">
-                    {f.icon}
-                  </span>
-                  <h3 className="text-lg font-semibold text-[var(--ink)]">{f.title}</h3>
-                </div>
-                <span className="mono text-xs text-[var(--ink-3)]">{f.code}</span>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[var(--line)] text-[var(--signal)] transition-colors group-hover:border-[var(--signal)] group-hover:bg-[var(--surface)]">
+                  {f.icon}
+                </span>
+                <h3 className="text-lg font-semibold text-[var(--ink)]">{f.title}</h3>
               </div>
               <p className="text-base leading-relaxed text-[var(--ink-2)]">{f.desc}</p>
               <span className="mt-5 inline-flex items-center gap-1.5 text-base font-medium text-[var(--signal)]">

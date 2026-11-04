@@ -65,8 +65,7 @@ export default function ReviewPage() {
           </svg>
         </span>
         <div>
-          <span className="eyebrow">Survey Generation</span>
-          <h1 className="display text-2xl">综述生成</h1>
+          <h1 className="display text-3xl">综述生成</h1>
         </div>
       </div>
 

@@ -107,8 +107,7 @@ export default function QAPage() {
           </svg>
         </span>
         <div>
-          <span className="eyebrow">Question & Answer</span>
-          <h1 className="display text-2xl">可溯源问答</h1>
+          <h1 className="display text-3xl">可溯源问答</h1>
         </div>
       </div>
 
@@ -130,8 +129,7 @@ export default function QAPage() {
         {messages.map((msg, i) => (
           <div key={i} className="card card-tick space-y-4 p-6">
             <div>
-              <div className="eyebrow mb-1">Question</div>
-              <p className="text-base font-medium text-[var(--ink)]">{msg.question}</p>
+              <p className="text-base font-semibold text-[var(--ink)]">{msg.question}</p>
             </div>
 
             {msg.response.rejected ? (
@@ -140,7 +138,6 @@ export default function QAPage() {
               </div>
             ) : (
               <div>
-                <div className="eyebrow mb-2">Answer</div>
                 <p className="leading-relaxed text-[var(--ink)]">
                   {renderAnswer(msg.response.answer, msg.response.citations)}
                 </p>

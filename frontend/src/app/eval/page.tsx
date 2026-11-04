@@ -77,8 +77,7 @@ export default function EvalPage() {
             </svg>
           </span>
           <div>
-            <span className="eyebrow">Evaluation</span>
-            <h1 className="display text-2xl">评测报告面板</h1>
+            <h1 className="display text-3xl">评测报告面板</h1>
           </div>
         </div>
         <button onClick={runEval} disabled={running} className="btn-primary">

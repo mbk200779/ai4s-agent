@@ -128,8 +128,7 @@ export default function WritingPage() {
           </svg>
         </span>
         <div>
-          <span className="eyebrow">Writing & Figures</span>
-          <h1 className="display text-2xl">写作辅助</h1>
+          <h1 className="display text-3xl">写作辅助</h1>
         </div>
       </div>
 

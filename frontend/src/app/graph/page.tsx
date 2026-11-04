@@ -63,8 +63,7 @@ export default function GraphPage() {
           </svg>
         </span>
         <div>
-          <span className="eyebrow">Citation Graph</span>
-          <h1 className="display text-2xl">引用图谱</h1>
+          <h1 className="display text-3xl">引用图谱</h1>
         </div>
       </div>
 
