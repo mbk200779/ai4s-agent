@@ -153,7 +153,9 @@ bash deploy/demo-check.sh   # 上台前 30 秒自检
 
 ## 在线演示
 
-- **地址**：部署后填写（当前本地 `http://localhost:8080`，局域网入口见部署机 IP）
+- **地址**：**https://demo.mabokai.site**（Cloudflare 命名隧道 + 自有域名，固定不变）
+- **备用入口**：`http://localhost:8080`（本机）、`http://10.110.32.40:8080`（同一局域网）
+- **说明**：公网入口受国内到 Cloudflare 的国际链路影响，实测约 1/3 的请求失败、成功时 1.5–2.1s 返回；现场演示请用本地或局域网入口
 - **评审账号**：若开启登录，用 `.env` 中的 `JUDGE_USERNAME` / `JUDGE_PASSWORD`
 - **可用性自检**：`bash deploy/demo-check.sh`（六项检查，输出「可以演示 / 有 N 项注意 / N 项不通过」）
 
