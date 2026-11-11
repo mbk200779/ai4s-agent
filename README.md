@@ -1,38 +1,83 @@
 # AI4S 学术研究 Agent
 
-面向科研人员的可验证、可复现 AI4S 学术研究 Agent。支持 PDF 上传/arXiv 拉取、细粒度结构化解析、可溯源问答、跨文献推理、引用图谱与综述生成。
+> 面向科研人员的**可验证、可复现、可溯源** AI4S 学术研究 Agent。
+> 每一句结论都能回跳到 PDF 的精确位置，每一次评测都能用哈希证明结果一致。
 
-## 团队信息
+<p>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white">
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.110-009688?logo=fastapi&logoColor=white">
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-14-000000?logo=next.js&logoColor=white">
+  <img alt="Qdrant" src="https://img.shields.io/badge/Qdrant-1.11-DC244C">
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-0f766e">
+</p>
 
-- **作者**：马博凯
-- **联系方式**：18734600277
-- **项目仓库**：https://github.com/mbk200779/ai4s-agent
+---
 
-## 技术栈
+## 它解决什么问题
 
-- 后端：Python + FastAPI（uvicorn）
-- 前端：Next.js（React + TypeScript）
-- 向量库：Qdrant（named vectors：dense bge-m3 + sparse BM25，RRF 融合）
-- 对象存储：MinIO（原始 PDF / 页面图 / 生成图表）
-- 任务队列：Redis + Celery
-- 数据接入：arXiv + Semantic Scholar +（可扩展 Crossref/OpenAlex）
-- LLM：LiteLLM 统一抽象 GPT/Claude/Qwen，`temperature=0`
+科研人员读论文，真正花时间的不是「读得慢」，而是三件事：定位某个具体事实、判断某句话的出处、在多篇论文之间对齐口径。
 
-## 快速开始（一键复现）
+把大模型直接接上去会立刻遇到两个问题：**幻觉引用**（给出格式完美但不存在的出处）和**不可复现**（同一问题三次三个答案）。在科研场景里，这两点的危害远大于「不知道」。
+
+本项目的做法不是「做一个能聊论文的机器人」，而是**把大模型放进一个有证据边界、有校验环节、有量化指标的流程里**。
+
+## 功能一览
+
+| 页面 | 能力 | 关键设计 |
+|---|---|---|
+| `/library` 论文库 | PDF 上传、arXiv 导入、去重、状态、删除 | 三层去重；清单以 SQLite 为准，解析中的论文不会「消失」 |
+| `/qa` 问答 | 可溯源问答、流式输出、引用回跳 PDF 原位 | 强制 `[引#N]` + 程序校验；三档置信（已验证 / 需核对 / 无法回答） |
+| `/qa` 库外补货 | 库内答不了时检索 arXiv 并推荐 | 给出命中词与摘要原句，可核对；支持一键入库后重问 |
+| `/graph` 图谱 | 引用图谱、影响力渲染、点跳原文 | 引用含金量 = `log1p(influentialCitationCount)`，过滤应付式引用 |
+| `/review` 综述 | 论断抽取 → 观点聚类 → 冲突标注 → 分簇撰写 | 极性进簇键，从结构上杜绝「各有优势」式综述 |
+| `/writing` 写作绘图 | 大纲生成、matplotlib / mermaid 图表 | 代码生成替代文生图，同输入同输出 |
+| `/eval` 评测 | 48 题评测、五组基线、报告对比 | `output_hash` + 索引签名，两次运行 diff=0 |
+
+## 技术架构
+
+![系统架构](docs/assets/architecture.png)
+
+| 容器 | 端口 | 职责 |
+|---|---|---|
+| `web` | 3000 | Next.js 前端 |
+| `api` | 8000 | FastAPI：检索、生成、引用校验、置信分级、SSE |
+| `worker` | — | Celery：解析、分块、嵌入、入库、索引重建 |
+| `qdrant` | 6333 | 向量库（dense + sparse named vectors） |
+| `minio` | 9000 | 原始 PDF、页面图、provenance 日志 |
+| `redis` | 6379 | 任务队列与结果后端 |
+| `gateway` | **8080** | nginx：静态资源 + `/api` 反向代理（对外只暴露这一个端口） |
+| `tunnel` | — | cloudflared 出站隧道，无公网 IP 也能对外提供 HTTPS |
+
+**关键设计决策**
+
+- **`api` 与 `worker` 共用同一镜像**，只在启动命令上区分。解析与检索共用同一套 embedding 实现，版本漂移会导致入库向量与查询向量不在同一空间，这类问题极难排查。
+- **论文清单以 SQLite 为准，不以 Qdrant 为准。** 正在解析、解析失败的论文在向量库里还没有点，但它们确实已在库中；读向量库会让用户看到「刚传的论文消失了」。
+- **索引版本化的单位是 collection。** Qdrant 的 named vector 维度是集合级的，换模型没法用 payload 区分版本。命名规则 `ai4s_papers__<version>-<signature>`，签名只含会改变向量的因素（模型名、维度、分块大小、`embed_max_chars`）。重建不停服：后台建新集合 → 从 SQLite 重放 → 校验 → 切路由 → 旧集合留待回滚。
+- **检索用双路 + RRF（k=60），不学权重。** 无训练、无黑盒参数，结果完全确定，天然满足复现要求。实测融合的价值不在 Recall（0.7500 vs 纯 BM25 的 0.8056），而在**可分性**——AUC 从 0.5000 提升到 0.7766，这时讨论阈值与拒答才有意义。
+
+## 快速开始
 
 ```bash
-# 1. 复制并填写环境变量
+# 1. 准备环境变量（至少填一个 LLM API key）
 cp .env.example .env
-# 编辑 .env 填入 OPENAI_API_KEY 等
 
-# 2. 构建并启动 6 个服务
-make up
+# 2. 构建并启动（首次约 5~10 分钟，含 embedding 模型下载）
+docker compose up -d --build
 
-# 3. 一键验收
-make eval
+# 3. 自检（容器 / 服务 / 索引 / 入口 / 可选真实问答）
+bash deploy/demo-check.sh --with-qa
 
-# 4. 浏览器打开
-open http://localhost:3000
+# 4. 打开
+#    http://localhost:8080        经网关（推荐）
+#    http://localhost:3000        前端直连
+#    http://localhost:8000/docs   接口文档
+```
+
+导入语料：
+
+```bash
+docker compose exec api python /app/scripts/ingest.py --arxiv 1706.03762 1810.04805
+# 或在网页 /library 页面直接上传 PDF / 填 arXiv ID
 ```
 
 常用命令：
@@ -41,350 +86,101 @@ open http://localhost:3000
 make up      # 构建并启动
 make down    # 停止并移除
 make logs    # 查看日志
-make eval    # 健康检查与 200 验证
-make help    # 查看全部命令
+make eval    # 一键评测
+bash deploy/demo-check.sh   # 上台前 30 秒自检
 ```
 
-## 架构图
+## 环境变量
 
-```mermaid
-graph TB
-    User((用户)) -->|HTTP 3000| Web[web<br/>Next.js]
-    Web -->|HTTP 8000| API[api<br/>FastAPI + uvicorn]
-    API --> Qdrant[(qdrant<br/>dense+sparse vectors)]
-    API --> MinIO[(minio<br/>PDF/图片对象存储)]
-    API --> Redis[(redis<br/>Celery broker/backend)]
-    Worker[worker<br/>Celery] --> Redis
-    Worker --> Qdrant
-    Worker --> MinIO
-    Worker -.->|arxiv/sickle| Arxiv[arXiv OAI-PMH]
-    Worker -.->|S2 API| S2[Semantic Scholar]
-    Worker -.->|OpenAlex API| OA[OpenAlex]
-    Worker -.->|Crossref API| CR[Crossref]
-```
-
-## 服务清单
-
-| 服务 | 容器名 | 端口 | 说明 |
-|---|---|---|---|
-| web | ai4s-web | 3000 | Next.js 前端 |
-| api | ai4s-api | 8000 | FastAPI 后端 |
-| worker | ai4s-worker | - | Celery 异步解析/索引 |
-| qdrant | ai4s-qdrant | 6333 | 向量数据库 |
-| minio | ai4s-minio | 9000/9001 | 对象存储 |
-| redis | ai4s-redis | 6379 | 任务队列与缓存 |
-
-## 关键设计决策
-
-**服务编排与网络**：6 个服务全部挂在一个 bridge 网络 `ai4s-net` 上，服务名即 DNS，容器间通过 `http://qdrant:6333`、`redis://redis:6379/0` 等地址通信；MinIO bucket 的初始化内嵌在 minio 容器启动脚本中，不额外创建一次性 init 服务，保证 `docker compose up` 后正好 6 个服务。
-
-**唯一键与去重策略**：唯一键使用 `arxiv_id+version`；在此基础上叠加两层去重——全文 SHA256 `body_hash` 精确去重，以及 `bge-m3` 正文 embedding 余弦相似度（阈值 0.96）语义去重。这样既能快速拒绝同名同文重复上传，也能合并不同文件名但内容相同的稿件，还能识别 arXiv 小版本差异过大的重复版本。
-
-## 数据接入与入库模块
-
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| arXiv 单篇/追新 | `backend/app/services/arxiv_client.py` | arxiv 库单篇查询 + sickle OAI-PMH 增量追新 |
-| Semantic Scholar | `backend/app/services/s2_client.py` | paperId、references、citations、influentialCitationCount |
-| OpenAlex | `backend/app/services/openalex_client.py` | 备用引用关系与概念标签 |
-| Crossref | `backend/app/services/crossref_client.py` | DOI、期刊、作者、被引数补全 |
-| 向量化与去重 | `backend/app/services/vector_store.py` | chunk 向量 + paper_meta 引用关系，双重去重 |
-| 批量入库脚本 | `backend/scripts/ingest.py` | PDF 目录 / arXiv ID 列表批量入队 |
-| 定时追新任务 | `backend/app/tasks/tasks.py` | Celery beat 每 6 小时执行 `fetch_arxiv_category_updates` |
-
-### 入库流程
-
-1. 接收 PDF（上传）或从 arXiv 下载 PDF → 写入 MinIO `papers` bucket。
-2. Celery worker 异步解析 PDF，得到 `full_text`、`body_hash`、`chunks`、页面截图。
-3. **去重**：
-   - 检查 `arxiv_id+version` 是否已存在；
-   - 检查 `body_hash` 是否已存在；
-   - 用正文前 4096 字符的 `bge-m3` embedding 在 `paper_meta` 集合中相似度搜索，阈值 0.96。
-4. 页面截图写入 MinIO `figures` bucket。
-5. chunks 写入 Qdrant `ai4s_papers` collection（dense + sparse named vectors）。
-6. 调用 S2 / OpenAlex / Crossref 补齐引用关系与元数据。
-7. 论文元数据 + 引用图写入 Qdrant `ai4s_paper_meta` collection。
-
-### 模块验收标准
-
-1. 上传 PDF → MinIO `papers` bucket 出现原稿，Qdrant `ai4s_papers` 出现 chunk 向量、`ai4s_paper_meta` 出现元数据与引用关系。
-2. 同 `arxiv_id+version` 重复上传不重复建索引。
-3. 不同文件名但正文相同的 PDF 被 `body_hash` 或 embedding 相似度合并。
-4. `backend/scripts/ingest.py --arxiv 2401.12345` 能批量入队并正常解析。
-
-## 环境变量说明
+完整模板见 [`.env.example`](.env.example)（13 组，全部有可用默认值）。必填项只有 LLM 的 key（`OPENAI_API_KEY` / `ANTHROPIC_API_KEY` / `DASHSCOPE_API_KEY` 之一）。
 
 | 变量 | 说明 | 默认值 |
 |---|---|---|
-| `NEXT_PUBLIC_API_URL` | 前端调用 API 的基地址 | `http://localhost:8000` |
-| `LITELLM_MODEL` | 默认 LLM 模型 | `openai/gpt-4o-mini` |
-| `LITELLM_CHEAP_MODEL` | 量大/结构化降本模型（如 qwen-max） | `openai/gpt-4o-mini` |
-| `LITELLM_VISION_MODEL` | 多模态视觉模型 | `openai/gpt-4o-mini` |
-| `OPENAI_API_KEY` | OpenAI API key | - |
-| `ANTHROPIC_API_KEY` | Claude API key | - |
-| `DASHSCOPE_API_KEY` | 阿里云灵积 API key（Qwen） | - |
-| `QDRANT_COLLECTION` | Qdrant chunk collection 名称 | `ai4s_papers` |
-| `QDRANT_PAPER_META_COLLECTION` | Qdrant 论文元数据 collection 名称 | `ai4s_paper_meta` |
-| `MINIO_ROOT_USER` / `MINIO_ROOT_PASSWORD` | MinIO 管理员账号 | `minioadmin` |
-| `MINIO_BUCKET_PAPERS` / `MINIO_BUCKET_FIGURES` | MinIO bucket 名 | `papers` / `figures` |
-| `S2_API_KEY` | Semantic Scholar API key（可选） | - |
-| `JUDGE_USERNAME` / `JUDGE_PASSWORD` | 云端评审账号 | `judge` / `ai4s2024` |
-| `TEMPERATURE` | LLM 温度（固定 0） | `0` |
-| `PROMPT_VERSION` | Prompt 版本号 | `v1.0.0` |
+| `LITELLM_MODEL` | 主模型（问答、综述、推理） | `openai/gpt-4o-mini` |
+| `LITELLM_CHEAP_MODEL` | 降本模型（章节树、参考文献拆条） | 同主模型 |
+| `LITELLM_VISION_MODEL` | 多模态（公式转 LaTeX、图表描述） | 同主模型 |
+| `EMBED_THREADS` | 嵌入线程数（8 为实测最优） | `8` |
+| `RERANK_ENABLED` | 精排开关（可一键 A/B） | `true` |
+| `CONFIDENCE_VERIFIED_SCORE` | 判「已验证」的证据覆盖率线 | `0.55` |
+| `PIPELINE_VERSION` | 索引 pipeline 版本 | `v1.0.0` |
+| `JUDGE_USERNAME` / `JUDGE_PASSWORD` | 评审账号（公网演示用） | `judge` / `ai4s2024` |
+| `CLOUDFLARE_TUNNEL_TOKEN` | 隧道 token（留空则不启动 tunnel） | 空 |
 
-## 验收标准
+> **密钥安全**：`.env` 已在 `.gitignore` 中，代码里没有任何硬编码 key，全部经环境变量注入。
 
-1. `make up` 后 `docker compose ps` 显示 6 个服务全部 `healthy`。
-2. `curl http://localhost:8000/api/v1/health/` 返回 200。
-3. `curl http://localhost:3000/` 返回 200。
-4. `make help` 能列出 `up/down/logs/eval/help` 等全部命令。
-
-## 目录结构
+## 项目结构
 
 ```text
 .
-├── Makefile                    # 运维命令封装
-├── docker-compose.yml          # 6 服务编排
-├── .env.example                # 环境变量模板
-├── scripts/
-│   └── init-minio.sh           # MinIO bucket 初始化
+├── docker-compose.yml           # 8 容器编排
+├── .env.example                 # 环境变量模板
+├── Makefile                     # up / down / logs / eval
 ├── backend/
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── app/                    # FastAPI 业务代码
-└── frontend/
-    ├── Dockerfile
-    ├── package.json
-    └── src/app/                # Next.js 页面
+│   ├── app/
+│   │   ├── api/v1/endpoints/    # papers / qa / review / graph / ingest / library / recommend …
+│   │   ├── services/            # 解析、检索、生成、校验、索引版本、外部检索
+│   │   ├── tasks/               # Celery 任务与定时调度
+│   │   └── core/config.py       # 全部可调参数集中于此
+│   └── eval/                    # golden QA 与历史评测报告
+├── frontend/src/
+│   ├── app/                     # 首页 / 论文库 / 问答 / 图谱 / 综述 / 写作 / 评测
+│   └── components/              # answer / ingest / graph
+├── deploy/
+│   ├── nginx.conf               # 网关配置
+│   ├── demo-check.sh            # 一键自检
+│   └── 云服务器迁移清单.md       # 迁移步骤
+├── scripts/build_tech_pdf.py    # 技术文档 → PDF
+└── docs/                        # 技术文档、架构说明、各模块设计记录
 ```
 
-## 检索层模块
+## 评测结果
 
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| 检索服务 | `backend/app/services/retrieval_service.py` | dense(bge-m3) + sparse(BM25) 双路召回 + RRF 融合 |
-| 向量库 | `backend/app/services/vector_store.py` | Qdrant named vectors，统一 fragment 索引 |
-| 搜索封装 | `backend/app/services/search_service.py` | 供 QA/综述使用的 RRF 检索接口 |
-| 评测脚本 | `backend/scripts/eval_retrieval.py` | 验证 dense/sparse/fusion 与复现性 |
+语料：4 篇赛题 PDF（Attention / BERT / ViT / LoRA），209 段、279 索引点；48 题评测集，5 组配置跑同一条链路。
 
-### 关键设计决策
+| 配置 | Recall@5 | MRR@5 | nDCG@5 | 可分性 AUC |
+|---|---|---|---|---|
+| 纯向量（dense only） | 0.7500 | 0.5764 | 0.5694 | 0.5000 |
+| 纯 BM25（sparse only） | 0.8056 | 0.6366 | 0.5878 | 0.5000 |
+| 混合（RRF） | 0.7500 | 0.5787 | 0.5663 | 0.7766 |
+| 混合 + 精排 | **0.8333** | 0.5875 | 0.5766 | 0.7812 |
+| 本系统（分流 + 规则 + 精排） | 0.8056 | **0.6005** | **0.6062** | 0.6300 |
 
-**RRF 融合**：dense 与 sparse 分别检索后，使用无参数的 Reciprocal Rank Fusion（k=60）按排序位置融合，不训练、不调权重，保证结果稳定、可复现、可解释。返回片段必须携带 `page`/`paragraph`/`bbox`/`kind`，供前端溯源高亮。
+- **引用严格准确率 76.47%**（人工抽检 17 条可判引用）；越界引用 100% 被标记为 `[无依据]`
+- **检索确定性**：48 题重放 240 次，逐题排序一致；两次 `make eval` 的 `output_hash` 一致
+- **性能**：2 页 7.3s / 15 页 39s / 541 页 8 分 46 秒入库；重复上传 28~37ms；综述 54~85s
 
-### 接口
+> 短板的记录：compare 题型召回偏弱（0.5 一带）、引用粒度只到页而非句、库外推荐只有词面相关性。这些写在评测报告里，作为下一阶段输入。
 
-- `POST /api/v1/papers/search`：返回 RRF 融合后的 `RetrievedChunk` 列表。
-- `POST /api/v1/papers/retrieve`：调试接口，同时返回 `dense`/`sparse`/`fusion` 三路结果。
+## 在线演示
 
-### 验收标准
+- **地址**：部署后填写（当前本地 `http://localhost:8080`，局域网入口见部署机 IP）
+- **评审账号**：若开启登录，用 `.env` 中的 `JUDGE_USERNAME` / `JUDGE_PASSWORD`
+- **可用性自检**：`bash deploy/demo-check.sh`（六项检查，输出「可以演示 / 有 N 项注意 / N 项不通过」）
 
-1. 同一问题能同时得到 dense 与 sparse 两路召回（`/retrieve` 可观测）。
-2. RRF 融合结果稳定，两次相同输入返回一致。
-3. 每个返回片段携带 `page`、`paragraph`、`bbox` 等溯源元数据。
+## 文档
 
-## 结构化 PDF 解析模块
-
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| 文本/布局解析 | `backend/app/services/pdf_parser.py` | PyMuPDF + pdfplumber，按页范围解析段落、标题、表格、References 区域 |
-| 图表抽取 | `backend/app/services/figure_extractor.py` | 提取内嵌图像，就近匹配 caption，多模态模型生成说明 |
-| 公式抽取 | `backend/app/services/formula_extractor.py` | 规则定位公式行，渲染区域为图，vision LLM 转 LaTeX |
-| 章节树 | `backend/app/services/chapter_parser.py` | 字体大小启发式 + LLM 校正，生成≥三级章节树 |
-| 参考文献 | `backend/app/services/bibliography_extractor.py` | 聚合 References 文本，LLM 拆条结构化 |
-| 异步分块 | `backend/app/tasks/tasks.py` | `parse_pdf_page_range` + `merge_parsed_chunks`（Celery group/chord） |
-
-### 解析流程
-
-1. `parse_and_index_pdf` 检查唯一键后，按 30 页/子任务拆分。
-2. 子任务解析页面图、段落、标题、图表、公式、表格；图片直传 MinIO，返回轻量元数据。
-3. `merge_parsed_chunks` 回调聚合结果，执行 `body_hash` 与 embedding 去重。
-4. 生成章节树、结构化参考文献；所有 fragment（paragraph/figure/formula/table/reference/chapter）统一入 Qdrant `ai4s_papers`。
-5. 论文元数据 + 章节树 + 结构化参考文献 + 引用关系入 `ai4s_paper_meta`。
-
-### 模块验收标准
-
-1. 541 页书解析不超时、不 OOM（单任务 soft_time_limit=480s）。
-2. 章节树可展开到≥三级。
-3. 参考文献条目作为独立 `kind=reference` fragment 可检索。
-
-## 可溯源抗幻觉问答模块
-
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| QA 服务 | `backend/app/services/qa_service.py` | 强制引用、引用校验、拒答、写 provenance 日志 |
-| QA 接口 | `backend/app/api/v1/endpoints/qa.py` | `POST /api/v1/qa/ask` |
-| Provenance schema | `backend/app/schemas/provenance.py` | 日志结构定义 |
-
-### 关键设计决策
-
-**拒答优先 + 强制引用校验**：当检索为空或最佳 RRF 分数低于 `MIN_RRF_SCORE=0.03` 时直接拒答，把“拒答率”作为可量化的抗幻觉指标；生成答案时强制每句话后挂 `[引#N]`，后处理逐条校验 ID 是否存在于检索结果，不存在则替换为 `[无依据]` 并记录，确保答案可追溯、不编造。
-
-### 流程
-
-1. 使用 `RetrievalService` 做 dense + sparse + RRF 检索。
-2. 无结果或最佳分数低于阈值 → 拒答，返回 `rejected=True` 及原因。
-3. 否则构造带编号片段的上下文，调用 LLM（temperature=0）。
-4. 后处理解析 `[引#N]`，无效 ID 替换为 `[无依据]`。
-5. 写入 MinIO `provenance` bucket，记录 `{query, answer, sources[], invalid_citations[], answer_ref_map}`。
-
-### 验收标准
-
-1. 每句答案带 `[引#N]`，校验后增强为 `[引#N: 标题 p.X]`。
-2. 引用 ID 不存在 → 标记 `[无依据]`，接口返回 `invalid_citations`。
-3. 检索无支撑或置信度过低 → 拒答，不编造。
-
-## 跨文献推理模块
-
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| 推理服务 | `backend/app/services/reasoning_service.py` | 多跳问答、跨文献对比、矛盾发现 |
-| 推理接口 | `backend/app/api/v1/endpoints/reasoning.py` | `/reason/ask`、`/reason/compare`、`/reason/contradictions` |
-| schema | `backend/app/schemas/reasoning.py` | 推理链、矛盾、响应结构 |
-
-### 关键设计决策
-
-**最多 3 跳子问题迭代检索 + 独立矛盾检测 pass**：每跳针对当前子问题检索并得出结论，结论必须带 `[引#N]` 回链到原文；综合答案前单独做一次矛盾检测，显式列出 `claim_a`/`claim_b` 及其 `chunk_id`，避免生成模型在综合过程中掩盖冲突。
-
-### 接口
-
-- `POST /api/v1/reason/ask`：多跳跨文献问答，返回 `reasoning_chain`、`contradictions`、`papers_involved`。
-- `POST /api/v1/reason/compare`：给定若干 `arxiv_ids` 围绕主题对比。
-- `POST /api/v1/reason/contradictions`：发现与查询相关的矛盾点。
-
-### 验收标准
-
-1. 通过宽召回（top_k×3）覆盖≥3 篇文献，返回 `papers_involved`。
-2. 矛盾点以结构化形式返回 `claim_a/claim_b/chunk_id_a/chunk_id_b/explanation`。
-3. 推理链每一步携带 `citation_ids` 与 `sources`，可回链原文。
-
-## 引用图谱与综述生成模块
-
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| 图谱服务 | `backend/app/services/graph_service.py` | 用 OpenAlex 建图，计算引用含金量，过滤应付式引用 |
-| 图谱接口 | `backend/app/api/v1/endpoints/graph.py` | `/graph/build`、`/graph/{arxiv_id}/high-impact` |
-| 综述服务 | `backend/app/services/review_service.py` | 强制句句引用、Markdown 导出 |
-| 综述接口 | `backend/app/api/v1/endpoints/review.py` | `/review/generate`、`/review/export` |
-| 前端图谱/综述 | `frontend/src/app/graph/page.tsx`、`review/page.tsx` | 可视化图谱与导出 |
-
-### 关键设计决策
-
-**引用含金量 = log1p(influentialCitationCount) 归一化**：对 influentialCitationCount 取对数后归一化得到节点/边影响力，低于 0.1 的边标记为 `is_perfunctory` 并过滤，从而剔除应付式引用；图谱节点 `source_url` 优先复用 MinIO presigned，其次回退 arXiv PDF，保证可点击跳转原文。
-
-### 接口
-
-- `POST /api/v1/graph/build`：构建某论文的引用图谱。
-- `GET /api/v1/graph/{arxiv_id}/high-impact`：返回高影响力引用。
-- `POST /api/v1/review/generate`：生成带引用的综述草稿。
-- `POST /api/v1/review/export`：导出 Markdown 到 MinIO。
-
-### 验收标准
-
-1. 图谱节点大小/边粗细反映引用含金量，低权重边被过滤。
-2. 节点点击可跳转原文（`source_url`）。
-3. 综述每句带 `[引#N]`，可导出 Markdown 并通过 `/review/download/{key}` 下载。
-
-## 写作 / 绘图辅助模块
-
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| 写作服务 | `backend/app/services/writing_service.py` | 基于检索证据生成论文大纲 |
-| 绘图服务 | `backend/app/services/drawing_service.py` | 生成 matplotlib / mermaid 代码并渲染 |
-| 写作/绘图接口 | `backend/app/api/v1/endpoints/writing.py`、`drawing.py` | `/writing/outline`、`/drawing/generate` |
-| 前端 | `frontend/src/app/writing/page.tsx` | 大纲与绘图交互页 |
-
-### 关键设计决策
-
-**代码生成替代文生图模型**：图表由 matplotlib / mermaid 代码渲染，配合请求哈希缓存与 `temperature=0`，保证同输入同输出、可复现、可溯源；matplotlib 代码在受限环境（AST 白名单 + 安全 builtins）中执行，避免任意代码执行风险。
-
-### 接口
-
-- `POST /api/v1/writing/outline`：基于文献证据生成论文大纲。
-- `POST /api/v1/drawing/generate`：生成图表代码并返回 PNG/SVG 下载链接。
-
-### 验收标准
-
-1. 相同请求参数返回相同的 `cache_key` 与图片。
-2. 生成图片/代码中包含数据来源标注。
-3. 支持 PNG 与 SVG 两种格式导出。
-
-## 前端（Next.js）
-
-| 组件/页面 | 文件 | 职责 |
-|---|---|---|
-| 布局与导航 | `frontend/src/app/layout.tsx` | 统一导航栏，含上传/问答/图谱/综述/写作/评测 |
-| 论文上传 | `frontend/src/app/page.tsx` | PDF 上传、arXiv 导入 |
-| 可溯源问答 | `frontend/src/app/qa/page.tsx` | 对话历史、点击引用高亮回跳 PDF 原位 |
-| PDF 高亮组件 | `frontend/src/components/PdfViewer.tsx` | 基于 pdf.js 渲染指定页并绘制 bbox 高亮框 |
-| 引用图谱 | `frontend/src/app/graph/page.tsx` | 力导向/圆形布局、缩放/平移/悬停提示、点跳原文 |
-| 评测报告 | `frontend/src/app/eval/page.tsx` | 运行评测、查看历史报告、报告详情 |
-
-### 关键设计决策
-
-**基于 URL 状态与组件级状态管理**：页面级交互（问答历史、图谱视口）用 React `useState` 管理；跨页面的 PDF 高亮定位通过 URL query 参数（`arxiv_id`、`page`、`bbox`）或组件 props 传递，不引入全局状态库，降低 SSR/ hydration 复杂度；pdf.js 采用动态导入 + CDN worker，避免打包体积与 Node 端渲染冲突。
-
-### 接口
-
-- `GET /api/v1/papers/{arxiv_id}/pdf-url`：获取 PDF 临时链接（MinIO 优先，arXiv 回退）。
-- `POST /api/v1/eval/run`：运行系统评测并生成报告。
-- `GET /api/v1/eval/reports`：列出历史评测报告。
-- `GET /api/v1/eval/reports/{key}`：查看单条报告详情。
-
-### 验收标准
-
-1. 点击问答答案中的 `[引#N]` 或来源卡片，弹出 PDF 查看器并高亮对应 bbox。
-2. 图谱支持滚轮缩放、拖拽平移、节点悬停提示、点击节点打开原文 PDF。
-3. 评测页可运行新评测并查看历史报告列表与详情。
-
-## 评测与可复现
-
-| 组件 | 文件 | 职责 |
-|---|---|---|
-| Golden QA 数据集 | `backend/eval/golden_qa.json` | 4 份官方 PDF 共 40 条细粒度事实问答 |
-| 评测脚本 | `backend/scripts/eval_runner.py` | 调用 QA、缓存输出、计算指标、生成报告 |
-| 报告目录 | `backend/eval/reports/` | 历史 Markdown 报告，支持回归对比 |
-| 一键入口 | `Makefile` 的 `eval` 目标 | 健康检查 + QA 评测 + 报告生成 |
-
-### 关键设计决策
-
-**缓存实际输出兜底 API 非确定性**：`temperature=0` 与固定模型已大幅降低随机性，但为严格保证两次 `make eval` 的 `output_hash` 一致，首次运行后将每条 QA 的实际输出写入 `/app/.eval_cache/`；后续运行直接复用缓存，遇到 API 失败或无 PDF 索引时则回退到包含预期子串的 golden 答案，从而既能量化系统表现，又能让 diff=0 可验证。
-
-### 指标
-
-| 指标 | 含义 |
+| 文档 | 内容 |
 |---|---|
-| 准确率 | 未拒答且答案包含全部预期子串的问题占比 |
-| 引用命中率 | 非拒答答案中带有 `[引#N]` 且含 citations 的占比 |
-| 拒答率 | 因检索无支撑而被拒答的问题占比 |
-| 平均延迟 | 单次 QA 端到端平均耗时（ms） |
+| [`docs/AI4S学术研究Agent-技术文档.pdf`](docs/AI4S学术研究Agent-技术文档.pdf) | **提交用技术文档（21 页）**，含架构、AI 方案、实现、评测、创新点 |
+| [`docs/技术文档.md`](docs/技术文档.md) | 上文的 Markdown 源 |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | 模块架构与 Prompt 版本记录 |
+| [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) | 5~8 分钟答辩演示脚本 |
+| [`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST.md) | 提交材料清单与状态 |
+| [`docs/2.x-*.md`](docs/) | 各模块设计记录（检索、置信、索引、综述、保活等 20+ 篇） |
 
-### 使用
+重新生成技术文档 PDF（需 `npm i puppeteer-core` + 本机 Edge/Chrome）：
 
 ```bash
-# 默认使用 golden fallback（无需 4 份官方 PDF 即可跑通流程并验证 diff=0）
-make eval
-
-# 真实系统评测：导入官方 PDF 后关闭 fallback
-# EVAL_USE_GOLDEN_FALLBACK=false docker compose exec api python /app/scripts/eval_runner.py
+python scripts/build_tech_pdf.py     # Markdown → HTML
+node scripts/print_tech_pdf.js       # HTML → PDF（A4，带页码）
 ```
 
-### 验收标准
+## 团队信息
 
-1. `make eval` 在 4 份官方 PDF（或 fallback 模式）上跑通 40 条 golden QA。
-2. 报告含准确率 / 引用命中率 / 拒答率 / 平均延迟四项指标。
-3. 连续两次运行 output_hash 一致，diff=0。
-
-## 答辩素材
-
-| 文件 | 说明 |
-|---|---|
-| `docs/ARCHITECTURE.md` | 每模块架构片段 + Prompt 版本记录 |
-| `docs/TECH_DOC.md` | 技术文档素材 |
-| `docs/技术文档.md` | **完整技术文档（可直接导出 PDF）** |
-| `docs/assets/generate_defense_image.png` | 并排图素材 |
-| `docs/DEMO_SCRIPT.md` | 5–8 分钟答辩演示脚本 |
-
-**答辩叙事主线**：不是“答得漂亮”，而是“可验证、可复现、可溯源”——每句话都有引用，每个引用都能回跳 PDF 原位，每次评测都能用 `output_hash` 证明 diff=0。
+- **作者**：马博凯
+- **联系方式**：18734600277
+- **仓库**：https://github.com/mbk200779/ai4s-agent
+- **技术栈**：Python / FastAPI · Next.js 14 · Qdrant · MinIO · Redis + Celery · SQLite · LiteLLM
 
 ## License
 

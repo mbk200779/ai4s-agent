@@ -30,3 +30,6 @@ deploy/dify-restart-policy.bak
 
 # 临时抓取的接口响应，不入库
 lib.json
+
+# 技术文档 PDF 构建中间产物
+/docs/.build/
