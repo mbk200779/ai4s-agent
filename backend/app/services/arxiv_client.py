@@ -17,14 +17,34 @@ class ArxivClient:
 
     OAI_URL = "http://export.arxiv.org/oai2"
 
+    # arxiv 库把查询端点写死成 http（Client.query_url_format），而 export.arxiv.org
+    # 现在对 http 一律回 301 跳 https；feedparser 不跟跳转，库内部重试三次后抛
+    # HTTPError: Page request resulted in HTTP 301，导入接口直接 500。
+    # 这里把实例上的端点改成 https，绕开那层跳转。
+    QUERY_URL_FORMAT = "https://export.arxiv.org/api/query?{}"
+
     def __init__(self):
         self.client = arxiv.Client()
+        self.client.query_url_format = self.QUERY_URL_FORMAT
         self.sickle = Sickle(self.OAI_URL)
 
     @staticmethod
     def _normalize_id(raw_id: str) -> str:
         """移除版本号与多余空格，返回纯 arxiv_id。"""
         return raw_id.strip().split("v")[0]
+
+    @staticmethod
+    def _split_version(short_id: str) -> tuple[str, str]:
+        """
+        把 1810.04805v2 拆成 ("1810.04805", "v2")。
+
+        新版 arxiv 库去掉了 Result.version，版本号只留在 get_short_id() 里，
+        所以两个取元数据的方法都得走这里拆，别再各写一份。
+        """
+        head, sep, tail = short_id.rpartition("v")
+        if sep and tail.isdigit():
+            return head, f"v{tail}"
+        return short_id, "v1"
 
     def fetch_by_id(self, arxiv_id: str) -> Optional[Dict[str, Any]]:
         """通过 arXiv ID 获取论文元数据。"""
@@ -34,9 +54,10 @@ class ArxivClient:
         if not results:
             return None
         r = results[0]
+        _, version = self._split_version(r.get_short_id())
         return {
             "arxiv_id": arxiv_id,
-            "version": f"v{r.version}",
+            "version": version,
             "title": r.title,
             "authors": [str(a) for a in r.authors],
             "abstract": r.summary,
@@ -119,7 +140,7 @@ class ArxivClient:
         return [
             {
                 "arxiv_id": self._normalize_id(r.get_short_id()),
-                "version": f"v{r.version}",
+                "version": self._split_version(r.get_short_id())[1],
                 "title": r.title,
                 "authors": [str(a) for a in r.authors],
                 "abstract": r.summary,

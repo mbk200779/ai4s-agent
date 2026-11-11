@@ -7,7 +7,10 @@ pydantic==2.9.2
 pydantic-settings==2.5.2
 
 # 异步任务队列
+# kombu 必须锁 5.4.x：新版 kombu(5.7) 要求 redis-py>=6.1.0，
+# 与 celery 5.4.0 的 redis==5.1.0 冲突，会在 .delay() 时抛 VersionMismatch。
 celery[redis]==5.4.0
+kombu==5.4.0
 redis==5.1.0
 
 # 向量库与对象存储

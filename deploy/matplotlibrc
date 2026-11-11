@@ -1,0 +1,9 @@
+# AI4S 绘图字体配置（matplotlib 用户级 rc）
+#
+# 关键设计决策：容器基础镜像不含 CJK 字体，LLM 生成的中文图表标题会渲染成方框。
+# 这里把系统已安装的中文字体设为默认 sans-serif，并关闭 unicode 负号替换，
+# 避免坐标轴负号显示为方框。
+
+font.family: sans-serif
+font.sans-serif: SimHei, Noto Sans CJK SC, WenQuanYi Zen Hei, Microsoft YaHei, DejaVu Sans
+axes.unicode_minus: False

@@ -1,0 +1,45 @@
+{
+  "version": "v1.0.0",
+  "description": "30 题置信分布评测集：覆盖点查/表格/对比/推断/库外/闲聊六类，用来统计三档置信的分布与「缺什么」的构成。",
+  "notes": [
+    "分类不是给检索用的，只用于分组统计：同一档位在不同题型上的分布才是真正想看的东西。",
+    "out_of_scope 里的题都故意落在语料之外，用来验证「只在无命中时完整拒答」这条口径。"
+  ],
+  "questions": [
+    { "id": "p1", "category": "point", "question": "Transformer 的 dropout 比例是多少？" },
+    { "id": "p2", "category": "point", "question": "Transformer 的多头注意力用了几个头？" },
+    { "id": "p3", "category": "point", "question": "BERT-Base 有多少层 transformer block？" },
+    { "id": "p4", "category": "point", "question": "LoRA 在 GPT-3 上使用的秩 r 是多少？" },
+    { "id": "p5", "category": "point", "question": "ViT-Base 的 patch 大小是多少？" },
+    { "id": "p6", "category": "point", "question": "ViT 的隐藏层维度是多少？" },
+
+    { "id": "t1", "category": "table", "question": "Transformer 在 WMT 2014 英德翻译任务上的 BLEU 分数是多少？" },
+    { "id": "t2", "category": "table", "question": "ViT-H/14 在 ImageNet 上的 top-1 准确率是多少？" },
+    { "id": "t3", "category": "table", "question": "LoRA 在 GPT-3 上把可训练参数减少了多少倍？" },
+    { "id": "t4", "category": "table", "question": "BERT-Large 的参数量是多少？" },
+
+    { "id": "c1", "category": "compare", "question": "ViT 和 BERT 哪个模型参数量更大？" },
+    { "id": "c2", "category": "compare", "question": "LoRA 微调和全量微调在显存占用上有什么区别？" },
+    { "id": "c3", "category": "compare", "question": "Transformer 与 BERT 的训练目标有什么不同？" },
+    { "id": "c4", "category": "compare", "question": "ViT 和 BERT 分别用什么数据做预训练？" },
+    { "id": "c5", "category": "compare", "question": "这几篇论文里，哪个报告的 ImageNet 准确率最高？" },
+
+    { "id": "i1", "category": "infer", "question": "为什么 Transformer 需要位置编码？" },
+    { "id": "i2", "category": "infer", "question": "LoRA 为什么能降低显存占用？" },
+    { "id": "i3", "category": "infer", "question": "ViT 为什么需要大规模数据预训练？" },
+    { "id": "i4", "category": "infer", "question": "BERT 的 next sentence prediction 任务有什么用？" },
+    { "id": "i5", "category": "infer", "question": "多头注意力相比单头注意力的优势是什么？" },
+
+    { "id": "o1", "category": "out_of_scope", "question": "这篇论文的作者获得过图灵奖吗？" },
+    { "id": "o2", "category": "out_of_scope", "question": "GPT-5 的参数量是多少？" },
+    { "id": "o3", "category": "out_of_scope", "question": "该方法申请了哪个专利？" },
+    { "id": "o4", "category": "out_of_scope", "question": "Transformer 训练用了多少块 TPU？" },
+    { "id": "o5", "category": "out_of_scope", "question": "这几篇论文各自的引用次数是多少？" },
+    { "id": "o6", "category": "out_of_scope", "question": "这本书由哪家出版社出版？" },
+    { "id": "o7", "category": "out_of_scope", "question": "作者在 2025 年的后续工作是什么？" },
+    { "id": "o8", "category": "out_of_scope", "question": "这个模型的商业授权价格是多少？" },
+
+    { "id": "h1", "category": "chitchat", "question": "你好，你能做什么？" },
+    { "id": "h2", "category": "chitchat", "question": "谢谢！" }
+  ]
+}

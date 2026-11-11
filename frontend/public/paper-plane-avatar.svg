@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="planeAvatarTitle">
+  <title id="planeAvatarTitle">纸飞机从输入框后探出机头</title>
+  <defs>
+    <linearGradient id="paWingTop" gradientUnits="userSpaceOnUse" x1="470" y1="40" x2="120" y2="220">
+      <stop offset="0" stop-color="#fdfbf3" />
+      <stop offset="0.45" stop-color="#e9f6f2" />
+      <stop offset="1" stop-color="#c2e2db" />
+    </linearGradient>
+    <linearGradient id="paWingBottom" gradientUnits="userSpaceOnUse" x1="440" y1="150" x2="150" y2="430">
+      <stop offset="0" stop-color="#8ac5ba" />
+      <stop offset="1" stop-color="#cfe9e3" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(506,52) scale(0.97)" stroke-linejoin="round">
+    <!-- 单一外轮廓；下翼尖被画面裁掉，形成“从输入框后升起”的断口 -->
+    <path d="M0 0 L-515 70 L-330 225 L-435 395 Z" fill="url(#paWingTop)"
+          stroke="#0b5f57" stroke-opacity="0.82" stroke-width="7.5" />
+    <!-- 下翼 -->
+    <path d="M0 0 L-330 225 L-435 395 Z" fill="url(#paWingBottom)" />
+    <!-- 折脊 -->
+    <path d="M0 0 L-330 225" fill="none" stroke="#12564f" stroke-opacity="0.5" stroke-width="7" stroke-linecap="round" />
+  </g>
+</svg>

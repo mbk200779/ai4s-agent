@@ -25,6 +25,27 @@ class StorageService:
         self.figures_bucket = settings.minio_bucket_figures
         self.provenance_bucket = settings.minio_bucket_provenance
 
+    def delete_pdf(self, key: str) -> bool:
+        """
+        删除原始 PDF，返回「原来是否真的存在」。
+
+        只在"清理测试数据/删论文"时用：解析成功后工作目录会被清掉，
+        但对象存储里的原件要一直留着（重新解析、复用副本都靠它）。
+
+        为什么返回值不是 None：MinIO 的 remove_object 对不存在的 key 不报错，
+        于是「删掉了」和「本来就没有」在调用方看来一模一样。论文库删除要把
+        实际清掉的原件数报给用户，靠 stat 先探一次比 try/except 更诚实。
+        """
+        try:
+            self.client.stat_object(self.papers_bucket, key)
+        except S3Error:
+            return False
+        try:
+            self.client.remove_object(self.papers_bucket, key)
+            return True
+        except S3Error:
+            return False
+
     def upload_pdf(self, key: str, data: bytes) -> str:
         """上传原始 PDF，返回对象 key。"""
         self.client.put_object(
@@ -35,6 +56,46 @@ class StorageService:
             content_type="application/pdf",
         )
         return key
+
+    def upload_pdf_file(self, key: str, path: str, part_size: int = 16 * 1024 * 1024) -> str:
+        """
+        从磁盘文件流式上传，不在内存里持有整份 PDF。
+        541 页教材约 30~80MB，走 multipart 分片，峰值内存只与 part_size 有关。
+        """
+        import os
+
+        size = os.path.getsize(path)
+        with open(path, "rb") as fh:
+            self.client.put_object(
+                self.papers_bucket,
+                key,
+                fh,
+                length=size,
+                content_type="application/pdf",
+                part_size=part_size,
+            )
+        return key
+
+    def download_to_file(self, key: str, dest_path: str, chunk_bytes: int = 1024 * 1024) -> int:
+        """
+        流式下载到本地文件，返回字节数。
+        解析端一律"先落到临时文件再 open"，PyMuPDF 用 mmap 读文件，
+        RSS 只随当前页增长，而不是随文档大小增长。
+        """
+        resp = self.client.get_object(self.papers_bucket, key)
+        written = 0
+        try:
+            with open(dest_path, "wb") as fh:
+                while True:
+                    chunk = resp.read(chunk_bytes)
+                    if not chunk:
+                        break
+                    fh.write(chunk)
+                    written += len(chunk)
+        finally:
+            resp.close()
+            resp.release_conn()
+        return written
 
     def upload_figure(self, key: str, data: bytes, content_type: str = "image/png") -> str:
         """上传图片/图表对象。"""

@@ -1,0 +1,159 @@
+{
+  "version": "routing-v1",
+  "corpus": {
+    "note": "语料是默认课题里的 5 篇：Attention is All You Need(upload_bdfaa68d8984f0dc)、BERT(1810.04805)、ViT(2010.11929)、LoRA(2106.09685)、soliton_molecule(upload_8bb215cdfabf4f40)",
+    "papers": 5,
+    "chunks": 285
+  },
+  "queries": [
+    {
+      "id": "p-beta2",
+      "question": "Adam 优化器的 β2 设为多少",
+      "search_text": "What is beta2 for the Adam optimizer?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 7},
+        {"arxiv_id": "2010.11929", "page": 5}
+      ],
+      "note": "Attention p7 是 β2=0.98，ViT p5 是 β2=0.999；soliton p2 也出现 β2 但是物理参数，属干扰项"
+    },
+    {
+      "id": "p-warmup",
+      "question": "学习率 warmup 步数是多少",
+      "search_text": "How many warmup steps were used?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 7}]
+    },
+    {
+      "id": "p-gpu",
+      "question": "训练用了多少块 GPU，什么型号",
+      "search_text": "How many GPUs and what model were used for training?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 7}]
+    },
+    {
+      "id": "p-vit-batch",
+      "question": "ViT 训练时的 batch size 是多少",
+      "search_text": "What batch size was used to train ViT?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "2010.11929", "page": 5}]
+    },
+    {
+      "id": "p-bert-hidden",
+      "question": "BERT base 模型的 hidden size 是多少",
+      "search_text": "What is the hidden size of BERT base?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "1810.04805", "page": 9},
+        {"arxiv_id": "1810.04805", "page": 3}
+      ]
+    },
+    {
+      "id": "p-att-bleu",
+      "question": "Transformer 在 WMT2014 英德任务上的 BLEU 是多少",
+      "search_text": "What BLEU score does the Transformer achieve on WMT 2014 English-to-German?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8}]
+    },
+    {
+      "id": "n-warmup-quote",
+      "question": "原文里 \"warmup_steps = 4000\" 出现在哪一页",
+      "search_text": "warmup_steps = 4000",
+      "expect_type": "nav",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 7}],
+      "note": "引号内是原文片段，nav 应该做字面匹配而不是语义召回"
+    },
+    {
+      "id": "n-label-smooth",
+      "question": "哪篇论文提到 \"label smoothing\"",
+      "search_text": "label smoothing",
+      "expect_type": "nav",
+      "gold": [
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8},
+        {"arxiv_id": "2010.11929", "page": 6}
+      ]
+    },
+    {
+      "id": "n-low-rank",
+      "question": "原文里 \"low-rank\" 这个说法出现在哪一段",
+      "search_text": "low-rank",
+      "expect_type": "nav",
+      "gold_papers": ["2106.09685"]
+    },
+    {
+      "id": "c-bert-transformer",
+      "question": "BERT 与 Transformer Encoder 的继承关系",
+      "search_text": "How does BERT relate to and inherit from the Transformer encoder?",
+      "expect_type": "compare",
+      "gold_papers": ["1810.04805", "upload_bdfaa68d8984f0dc"],
+      "note": "自检项：必须同时召回 BERT 与 Transformer 两篇，并成对出现"
+    },
+    {
+      "id": "c-beta-diff",
+      "question": "Transformer 与 ViT 里 β2 的取值有什么差异",
+      "search_text": "How does beta2 differ between the Transformer and ViT?",
+      "expect_type": "compare",
+      "gold_papers": ["upload_bdfaa68d8984f0dc", "2010.11929"]
+    },
+    {
+      "id": "c-lora-bert",
+      "question": "LoRA 和 BERT 在参数规模上有什么差异",
+      "search_text": "How do LoRA and BERT differ in parameter scale?",
+      "expect_type": "compare",
+      "gold_papers": ["2106.09685", "1810.04805"]
+    },
+    {
+      "id": "c-three-methods",
+      "question": "这三篇的方法有何差异",
+      "search_text": "How do the methods of these papers differ?",
+      "expect_type": "compare",
+      "gold_papers": ["upload_bdfaa68d8984f0dc", "1810.04805", "2106.09685"],
+      "note": "自检项：必须走多跳（pairs > 0），而不是单轮 top-k"
+    },
+    {
+      "id": "s-peft",
+      "question": "参数高效微调有哪些主要方法",
+      "search_text": "What are the main parameter-efficient fine-tuning methods?",
+      "expect_type": "survey",
+      "gold_papers": ["2106.09685"]
+    },
+    {
+      "id": "s-attention",
+      "question": "注意力机制都有哪些主要变体",
+      "search_text": "What are the main variants of attention mechanisms?",
+      "expect_type": "survey",
+      "gold_papers": ["upload_bdfaa68d8984f0dc", "2010.11929", "1810.04805"],
+      "note": "综述题要看覆盖广度：三篇都要出现，而不是同一篇的三段"
+    },
+    {
+      "id": "ch-hello",
+      "question": "你好",
+      "search_text": "你好",
+      "expect_type": "chitchat",
+      "gold": [],
+      "note": "闲聊不该产生任何检索结果"
+    },
+    {
+      "id": "g-selfattn",
+      "question": "self-attention 是怎么计算的",
+      "search_text": "How is self-attention computed?",
+      "expect_type": "generic",
+      "gold": [
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 4},
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 5}
+      ],
+      "note": "规则判不出来的普通问法，应落到 generic 兜底；这条用来证明兜底没有比原来差"
+    },
+    {
+      "id": "g-bert-pretrain",
+      "question": "BERT 的预训练任务是什么",
+      "search_text": "What are the pre-training tasks of BERT?",
+      "expect_type": "generic",
+      "gold": [
+        {"arxiv_id": "1810.04805", "page": 2},
+        {"arxiv_id": "1810.04805", "page": 4},
+        {"arxiv_id": "1810.04805", "page": 1}
+      ]
+    }
+  ]
+}

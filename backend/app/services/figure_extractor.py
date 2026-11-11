@@ -19,11 +19,20 @@ class FigureExtractor:
         self.llm = LLMClient()
 
     def extract_from_page(
-        self, page: fitz.Page, page_idx: int, arxiv_id: str, version: str
+        self,
+        page: fitz.Page,
+        page_idx: int,
+        arxiv_id: str,
+        version: str,
+        allow_vision: bool = True,
     ) -> List[Dict[str, Any]]:
         """
         从单页提取图表对象。
         返回列表：{key, type, page, bbox, caption, s3_url?}
+
+        allow_vision=False 时跳过多模态描述，只用就近 caption。
+        长文档（教材）一张图一次 vision 会跑成几小时，且图注本来就自带说明，
+        所以超过 LONG_DOC_PAGES 的文档默认走纯 caption 路径。
         """
         figures: List[Dict[str, Any]] = []
         image_list = page.get_images(full=True)
@@ -47,9 +56,14 @@ class FigureExtractor:
             self.storage.upload_figure(key, img_bytes, content_type="image/png")
 
             # 生成中文说明（可选；若已有 caption 可跳过 LLM）
-            description = caption or self.llm.vision(
-                img_bytes, self.llm._system_prompt("figure_caption")
-            )
+            if caption:
+                description = caption
+            elif allow_vision:
+                description = self.llm.vision(
+                    img_bytes, self.llm._system_prompt("figure_caption")
+                )
+            else:
+                description = None
 
             figures.append({
                 "type": "figure",

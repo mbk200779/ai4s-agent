@@ -5,6 +5,8 @@ __pycache__/
 *.log
 node_modules/
 .next/
+.nextc/
+.nextc_old*/
 out/
 *.egg-info/
 .ipynb_checkpoints/
@@ -12,3 +14,19 @@ out/
 minio_data/
 redis_data/
 model_cache/
+migration-*/
+env.production
+.env.bak.*
+
+# 本地运行产物与临时调试文件（不进仓库）
+.tmp/
+tmpdb/
+output/
+lib.json/
+*.tsbuildinfo
+.workbuddy/
+.demo-check.probe
+deploy/dify-restart-policy.bak
+
+# 临时抓取的接口响应，不入库
+lib.json

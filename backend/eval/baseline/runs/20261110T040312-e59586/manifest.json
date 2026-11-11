@@ -1,0 +1,116 @@
+{
+  "run_id": "20261110T040312-e59586",
+  "started_at": "2026-11-10T04:03:12Z",
+  "finished_at": "2026-11-10T04:07:49Z",
+  "dataset": {
+    "path": "eval/baseline/dataset/questions.jsonl",
+    "sha1": "be30b901ca19c98a8b153350cfadb66754e1c2b9",
+    "n": 48,
+    "by_type": {
+      "absent": 12,
+      "compare": 6,
+      "nav": 6,
+      "point": 18,
+      "survey": 6
+    },
+    "by_expect": {
+      "answer": 36,
+      "refuse": 12
+    },
+    "translations_sha1": "a9a71ea33ccdcdf05d7daaa5f10fe1923283ab7d"
+  },
+  "index": {
+    "pipeline_version": "idx-1.0.0-555810c4",
+    "collection": "ai4s_papers__idx-1.0.0-555810c4",
+    "points": 279,
+    "snapshot_id": "snap-95cfc8db1ed8",
+    "signature": {
+      "schema": 1,
+      "splitter": "structured-fragments/v1",
+      "dense_model": "intfloat/multilingual-e5-large",
+      "sparse_model": "Qdrant/bm25",
+      "embed_max_chars": 1500
+    },
+    "pinned": "idx-1.0.0-555810c4"
+  },
+  "prompt": {
+    "version": "v1.0.0",
+    "system_sha1": "1b283ad09f857cd7fa0a655b76c12f25698e5589"
+  },
+  "models": {
+    "dense": "intfloat/multilingual-e5-large",
+    "sparse": "Qdrant/bm25",
+    "rerank": "Xenova/ms-marco-MiniLM-L-6-v2"
+  },
+  "llm": {
+    "model": "dashscope/qwen-max",
+    "cheap_model": "dashscope/qwen-max",
+    "temperature": 0.0
+  },
+  "retrieval": {
+    "top_k": 5,
+    "rrf_k": 60,
+    "rrf_min_score": 0.03,
+    "rerank_top_n": 20,
+    "channels_default": "hybrid"
+  },
+  "seed": 20261110,
+  "configs": [
+    {
+      "name": "dense",
+      "label": "纯向量（dense only）",
+      "channels": "dense",
+      "force_type": "generic",
+      "rerank": false,
+      "numeric": false,
+      "generate": true
+    },
+    {
+      "name": "sparse",
+      "label": "纯 BM25（sparse only）",
+      "channels": "sparse",
+      "force_type": "generic",
+      "rerank": false,
+      "numeric": false,
+      "generate": true
+    },
+    {
+      "name": "hybrid",
+      "label": "混合召回（dense+sparse RRF）",
+      "channels": "hybrid",
+      "force_type": "generic",
+      "rerank": false,
+      "numeric": false,
+      "generate": true
+    },
+    {
+      "name": "hybrid_rerank",
+      "label": "混合 + 精排（baseline 最强组）",
+      "channels": "hybrid",
+      "force_type": "generic",
+      "rerank": true,
+      "numeric": false,
+      "generate": true
+    },
+    {
+      "name": "system",
+      "label": "本系统（查询理解 + 分流 + 规则召回 + 精排）",
+      "channels": "hybrid",
+      "force_type": null,
+      "rerank": true,
+      "numeric": true,
+      "generate": true
+    }
+  ],
+  "code": {
+    "git_rev": "unknown",
+    "code_sha1": "f0459f0e90a9f43b2d301760fa9b117534c75a1e"
+  },
+  "status": "ok",
+  "elapsed_s": 277.2,
+  "files": {
+    "retrieval.jsonl": "32651fa6f048e237f595ba938297d4a2fbb2ec7e",
+    "answers.jsonl": "8af6c78e642279910fae4e12e1de218acfa2e1fc"
+  },
+  "recomputed_at": "2026-11-10T04:13:08Z"
+}

@@ -10,6 +10,7 @@ import hashlib
 import io
 import json
 import math
+import os
 import traceback
 import zlib
 from typing import Any, Dict, List, Optional, Tuple
@@ -26,6 +27,30 @@ from app.schemas.drawing import DrawingRequest, DrawingResponse, SourceInfo
 
 
 matplotlib.use("Agg")
+
+
+# 中文字体引导。
+# 关键设计决策：python:slim 基础镜像不含 CJK 字体且未安装 fontconfig，
+# matplotlib 的字体自动扫描不会收录后加进去的中文字体，
+# 结果是 LLM 生成的中文图表标题/坐标轴全部渲染成方框（□□□）。
+# 这里在导入期显式 addfont 并设为默认 sans-serif，找不到字体时静默跳过，不阻塞服务启动。
+for _cjk_font_path in (
+    "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    "/usr/share/fonts/truetype/cjk/simhei.ttf",
+    "/usr/share/fonts/truetype/simhei.ttf",
+):
+    if os.path.exists(_cjk_font_path):
+        try:
+            from matplotlib import font_manager as _font_manager
+
+            _font_manager.fontManager.addfont(_cjk_font_path)
+            _cjk_name = _font_manager.FontProperties(fname=_cjk_font_path).get_name()
+            matplotlib.rcParams["font.sans-serif"] = [_cjk_name, "DejaVu Sans"]
+            # 中文字体缺少 U+2212，关闭负号替换，避免坐标轴负值变方框
+            matplotlib.rcParams["axes.unicode_minus"] = False
+        except Exception:  # noqa: BLE001 - 字体缺失不应影响绘图主流程继续降级运行
+            pass
+        break
 
 
 class _AllowedCodeVisitor(ast.NodeVisitor):

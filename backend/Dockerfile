@@ -21,6 +21,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
+# 中文字体：python:slim 默认不含 CJK 字体，matplotlib 渲染中文标题会变成方框。
+# 单独成层放在 pip 之后，修改字体不会触发依赖层重建。
+RUN apt-get update && apt-get install -y --no-install-recommends fonts-noto-cjk \
+    && rm -rf /var/lib/apt/lists/*
+
 # 下载 embedding 模型到镜像层（可选；运行时也会自动下载到 /app/.cache）
 # 关键设计决策：模型落盘 /app/.cache，挂载为命名卷，防止容器重建导致重复下载与随机 diff。
 ENV FASTEMBED_CACHE_PATH=/app/.cache/fastembed

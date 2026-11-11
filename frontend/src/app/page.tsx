@@ -1,13 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || '';
-
 // 功能入口（论文入库置于首位，其余依次排列）
+// 入库整块已迁到论文库页，入口统一指到那里的 #import 区块。
 const FEATURES = [
   {
-    href: '/#upload-section',
+    href: '/library#import',
     title: '论文入库',
     desc: '上传 PDF 或导入 arXiv，一键解析入库',
     icon: (
@@ -70,69 +67,22 @@ const FEATURES = [
 
 // 研究工作流（底部）
 const WORKFLOW = [
-  { n: '01', t: '入库', d: '上传 / 导入论文' },
-  { n: '02', t: '解析', d: '结构化切分向量化' },
-  { n: '03', t: '检索', d: '混合召回 + RRF' },
-  { n: '04', t: '生成', d: '带引用回答 / 综述' },
-  { n: '05', t: '评测', d: '自动质量审计' },
+  { n: '01', t: '入库' },
+  { n: '02', t: '解析' },
+  { n: '03', t: '检索' },
+  { n: '04', t: '生成' },
+  { n: '05', t: '评测' },
 ];
 
+// 首页不再承载上传表单，所有「入库」入口统一落到论文库的导入区块
+const INGEST_HREF = '/library#import';
+
 export default function HomePage() {
-  const [file, setFile] = useState<File | null>(null);
-  const [arxivId, setArxivId] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
-
-  const scrollToUpload = () => {
-    document.getElementById('upload-section')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const uploadPdf = async () => {
-    if (!file) return;
-    setLoading(true);
-    const form = new FormData();
-    form.append('file', file);
-    try {
-      const res = await fetch(`${API_BASE}/api/v1/papers/upload`, {
-        method: 'POST',
-        body: form,
-      });
-      const data = await res.json();
-      setMessage(`已接收：${data.paper_id}，任务：${data.task_id}`);
-    } catch (e) {
-      setMessage('上传失败');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const importArxiv = async () => {
-    if (!arxivId.trim()) return;
-    setLoading(true);
-    try {
-      const res = await fetch(`${API_BASE}/api/v1/papers/arxiv/import?arxiv_id=${arxivId}`, {
-        method: 'POST',
-      });
-      const data = await res.json();
-      setMessage(`已导入：${data.paper_id}，任务：${data.task_id}`);
-    } catch (e) {
-      setMessage('导入失败');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="space-y-14">
       {/* ============ Hero ============ */}
       <section className="relative overflow-hidden border border-[var(--line)] bg-[var(--surface)] px-8 py-14">
         <div className="relative max-w-2xl">
-          {/* 状态指示 */}
-          <div className="mb-5 flex items-center gap-2 mono text-xs text-[var(--ink-3)]">
-            <span className="status-dot" />
-            <span>SYSTEM ONLINE · v1.0.0</span>
-          </div>
-
           <h1 className="display text-4xl leading-tight sm:text-[3.2rem] sm:leading-[1.15]">
             让科研检索的每一句，
             <br />
@@ -141,16 +91,16 @@ export default function HomePage() {
 
           <p className="mt-5 max-w-xl text-base text-[var(--ink-2)]">
             面向学术研究的 AI 助手，融合检索增强生成与可溯源机制，
-            从论文解析到综述写作，全链路保证结论可复现、引用可回跳。
+            覆盖从论文解析到综述写作的完整流程。
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <button onClick={scrollToUpload} className="btn-primary">
+            <a href={INGEST_HREF} className="btn-primary">
               开始使用
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </button>
+            </a>
             <a href="/qa" className="btn-ghost">
               直接提问
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
@@ -158,20 +108,17 @@ export default function HomePage() {
               </svg>
             </a>
           </div>
+        </div>
 
-          {/* 三个信任指标 */}
-          <div className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-[var(--line)] pt-6">
-            {[
-              { v: '100%', k: '引用可回跳' },
-              { v: '0.03', k: '拒答阈值 RRF' },
-              { v: 'diff=0', k: '评测可复现' },
-            ].map((m) => (
-              <div key={m.k}>
-                <div className="mono text-xl font-semibold text-[var(--signal)]">{m.v}</div>
-                <div className="mt-1 text-xs text-[var(--ink-3)]">{m.k}</div>
-              </div>
-            ))}
-          </div>
+        {/* 右侧形象：折纸信使「引文鹤」——把论文里的那句话回来 */}
+        <div className="pointer-events-none absolute right-8 top-1/2 hidden -translate-y-1/2 xl:block 2xl:right-12">
+          <img
+            src="/mascot-crane.png"
+            alt="折纸信使「引文鹤」：从论文里叼回原句，交到读者手上"
+            width={1019}
+            height={760}
+            className="w-[330px] 2xl:w-[392px]"
+          />
         </div>
       </section>
 
@@ -207,82 +154,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ 论文入库 ============ */}
-      <section id="upload-section" className="scroll-mt-24">
-        <div className="mb-6 flex items-baseline gap-4">
-          <span className="eyebrow">Ingest</span>
-          <span className="h-px flex-1 bg-[var(--line)]" />
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* 上传 PDF */}
-          <div className="card card-tick p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--line)] text-[var(--signal)]">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m6.75 12H9m1.5-3H9m7.5 6H5.625c-.621 0-1.125-.504-1.125-1.125V4.125C4.5 3.504 5.004 3 5.625 3h7.875c.298 0 .585.119.796.33l4.5 4.5c.211.211.33.498.33.796v10.5c0 .621-.504 1.125-1.125 1.125z" />
-                </svg>
-              </span>
-              <div>
-                <h3 className="font-semibold text-[var(--ink)]">上传本地 PDF</h3>
-                <div className="mono text-xs text-[var(--ink-3)]">UPLOAD.SOURCE</div>
-              </div>
-            </div>
-            <input
-              type="file"
-              accept="application/pdf"
-              onChange={(e) => setFile(e.target.files?.[0] || null)}
-              className="field"
-              style={{ padding: '6px' }}
-            />
-            <button
-              onClick={uploadPdf}
-              disabled={!file || loading}
-              className="btn-primary mt-4"
-            >
-              {loading ? '上传中…' : '上传并解析'}
-            </button>
-          </div>
-
-          {/* 导入 arXiv */}
-          <div className="card card-tick p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--line)] text-[var(--signal)]">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-5 w-5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m-18.432 0A8.959 8.959 0 013 12c0-.778.099-1.533.284-2.253" />
-                </svg>
-              </span>
-              <div>
-                <h3 className="font-semibold text-[var(--ink)]">导入 arXiv 论文</h3>
-                <div className="mono text-xs text-[var(--ink-3)]">IMPORT.ARXIV</div>
-              </div>
-            </div>
-            <input
-              type="text"
-              placeholder="输入 arXiv ID，例如 2401.12345"
-              value={arxivId}
-              onChange={(e) => setArxivId(e.target.value)}
-              className="field mono"
-            />
-            <button
-              onClick={importArxiv}
-              disabled={!arxivId || loading}
-              className="btn-primary mt-4"
-            >
-              {loading ? '导入中…' : '拉取并解析'}
-            </button>
-          </div>
-        </div>
-
-        {message && (
-          <div className="mt-5 flex items-start gap-3 border border-[var(--signal)] bg-[var(--signal-soft)] p-4 text-sm text-[var(--ink)]">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--signal)" strokeWidth="1.8" className="mt-0.5 h-5 w-5 shrink-0">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-            </svg>
-            <span className="mono">{message}</span>
-          </div>
-        )}
-      </section>
-
       {/* ============ 研究工作流 ============ */}
       <section className="card p-8">
         <div className="mb-8 flex items-baseline gap-4">
@@ -293,13 +164,12 @@ export default function HomePage() {
           {WORKFLOW.map((s, i) => (
             <div
               key={s.n}
-              className={`relative flex flex-col gap-3 px-4 py-2 sm:px-5 ${
+              className={`relative flex flex-col gap-2 px-4 py-2 sm:px-5 ${
                 i > 0 ? 'sm:border-l sm:border-[var(--line)]' : ''
               }`}
             >
               <span className="mono text-xs text-[var(--signal)]">{s.n}</span>
               <div className="font-semibold text-[var(--ink)]">{s.t}</div>
-              <div className="text-xs leading-relaxed text-[var(--ink-3)]">{s.d}</div>
               {i < WORKFLOW.length - 1 && (
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--line-strong)" strokeWidth="1.5" className="absolute -right-3 top-2 hidden h-4 w-4 sm:block">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

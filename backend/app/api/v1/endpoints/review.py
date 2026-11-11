@@ -2,8 +2,9 @@
 综述生成接口：基于检索证据自动生成可验证的学术综述，支持 Markdown 导出。
 """
 from fastapi import APIRouter, HTTPException
-from fastapi.responses import StreamingResponse
+from fastapi.responses import Response
 from app.schemas.review import ReviewRequest, ReviewResponse, ReviewExportRequest
+from app.services.review import export as review_export
 from app.services.review_service import ReviewService
 
 router = APIRouter(prefix="/review", tags=["综述"])
@@ -27,16 +28,25 @@ async def generate_review(req: ReviewRequest):
 async def export_review(req: ReviewExportRequest):
     """
     导出综述 Markdown：直接返回文件流，Content-Disposition 触发浏览器下载。
+
+    文件名走 RFC 5987 双写（ASCII 兜底 + `filename*=UTF-8''`）：HTTP 头只能装
+    latin-1，中文主题直接写进 `filename=` 会在编码响应头时抛 UnicodeEncodeError，
+    整个请求变 500 —— 这是导出「点了没反应」的真实原因。
     """
-    service = ReviewService()
-    if not req.markdown:
+    if not (req.markdown or "").strip():
         raise HTTPException(status_code=400, detail="markdown 不能为空")
 
-    filename = f"{req.topic.replace(' ', '_')}.md"
-    return StreamingResponse(
-        iter([req.markdown.encode("utf-8")]),
-        media_type="text/markdown",
-        headers={"Content-Disposition": f"attachment; filename={filename}"},
+    text = review_export.build_export(
+        req.topic, req.markdown, [r.model_dump() for r in req.refs]
+    )
+    return Response(
+        content=review_export.encode(text),
+        media_type="text/markdown; charset=utf-8",
+        headers={
+            "Content-Disposition": review_export.content_disposition(req.topic),
+            # 网关/浏览器按扩展名以外的方式缓存时，别把这篇的稿子发给下一篇
+            "Cache-Control": "no-store",
+        },
     )
 
 

@@ -14,7 +14,9 @@ class BibliographyExtractor:
     def __init__(self):
         self.llm = LLMClient()
 
-    def parse(self, raw_text: str, model: str | None = None) -> List[Dict[str, Any]]:
+    def parse(
+        self, raw_text: str, model: str | None = None, timeout: float | None = None
+    ) -> List[Dict[str, Any]]:
         """
         将参考文献原始文本拆分为结构化条目。
         model 可指定为 qwen-max 等降本模型。
@@ -23,7 +25,9 @@ class BibliographyExtractor:
         truncated = raw_text[:12000]
         prompt = f"原始文本：\n{truncated}\n\n请按 JSON 格式输出参考文献条目。"
         try:
-            result = self.llm.json_chat(prompt, system_key="references", model=model)
+            result = self.llm.json_chat(
+                prompt, system_key="references", model=model, timeout=timeout
+            )
         except Exception:
             result = None
         # LLM 输出解析失败时 json_chat 可能返回 None，此时降级为不结构化而非崩溃

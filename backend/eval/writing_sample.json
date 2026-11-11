@@ -1,0 +1,778 @@
+{
+  "topic": "注意力架构的能力边界：从 Transformer 到 ViT",
+  "config": {
+    "version": "wrt-v1.0.0",
+    "prompt_version": "writing-v1.2.0",
+    "fingerprint": "50316b3fa9",
+    "thresholds": {
+      "writing_sections": 4,
+      "writing_evidence_per_section": 6,
+      "writing_per_paper": 2,
+      "writing_max_sentences": 5,
+      "writing_evidence_min_sim": 0.3,
+      "writing_strict_numbers": true
+    }
+  },
+  "sections": [
+    {
+      "id": "S1",
+      "no": 1,
+      "title": "注意力机制的引入与重要性",
+      "intent": "解释为什么注意力机制在现代深度学习架构中变得至关重要。",
+      "query": "注意力机制在Transformer模型中的作用",
+      "sentences": [
+        {
+          "id": "s1-1",
+          "section_id": "S1",
+          "order": 1,
+          "type": "claim",
+          "text": "注意力机制已成为现代深度学习架构中不可或缺的一部分，尤其是在序列建模和转换任务中，如语言建模和机器翻译。",
+          "cite_nos": [
+            3
+          ],
+          "chunk_ids": [
+            "chk_12fa20f0918e445d"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            1
+          ],
+          "evidence": [
+            {
+              "n": 3,
+              "chunk_id": "chk_12fa20f0918e445d",
+              "paper_id": "pap_1bf1681980144782",
+              "arxiv_id": "upload_bdfaa68d8984f0dc",
+              "title": "Attention is All You Need论文.pdf",
+              "page": 2,
+              "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+              "kind": "paragraph",
+              "text": "1 Introduction Recurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation [35, 2, 5]. Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures [38, 24, 15]. Recurrent models typically factor computation along the symbol positions of the input and output sequences. Aligning the positions to steps in computation time, they ge",
+              "truncated": true,
+              "score": 0.0233,
+              "hit_source": "",
+              "relevance": 0.339,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S4"
+              ],
+              "chunk_paper_ref": "upload_bdfaa68d8984f0dc::v1",
+              "ref_no": 1
+            }
+          ]
+        },
+        {
+          "id": "s1-2",
+          "section_id": "S1",
+          "order": 2,
+          "type": "claim",
+          "text": "基于注意力机制的 Transformer 架构在多项任务中表现出色，并且可以显著提高计算效率和并行化能力。",
+          "cite_nos": [
+            3,
+            4
+          ],
+          "chunk_ids": [
+            "chk_12fa20f0918e445d",
+            "chk_830ed3cc15ca4932"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            1
+          ],
+          "evidence": [
+            {
+              "n": 3,
+              "chunk_id": "chk_12fa20f0918e445d",
+              "paper_id": "pap_1bf1681980144782",
+              "arxiv_id": "upload_bdfaa68d8984f0dc",
+              "title": "Attention is All You Need论文.pdf",
+              "page": 2,
+              "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+              "kind": "paragraph",
+              "text": "1 Introduction Recurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation [35, 2, 5]. Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures [38, 24, 15]. Recurrent models typically factor computation along the symbol positions of the input and output sequences. Aligning the positions to steps in computation time, they ge",
+              "truncated": true,
+              "score": 0.0233,
+              "hit_source": "",
+              "relevance": 0.339,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S4"
+              ],
+              "chunk_paper_ref": "upload_bdfaa68d8984f0dc::v1",
+              "ref_no": 1
+            },
+            {
+              "n": 4,
+              "chunk_id": "chk_830ed3cc15ca4932",
+              "paper_id": "pap_1bf1681980144782",
+              "arxiv_id": "upload_bdfaa68d8984f0dc",
+              "title": "Attention is All You Need论文.pdf",
+              "page": 1,
+              "section": "Attention Is All You Need",
+              "kind": "paragraph",
+              "text": "Attention Is All You Need Ashish Vaswani∗ Google Brain avaswani@google.com Noam Shazeer∗ Google Brain noam@google.com Niki Parmar∗ Google Research nikip@google.com Jakob Uszkoreit∗ Google Research usz@google.com Llion Jones∗ Google Research llion@google.com Aidan N. Gomez∗† University of Toronto aidan@cs.toronto.edu Łukasz Kaiser∗ Google Brain lukaszkaiser@google.com Illia Polosukhin∗‡ illia.polosukhin@gmail.com Abstract The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models als",
+              "truncated": true,
+              "score": 0.0222,
+              "hit_source": "",
+              "relevance": 0.371,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+              ],
+              "chunk_paper_ref": "upload_bdfaa68d8984f0dc::v1",
+              "ref_no": 1
+            }
+          ]
+        }
+      ],
+      "dropped": [],
+      "placeholder": false,
+      "gap": "",
+      "evidence": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "evidence_candidates": 5,
+      "evidence_low_relevance": 0
+    },
+    {
+      "id": "S2",
+      "no": 2,
+      "title": "从文本到图像：ViT的应用",
+      "intent": "描述如何将Transformer架构应用于图像识别，并且介绍ViT的具体方法。",
+      "query": "ViT模型在计算机视觉领域的实现方式",
+      "sentences": [
+        {
+          "id": "s2-1",
+          "section_id": "S2",
+          "order": 1,
+          "type": "bridge",
+          "text": "在上文关于「注意力机制的引入与重要性」的讨论基础上，本节进一步讨论「从文本到图像：ViT的应用」。",
+          "cite_nos": [],
+          "chunk_ids": [],
+          "bridge_cue": true,
+          "source": "server_bridge",
+          "ref_nos": [],
+          "evidence": []
+        },
+        {
+          "id": "s2-2",
+          "section_id": "S2",
+          "order": 2,
+          "type": "claim",
+          "text": "ViT通过将图像分割成patches，并将这些patches的线性嵌入作为输入提供给Transformer，能够有效应用于图像识别任务。",
+          "cite_nos": [
+            1
+          ],
+          "chunk_ids": [
+            "807e635f-e396-f258-5734-17af0563ecd2"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            2
+          ],
+          "evidence": [
+            {
+              "n": 1,
+              "chunk_id": "807e635f-e396-f258-5734-17af0563ecd2",
+              "paper_id": "pap_6c2dbd4858b84fe9",
+              "arxiv_id": "2010.11929",
+              "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+              "page": 1,
+              "section": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE",
+              "kind": "paragraph",
+              "text": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE Alexey Dosovitskiy∗,†, Lucas Beyer∗, Alexander Kolesnikov∗, Dirk Weissenborn∗, Xiaohua Zhai∗, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby∗,† ∗equal technical contribution, †equal advising Google Research, Brain Team {adosovitskiy, neilhoulsby}@google.com ABSTRACT While the Transformer architecture has become the de-facto standard for natural language processing tasks, its applications to computer vision remain limited. In vision, attention is eithe",
+              "truncated": true,
+              "score": 0.0279,
+              "hit_source": "",
+              "relevance": 0.357,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+              ],
+              "chunk_paper_ref": "2010.11929::v2",
+              "ref_no": 2
+            }
+          ]
+        },
+        {
+          "id": "s2-3",
+          "section_id": "S2",
+          "order": 3,
+          "type": "claim",
+          "text": "ViT在大规模数据预训练后，在多个中等或小规模图像识别基准测试（如ImageNet、CIFAR-100、VTAB等）上取得了与最先进的卷积网络相当甚至更好的结果，同时所需的计算资源显著减少。",
+          "cite_nos": [
+            1
+          ],
+          "chunk_ids": [
+            "807e635f-e396-f258-5734-17af0563ecd2"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            2
+          ],
+          "evidence": [
+            {
+              "n": 1,
+              "chunk_id": "807e635f-e396-f258-5734-17af0563ecd2",
+              "paper_id": "pap_6c2dbd4858b84fe9",
+              "arxiv_id": "2010.11929",
+              "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+              "page": 1,
+              "section": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE",
+              "kind": "paragraph",
+              "text": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE Alexey Dosovitskiy∗,†, Lucas Beyer∗, Alexander Kolesnikov∗, Dirk Weissenborn∗, Xiaohua Zhai∗, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby∗,† ∗equal technical contribution, †equal advising Google Research, Brain Team {adosovitskiy, neilhoulsby}@google.com ABSTRACT While the Transformer architecture has become the de-facto standard for natural language processing tasks, its applications to computer vision remain limited. In vision, attention is eithe",
+              "truncated": true,
+              "score": 0.0279,
+              "hit_source": "",
+              "relevance": 0.357,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+              ],
+              "chunk_paper_ref": "2010.11929::v2",
+              "ref_no": 2
+            }
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "reason": "bridge_fragment",
+          "text": "在此基础上，"
+        }
+      ],
+      "placeholder": false,
+      "gap": "",
+      "evidence": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "evidence_candidates": 5,
+      "evidence_low_relevance": 0
+    },
+    {
+      "id": "S3",
+      "no": 3,
+      "title": "实际效果对比",
+      "intent": "通过比较不同模型（如BERT和ViT）的实际效果来展示注意力架构的优势和局限。",
+      "query": "BERT与ViT在各自领域内的性能对比",
+      "sentences": [
+        {
+          "id": "s3-1",
+          "section_id": "S3",
+          "order": 1,
+          "type": "bridge",
+          "text": "在上文关于「从文本到图像：ViT的应用」的讨论基础上，本节进一步讨论「实际效果对比」。",
+          "cite_nos": [],
+          "chunk_ids": [],
+          "bridge_cue": true,
+          "source": "server_bridge",
+          "ref_nos": [],
+          "evidence": []
+        },
+        {
+          "id": "s3-2",
+          "section_id": "S3",
+          "order": 2,
+          "type": "claim",
+          "text": "BERT在多种自然语言处理任务中取得了显著的性能提升，例如在GLUE评分上达到了80.5%，相比于之前的模型提升了7.7个百分点。",
+          "cite_nos": [
+            5
+          ],
+          "chunk_ids": [
+            "0205baa8-df7d-17a8-cda9-78b2110110c4"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            3
+          ],
+          "evidence": [
+            {
+              "n": 5,
+              "chunk_id": "0205baa8-df7d-17a8-cda9-78b2110110c4",
+              "paper_id": "pap_0932b4d974124926",
+              "arxiv_id": "1810.04805",
+              "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+              "page": 1,
+              "section": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+              "kind": "paragraph",
+              "text": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding Jacob Devlin Ming-Wei Chang Kenton Lee Kristina Toutanova Google AI Language {jacobdevlin,mingweichang,kentonl,kristout}@google.com Abstract We introduce a new language representa- tion model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language repre- sentation models (Peters et al., 2018a; Rad- ford et al., 2018), BERT is designed to pre- train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in a",
+              "truncated": true,
+              "score": 0.0171,
+              "hit_source": "",
+              "relevance": 0.427,
+              "hit_in": [
+                "S3"
+              ],
+              "chunk_paper_ref": "1810.04805::v2",
+              "ref_no": 3
+            }
+          ]
+        },
+        {
+          "id": "s3-3",
+          "section_id": "S3",
+          "order": 3,
+          "type": "claim",
+          "text": "ViT在图像分类任务中也表现出色，特别是在大规模数据预训练后，在多个基准测试上的表现优于传统卷积网络，并且所需的计算资源更少。",
+          "cite_nos": [
+            1
+          ],
+          "chunk_ids": [
+            "807e635f-e396-f258-5734-17af0563ecd2"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            2
+          ],
+          "evidence": [
+            {
+              "n": 1,
+              "chunk_id": "807e635f-e396-f258-5734-17af0563ecd2",
+              "paper_id": "pap_6c2dbd4858b84fe9",
+              "arxiv_id": "2010.11929",
+              "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+              "page": 1,
+              "section": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE",
+              "kind": "paragraph",
+              "text": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE Alexey Dosovitskiy∗,†, Lucas Beyer∗, Alexander Kolesnikov∗, Dirk Weissenborn∗, Xiaohua Zhai∗, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby∗,† ∗equal technical contribution, †equal advising Google Research, Brain Team {adosovitskiy, neilhoulsby}@google.com ABSTRACT While the Transformer architecture has become the de-facto standard for natural language processing tasks, its applications to computer vision remain limited. In vision, attention is eithe",
+              "truncated": true,
+              "score": 0.0279,
+              "hit_source": "",
+              "relevance": 0.357,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+              ],
+              "chunk_paper_ref": "2010.11929::v2",
+              "ref_no": 2
+            }
+          ]
+        }
+      ],
+      "dropped": [],
+      "placeholder": false,
+      "gap": "",
+      "evidence": [
+        5,
+        1,
+        2,
+        4,
+        6
+      ],
+      "evidence_candidates": 5,
+      "evidence_low_relevance": 0
+    },
+    {
+      "id": "S4",
+      "no": 4,
+      "title": "现有架构面临的挑战",
+      "intent": "讨论当前基于注意力机制的模型，包括语言模型和视觉模型，在实际应用中存在的主要问题。",
+      "query": "基于注意力机制的模型的主要限制",
+      "sentences": [
+        {
+          "id": "s4-1",
+          "section_id": "S4",
+          "order": 1,
+          "type": "bridge",
+          "text": "尽管如此，在实际应用中，基于注意力机制的模型仍然面临一些挑战。",
+          "cite_nos": [],
+          "chunk_ids": [],
+          "bridge_cue": false,
+          "ref_nos": [],
+          "evidence": []
+        },
+        {
+          "id": "s4-2",
+          "section_id": "S4",
+          "order": 2,
+          "type": "claim",
+          "text": "例如，Transformer 模型在处理长序列时存在计算效率问题，因为其复杂度随序列长度呈平方级增长。",
+          "cite_nos": [
+            3
+          ],
+          "chunk_ids": [
+            "chk_12fa20f0918e445d"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            1
+          ],
+          "evidence": [
+            {
+              "n": 3,
+              "chunk_id": "chk_12fa20f0918e445d",
+              "paper_id": "pap_1bf1681980144782",
+              "arxiv_id": "upload_bdfaa68d8984f0dc",
+              "title": "Attention is All You Need论文.pdf",
+              "page": 2,
+              "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+              "kind": "paragraph",
+              "text": "1 Introduction Recurrent neural networks, long short-term memory [13] and gated recurrent [7] neural networks in particular, have been firmly established as state of the art approaches in sequence modeling and transduction problems such as language modeling and machine translation [35, 2, 5]. Numerous efforts have since continued to push the boundaries of recurrent language models and encoder-decoder architectures [38, 24, 15]. Recurrent models typically factor computation along the symbol positions of the input and output sequences. Aligning the positions to steps in computation time, they ge",
+              "truncated": true,
+              "score": 0.0233,
+              "hit_source": "",
+              "relevance": 0.339,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S4"
+              ],
+              "chunk_paper_ref": "upload_bdfaa68d8984f0dc::v1",
+              "ref_no": 1
+            }
+          ]
+        },
+        {
+          "id": "s4-3",
+          "section_id": "S4",
+          "order": 3,
+          "type": "claim",
+          "text": "当在中等规模的数据集如 ImageNet 上进行训练时，这些模型的精度比同等大小的 ResNet 低几个百分点。",
+          "cite_nos": [
+            1
+          ],
+          "chunk_ids": [
+            "807e635f-e396-f258-5734-17af0563ecd2"
+          ],
+          "bridge_cue": false,
+          "ref_nos": [
+            2
+          ],
+          "evidence": [
+            {
+              "n": 1,
+              "chunk_id": "807e635f-e396-f258-5734-17af0563ecd2",
+              "paper_id": "pap_6c2dbd4858b84fe9",
+              "arxiv_id": "2010.11929",
+              "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+              "page": 1,
+              "section": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE",
+              "kind": "paragraph",
+              "text": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE Alexey Dosovitskiy∗,†, Lucas Beyer∗, Alexander Kolesnikov∗, Dirk Weissenborn∗, Xiaohua Zhai∗, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby∗,† ∗equal technical contribution, †equal advising Google Research, Brain Team {adosovitskiy, neilhoulsby}@google.com ABSTRACT While the Transformer architecture has become the de-facto standard for natural language processing tasks, its applications to computer vision remain limited. In vision, attention is eithe",
+              "truncated": true,
+              "score": 0.0279,
+              "hit_source": "",
+              "relevance": 0.357,
+              "hit_in": [
+                "S1",
+                "S2",
+                "S3",
+                "S4"
+              ],
+              "chunk_paper_ref": "2010.11929::v2",
+              "ref_no": 2
+            }
+          ]
+        }
+      ],
+      "dropped": [
+        {
+          "reason": "no_citation",
+          "text": "此外，对于视觉任务，纯粹的 Transformer 模型在没有强正则化的情况下，训练结果通常略低于同规模的 ResNet 模型。",
+          "declared": "bridge",
+          "why": "bridge_with_claim_cues"
+        }
+      ],
+      "placeholder": false,
+      "gap": "",
+      "evidence": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "evidence_candidates": 5,
+      "evidence_low_relevance": 0
+    }
+  ],
+  "references": [
+    {
+      "ref_no": 1,
+      "paper_id": "pap_1bf1681980144782",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "title": "Attention is All You Need论文.pdf",
+      "authors": [],
+      "year": null,
+      "venue": "",
+      "doi": "",
+      "chunk_nos": [
+        3,
+        4,
+        6
+      ],
+      "payload_paper_ids": [
+        "upload_bdfaa68d8984f0dc::v1"
+      ],
+      "checked": true,
+      "issues": []
+    },
+    {
+      "ref_no": 2,
+      "paper_id": "pap_6c2dbd4858b84fe9",
+      "arxiv_id": "2010.11929",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "authors": [
+        "Alexey Dosovitskiy",
+        "Lucas Beyer",
+        "Alexander Kolesnikov",
+        "Dirk Weissenborn",
+        "Xiaohua Zhai",
+        "Thomas Unterthiner",
+        "Mostafa Dehghani",
+        "Matthias Minderer",
+        "Georg Heigold",
+        "Sylvain Gelly",
+        "Jakob Uszkoreit",
+        "Neil Houlsby"
+      ],
+      "year": null,
+      "venue": "",
+      "doi": "",
+      "chunk_nos": [
+        1
+      ],
+      "payload_paper_ids": [
+        "2010.11929::v2"
+      ],
+      "checked": true,
+      "issues": []
+    },
+    {
+      "ref_no": 3,
+      "paper_id": "pap_0932b4d974124926",
+      "arxiv_id": "1810.04805",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "authors": [
+        "Jacob Devlin",
+        "Ming-Wei Chang",
+        "Kenton Lee",
+        "Kristina Toutanova"
+      ],
+      "year": null,
+      "venue": "",
+      "doi": "",
+      "chunk_nos": [
+        5
+      ],
+      "payload_paper_ids": [
+        "1810.04805::v2"
+      ],
+      "checked": true,
+      "issues": []
+    }
+  ],
+  "ref_map": [
+    {
+      "n": 1,
+      "chunk_id": "807e635f-e396-f258-5734-17af0563ecd2",
+      "paper_id": "pap_6c2dbd4858b84fe9",
+      "chunk_paper_ref": "2010.11929::v2",
+      "arxiv_id": "2010.11929",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "page": 1,
+      "section": "AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE",
+      "ref_no": 2,
+      "used_in": [
+        "s2-2",
+        "s2-3",
+        "s3-3",
+        "s4-3"
+      ],
+      "hit_in": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "n": 2,
+      "chunk_id": "b3d7cc39-4d7c-d693-028f-4f2ce746263f",
+      "paper_id": "",
+      "chunk_paper_ref": "2106.09685::v2",
+      "arxiv_id": "2106.09685",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "page": 5,
+      "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+      "ref_no": null,
+      "used_in": [],
+      "hit_in": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "n": 3,
+      "chunk_id": "chk_12fa20f0918e445d",
+      "paper_id": "pap_1bf1681980144782",
+      "chunk_paper_ref": "upload_bdfaa68d8984f0dc::v1",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 2,
+      "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+      "ref_no": 1,
+      "used_in": [
+        "s1-1",
+        "s1-2",
+        "s4-2"
+      ],
+      "hit_in": [
+        "S1",
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "n": 4,
+      "chunk_id": "chk_830ed3cc15ca4932",
+      "paper_id": "pap_1bf1681980144782",
+      "chunk_paper_ref": "upload_bdfaa68d8984f0dc::v1",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 1,
+      "section": "Attention Is All You Need",
+      "ref_no": 1,
+      "used_in": [
+        "s1-2"
+      ],
+      "hit_in": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "n": 5,
+      "chunk_id": "0205baa8-df7d-17a8-cda9-78b2110110c4",
+      "paper_id": "pap_0932b4d974124926",
+      "chunk_paper_ref": "1810.04805::v2",
+      "arxiv_id": "1810.04805",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "page": 1,
+      "section": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "ref_no": 3,
+      "used_in": [
+        "s3-2"
+      ],
+      "hit_in": [
+        "S3"
+      ]
+    },
+    {
+      "n": 6,
+      "chunk_id": "chk_80e931efc3d94c07",
+      "paper_id": "pap_1bf1681980144782",
+      "chunk_paper_ref": "upload_bdfaa68d8984f0dc::v1",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 5,
+      "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+      "ref_no": 1,
+      "used_in": [],
+      "hit_in": [
+        "S3"
+      ]
+    }
+  ],
+  "stats": {
+    "sections": 4,
+    "sentences": 11,
+    "claim_sentences": 8,
+    "bridge_sentences": 3,
+    "cited_sentences": 8,
+    "uncited_claim": 0,
+    "placeholders": 0,
+    "sentences_dropped": 2,
+    "dropped_by_reason": {
+      "bridge_fragment": 1,
+      "no_citation": 1
+    },
+    "refs": 3,
+    "refs_rejected": 0,
+    "fabricated_refs": 0,
+    "evidence_chunks": 6,
+    "papers": 3,
+    "degraded": false,
+    "prompt_version": "writing-v1.2.0",
+    "config_version": "wrt-v1.0.0",
+    "fingerprint": "50316b3fa9"
+  },
+  "trace": {
+    "plan": {
+      "sections": [
+        {
+          "id": "S1",
+          "no": 1,
+          "title": "注意力机制的引入与重要性",
+          "intent": "解释为什么注意力机制在现代深度学习架构中变得至关重要。",
+          "query": "注意力机制在Transformer模型中的作用"
+        },
+        {
+          "id": "S2",
+          "no": 2,
+          "title": "从文本到图像：ViT的应用",
+          "intent": "描述如何将Transformer架构应用于图像识别，并且介绍ViT的具体方法。",
+          "query": "ViT模型在计算机视觉领域的实现方式"
+        },
+        {
+          "id": "S3",
+          "no": 3,
+          "title": "实际效果对比",
+          "intent": "通过比较不同模型（如BERT和ViT）的实际效果来展示注意力架构的优势和局限。",
+          "query": "BERT与ViT在各自领域内的性能对比"
+        },
+        {
+          "id": "S4",
+          "no": 4,
+          "title": "现有架构面临的挑战",
+          "intent": "讨论当前基于注意力机制的模型，包括语言模型和视觉模型，在实际应用中存在的主要问题。",
+          "query": "基于注意力机制的模型的主要限制"
+        }
+      ],
+      "source": "llm",
+      "rejected_titles": []
+    },
+    "gaps": [],
+    "dropped": [
+      {
+        "reason": "bridge_fragment",
+        "text": "在此基础上，",
+        "section_id": "S2"
+      },
+      {
+        "reason": "no_citation",
+        "text": "此外，对于视觉任务，纯粹的 Transformer 模型在没有强正则化的情况下，训练结果通常略低于同规模的 ResNet 模型。",
+        "declared": "bridge",
+        "why": "bridge_with_claim_cues",
+        "section_id": "S4"
+      }
+    ],
+    "fabricated_refs": [],
+    "refs_rejected": [],
+    "timing": {
+      "plan": 6.87,
+      "write": 28.88,
+      "refs": 0.01,
+      "total": 35.78
+    }
+  }
+}

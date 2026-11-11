@@ -21,6 +21,22 @@ class PaperUploadResponse(BaseModel):
     version: str
     task_id: Optional[str] = None
     message: str = "论文已接收，后台异步解析中"
+    # ---- 课题化后新增，全部可选：旧调用方只读上面几个字段，不受影响 ----
+    project_id: Optional[str] = Field(default=None, description="论文归属的课题")
+    paper_uuid: Optional[str] = Field(default=None, description="papers 表主键")
+    version_id: Optional[str] = Field(default=None, description="paper_versions 表主键")
+    # ---- 异步解析新增 ----
+    stage: Optional[str] = Field(
+        default=None,
+        description="解析阶段：queued/downloading/parsing/structuring/indexed/reused/failed",
+    )
+    reused: Optional[bool] = Field(
+        default=None, description="true 表示命中了 file_hash，直接复用已有解析结果"
+    )
+    progress_url: Optional[str] = Field(
+        default=None, description="进度查询地址（轮询用，SSE 把 progress 换成 events）"
+    )
+    detail: Optional[str] = Field(default=None, description="复用/跳过时的人读说明")
 
 
 class PaperQueryRequest(BaseModel):

@@ -19,6 +19,7 @@ class ChapterParser:
         headings: List[Dict[str, Any]],
         use_llm: bool = True,
         model: str | None = None,
+        timeout: float | None = None,
     ) -> List[Dict[str, Any]]:
         """
         headings: [{"title": str, "page": int, "font_size": float}, ...]
@@ -37,7 +38,9 @@ class ChapterParser:
         if use_llm and headings:
             try:
                 prompt = self._headings_to_prompt(headings)
-                result = self.llm.json_chat(prompt, system_key="chapter_tree", model=model)
+                result = self.llm.json_chat(
+                    prompt, system_key="chapter_tree", model=model, timeout=timeout
+                )
                 tree = result.get("tree")
                 if tree and isinstance(tree, list):
                     return tree

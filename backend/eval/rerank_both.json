@@ -1,0 +1,1996 @@
+{
+  "models": [
+    "Xenova/ms-marco-MiniLM-L-6-v2",
+    "jinaai/jina-reranker-v1-turbo-en"
+  ],
+  "k": 5,
+  "n": 20,
+  "datasets": {
+    "routing": {
+      "ceiling": {
+        "n": 18,
+        "gold_in_pool": 0.9444,
+        "pool": 20
+      },
+      "results": [
+        {
+          "config": "fusion",
+          "n": 18,
+          "recall": 1.0,
+          "mrr": 0.9306,
+          "coverage": 0.7857,
+          "latency_ms": 0.0,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "p-beta2",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "p-warmup",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "p-gpu",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "p-vit-batch",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "p-bert-hidden",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "p-att-bleu",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "n-warmup-quote",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "n-label-smooth",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "n-low-rank",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "c-bert-transformer",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "c-beta-diff",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "c-lora-bert",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "c-three-methods",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.667,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "s-peft",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "s-attention",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.333,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "ch-hello",
+              "type": "chitchat",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "g-selfattn",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "g-bert-pretrain",
+              "type": "generic",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            }
+          ]
+        },
+        {
+          "config": "numeric",
+          "n": 18,
+          "recall": 1.0,
+          "mrr": 0.9306,
+          "coverage": 0.8333,
+          "latency_ms": 101.9,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "p-beta2",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 101.1
+            },
+            {
+              "id": "p-warmup",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 71.3
+            },
+            {
+              "id": "p-gpu",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 76.5
+            },
+            {
+              "id": "p-vit-batch",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 83.5
+            },
+            {
+              "id": "p-bert-hidden",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 76.4
+            },
+            {
+              "id": "p-att-bleu",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 105.7
+            },
+            {
+              "id": "n-warmup-quote",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 129.5
+            },
+            {
+              "id": "n-label-smooth",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 12.0
+            },
+            {
+              "id": "n-low-rank",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 14.8
+            },
+            {
+              "id": "c-bert-transformer",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 267.0
+            },
+            {
+              "id": "c-beta-diff",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 307.9
+            },
+            {
+              "id": "c-lora-bert",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 119.9
+            },
+            {
+              "id": "c-three-methods",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 58.4
+            },
+            {
+              "id": "s-peft",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 67.6
+            },
+            {
+              "id": "s-attention",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.333,
+              "degraded": false,
+              "latency_ms": 93.1
+            },
+            {
+              "id": "ch-hello",
+              "type": "chitchat",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.1
+            },
+            {
+              "id": "g-selfattn",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 127.3
+            },
+            {
+              "id": "g-bert-pretrain",
+              "type": "generic",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 121.8
+            }
+          ]
+        },
+        {
+          "config": "rerank:ms-marco-MiniLM-L-6-v2",
+          "n": 18,
+          "recall": 1.0,
+          "mrr": 0.9028,
+          "coverage": 0.7143,
+          "latency_ms": 349.0,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "p-beta2",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 758.9
+            },
+            {
+              "id": "p-warmup",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 333.8
+            },
+            {
+              "id": "p-gpu",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 346.2
+            },
+            {
+              "id": "p-vit-batch",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 284.4
+            },
+            {
+              "id": "p-bert-hidden",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 450.2
+            },
+            {
+              "id": "p-att-bleu",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 456.3
+            },
+            {
+              "id": "n-warmup-quote",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 220.4
+            },
+            {
+              "id": "n-label-smooth",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 348.4
+            },
+            {
+              "id": "n-low-rank",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 315.0
+            },
+            {
+              "id": "c-bert-transformer",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 229.9
+            },
+            {
+              "id": "c-beta-diff",
+              "type": "compare",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 366.0
+            },
+            {
+              "id": "c-lora-bert",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 468.2
+            },
+            {
+              "id": "c-three-methods",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.667,
+              "degraded": false,
+              "latency_ms": 357.2
+            },
+            {
+              "id": "s-peft",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 410.8
+            },
+            {
+              "id": "s-attention",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.333,
+              "degraded": false,
+              "latency_ms": 426.5
+            },
+            {
+              "id": "ch-hello",
+              "type": "chitchat",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "g-selfattn",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 270.0
+            },
+            {
+              "id": "g-bert-pretrain",
+              "type": "generic",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 239.0
+            }
+          ]
+        },
+        {
+          "config": "full:ms-marco-MiniLM-L-6-v2",
+          "n": 18,
+          "recall": 1.0,
+          "mrr": 0.8935,
+          "coverage": 0.881,
+          "latency_ms": 628.6,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "p-beta2",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 530.8
+            },
+            {
+              "id": "p-warmup",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 679.8
+            },
+            {
+              "id": "p-gpu",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 671.0
+            },
+            {
+              "id": "p-vit-batch",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 560.0
+            },
+            {
+              "id": "p-bert-hidden",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 619.2
+            },
+            {
+              "id": "p-att-bleu",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 828.2
+            },
+            {
+              "id": "n-warmup-quote",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 603.6
+            },
+            {
+              "id": "n-label-smooth",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 694.0
+            },
+            {
+              "id": "n-low-rank",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 703.0
+            },
+            {
+              "id": "c-bert-transformer",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 569.9
+            },
+            {
+              "id": "c-beta-diff",
+              "type": "compare",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 756.4
+            },
+            {
+              "id": "c-lora-bert",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 739.0
+            },
+            {
+              "id": "c-three-methods",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.667,
+              "degraded": false,
+              "latency_ms": 794.7
+            },
+            {
+              "id": "s-peft",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 732.5
+            },
+            {
+              "id": "s-attention",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 725.8
+            },
+            {
+              "id": "ch-hello",
+              "type": "chitchat",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "g-selfattn",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 599.3
+            },
+            {
+              "id": "g-bert-pretrain",
+              "type": "generic",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 506.9
+            }
+          ]
+        },
+        {
+          "config": "rerank:jina-reranker-v1-turbo-en",
+          "n": 18,
+          "recall": 0.8889,
+          "mrr": 0.6981,
+          "coverage": 0.7143,
+          "latency_ms": 484.8,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "p-beta2",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 1291.1
+            },
+            {
+              "id": "p-warmup",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.2,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 693.1
+            },
+            {
+              "id": "p-gpu",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 602.6
+            },
+            {
+              "id": "p-vit-batch",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 397.8
+            },
+            {
+              "id": "p-bert-hidden",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 502.7
+            },
+            {
+              "id": "p-att-bleu",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 504.4
+            },
+            {
+              "id": "n-warmup-quote",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 320.1
+            },
+            {
+              "id": "n-label-smooth",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 462.1
+            },
+            {
+              "id": "n-low-rank",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 435.2
+            },
+            {
+              "id": "c-bert-transformer",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 313.9
+            },
+            {
+              "id": "c-beta-diff",
+              "type": "compare",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 476.2
+            },
+            {
+              "id": "c-lora-bert",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 588.4
+            },
+            {
+              "id": "c-three-methods",
+              "type": "compare",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": 0.667,
+              "degraded": false,
+              "latency_ms": 488.6
+            },
+            {
+              "id": "s-peft",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 394.5
+            },
+            {
+              "id": "s-attention",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.333,
+              "degraded": false,
+              "latency_ms": 400.5
+            },
+            {
+              "id": "ch-hello",
+              "type": "chitchat",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "g-selfattn",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 519.8
+            },
+            {
+              "id": "g-bert-pretrain",
+              "type": "generic",
+              "hit": true,
+              "mrr": 0.2,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 334.6
+            }
+          ]
+        },
+        {
+          "config": "full:jina-reranker-v1-turbo-en",
+          "n": 18,
+          "recall": 1.0,
+          "mrr": 0.8935,
+          "coverage": 0.881,
+          "latency_ms": 607.6,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "p-beta2",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 732.7
+            },
+            {
+              "id": "p-warmup",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 609.0
+            },
+            {
+              "id": "p-gpu",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 872.4
+            },
+            {
+              "id": "p-vit-batch",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 536.1
+            },
+            {
+              "id": "p-bert-hidden",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 574.3
+            },
+            {
+              "id": "p-att-bleu",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 691.6
+            },
+            {
+              "id": "n-warmup-quote",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 582.5
+            },
+            {
+              "id": "n-label-smooth",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 616.4
+            },
+            {
+              "id": "n-low-rank",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 560.1
+            },
+            {
+              "id": "c-bert-transformer",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 539.6
+            },
+            {
+              "id": "c-beta-diff",
+              "type": "compare",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": 0.5,
+              "degraded": false,
+              "latency_ms": 668.2
+            },
+            {
+              "id": "c-lora-bert",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 710.8
+            },
+            {
+              "id": "c-three-methods",
+              "type": "compare",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 0.667,
+              "degraded": false,
+              "latency_ms": 878.9
+            },
+            {
+              "id": "s-peft",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 611.7
+            },
+            {
+              "id": "s-attention",
+              "type": "survey",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": 1.0,
+              "degraded": false,
+              "latency_ms": 588.0
+            },
+            {
+              "id": "ch-hello",
+              "type": "chitchat",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "g-selfattn",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 632.0
+            },
+            {
+              "id": "g-bert-pretrain",
+              "type": "generic",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 532.8
+            }
+          ]
+        }
+      ]
+    },
+    "rerank": {
+      "ceiling": {
+        "n": 16,
+        "gold_in_pool": 0.875,
+        "pool": 20
+      },
+      "results": [
+        {
+          "config": "fusion",
+          "n": 16,
+          "recall": 0.625,
+          "mrr": 0.4864,
+          "coverage": null,
+          "latency_ms": 0.0,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "q-p100-count",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-bleu-284",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-bleu-418",
+              "type": "nav",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-beta2-098",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-eps-1e9",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-bert-768",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-vit-768-3072",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-lora-r8",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-lora-40m",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-vit-batch4096",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.2,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-bert-lr1e4",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-att-dropout",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-att-alpha",
+              "type": "generic",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-eight-p100",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-table3-big",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            },
+            {
+              "id": "q-bert-110m",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 0.0
+            }
+          ]
+        },
+        {
+          "config": "numeric",
+          "n": 16,
+          "recall": 0.6875,
+          "mrr": 0.4989,
+          "coverage": null,
+          "latency_ms": 106.9,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "q-p100-count",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 113.9
+            },
+            {
+              "id": "q-bleu-284",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 93.2
+            },
+            {
+              "id": "q-bleu-418",
+              "type": "nav",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 76.4
+            },
+            {
+              "id": "q-beta2-098",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 138.5
+            },
+            {
+              "id": "q-eps-1e9",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 121.9
+            },
+            {
+              "id": "q-bert-768",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 80.8
+            },
+            {
+              "id": "q-vit-768-3072",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 151.8
+            },
+            {
+              "id": "q-lora-r8",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 140.8
+            },
+            {
+              "id": "q-lora-40m",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 133.5
+            },
+            {
+              "id": "q-vit-batch4096",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 100.6
+            },
+            {
+              "id": "q-bert-lr1e4",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 92.6
+            },
+            {
+              "id": "q-att-dropout",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 79.9
+            },
+            {
+              "id": "q-att-alpha",
+              "type": "generic",
+              "hit": true,
+              "mrr": 0.2,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 122.5
+            },
+            {
+              "id": "q-eight-p100",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 72.6
+            },
+            {
+              "id": "q-table3-big",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 107.5
+            },
+            {
+              "id": "q-bert-110m",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.2,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 84.4
+            }
+          ]
+        },
+        {
+          "config": "rerank:ms-marco-MiniLM-L-6-v2",
+          "n": 16,
+          "recall": 0.625,
+          "mrr": 0.4896,
+          "coverage": null,
+          "latency_ms": 423.6,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "q-p100-count",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 646.2
+            },
+            {
+              "id": "q-bleu-284",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 352.3
+            },
+            {
+              "id": "q-bleu-418",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 380.7
+            },
+            {
+              "id": "q-beta2-098",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 463.9
+            },
+            {
+              "id": "q-eps-1e9",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 460.0
+            },
+            {
+              "id": "q-bert-768",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 559.3
+            },
+            {
+              "id": "q-vit-768-3072",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 308.0
+            },
+            {
+              "id": "q-lora-r8",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 381.3
+            },
+            {
+              "id": "q-lora-40m",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 430.5
+            },
+            {
+              "id": "q-vit-batch4096",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 358.5
+            },
+            {
+              "id": "q-bert-lr1e4",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 465.5
+            },
+            {
+              "id": "q-att-dropout",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 402.4
+            },
+            {
+              "id": "q-att-alpha",
+              "type": "generic",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 467.0
+            },
+            {
+              "id": "q-eight-p100",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 399.4
+            },
+            {
+              "id": "q-table3-big",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 347.2
+            },
+            {
+              "id": "q-bert-110m",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 354.9
+            }
+          ]
+        },
+        {
+          "config": "full:ms-marco-MiniLM-L-6-v2",
+          "n": 16,
+          "recall": 0.6875,
+          "mrr": 0.5208,
+          "coverage": null,
+          "latency_ms": 654.6,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "q-p100-count",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 583.5
+            },
+            {
+              "id": "q-bleu-284",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 597.3
+            },
+            {
+              "id": "q-bleu-418",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 702.9
+            },
+            {
+              "id": "q-beta2-098",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 653.8
+            },
+            {
+              "id": "q-eps-1e9",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 864.1
+            },
+            {
+              "id": "q-bert-768",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 659.5
+            },
+            {
+              "id": "q-vit-768-3072",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 589.4
+            },
+            {
+              "id": "q-lora-r8",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 603.9
+            },
+            {
+              "id": "q-lora-40m",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 533.3
+            },
+            {
+              "id": "q-vit-batch4096",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 507.6
+            },
+            {
+              "id": "q-bert-lr1e4",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 550.5
+            },
+            {
+              "id": "q-att-dropout",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 704.3
+            },
+            {
+              "id": "q-att-alpha",
+              "type": "generic",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 739.3
+            },
+            {
+              "id": "q-eight-p100",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 659.8
+            },
+            {
+              "id": "q-table3-big",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 733.3
+            },
+            {
+              "id": "q-bert-110m",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 790.4
+            }
+          ]
+        },
+        {
+          "config": "rerank:jina-reranker-v1-turbo-en",
+          "n": 16,
+          "recall": 0.625,
+          "mrr": 0.3406,
+          "coverage": null,
+          "latency_ms": 551.4,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "q-p100-count",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 891.1
+            },
+            {
+              "id": "q-bleu-284",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 570.2
+            },
+            {
+              "id": "q-bleu-418",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 519.1
+            },
+            {
+              "id": "q-beta2-098",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 524.9
+            },
+            {
+              "id": "q-eps-1e9",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 522.4
+            },
+            {
+              "id": "q-bert-768",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 490.8
+            },
+            {
+              "id": "q-vit-768-3072",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 531.7
+            },
+            {
+              "id": "q-lora-r8",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 561.5
+            },
+            {
+              "id": "q-lora-40m",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 524.0
+            },
+            {
+              "id": "q-vit-batch4096",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 407.1
+            },
+            {
+              "id": "q-bert-lr1e4",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 677.5
+            },
+            {
+              "id": "q-att-dropout",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.2,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 507.2
+            },
+            {
+              "id": "q-att-alpha",
+              "type": "generic",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 503.3
+            },
+            {
+              "id": "q-eight-p100",
+              "type": "nav",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 504.6
+            },
+            {
+              "id": "q-table3-big",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 591.9
+            },
+            {
+              "id": "q-bert-110m",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 495.2
+            }
+          ]
+        },
+        {
+          "config": "full:jina-reranker-v1-turbo-en",
+          "n": 16,
+          "recall": 0.6875,
+          "mrr": 0.5208,
+          "coverage": null,
+          "latency_ms": 659.3,
+          "degraded": 0,
+          "rows": [
+            {
+              "id": "q-p100-count",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 812.6
+            },
+            {
+              "id": "q-bleu-284",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 548.1
+            },
+            {
+              "id": "q-bleu-418",
+              "type": "nav",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 764.1
+            },
+            {
+              "id": "q-beta2-098",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 652.2
+            },
+            {
+              "id": "q-eps-1e9",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 593.3
+            },
+            {
+              "id": "q-bert-768",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 551.7
+            },
+            {
+              "id": "q-vit-768-3072",
+              "type": "generic",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 778.3
+            },
+            {
+              "id": "q-lora-r8",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.333,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 617.8
+            },
+            {
+              "id": "q-lora-40m",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 682.5
+            },
+            {
+              "id": "q-vit-batch4096",
+              "type": "point",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 492.0
+            },
+            {
+              "id": "q-bert-lr1e4",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.5,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 750.4
+            },
+            {
+              "id": "q-att-dropout",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 625.8
+            },
+            {
+              "id": "q-att-alpha",
+              "type": "generic",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 740.9
+            },
+            {
+              "id": "q-eight-p100",
+              "type": "nav",
+              "hit": false,
+              "mrr": 0.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 611.1
+            },
+            {
+              "id": "q-table3-big",
+              "type": "point",
+              "hit": true,
+              "mrr": 1.0,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 691.2
+            },
+            {
+              "id": "q-bert-110m",
+              "type": "point",
+              "hit": true,
+              "mrr": 0.25,
+              "coverage": null,
+              "degraded": false,
+              "latency_ms": 637.1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

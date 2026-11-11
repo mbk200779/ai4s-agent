@@ -1,0 +1,154 @@
+{
+  "version": "rerank-v1",
+  "corpus": {
+    "note": "默认课题 5 篇（Attention upload_bdfaa68d8984f0dc / BERT 1810.04805 / ViT 2010.11929 / LoRA 2106.09685 / soliton upload_8bb215cdfabf4f40），285 片段",
+    "papers": 5,
+    "chunks": 285
+  },
+  "description": "数值/公式类查询专项集。每条 gold 都是在语料里实际扫到该串的页码，不是凭记忆写的——这类题的正确答案是「哪个数值出现在哪」，页码错一条就等于评测口径错。",
+  "queries": [
+    {
+      "id": "q-p100-count",
+      "question": "训练用了 8×P100 还是 8×A100",
+      "search_text": "How many GPUs and which model, 8xP100 or 8xA100?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 7},
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 2},
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8}
+      ],
+      "note": "正文写的是 8 NVIDIA P100；问句里的 8×A100 是故意留的干扰项（语料里没有 A100）"
+    },
+    {
+      "id": "q-bleu-284",
+      "question": "BLEU 28.4 是在哪个翻译任务上取得的",
+      "search_text": "Which translation task achieved a BLEU score of 28.4?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 1},
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8}
+      ]
+    },
+    {
+      "id": "q-bleu-418",
+      "question": "英法任务上的 BLEU 41.8 出现在哪一页",
+      "search_text": "Where does the BLEU score of 41.8 on English-to-French appear?",
+      "expect_type": "nav",
+      "gold": [
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 1},
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8}
+      ]
+    },
+    {
+      "id": "q-beta2-098",
+      "question": "β₂ = 0.98 这个取值出现在哪一段",
+      "search_text": "Where does the value beta2 = 0.98 appear?",
+      "expect_type": "nav",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 7}],
+      "note": "第 5.3 节 Optimizer；同页还有 β1 = 0.9、ϵ = 10−9"
+    },
+    {
+      "id": "q-eps-1e9",
+      "question": "Adam 的 ϵ = 10−9 是怎么设置的",
+      "search_text": "How is epsilon = 1e-9 set for the Adam optimizer?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 7}]
+    },
+    {
+      "id": "q-bert-768",
+      "question": "BERT base 的 hidden size 768 对应几层几头",
+      "search_text": "For BERT base with hidden size 768, how many layers and heads?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "1810.04805", "page": 3}],
+      "note": "BERTBASE (L=12, H=768, A=12, 110M)"
+    },
+    {
+      "id": "q-vit-768-3072",
+      "question": "ViT-Base 的 768 和 3072 分别是什么",
+      "search_text": "In ViT-Base, what do 768 and 3072 refer to?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "2010.11929", "page": 5}],
+      "note": "ViT-Base: 12 layers, hidden 768, MLP 3072, 12 heads, 86M"
+    },
+    {
+      "id": "q-lora-r8",
+      "question": "LoRA 里 r = 8 的参数量是多少",
+      "search_text": "What is the parameter count for LoRA with rank r = 8?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "2106.09685", "page": 8},
+        {"arxiv_id": "2106.09685", "page": 23},
+        {"arxiv_id": "2106.09685", "page": 11}
+      ],
+      "note": "40.1M 在 p8 正文与 p23 表格里都出现；p11 讲 r=8 与 r=64 的秩关系"
+    },
+    {
+      "id": "q-lora-40m",
+      "question": "40.1M 这个参数量对应哪个 rank",
+      "search_text": "Which rank does the 40.1M parameter count correspond to?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "2106.09685", "page": 8},
+        {"arxiv_id": "2106.09685", "page": 23}
+      ]
+    },
+    {
+      "id": "q-vit-batch4096",
+      "question": "batch size 4096 出现在哪篇论文",
+      "search_text": "Which paper uses a batch size of 4096?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "2010.11929", "page": 13},
+        {"arxiv_id": "2010.11929", "page": 14}
+      ],
+      "note": "ViT 预训练设置；Attention 论文第 9 页的 4096 是 ablation 表里的列值，属干扰"
+    },
+    {
+      "id": "q-bert-lr1e4",
+      "question": "learning rate 1e-4 是哪个模型的设置",
+      "search_text": "Which model was trained with a learning rate of 1e-4?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "1810.04805", "page": 13}],
+      "note": "BERT 的 fine-tuning 超参（该页被解析器标成 reference，靠数值探针才能捞回来）"
+    },
+    {
+      "id": "q-att-dropout",
+      "question": "dropout 0.1 用在哪些位置",
+      "search_text": "Where is the dropout rate of 0.1 applied?",
+      "expect_type": "point",
+      "gold": [
+        {"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8},
+        {"arxiv_id": "2106.09685", "page": 20}
+      ]
+    },
+    {
+      "id": "q-att-alpha",
+      "question": "长度惩罚 α = 0.6 是在哪个设置下",
+      "search_text": "What setting uses the length penalty alpha = 0.6?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8}]
+    },
+    {
+      "id": "q-eight-p100",
+      "question": "原文里 eight P100 GPUs 这句话在哪一页",
+      "search_text": "On which page does the phrase eight P100 GPUs appear?",
+      "expect_type": "nav",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 2}],
+      "note": "数词写法 eight 与问句里的 8 不同，专门用来验规则召回的数词归一"
+    },
+    {
+      "id": "q-table3-big",
+      "question": "Table 3 里 Transformer (big) 的 BLEU 是多少",
+      "search_text": "In Table 3, what BLEU does Transformer (big) achieve?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "upload_bdfaa68d8984f0dc", "page": 8}]
+    },
+    {
+      "id": "q-bert-110m",
+      "question": "BERT base 的 110M 参数包含多少层",
+      "search_text": "How many layers are in BERT base with 110M parameters?",
+      "expect_type": "point",
+      "gold": [{"arxiv_id": "1810.04805", "page": 3}]
+    }
+  ]
+}

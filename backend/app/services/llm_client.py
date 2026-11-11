@@ -5,7 +5,7 @@ LLM 统一客户端：通过 LiteLLM 切换 GPT/Claude/Qwen，temperature=0 保�
 import os
 import base64
 import json
-from typing import List, Dict, Any
+from typing import Iterator, List, Dict, Any
 from litellm import completion
 from app.core.config import settings
 
@@ -79,23 +79,82 @@ class LLMClient:
         system_key: str = "qa_system",
         context: str | None = None,
         model: str | None = None,
+        timeout: float | None = None,
+        num_retries: int = 0,
+        system: str | None = None,
     ) -> str:
-        """通用对话接口；model 可覆盖为降本模型。"""
+        """
+        通用对话接口；model 可覆盖为降本模型。
+
+        `system` 直接给一段 system prompt，绕过 `PROMPTS[prompt_version]` 查表。
+        为什么需要这个口子：综述模块的三个 prompt 有**自己的版本线**
+        （`review-v1.0.0`，见 `services/review/prompts.py`），
+        如果把它们塞进全局 `PROMPTS`，就会出现"改综述 prompt 得连带 bump 全局
+        prompt_version"的耦合，而那个版本号还管着 QA 的 prompt——
+        为了改综述去动问答的版本号，等于把两条版本线绑死。
+
+        timeout / num_retries 只给"后台批量任务"用（章节树、参考文献）。
+        交互式问答不传，保持原行为：用户愿意多等一会儿也要拿到答案；
+        而一次解析几百万字符的教材时，模型端点抖动不能把整个任务拖成几十分钟——
+        那种场景必须给死线，超了就退到确定性启发式。
+        """
         messages: List[Dict[str, Any]] = [
-            {"role": "system", "content": self._system_prompt(system_key)}
+            {"role": "system", "content": system or self._system_prompt(system_key)}
         ]
         if context:
             messages.append({"role": "user", "content": f"参考片段：\n{context}\n\n问题：{user_message}"})
         else:
             messages.append({"role": "user", "content": user_message})
 
+        extra: Dict[str, Any] = {}
+        if timeout is not None:
+            extra["timeout"] = timeout
+        if num_retries:
+            extra["num_retries"] = num_retries
         resp = completion(
             model=model or self.model,
             messages=messages,
             temperature=self.temperature,
             top_p=1.0,
+            **extra,
         )
         return resp.choices[0].message.content or ""
+
+    def chat_stream(
+        self,
+        user_message: str,
+        system_key: str = "qa_system",
+        model: str | None = None,
+        temperature: float | None = None,
+    ) -> Iterator[str]:
+        """
+        流式对话：逐块产出增量文本。
+
+        只给"用户盯着屏幕等"的路径用（问答正文）。后台批处理仍然走 chat()——
+        批量任务要的是稳定与可重试，流式只会让它更难处理失败重试。
+
+        这里刻意不做异常吞掉：调用方（SSE 出口）需要知道"流在第几块断了"，
+        以便发 error 事件而不是悄悄截断答案。半截答案 + 正常 done 是最坏的组合。
+        """
+        messages: List[Dict[str, Any]] = [
+            {"role": "system", "content": self._system_prompt(system_key)}
+        ]
+        messages.append({"role": "user", "content": user_message})
+
+        resp = completion(
+            model=model or self.model,
+            messages=messages,
+            temperature=self.temperature if temperature is None else temperature,
+            top_p=1.0,
+            stream=True,
+        )
+        for part in resp:
+            try:
+                delta = part.choices[0].delta.content
+            except (AttributeError, IndexError):
+                continue
+            if delta:
+                yield delta
 
     def vision(self, image_bytes: bytes, prompt: str, model: str | None = None) -> str:
         """视觉模型调用，image_bytes 转为 base64 data URL。"""
@@ -123,9 +182,15 @@ class LLMClient:
         user_message: str,
         system_key: str,
         model: str | None = None,
+        timeout: float | None = None,
+        num_retries: int = 0,
+        system: str | None = None,
     ) -> Dict[str, Any]:
-        """要求模型输出 JSON 并解析。"""
-        content = self.chat(user_message, system_key=system_key, model=model)
+        """要求模型输出 JSON 并解析。`system` 透传给 `chat`（综述模块自带 prompt 版本线）。"""
+        content = self.chat(
+            user_message, system_key=system_key, model=model,
+            timeout=timeout, num_retries=num_retries, system=system,
+        )
         if content.startswith("```"):
             content = content.strip("`")
             if content.startswith("json"):

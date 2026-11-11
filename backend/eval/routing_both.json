@@ -1,0 +1,1317 @@
+{
+  "summary": {
+    "mode": "both",
+    "baseline": {
+      "n": 18,
+      "hit_rate": 0.8889,
+      "mrr": 0.6482,
+      "avg_latency_ms": 206.9,
+      "coverage": 0.8333,
+      "type_acc": null,
+      "avg_classify_ms": null,
+      "max_classify_ms": null
+    },
+    "routed": {
+      "n": 18,
+      "hit_rate": 1.0,
+      "mrr": 0.9306,
+      "avg_latency_ms": 137.4,
+      "coverage": 0.9286,
+      "type_acc": 1.0,
+      "avg_classify_ms": 12.1,
+      "max_classify_ms": 95.1
+    },
+    "delta": {
+      "hit_rate": 0.1111,
+      "mrr": 0.2824,
+      "avg_latency_ms": -69.5
+    }
+  },
+  "rows": [
+    {
+      "id": "p-beta2",
+      "question": "Adam 优化器的 β2 设为多少",
+      "expect_type": "point",
+      "baseline": {
+        "hit": false,
+        "mrr": 0.0,
+        "coverage": null,
+        "latency_ms": 2282.2,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 0,
+            "kind": "reference",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 16,
+            "kind": "reference",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 20,
+            "kind": "reference",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "point",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.2,
+        "strategy": "point_boost_sparse",
+        "latency_ms": 94.3,
+        "papers": [
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 16,
+            "kind": "reference",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p-warmup",
+      "question": "学习率 warmup 步数是多少",
+      "expect_type": "point",
+      "baseline": {
+        "hit": true,
+        "mrr": 0.167,
+        "coverage": null,
+        "latency_ms": 53.7,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2106.09685",
+            "page": 20,
+            "kind": "reference",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 24,
+            "kind": "reference",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 16,
+            "kind": "reference",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "point",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.2,
+        "strategy": "point_boost_sparse",
+        "latency_ms": 77.8,
+        "papers": [
+          "1810.04805",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 9,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 2,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p-gpu",
+      "question": "训练用了多少块 GPU，什么型号",
+      "expect_type": "point",
+      "baseline": {
+        "hit": true,
+        "mrr": 0.25,
+        "coverage": null,
+        "latency_ms": 66.1,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 2,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 0,
+            "kind": "reference",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 0.5,
+        "coverage": null,
+        "type": "point",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "point_boost_sparse",
+        "latency_ms": 86.5,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 2,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p-vit-batch",
+      "question": "ViT 训练时的 batch size 是多少",
+      "expect_type": "point",
+      "baseline": {
+        "hit": true,
+        "mrr": 0.5,
+        "coverage": null,
+        "latency_ms": 58.8,
+        "papers": [
+          "2010.11929"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 2,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "point",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "point_boost_sparse",
+        "latency_ms": 88.6,
+        "papers": [
+          "2010.11929",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p-bert-hidden",
+      "question": "BERT base 模型的 hidden size 是多少",
+      "expect_type": "point",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "latency_ms": 65.0,
+        "papers": [
+          "1810.04805",
+          "2010.11929"
+        ],
+        "top": [
+          {
+            "arxiv_id": "1810.04805",
+            "page": 9,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 4,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "point",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "point_boost_sparse",
+        "latency_ms": 77.7,
+        "papers": [
+          "1810.04805",
+          "2010.11929"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "1810.04805",
+            "page": 9,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p-att-bleu",
+      "question": "Transformer 在 WMT2014 英德任务上的 BLEU 是多少",
+      "expect_type": "point",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "latency_ms": 68.4,
+        "papers": [
+          "1810.04805",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 10,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "point",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "point_boost_sparse",
+        "latency_ms": 95.4,
+        "papers": [
+          "1810.04805",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 9,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n-warmup-quote",
+      "question": "原文里 \"warmup_steps = 4000\" 出现在哪一页",
+      "expect_type": "nav",
+      "baseline": {
+        "hit": true,
+        "mrr": 0.5,
+        "coverage": null,
+        "latency_ms": 52.0,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 18,
+            "kind": "table",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 13,
+            "kind": "table",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "nav",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.6,
+        "strategy": "nav_exact_match",
+        "latency_ms": 195.3,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 18,
+            "kind": "table",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 13,
+            "kind": "table",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n-label-smooth",
+      "question": "哪篇论文提到 \"label smoothing\"",
+      "expect_type": "nav",
+      "baseline": {
+        "hit": true,
+        "mrr": 0.5,
+        "coverage": null,
+        "latency_ms": 93.8,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 0,
+            "kind": "reference",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 18,
+            "kind": "table",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "nav",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.2,
+        "strategy": "nav_exact_match",
+        "latency_ms": 17.9,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 6,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n-low-rank",
+      "question": "原文里 \"low-rank\" 这个说法出现在哪一段",
+      "expect_type": "nav",
+      "baseline": {
+        "hit": true,
+        "mrr": 0.5,
+        "coverage": 1.0,
+        "latency_ms": 112.4,
+        "papers": [
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 18,
+            "kind": "table",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 2,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 13,
+            "kind": "table",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "type": "nav",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "nav_exact_match",
+        "latency_ms": 16.1,
+        "papers": [
+          "2106.09685"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "2106.09685",
+            "page": 9,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 4,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 10,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c-bert-transformer",
+      "question": "BERT 与 Transformer Encoder 的继承关系",
+      "expect_type": "compare",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "latency_ms": 236.3,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "1810.04805",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 3,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 3,
+            "kind": "figure",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "type": "compare",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.2,
+        "strategy": "compare_multi_hop",
+        "latency_ms": 731.7,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 1,
+        "top": [
+          {
+            "arxiv_id": "1810.04805",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 3,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 2,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c-beta-diff",
+      "question": "Transformer 与 ViT 里 β2 的取值有什么差异",
+      "expect_type": "compare",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 0.5,
+        "latency_ms": 65.7,
+        "papers": [
+          "2010.11929"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 8,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 2,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 0.5,
+        "type": "compare",
+        "type_ok": true,
+        "method": "rules+prototype",
+        "classify_ms": 68.3,
+        "strategy": "compare_multi_hop",
+        "latency_ms": 361.6,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_8bb215cdfabf4f40"
+        ],
+        "pairs": 1,
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 13,
+            "kind": "reference",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "upload_8bb215cdfabf4f40",
+            "page": 5,
+            "kind": "figure",
+            "title": "soliton_molecule.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c-lora-bert",
+      "question": "LoRA 和 BERT 在参数规模上有什么差异",
+      "expect_type": "compare",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "latency_ms": 66.5,
+        "papers": [
+          "1810.04805",
+          "2106.09685"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2106.09685",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "type": "compare",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "compare_multi_hop",
+        "latency_ms": 128.1,
+        "papers": [
+          "1810.04805",
+          "2106.09685"
+        ],
+        "pairs": 1,
+        "top": [
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c-three-methods",
+      "question": "这三篇的方法有何差异",
+      "expect_type": "compare",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "latency_ms": 59.2,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2106.09685",
+            "page": 22,
+            "kind": "reference",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 11,
+            "kind": "reference",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 7,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "type": "compare",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "compare_multi_hop",
+        "latency_ms": 59.5,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 1,
+        "top": [
+          {
+            "arxiv_id": "2106.09685",
+            "page": 22,
+            "kind": "reference",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s-peft",
+      "question": "参数高效微调有哪些主要方法",
+      "expect_type": "survey",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "latency_ms": 68.0,
+        "papers": [
+          "1810.04805",
+          "2106.09685"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2106.09685",
+            "page": 3,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 9,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 23,
+            "kind": "reference",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "type": "survey",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "survey_breadth",
+        "latency_ms": 81.1,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "2106.09685",
+            "page": 3,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 9,
+            "kind": "paragraph",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          },
+          {
+            "arxiv_id": "2106.09685",
+            "page": 23,
+            "kind": "reference",
+            "title": "LoRA: Low-Rank Adaptation of Large Langu"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s-attention",
+      "question": "注意力机制都有哪些主要变体",
+      "expect_type": "survey",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 0.333,
+        "latency_ms": 61.8,
+        "papers": [
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 4,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": 1.0,
+        "type": "survey",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "survey_breadth",
+        "latency_ms": 62.7,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "2106.09685",
+          "upload_8bb215cdfabf4f40",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 1,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 0,
+            "kind": "reference",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 1,
+            "kind": "chapter",
+            "title": "Attention is All You Need论文.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch-hello",
+      "question": "你好",
+      "expect_type": "chitchat",
+      "baseline": {
+        "hit": false,
+        "mrr": 0.0,
+        "coverage": null,
+        "latency_ms": 61.6,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "2010.11929",
+            "page": 18,
+            "kind": "table",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 18,
+            "kind": "table",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 18,
+            "kind": "table",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "chitchat",
+        "type_ok": true,
+        "method": "rules",
+        "classify_ms": 0.1,
+        "strategy": "chitchat_direct",
+        "latency_ms": 0.1,
+        "papers": [],
+        "pairs": 0,
+        "top": []
+      }
+    },
+    {
+      "id": "g-selfattn",
+      "question": "self-attention 是怎么计算的",
+      "expect_type": "generic",
+      "baseline": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "latency_ms": 69.6,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 20,
+            "kind": "reference",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 13,
+            "kind": "reference",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 1.0,
+        "coverage": null,
+        "type": "generic",
+        "type_ok": true,
+        "method": "fallback",
+        "classify_ms": 95.1,
+        "strategy": "legacy_rrf",
+        "latency_ms": 189.3,
+        "papers": [
+          "1810.04805",
+          "2010.11929",
+          "upload_bdfaa68d8984f0dc"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "upload_bdfaa68d8984f0dc",
+            "page": 5,
+            "kind": "paragraph",
+            "title": "Attention is All You Need论文.pdf"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 20,
+            "kind": "reference",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          },
+          {
+            "arxiv_id": "2010.11929",
+            "page": 13,
+            "kind": "reference",
+            "title": "An Image is Worth 16x16 Words: Transform"
+          }
+        ]
+      }
+    },
+    {
+      "id": "g-bert-pretrain",
+      "question": "BERT 的预训练任务是什么",
+      "expect_type": "generic",
+      "baseline": {
+        "hit": true,
+        "mrr": 0.25,
+        "coverage": null,
+        "latency_ms": 182.8,
+        "papers": [
+          "1810.04805"
+        ],
+        "top": [
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      },
+      "routed": {
+        "hit": true,
+        "mrr": 0.25,
+        "coverage": null,
+        "type": "generic",
+        "type_ok": true,
+        "method": "fallback",
+        "classify_ms": 51.8,
+        "strategy": "legacy_rrf",
+        "latency_ms": 109.8,
+        "papers": [
+          "1810.04805"
+        ],
+        "pairs": 0,
+        "top": [
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          },
+          {
+            "arxiv_id": "1810.04805",
+            "page": 3,
+            "kind": "figure",
+            "title": "BERT: Pre-training of Deep Bidirectional"
+          }
+        ]
+      }
+    }
+  ]
+}

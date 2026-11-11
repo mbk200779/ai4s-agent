@@ -1,0 +1,29 @@
+# 云服务器生产覆盖层：把只有本机才需要的端口全部收回。
+#
+# 为什么必须有这一层：基础 docker-compose.yml 为了让本机调试方便，
+# 把 6333(Qdrant) / 6379(Redis) / 9000-9001(MinIO) / 8000(API) / 3000(Web)
+# 都映射到了 0.0.0.0。放到公网服务器上，等于把无密码的 Redis、
+# 无鉴权的 Qdrant、默认口令 minioadmin 的控制台直接暴露给整个互联网，
+# 通常几小时内就会被扫描器盯上。
+#
+# 用法（在仓库根目录，服务器上）：
+#   docker compose -f docker-compose.yml -f deploy/docker-compose.prod.yml --profile tunnel up -d
+#
+# 若不走 Cloudflare Tunnel、而是让 Nginx 直接监听 80/443，把 gateway
+# 那两行改成 "80:80" 即可，其余保持不变。
+services:
+  qdrant:
+    ports: !reset []
+  minio:
+    ports: !reset []
+  redis:
+    ports: !reset []
+  api:
+    ports: !reset []
+  web:
+    ports: !reset []
+  gateway:
+    # 必须用 !override：普通列表会被 compose 追加合并成 "8080:80" + "127.0.0.1:8080:80"
+    # 两条映射同抢 8080，启动时会直接报 address already in use。
+    ports: !override
+      - "127.0.0.1:8080:80"

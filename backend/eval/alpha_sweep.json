@@ -1,0 +1,178 @@
+{
+  "model": "Xenova/ms-marco-MiniLM-L-6-v2",
+  "k": 5,
+  "rows": [
+    {
+      "alpha": 0.0,
+      "recall": 0.7879,
+      "mrr": 0.6788,
+      "by_dataset": {
+        "routing": {
+          "recall": 1.0,
+          "mrr": 0.9265,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.5625,
+          "mrr": 0.4156,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": 0.2,
+      "recall": 0.8182,
+      "mrr": 0.6995,
+      "by_dataset": {
+        "routing": {
+          "recall": 1.0,
+          "mrr": 0.8971,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.625,
+          "mrr": 0.4896,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": 0.3,
+      "recall": 0.8182,
+      "mrr": 0.7045,
+      "by_dataset": {
+        "routing": {
+          "recall": 1.0,
+          "mrr": 0.8971,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.625,
+          "mrr": 0.4999,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": 0.4,
+      "recall": 0.8182,
+      "mrr": 0.654,
+      "by_dataset": {
+        "routing": {
+          "recall": 1.0,
+          "mrr": 0.8676,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.625,
+          "mrr": 0.4271,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": 0.5,
+      "recall": 0.8485,
+      "mrr": 0.605,
+      "by_dataset": {
+        "routing": {
+          "recall": 1.0,
+          "mrr": 0.7019,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.6875,
+          "mrr": 0.5021,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": 0.6,
+      "recall": 0.7879,
+      "mrr": 0.5545,
+      "by_dataset": {
+        "routing": {
+          "recall": 0.8824,
+          "mrr": 0.6019,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.6875,
+          "mrr": 0.5041,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": 0.8,
+      "recall": 0.6364,
+      "mrr": 0.5162,
+      "by_dataset": {
+        "routing": {
+          "recall": 0.7647,
+          "mrr": 0.5755,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.5,
+          "mrr": 0.4531,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": 1.0,
+      "recall": 0.5455,
+      "mrr": 0.4949,
+      "by_dataset": {
+        "routing": {
+          "recall": 0.6471,
+          "mrr": 0.549,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.4375,
+          "mrr": 0.4375,
+          "n": 16
+        }
+      }
+    }
+  ],
+  "policies": [
+    {
+      "alpha": "boundary（只让精排决定第 k 名）",
+      "recall": 0.8485,
+      "mrr": 0.7192,
+      "by_dataset": {
+        "routing": {
+          "recall": 1.0,
+          "mrr": 0.9265,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.6875,
+          "mrr": 0.4989,
+          "n": 16
+        }
+      }
+    },
+    {
+      "alpha": "head2（前 2 名锁定）",
+      "recall": 0.8182,
+      "mrr": 0.7222,
+      "by_dataset": {
+        "routing": {
+          "recall": 0.9412,
+          "mrr": 0.9118,
+          "n": 17
+        },
+        "rerank": {
+          "recall": 0.6875,
+          "mrr": 0.5208,
+          "n": 16
+        }
+      }
+    }
+  ]
+}

@@ -16,13 +16,73 @@ from app.services.figure_extractor import FigureExtractor
 from app.services.formula_extractor import FormulaExtractor
 from app.services.chapter_parser import ChapterParser
 from app.services.bibliography_extractor import BibliographyExtractor
+from app.services.citation_extractor import extract_from_chunks
 from app.services.arxiv_client import ArxivClient
 from app.services.s2_client import SemanticScholarClient
 from app.services.openalex_client import OpenAlexClient
 from app.services.crossref_client import CrossrefClient
+from app.repositories import (
+    ChunkRepository,
+    CitationRepository,
+    PaperRepository,
+    PaperVersionRepository,
+    ProjectRepository,
+    ReferenceRepository,
+)
 
 # 单个子任务处理页数；541 页书约拆成 18 个子任务
 CHUNK_SIZE = 30
+
+
+def _qdrant_point_id(arxiv_id: str, version: str, kind: str, idx: int) -> str:
+    """
+    与 VectorStoreService.index_fragments 里的点 ID 算法保持一致。
+    chunk 表存下这个 ID，检索命中后可以直接 point → chunk → page/bbox 反查，
+    不用再按文本模糊匹配。
+    """
+    import hashlib
+
+    return hashlib.md5(f"frag::{arxiv_id}::{version}::{kind}::{idx}".encode("utf-8")).hexdigest()
+
+
+def _ensure_version(
+    arxiv_id: str,
+    version: str,
+    title: str,
+    s3_key: str,
+    file_hash: str,
+    project_id: str | None,
+    paper_id: str | None,
+    version_id: str | None,
+) -> str | None:
+    """
+    兜底建结构：定时追新等入口不会先调上传接口，这里现场补 project→paper→version，
+    保证任何一条解析路径结束后，chunk 都能反查到课题。
+    """
+    if version_id:
+        return version_id
+    try:
+        project = ProjectRepository.get(project_id) if project_id else None
+        if not project:
+            project = ProjectRepository.get_or_create_default()
+        paper = PaperRepository.get(paper_id) if paper_id else None
+        if not paper:
+            paper = PaperRepository.upsert_paper(
+                project_id=project.id, arxiv_id=arxiv_id, title=title or arxiv_id
+            )
+        pv, _ = PaperVersionRepository.create(
+            paper_id=paper.id,
+            version_label=version,
+            file_hash=file_hash,
+            pdf_s3_key=s3_key,
+            status="pending",
+        )
+        return pv.id
+    except Exception:
+        # 结构写入失败不能反过来阻断向量索引，否则一次 DB 抖动会让论文彻底入不了库
+        import traceback
+        traceback.print_exc()
+        return None
 
 
 @celery_app.task(bind=True, max_retries=2, default_retry_delay=30)
@@ -35,9 +95,14 @@ def parse_and_index_pdf(
     authors: List[str] | None = None,
     abstract: str | None = None,
     doi: str | None = None,
+    project_id: str | None = None,
+    paper_id: str | None = None,
+    version_id: str | None = None,
 ) -> Dict[str, Any]:
     """
     异步解析 PDF 的入口：按页拆分并行解析，合并后去重、建索引。
+    课题化改造后额外接收 project_id / paper_id / version_id，
+    这三个值由上传接口预先建好；定时任务等入口没传，则在下面兜底补齐。
     """
     try:
         vector_store = VectorStoreService()
@@ -53,6 +118,19 @@ def parse_and_index_pdf(
         pdf_bytes = storage.get_pdf_bytes(s3_key)
         page_count = len(fitz.open(stream=pdf_bytes, filetype="pdf"))
 
+        import hashlib
+
+        resolved_version_id = _ensure_version(
+            arxiv_id=arxiv_id,
+            version=version,
+            title=title,
+            s3_key=s3_key,
+            file_hash=hashlib.sha256(pdf_bytes).hexdigest(),
+            project_id=project_id,
+            paper_id=paper_id,
+            version_id=version_id,
+        )
+
         ranges = [
             (i, min(i + CHUNK_SIZE - 1, page_count - 1))
             for i in range(0, page_count, CHUNK_SIZE)
@@ -66,6 +144,8 @@ def parse_and_index_pdf(
             authors=authors or [],
             abstract=abstract or "",
             doi=doi,
+            project_id=project_id,
+            version_id=resolved_version_id,
         )
         job = chord(
             group(parse_pdf_page_range.s(arxiv_id, version, s3_key, s, e) for s, e in ranges),
@@ -78,6 +158,7 @@ def parse_and_index_pdf(
             "status": "dispatched",
             "pages": page_count,
             "chunks": len(ranges),
+            "version_id": resolved_version_id,
             "merge_task_id": result.id,
         }
     except Exception as exc:
@@ -194,6 +275,8 @@ def merge_parsed_chunks(
     authors: List[str],
     abstract: str,
     doi: str | None,
+    project_id: str | None = None,
+    version_id: str | None = None,
 ) -> Dict[str, Any]:
     """
     chord 回调：合并各页范围结果，去重，建章节树，解析参考文献，
@@ -230,6 +313,10 @@ def merge_parsed_chunks(
         # 3. 去重（body_hash + embedding）
         dup_hash = vector_store.find_by_body_hash(body_hash)
         if dup_hash:
+            # 版本行已在上传时建好，这里必须给它一个终态，
+            # 否则会一直挂在 pending 上，看起来像“解析卡住了”
+            if version_id:
+                PaperVersionRepository.mark_indexed(version_id, status="duplicate")
             return {
                 "arxiv_id": arxiv_id,
                 "version": version,
@@ -238,6 +325,8 @@ def merge_parsed_chunks(
             }
         dup_sim = vector_store.find_similar_by_embedding(full_text[:4096], threshold=0.96)
         if dup_sim:
+            if version_id:
+                PaperVersionRepository.mark_indexed(version_id, status="duplicate")
             return {
                 "arxiv_id": arxiv_id,
                 "version": version,
@@ -323,6 +412,71 @@ def merge_parsed_chunks(
             structured_references=structured_refs,
         )
 
+        # 8. 结构化落库：chunk / 参考文献 / 正文引用位置
+        # 这一段失败不回滚向量索引——向量已经可检索，结构可以靠迁移脚本补，
+        # 反过来（结构写成功、向量失败）才是不可接受的。
+        stats = {"chunks": 0, "refs": 0, "citations": 0, "matched_refs": 0}
+        if version_id:
+            try:
+                # 8.1 chunk：索引与 Qdrant 点保持同一个下标，point_id 可直接互换
+                chunk_payloads = [
+                    {
+                        **frag,
+                        "qdrant_point_id": _qdrant_point_id(
+                            arxiv_id, version, frag.get("kind", "p"), idx
+                        ),
+                    }
+                    for idx, frag in enumerate(all_fragments)
+                ]
+                stats["chunks"] = ChunkRepository.bulk_create(version_id, chunk_payloads)
+
+                # 8.2 参考文献条目
+                stats["refs"] = ReferenceRepository.bulk_create(version_id, structured_refs)
+                ref_map = {
+                    r.ref_index: r.id for r in ReferenceRepository.list_by_version(version_id)
+                }
+
+                # 8.3 正文引用位置：把 [12] 这类标记落到具体句子与页码
+                stored_chunks = ChunkRepository.list_by_version(version_id)
+                cite_items = []
+                for item in extract_from_chunks(
+                    [
+                        {
+                            "id": c.id,
+                            "text": c.text,
+                            "page": c.page,
+                            "bbox": c.bbox,
+                            "chunk_type": c.chunk_type,
+                        }
+                        for c in stored_chunks
+                    ]
+                ):
+                    ref_id = ref_map.get(item["ref_index"]) if item["ref_index"] else None
+                    if not ref_id:
+                        continue  # 编号超出文献表范围，多半是版面噪声
+                    cite_items.append(
+                        {
+                            "ref_id": ref_id,
+                            "chunk_id": item["chunk_id"],
+                            "page": item["page"],
+                            "bbox": item["bbox"],
+                            "sentence": item["sentence"],
+                        }
+                    )
+                stats["citations"] = CitationRepository.bulk_create(cite_items)
+
+                # 8.4 参考文献回连课题内已入库论文
+                if project_id:
+                    stats["matched_refs"] = ReferenceRepository.match_to_project(
+                        version_id, project_id
+                    )
+
+                PaperVersionRepository.mark_indexed(version_id, content_hash=body_hash)
+            except Exception:
+                import traceback
+
+                traceback.print_exc()
+
         return {
             "arxiv_id": arxiv_id,
             "version": version,
@@ -332,6 +486,8 @@ def merge_parsed_chunks(
             "references": len(structured_refs),
             "formulas": len(formula_items),
             "figures": len(figure_keys),
+            "version_id": version_id,
+            "structured": stats,
         }
     except Exception as exc:
         import traceback

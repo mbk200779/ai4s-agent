@@ -6,10 +6,19 @@ import { usePathname } from 'next/navigation';
 const NAV_ITEMS = [
   {
     href: '/',
-    label: '上传',
+    label: '首页',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125h4.125v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
+      </svg>
+    ),
+  },
+  {
+    href: '/library',
+    label: '论文库',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-4 w-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
       </svg>
     ),
   },
@@ -70,21 +79,20 @@ export default function NavBar() {
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--surface)]/92 backdrop-blur-md">
       {/* 顶部仪器刻度线 */}
       <div className="h-1 w-full opacity-40" style={{ background: 'repeating-linear-gradient(90deg, var(--signal) 0, var(--signal) 2px, transparent 2px, transparent 10px)' }} />
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a href="/" className="flex items-center gap-3">
-          {/* 品牌标：仪表方块 */}
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-2 px-6 py-3">
+        <a href="/" className="flex shrink-0 items-center gap-3">
+          {/* 品牌标：仪表方块 + 四角星芒 */}
           <span className="flex h-9 w-9 items-center justify-center rounded-md border border-[var(--signal)] bg-[var(--signal-soft)]">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--signal)" strokeWidth="1.8" className="h-5 w-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--signal)" strokeWidth="1.8" className="h-5 w-5" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
             </svg>
           </span>
-          <div className="leading-tight">
-            <div className="display text-base font-semibold text-[var(--ink)]">AI4S 学术研究 Agent</div>
-            <div className="mono text-[11px] text-[var(--ink-3)]">VERIFIABLE · REPRODUCIBLE · TRACEABLE</div>
+          <div className="flex h-9 items-center justify-center">
+            <div className="display whitespace-nowrap text-base font-semibold leading-none text-[var(--ink)]">AI4S 学术研究 Agent</div>
           </div>
         </a>
 
-        <nav className="flex flex-wrap items-center gap-1">
+        <nav className="flex min-w-0 flex-wrap items-center justify-end gap-1">
           {NAV_ITEMS.map((item) => {
             const active = isActive(item.href);
             return (
@@ -92,7 +100,7 @@ export default function NavBar() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
-                className={`flex items-center gap-1.5 rounded-md px-3.5 py-2 text-sm font-medium transition ${
+                className={`flex items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium transition sm:px-3.5 ${
                   active
                     ? 'bg-[var(--signal)] text-white'
                     : 'text-[var(--ink-2)] hover:bg-[var(--surface-3)] hover:text-[var(--ink)]'

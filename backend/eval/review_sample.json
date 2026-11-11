@@ -1,0 +1,1071 @@
+{
+  "topic": "Transformer 架构的能力边界与适用条件",
+  "markdown": "# Transformer 架构的能力边界与适用条件\n\n> 本综述基于 3 篇文献的 17 条结论自动生成，归并为 15 个观点簇（prompt review-v1.1.0 · 配置 rev-v1.0.0/4d2d1a0643）。\n> 每段只陈述一个观点簇；已确认的分歧单独标注、不合并叙述。共 2 处冲突、15 个观点仅单篇支持。\n\n## O1｜Transformer 完全依赖自注意力机制来处理输入和输出之间的全局依赖关系\n\n> 立场：**支持** ｜ 证据：1 篇 / 3 条，**仅单篇支持** ｜ 轴：Transformer：方法设计\n\nTransformer 完全依赖自注意力机制来处理输入和输出之间的全局依赖关系，摒弃了循环和卷积。[引#6][引#15]多头注意力机制允许模型在不同位置从不同的表示子空间中联合获取信息。[引#9]\n\n## O2｜LoRA 的推断延迟低于全量微调和适配器方法\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：LoRA 相对 全量微调/适配器方法：推断延迟\n\nLoRA 在部署时不会增加额外的推断延迟。[引#2]\n\n## O3｜对于 WikiSQL 和 MultiNLI 数据集，使用 LoRA 时，即使 rank 很小也能达到较好的性能\n\n> 立场：**有条件成立** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：LoRA 相对 全量微调：下游任务性能\n> 成立条件：rank 较小\n\n对于 WikiSQL 和 MultiNLI 数据集，即使 rank 很小，LoRA 也能够达到较好的性能。[引#14]\n\n## O4｜LoRA 在多个下游任务中表现与全量微调相当或更好\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：LoRA 相对 全量微调：下游任务性能\n\nLoRA 在多个下游任务中表现与全量微调相当或更好。[引#8]\n\n## O5｜在 GPT-3 上，适应 Wq 和 Wv 可以获得最佳性能\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：LoRA 相对 全量微调：下游任务性能\n\n在 GPT-3 上，适应 Wq 和 Wv 可以获得最佳性能。[引#14]\n\n## O6｜LoRA 可以减少训练参数的数量并提高训练吞吐量\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：LoRA 相对 全量微调：训练参数数量\n\nLoRA 可以减少训练参数的数量并提高训练吞吐量。[引#5]\n\n## O7｜LoRA 在任务适应中的更新权重具有低秩结构\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：LoRA：方法设计\n\nLoRA 在任务适应中的更新权重具有低秩结构。[引#2]\n\n## O8｜Transformer 允许更高的并行化程度\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：Transformer 相对 RNN：训练并行度\n\nTransformer 允许更高的并行化程度，并且可以在短时间内达到新的翻译质量水平。[引#15]\n\n## O9｜Vision Transformers 在性能/计算成本权衡上优于 ResNets\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：Vision Transformers 相对 ResNets：性能/计算成本\n\nVision Transformers 在性能/计算成本权衡上优于 ResNets。[引#7]\n\n## O10｜Vision Transformers 在小计算预算下略逊于混合模型\n\n> 立场：**反对**（主张该轴的反向结论） ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：Vision Transformers 相对 混合模型：性能/计算成本\n> 成立条件：小计算预算\n\n在小计算预算下，混合模型略优于 Vision Transformers。[引#7]\n\n## C2｜冲突：O9 ↔ O10（条件性分歧·已确认）\n\n> **O9｜支持（1 篇）**：Vision Transformers 在性能/计算成本权衡上优于 ResNets\n> **O10｜反对（1 篇）**：Vision Transformers 在小计算预算下略逊于混合模型\n> 判据：A 和 B 的结论分别基于无特定条件和小计算预算条件，条件不同导致了性能/计算成本的权衡差异。\n> 轴：Vision Transformers 相对 ResNets：性能/计算成本\n\nVision Transformers 在性能/计算成本权衡上优于 ResNets。[引#7]\n\n在小计算预算下，混合模型略优于 Vision Transformers。[引#7]\n\n## O11｜Vision Transformers 的位置嵌入学习到了 2D 图像拓扑结构\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：Vision Transformers：方法设计\n\nVision Transformers 的位置嵌入学习到了 2D 图像拓扑结构。[引#7]\n\n## O12｜ViT-L/16 在 JFT-300M 上预训练后的性能优于 BiT-L\n\n> 立场：**有条件成立** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：ViT-L/16 相对 BiT-L：性能\n> 成立条件：JFT-300M 预训练\n\nViT-L/16 在 JFT-300M 上预训练后的性能优于 BiT-L。[引#10]\n\n## O13｜ViT 在小规模数据集上的表现不如 BiT ResNets\n\n> 立场：**反对**（主张该轴的反向结论） ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：ViT 相对 BiT ResNet：ImageNet 准确率\n> 成立条件：小规模数据集\n\nViT 在小规模数据集上的表现不如 BiT ResNets。[引#1]\n\n## O14｜ViT 在大规模数据集上的表现优于 BiT ResNets\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：ViT 相对 BiT ResNet：ImageNet 准确率\n\nViT 在大规模数据集上的表现优于 BiT ResNets。[引#1]\n\n## C1｜冲突：O13 ↔ O14（条件性分歧·已确认）\n\n> **O13｜反对（1 篇）**：ViT 在小规模数据集上的表现不如 BiT ResNets\n> **O14｜支持（1 篇）**：ViT 在大规模数据集上的表现优于 BiT ResNets\n> 判据：A 和 B 的结论分别基于小规模数据集和大规模数据集，条件不同导致了表现差异。\n> 轴：ViT 相对 BiT ResNet：ImageNet 准确率\n\nViT 在小规模数据集上的表现不如 BiT ResNets。[引#1]\n\nViT 在大规模数据集上的表现优于 BiT ResNets。[引#1]\n\n## O15｜ViT 将图像分割成固定大小的块并线性嵌入这些块\n\n> 立场：**支持** ｜ 证据：1 篇 / 1 条，**仅单篇支持** ｜ 轴：ViT：方法设计\n\nViT 将图像分割成固定大小的块并线性嵌入这些块。[引#13]\n\n## 附：证据强度汇总（系统生成，非文献结论）\n\n- O1「Transformer 完全依赖自注意力机制来处理输入和输出之间的全局依赖关系」—— 仅单篇支持（Attention is All You Need论文.pdf）\n- O2「LoRA 的推断延迟低于全量微调和适配器方法」—— 仅单篇支持（LoRA: Low-Rank Adaptation of Large Language Models）\n- O3「对于 WikiSQL 和 MultiNLI 数据集，使用 LoRA 时，即使 rank 很小也能达到较好的性能」—— 仅单篇支持（LoRA: Low-Rank Adaptation of Large Language Models）\n- O4「LoRA 在多个下游任务中表现与全量微调相当或更好」—— 仅单篇支持（LoRA: Low-Rank Adaptation of Large Language Models）\n- O5「在 GPT-3 上，适应 Wq 和 Wv 可以获得最佳性能」—— 仅单篇支持（LoRA: Low-Rank Adaptation of Large Language Models）\n- O6「LoRA 可以减少训练参数的数量并提高训练吞吐量」—— 仅单篇支持（LoRA: Low-Rank Adaptation of Large Language Models）\n- O7「LoRA 在任务适应中的更新权重具有低秩结构」—— 仅单篇支持（LoRA: Low-Rank Adaptation of Large Language Models）\n- O8「Transformer 允许更高的并行化程度」—— 仅单篇支持（Attention is All You Need论文.pdf）\n- O9「Vision Transformers 在性能/计算成本权衡上优于 ResNets」—— 仅单篇支持（An Image is Worth 16x16 Words: Transformers for Image Recogn）\n- O10「Vision Transformers 在小计算预算下略逊于混合模型」—— 仅单篇支持（An Image is Worth 16x16 Words: Transformers for Image Recogn）\n- O11「Vision Transformers 的位置嵌入学习到了 2D 图像拓扑结构」—— 仅单篇支持（An Image is Worth 16x16 Words: Transformers for Image Recogn）\n- O12「ViT-L/16 在 JFT-300M 上预训练后的性能优于 BiT-L」—— 仅单篇支持（An Image is Worth 16x16 Words: Transformers for Image Recogn）\n- O13「ViT 在小规模数据集上的表现不如 BiT ResNets」—— 仅单篇支持（An Image is Worth 16x16 Words: Transformers for Image Recogn）\n- O14「ViT 在大规模数据集上的表现优于 BiT ResNets」—— 仅单篇支持（An Image is Worth 16x16 Words: Transformers for Image Recogn）\n- O15「ViT 将图像分割成固定大小的块并线性嵌入这些块」—— 仅单篇支持（An Image is Worth 16x16 Words: Transformers for Image Recogn）\n\n## 参考文献\n\n1. An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (arXiv:2010.11929)\n2. LoRA: Low-Rank Adaptation of Large Language Models (arXiv:2106.09685)\n3. Attention is All You Need论文.pdf (arXiv:upload_bdfaa68d8984f0dc)\n",
+  "rejected": false,
+  "invalid_citations": [],
+  "referenced_arxiv_ids": [
+    "2010.11929",
+    "2106.09685",
+    "upload_bdfaa68d8984f0dc"
+  ],
+  "export_key": "reviews/2026/11/09/7c48b73546c247ab8bd606b7e981a926.md",
+  "claims": [
+    {
+      "id": "O1",
+      "statement": "Transformer 完全依赖自注意力机制来处理输入和输出之间的全局依赖关系",
+      "axis": "Transformer：方法设计",
+      "axis_key": "transformer：方法设计",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 3,
+      "papers": [
+        {
+          "arxiv_id": "upload_bdfaa68d8984f0dc",
+          "title": "Attention is All You Need论文.pdf"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c2db8da",
+          "statement": "Transformer 架构仅基于注意力机制，不使用递归和卷积",
+          "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+          "arxiv_id": "upload_bdfaa68d8984f0dc",
+          "title": "Attention is All You Need论文.pdf",
+          "page": 1,
+          "section": "Attention Is All You Need",
+          "kind": "paragraph",
+          "chunk_id": "chk_830ed3cc15ca4932",
+          "ref": 6,
+          "quote_score": 1.0
+        },
+        {
+          "claim_id": "cc2f0dc",
+          "statement": "Transformer 架构在多头注意力机制下可以同时关注不同表示子空间的信息",
+          "quote": "Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions.",
+          "arxiv_id": "upload_bdfaa68d8984f0dc",
+          "title": "Attention is All You Need论文.pdf",
+          "page": 5,
+          "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+          "kind": "paragraph",
+          "chunk_id": "chk_80e931efc3d94c07",
+          "ref": 9,
+          "quote_score": 1.0
+        },
+        {
+          "claim_id": "cb64750",
+          "statement": "Transformer 完全依赖自注意力机制来处理输入和输出之间的全局依赖关系",
+          "quote": "In this work we propose the Transformer, a model architecture eschewing recurrence and instead relying entirely on an attention mechanism to draw global dependencies between input and output.",
+          "arxiv_id": "upload_bdfaa68d8984f0dc",
+          "title": "Attention is All You Need论文.pdf",
+          "page": 2,
+          "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+          "kind": "paragraph",
+          "chunk_id": "chk_12fa20f0918e445d",
+          "ref": 15,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        6,
+        9,
+        15
+      ],
+      "sentence_count": 2,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O2",
+      "statement": "LoRA 的推断延迟低于全量微调和适配器方法",
+      "axis": "LoRA 相对 全量微调/适配器方法：推断延迟",
+      "axis_key": "lora相对全量微调/适配器方法：推断延迟",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c92330f",
+          "statement": "LoRA 的推断延迟低于全量微调和适配器方法",
+          "quote": "No Additional Inference Latency. When deployed in production, we can explicitly compute and store W = W0 + BA and perform inference as usual.",
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "page": 4,
+          "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+          "kind": "paragraph",
+          "chunk_id": "498a9f11-88be-f6ce-d7d9-55c2f579761f",
+          "ref": 2,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        2
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O3",
+      "statement": "对于 WikiSQL 和 MultiNLI 数据集，使用 LoRA 时，即使 rank 很小也能达到较好的性能",
+      "axis": "LoRA 相对 全量微调：下游任务性能",
+      "axis_key": "lora相对全量微调：下游任务性能",
+      "stance": "conditional",
+      "stance_label": "有条件成立",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+        }
+      ],
+      "conditions": [
+        "rank 较小"
+      ],
+      "evidence": [
+        {
+          "claim_id": "c19762f",
+          "statement": "对于 WikiSQL 和 MultiNLI 数据集，使用 LoRA 时，即使 rank 很小也能达到较好的性能",
+          "quote": "Table 6 shows that, surprisingly, LoRA already performs competitively with a very small r (more so for {Wq, Wv} than just Wq). This suggests the update matrix ∆W could have a very small “intrinsic rank”.",
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "page": 10,
+          "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+          "kind": "paragraph",
+          "chunk_id": "66806617-e0ca-fa21-c5fb-1a342c7c8b5c",
+          "ref": 14,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        14
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O4",
+      "statement": "LoRA 在多个下游任务中表现与全量微调相当或更好",
+      "axis": "LoRA 相对 全量微调：下游任务性能",
+      "axis_key": "lora相对全量微调：下游任务性能",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c234c9c",
+          "statement": "LoRA 在多个下游任务中表现与全量微调相当或更好",
+          "quote": "LoRA performs on-par or better than ﬁne- tuning in model quality on RoBERTa, DeBERTa, GPT-2, and GPT-3, despite hav- ing fewer trainable parameters, a higher training throughput, and, unlike adapters, no additional inference latency.",
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "page": 1,
+          "section": "LORA: LOW-RANK ADAPTATION OF LARGE LAN- GUAGE MODELS",
+          "kind": "paragraph",
+          "chunk_id": "9e5cb0a0-4067-343f-7c46-c43632f4051f",
+          "ref": 8,
+          "quote_score": 0.97
+        }
+      ],
+      "refs": [
+        8
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O5",
+      "statement": "在 GPT-3 上，适应 Wq 和 Wv 可以获得最佳性能",
+      "axis": "LoRA 相对 全量微调：下游任务性能",
+      "axis_key": "lora相对全量微调：下游任务性能",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "cf40bad",
+          "statement": "在 GPT-3 上，适应 Wq 和 Wv 可以获得最佳性能",
+          "quote": "Adapting both Wq and Wv gives the best performance overall. We ﬁnd the standard deviation across random seeds to be consistent for a given dataset, which we report in the ﬁrst column. Note that putting all the parameters in ∆Wq or ∆Wk results in signiﬁcantly lower performance, while adapting both Wq and Wv yields the best result. Th",
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "page": 10,
+          "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+          "kind": "paragraph",
+          "chunk_id": "66806617-e0ca-fa21-c5fb-1a342c7c8b5c",
+          "ref": 14,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        14
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O6",
+      "statement": "LoRA 可以减少训练参数的数量并提高训练吞吐量",
+      "axis": "LoRA 相对 全量微调：训练参数数量",
+      "axis_key": "lora相对全量微调：训练参数数量",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c7be3e2",
+          "statement": "LoRA 可以减少训练参数的数量并提高训练吞吐量",
+          "quote": "we reduce that VRAM usage by up to 2/3 if r ≪dmodel as we do not need to store the optimizer states for the frozen parameters. On GPT-3 175B, we reduce the VRAM consumption during training from 1.2TB to 350GB.",
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "page": 5,
+          "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+          "kind": "paragraph",
+          "chunk_id": "b3d7cc39-4d7c-d693-028f-4f2ce746263f",
+          "ref": 5,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        5
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O7",
+      "statement": "LoRA 在任务适应中的更新权重具有低秩结构",
+      "axis": "LoRA：方法设计",
+      "axis_key": "lora：方法设计",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c305273",
+          "statement": "LoRA 在任务适应中的更新权重具有低秩结构",
+          "quote": "Inspired by this, we hypothe- size the updates to the weights also have a low “intrinsic rank” during adaptation.",
+          "arxiv_id": "2106.09685",
+          "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+          "page": 4,
+          "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+          "kind": "paragraph",
+          "chunk_id": "498a9f11-88be-f6ce-d7d9-55c2f579761f",
+          "ref": 2,
+          "quote_score": 0.941
+        }
+      ],
+      "refs": [
+        2
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O8",
+      "statement": "Transformer 允许更高的并行化程度",
+      "axis": "Transformer 相对 RNN：训练并行度",
+      "axis_key": "transformer相对rnn：训练并行度",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "upload_bdfaa68d8984f0dc",
+          "title": "Attention is All You Need论文.pdf"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "cbcc937",
+          "statement": "Transformer 允许更高的并行化程度",
+          "quote": "The Transformer allows for significantly more parallelization and can reach a new state of the art in translation quality after being trained for as little as twelve hours on eight P100 GPUs.",
+          "arxiv_id": "upload_bdfaa68d8984f0dc",
+          "title": "Attention is All You Need论文.pdf",
+          "page": 2,
+          "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+          "kind": "paragraph",
+          "chunk_id": "chk_12fa20f0918e445d",
+          "ref": 15,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        15
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O9",
+      "statement": "Vision Transformers 在性能/计算成本权衡上优于 ResNets",
+      "axis": "Vision Transformers 相对 ResNets：性能/计算成本",
+      "axis_key": "visiontransformers相对resnets：性能/计算成本",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c6c35bc",
+          "statement": "Vision Transformers 在性能/计算成本权衡上优于 ResNets",
+          "quote": "First, Vision Transformers dominate ResNets on the performance/compute trade-off. ViT uses approximately 2 −4× less compute to attain the same performance (average over 5 datasets).",
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "page": 8,
+          "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+          "kind": "paragraph",
+          "chunk_id": "3e829b21-0623-d0fb-7bfe-bce84e5916be",
+          "ref": 7,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        7
+      ],
+      "sentence_count": 1,
+      "conflicts": [
+        {
+          "id": "C2",
+          "with_cluster": "O10",
+          "type": "conditional_split",
+          "type_label": "条件性分歧",
+          "confirmed": true,
+          "reason": "A 和 B 的结论分别基于无特定条件和小计算预算条件，条件不同导致了性能/计算成本的权衡差异。"
+        }
+      ],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O10",
+      "statement": "Vision Transformers 在小计算预算下略逊于混合模型",
+      "axis": "Vision Transformers 相对 混合模型：性能/计算成本",
+      "axis_key": "visiontransformers相对混合模型：性能/计算成本",
+      "stance": "oppose",
+      "stance_label": "反对",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "conditions": [
+        "小计算预算"
+      ],
+      "evidence": [
+        {
+          "claim_id": "c4c3144",
+          "statement": "Vision Transformers 在小计算预算下略逊于混合模型",
+          "quote": "Second, hybrids slightly outperform ViT at small compu- tational budgets, but the difference vanishes for larger models.",
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "page": 8,
+          "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+          "kind": "paragraph",
+          "chunk_id": "3e829b21-0623-d0fb-7bfe-bce84e5916be",
+          "ref": 7,
+          "quote_score": 0.938
+        }
+      ],
+      "refs": [
+        7
+      ],
+      "sentence_count": 1,
+      "conflicts": [
+        {
+          "id": "C2",
+          "with_cluster": "O9",
+          "type": "conditional_split",
+          "type_label": "条件性分歧",
+          "confirmed": true,
+          "reason": "A 和 B 的结论分别基于无特定条件和小计算预算条件，条件不同导致了性能/计算成本的权衡差异。"
+        },
+        {
+          "id": "C3",
+          "with_cluster": "O11",
+          "type": "scope_mismatch",
+          "type_label": "范围不一致",
+          "confirmed": false,
+          "reason": "A 讨论的是 Vision Transformers 和混合模型在小计算预算下的性能/计算成本比较，而 B 讨论的是 Vision Transformers 的位置嵌入学习到的图像拓扑结构，二者讨论的不是同一个问题。"
+        }
+      ],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O11",
+      "statement": "Vision Transformers 的位置嵌入学习到了 2D 图像拓扑结构",
+      "axis": "Vision Transformers：方法设计",
+      "axis_key": "visiontransformers：方法设计",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c6e238d",
+          "statement": "Vision Transformers 的位置嵌入学习到了 2D 图像拓扑结构",
+          "quote": "That the position embeddings learn to represent 2D image topology ex- plains why hand-crafted 2D-aware embedding variants do not yield improvements (Appendix D.4).",
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "page": 8,
+          "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+          "kind": "paragraph",
+          "chunk_id": "3e829b21-0623-d0fb-7bfe-bce84e5916be",
+          "ref": 7,
+          "quote_score": 0.958
+        }
+      ],
+      "refs": [
+        7
+      ],
+      "sentence_count": 1,
+      "conflicts": [
+        {
+          "id": "C3",
+          "with_cluster": "O10",
+          "type": "scope_mismatch",
+          "type_label": "范围不一致",
+          "confirmed": false,
+          "reason": "A 讨论的是 Vision Transformers 和混合模型在小计算预算下的性能/计算成本比较，而 B 讨论的是 Vision Transformers 的位置嵌入学习到的图像拓扑结构，二者讨论的不是同一个问题。"
+        }
+      ],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O12",
+      "statement": "ViT-L/16 在 JFT-300M 上预训练后的性能优于 BiT-L",
+      "axis": "ViT-L/16 相对 BiT-L：性能",
+      "axis_key": "vit-l/16相对bit-l：性能",
+      "stance": "conditional",
+      "stance_label": "有条件成立",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "conditions": [
+        "JFT-300M 预训练"
+      ],
+      "evidence": [
+        {
+          "claim_id": "c754277",
+          "statement": "ViT-L/16 在 JFT-300M 上预训练后的性能优于 BiT-L",
+          "quote": "The smaller ViT-L/16 model pre-trained on JFT-300M outperforms BiT-L (which is pre-trained on the same dataset) on all tasks, while requiring substantially less computa- tional resources to train.",
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "page": 5,
+          "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+          "kind": "paragraph",
+          "chunk_id": "dde5a6f6-0df1-579c-3c11-a845ff923abd",
+          "ref": 10,
+          "quote_score": 0.963
+        }
+      ],
+      "refs": [
+        10
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O13",
+      "statement": "ViT 在小规模数据集上的表现不如 BiT ResNets",
+      "axis": "ViT 相对 BiT ResNet：ImageNet 准确率",
+      "axis_key": "vit相对bitresnet：imagenet准确率",
+      "stance": "oppose",
+      "stance_label": "反对",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "conditions": [
+        "小规模数据集"
+      ],
+      "evidence": [
+        {
+          "claim_id": "c86a510",
+          "statement": "ViT 在小规模数据集上的表现不如 BiT ResNets",
+          "quote": "While large ViT models perform worse than BiT ResNets (shaded area) when pre-trained on small datasets, they shine when pre-trained on larger datasets.",
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "page": 7,
+          "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+          "kind": "paragraph",
+          "chunk_id": "ad0b7f48-fe05-a8e9-44ff-127f6e840c91",
+          "ref": 1,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        1
+      ],
+      "sentence_count": 1,
+      "conflicts": [
+        {
+          "id": "C1",
+          "with_cluster": "O14",
+          "type": "conditional_split",
+          "type_label": "条件性分歧",
+          "confirmed": true,
+          "reason": "A 和 B 的结论分别基于小规模数据集和大规模数据集，条件不同导致了表现差异。"
+        }
+      ],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O14",
+      "statement": "ViT 在大规模数据集上的表现优于 BiT ResNets",
+      "axis": "ViT 相对 BiT ResNet：ImageNet 准确率",
+      "axis_key": "vit相对bitresnet：imagenet准确率",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c7d33e9",
+          "statement": "ViT 在大规模数据集上的表现优于 BiT ResNets",
+          "quote": "While large ViT models perform worse than BiT ResNets (shaded area) when pre-trained on small datasets, they shine when pre-trained on larger datasets.",
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "page": 7,
+          "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+          "kind": "paragraph",
+          "chunk_id": "ad0b7f48-fe05-a8e9-44ff-127f6e840c91",
+          "ref": 1,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        1
+      ],
+      "sentence_count": 1,
+      "conflicts": [
+        {
+          "id": "C1",
+          "with_cluster": "O13",
+          "type": "conditional_split",
+          "type_label": "条件性分歧",
+          "confirmed": true,
+          "reason": "A 和 B 的结论分别基于小规模数据集和大规模数据集，条件不同导致了表现差异。"
+        }
+      ],
+      "note": "仅单篇支持"
+    },
+    {
+      "id": "O15",
+      "statement": "ViT 将图像分割成固定大小的块并线性嵌入这些块",
+      "axis": "ViT：方法设计",
+      "axis_key": "vit：方法设计",
+      "stance": "support",
+      "stance_label": "支持",
+      "strength": "single_paper",
+      "paper_count": 1,
+      "claim_count": 1,
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "conditions": [],
+      "evidence": [
+        {
+          "claim_id": "c84c325",
+          "statement": "ViT 将图像分割成固定大小的块并线性嵌入这些块",
+          "quote": "To handle 2D images, we reshape the image x ∈RH×W ×C into a sequence of ﬂattened 2D patches xp ∈RN×(P 2·C), where (H, W) is the resolution of the original image, C is the number of channels, (P, P) is the resolution of each image patch, and N = HW/P 2 is the resulting number of patches, which also serves as the effective input sequence length for the Transformer. ",
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+          "page": 3,
+          "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+          "kind": "paragraph",
+          "chunk_id": "bb112b76-f86f-fd1b-f93b-3ac91d5cb6e0",
+          "ref": 13,
+          "quote_score": 1.0
+        }
+      ],
+      "refs": [
+        13
+      ],
+      "sentence_count": 1,
+      "conflicts": [],
+      "note": "仅单篇支持"
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "C1",
+      "clusters": [
+        "O13",
+        "O14"
+      ],
+      "axis": "ViT 相对 BiT ResNet：ImageNet 准确率",
+      "type": "conditional_split",
+      "type_label": "条件性分歧",
+      "confirmed": true,
+      "reason": "A 和 B 的结论分别基于小规模数据集和大规模数据集，条件不同导致了表现差异。",
+      "rule": {
+        "axis_match": "exact",
+        "axis_sim": 1.0,
+        "stances": [
+          "oppose",
+          "support"
+        ],
+        "type_hint": "conditional_split"
+      },
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "source": "rule+llm"
+    },
+    {
+      "id": "C2",
+      "clusters": [
+        "O9",
+        "O10"
+      ],
+      "axis": "Vision Transformers 相对 ResNets：性能/计算成本",
+      "type": "conditional_split",
+      "type_label": "条件性分歧",
+      "confirmed": true,
+      "reason": "A 和 B 的结论分别基于无特定条件和小计算预算条件，条件不同导致了性能/计算成本的权衡差异。",
+      "rule": {
+        "axis_match": "semantic",
+        "axis_sim": 0.889,
+        "stances": [
+          "support",
+          "oppose"
+        ],
+        "type_hint": "conditional_split"
+      },
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "source": "rule+llm"
+    },
+    {
+      "id": "C3",
+      "clusters": [
+        "O10",
+        "O11"
+      ],
+      "axis": "Vision Transformers 相对 混合模型：性能/计算成本",
+      "type": "scope_mismatch",
+      "type_label": "范围不一致",
+      "confirmed": false,
+      "reason": "A 讨论的是 Vision Transformers 和混合模型在小计算预算下的性能/计算成本比较，而 B 讨论的是 Vision Transformers 的位置嵌入学习到的图像拓扑结构，二者讨论的不是同一个问题。",
+      "rule": {
+        "axis_match": "semantic",
+        "axis_sim": 0.845,
+        "stances": [
+          "oppose",
+          "support"
+        ],
+        "type_hint": "conditional_split"
+      },
+      "papers": [
+        {
+          "arxiv_id": "2010.11929",
+          "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+        }
+      ],
+      "source": "rule+llm"
+    }
+  ],
+  "refs": [
+    {
+      "n": 1,
+      "chunk_id": "ad0b7f48-fe05-a8e9-44ff-127f6e840c91",
+      "arxiv_id": "2010.11929",
+      "paper_id": "2010.11929::v2",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "page": 7,
+      "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+      "kind": "paragraph",
+      "hit_source": "theme,angle:实验结果与指标对比,angle:局限与失效条件,angle:与基线模型的差异,paper:2010.11929"
+    },
+    {
+      "n": 2,
+      "chunk_id": "498a9f11-88be-f6ce-d7d9-55c2f579761f",
+      "arxiv_id": "2106.09685",
+      "paper_id": "2106.09685::v2",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "page": 4,
+      "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+      "kind": "paragraph",
+      "hit_source": "paper:2106.09685"
+    },
+    {
+      "n": 3,
+      "chunk_id": "chk_f30473223cc3450b",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "paper_id": "upload_bdfaa68d8984f0dc::v1",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 3,
+      "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+      "kind": "paragraph",
+      "hit_source": "paper:upload_bdfaa68d8984f0dc"
+    },
+    {
+      "n": 4,
+      "chunk_id": "30870bd8-f0b6-64db-e5e4-bc0684481b18",
+      "arxiv_id": "2010.11929",
+      "paper_id": "2010.11929::v2",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "page": 9,
+      "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+      "kind": "paragraph",
+      "hit_source": "paper:2010.11929"
+    },
+    {
+      "n": 5,
+      "chunk_id": "b3d7cc39-4d7c-d693-028f-4f2ce746263f",
+      "arxiv_id": "2106.09685",
+      "paper_id": "2106.09685::v2",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "page": 5,
+      "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+      "kind": "paragraph",
+      "hit_source": "theme,angle:实验结果与指标对比,angle:局限与失效条件,angle:与基线模型的差异,paper:2106.09685"
+    },
+    {
+      "n": 6,
+      "chunk_id": "chk_830ed3cc15ca4932",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "paper_id": "upload_bdfaa68d8984f0dc::v1",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 1,
+      "section": "Attention Is All You Need",
+      "kind": "paragraph",
+      "hit_source": "paper:upload_bdfaa68d8984f0dc"
+    },
+    {
+      "n": 7,
+      "chunk_id": "3e829b21-0623-d0fb-7bfe-bce84e5916be",
+      "arxiv_id": "2010.11929",
+      "paper_id": "2010.11929::v2",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "page": 8,
+      "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+      "kind": "paragraph",
+      "hit_source": "theme,angle:实验结果与指标对比,angle:与基线模型的差异,paper:2010.11929"
+    },
+    {
+      "n": 8,
+      "chunk_id": "9e5cb0a0-4067-343f-7c46-c43632f4051f",
+      "arxiv_id": "2106.09685",
+      "paper_id": "2106.09685::v2",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "page": 1,
+      "section": "LORA: LOW-RANK ADAPTATION OF LARGE LAN- GUAGE MODELS",
+      "kind": "paragraph",
+      "hit_source": "paper:2106.09685"
+    },
+    {
+      "n": 9,
+      "chunk_id": "chk_80e931efc3d94c07",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "paper_id": "upload_bdfaa68d8984f0dc::v1",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 5,
+      "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+      "kind": "paragraph",
+      "hit_source": "paper:upload_bdfaa68d8984f0dc"
+    },
+    {
+      "n": 10,
+      "chunk_id": "dde5a6f6-0df1-579c-3c11-a845ff923abd",
+      "arxiv_id": "2010.11929",
+      "paper_id": "2010.11929::v2",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "page": 5,
+      "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+      "kind": "paragraph",
+      "hit_source": "angle:与基线模型的差异,paper:2010.11929"
+    },
+    {
+      "n": 11,
+      "chunk_id": "441e45a0-62a0-c36d-d3b2-23820ce609be",
+      "arxiv_id": "2106.09685",
+      "paper_id": "2106.09685::v2",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "page": 9,
+      "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+      "kind": "paragraph",
+      "hit_source": "paper:2106.09685"
+    },
+    {
+      "n": 12,
+      "chunk_id": "chk_46e8d6fff31d4964",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "paper_id": "upload_bdfaa68d8984f0dc::v1",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 9,
+      "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+      "kind": "paragraph",
+      "hit_source": "paper:upload_bdfaa68d8984f0dc"
+    },
+    {
+      "n": 13,
+      "chunk_id": "bb112b76-f86f-fd1b-f93b-3ac91d5cb6e0",
+      "arxiv_id": "2010.11929",
+      "paper_id": "2010.11929::v2",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "page": 3,
+      "section": "arXiv:2010.11929v2  [cs.CV]  3 Jun 2021",
+      "kind": "paragraph",
+      "hit_source": "theme,angle:实验结果与指标对比,angle:局限与失效条件,angle:与基线模型的差异,paper:2010.11929"
+    },
+    {
+      "n": 14,
+      "chunk_id": "66806617-e0ca-fa21-c5fb-1a342c7c8b5c",
+      "arxiv_id": "2106.09685",
+      "paper_id": "2106.09685::v2",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "page": 10,
+      "section": "arXiv:2106.09685v2  [cs.CL]  16 Oct 2021",
+      "kind": "paragraph",
+      "hit_source": "angle:实验结果与指标对比,paper:2106.09685"
+    },
+    {
+      "n": 15,
+      "chunk_id": "chk_12fa20f0918e445d",
+      "arxiv_id": "upload_bdfaa68d8984f0dc",
+      "paper_id": "upload_bdfaa68d8984f0dc::v1",
+      "title": "Attention is All You Need论文.pdf",
+      "page": 2,
+      "section": "arXiv:1706.03762v7  [cs.CL]  2 Aug 2023",
+      "kind": "paragraph",
+      "hit_source": "theme,angle:局限与失效条件,angle:与基线模型的差异,paper:upload_bdfaa68d8984f0dc"
+    }
+  ],
+  "stats": {
+    "paper_count": 3,
+    "claim_count": 17,
+    "cluster_count": 15,
+    "conflict_count": 2,
+    "single_paper": 15,
+    "prompt_version": "review-v1.1.0",
+    "config_version": "rev-v1.0.0",
+    "fingerprint": "4d2d1a0643",
+    "raw_claims": 17,
+    "support": 11,
+    "oppose": 2,
+    "conditional": 2,
+    "conflicts_confirmed": 2,
+    "conflicts_pending": 0,
+    "conflicts_rejected": 1,
+    "dropped_sentences": 0,
+    "violations": 0,
+    "degraded": false
+  },
+  "config": {
+    "version": "rev-v1.0.0",
+    "prompt_version": "review-v1.1.0",
+    "fingerprint": "4d2d1a0643",
+    "thresholds": {
+      "review_pool_per_paper": 5,
+      "review_pool_max_chunks": 20,
+      "review_subqueries": 3,
+      "review_claim_batch": 12,
+      "review_axis_merge_sim": 0.78,
+      "review_statement_split_sim": 0.5,
+      "review_conflict_axis_sim": 0.72,
+      "review_conflict_statement_sim": 0.6,
+      "review_conflict_llm_pairs": 6
+    }
+  },
+  "degraded": false,
+  "trace": {
+    "pool_notes": [
+      "主题未命中、未做补检：upload_8bb215cdfabf4f40, 1810.04805"
+    ],
+    "queries": [
+      "Transformer 架构的能力边界与适用条件",
+      "Transformer 架构的能力边界与适用条件 实验结果与指标对比",
+      "Transformer 架构的能力边界与适用条件 局限与失效条件",
+      "Transformer 架构的能力边界与适用条件 与基线模型的差异"
+    ],
+    "pool_size": 15,
+    "cluster": {
+      "method": "llm+literal",
+      "axes": 12,
+      "canonical_axes": 12,
+      "merged": [],
+      "rejected_merges": [
+        {
+          "member": "Vision Transformers：方法设计",
+          "canonical": "Transformer：方法设计"
+        },
+        {
+          "member": "ViT：方法设计",
+          "canonical": "Transformer：方法设计"
+        }
+      ],
+      "unmapped": [
+        "Vision Transformers：方法设计",
+        "ViT：方法设计"
+      ],
+      "clusters": 15,
+      "statement_splits": [
+        {
+          "axis": "lora相对全量微调：下游任务性能",
+          "polarity": "support",
+          "n": 2,
+          "groups": [
+            [
+              "c234c9c"
+            ],
+            [
+              "cf40bad"
+            ]
+          ]
+        }
+      ],
+      "by_stance": {
+        "support": 11,
+        "oppose": 2,
+        "conditional": 2
+      },
+      "single_paper_clusters": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6",
+        "O7",
+        "O8",
+        "O9",
+        "O10",
+        "O11",
+        "O12",
+        "O13",
+        "O14",
+        "O15"
+      ]
+    },
+    "conflict": {
+      "candidates": 3,
+      "confirmed": 2,
+      "rejected": 1,
+      "pending": 0,
+      "llm_used": true,
+      "by_type": {
+        "direct_contradiction": 0,
+        "conditional_split": 2,
+        "scope_mismatch": 0
+      }
+    },
+    "dropped_claims": [],
+    "dropped_sentences": [],
+    "violations": [],
+    "timing": {
+      "pool": 5.02,
+      "extract": 31.11,
+      "cluster": 10.25,
+      "conflict": 5.67,
+      "write": 32.32,
+      "total": 84.37
+    }
+  }
+}

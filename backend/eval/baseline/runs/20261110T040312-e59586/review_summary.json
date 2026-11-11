@@ -1,0 +1,37 @@
+{
+  "sample_size": 20,
+  "judgeable": 17,
+  "excluded_not_applicable": 3,
+  "unjudged": 0,
+  "counts": {
+    "不支持": 3,
+    "支持": 13,
+    "不适用": 3,
+    "部分支持": 1
+  },
+  "strict_accuracy": 0.7647,
+  "loose_accuracy": 0.8235,
+  "wrong_citation_rate": 0.1765,
+  "by_config": {
+    "dense": {
+      "n": 1,
+      "strict": 0.0
+    },
+    "hybrid": {
+      "n": 5,
+      "strict": 0.8
+    },
+    "hybrid_rerank": {
+      "n": 3,
+      "strict": 0.6667
+    },
+    "sparse": {
+      "n": 5,
+      "strict": 1.0
+    },
+    "system": {
+      "n": 3,
+      "strict": 0.6667
+    }
+  }
+}

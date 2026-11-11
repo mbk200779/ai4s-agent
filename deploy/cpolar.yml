@@ -1,0 +1,15 @@
+# cpolar 隧道配置（容器内路径 /opt/cpolar.yml）
+#
+# token 不写在这里：启动时由 compose 的 entrypoint 从 .env 的 CPOLAR_AUTHTOKEN
+# 替换 __CPOLAR_TOKEN__，这样配置文件可以进 git，密钥只留在 .env。
+#
+# addr 用容器名而不是 127.0.0.1：cpolar 容器和网关同在 ai4s-net，
+# 直连 gateway:80，少一层宿主端口映射，也避免 Windows 上 host 网络不生效的问题。
+
+authtoken: __CPOLAR_TOKEN__
+
+tunnels:
+  ai4s:
+    proto: http
+    addr: gateway:80
+    region: cn

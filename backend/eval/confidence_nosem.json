@@ -1,0 +1,2848 @@
+{
+  "meta": {
+    "version": "v1.0.0",
+    "description": "30 题置信分布评测集：覆盖点查/表格/对比/推断/库外/闲聊六类，用来统计三档置信的分布与「缺什么」的构成。",
+    "notes": [
+      "分类不是给检索用的，只用于分组统计：同一档位在不同题型上的分布才是真正想看的东西。",
+      "out_of_scope 里的题都故意落在语料之外，用来验证「只在无命中时完整拒答」这条口径。"
+    ],
+    "questions": [
+      {
+        "id": "p1",
+        "category": "point",
+        "question": "Transformer 的 dropout 比例是多少？"
+      },
+      {
+        "id": "p2",
+        "category": "point",
+        "question": "Transformer 的多头注意力用了几个头？"
+      },
+      {
+        "id": "p3",
+        "category": "point",
+        "question": "BERT-Base 有多少层 transformer block？"
+      },
+      {
+        "id": "p4",
+        "category": "point",
+        "question": "LoRA 在 GPT-3 上使用的秩 r 是多少？"
+      },
+      {
+        "id": "p5",
+        "category": "point",
+        "question": "ViT-Base 的 patch 大小是多少？"
+      },
+      {
+        "id": "p6",
+        "category": "point",
+        "question": "ViT 的隐藏层维度是多少？"
+      },
+      {
+        "id": "t1",
+        "category": "table",
+        "question": "Transformer 在 WMT 2014 英德翻译任务上的 BLEU 分数是多少？"
+      },
+      {
+        "id": "t2",
+        "category": "table",
+        "question": "ViT-H/14 在 ImageNet 上的 top-1 准确率是多少？"
+      },
+      {
+        "id": "t3",
+        "category": "table",
+        "question": "LoRA 在 GPT-3 上把可训练参数减少了多少倍？"
+      },
+      {
+        "id": "t4",
+        "category": "table",
+        "question": "BERT-Large 的参数量是多少？"
+      },
+      {
+        "id": "c1",
+        "category": "compare",
+        "question": "ViT 和 BERT 哪个模型参数量更大？"
+      },
+      {
+        "id": "c2",
+        "category": "compare",
+        "question": "LoRA 微调和全量微调在显存占用上有什么区别？"
+      },
+      {
+        "id": "c3",
+        "category": "compare",
+        "question": "Transformer 与 BERT 的训练目标有什么不同？"
+      },
+      {
+        "id": "c4",
+        "category": "compare",
+        "question": "ViT 和 BERT 分别用什么数据做预训练？"
+      },
+      {
+        "id": "c5",
+        "category": "compare",
+        "question": "这几篇论文里，哪个报告的 ImageNet 准确率最高？"
+      },
+      {
+        "id": "i1",
+        "category": "infer",
+        "question": "为什么 Transformer 需要位置编码？"
+      },
+      {
+        "id": "i2",
+        "category": "infer",
+        "question": "LoRA 为什么能降低显存占用？"
+      },
+      {
+        "id": "i3",
+        "category": "infer",
+        "question": "ViT 为什么需要大规模数据预训练？"
+      },
+      {
+        "id": "i4",
+        "category": "infer",
+        "question": "BERT 的 next sentence prediction 任务有什么用？"
+      },
+      {
+        "id": "i5",
+        "category": "infer",
+        "question": "多头注意力相比单头注意力的优势是什么？"
+      },
+      {
+        "id": "o1",
+        "category": "out_of_scope",
+        "question": "这篇论文的作者获得过图灵奖吗？"
+      },
+      {
+        "id": "o2",
+        "category": "out_of_scope",
+        "question": "GPT-5 的参数量是多少？"
+      },
+      {
+        "id": "o3",
+        "category": "out_of_scope",
+        "question": "该方法申请了哪个专利？"
+      },
+      {
+        "id": "o4",
+        "category": "out_of_scope",
+        "question": "Transformer 训练用了多少块 TPU？"
+      },
+      {
+        "id": "o5",
+        "category": "out_of_scope",
+        "question": "这几篇论文各自的引用次数是多少？"
+      },
+      {
+        "id": "o6",
+        "category": "out_of_scope",
+        "question": "这本书由哪家出版社出版？"
+      },
+      {
+        "id": "o7",
+        "category": "out_of_scope",
+        "question": "作者在 2025 年的后续工作是什么？"
+      },
+      {
+        "id": "o8",
+        "category": "out_of_scope",
+        "question": "这个模型的商业授权价格是多少？"
+      },
+      {
+        "id": "h1",
+        "category": "chitchat",
+        "question": "你好，你能做什么？"
+      },
+      {
+        "id": "h2",
+        "category": "chitchat",
+        "question": "谢谢！"
+      }
+    ],
+    "note": "关闭语义核验（CONFIDENCE_SEMANTIC_ENABLED=false），其余判据与主表一致"
+  },
+  "rows": [
+    {
+      "id": "p1",
+      "category": "point",
+      "question": "Transformer 的 dropout 比例是多少？",
+      "level": "verified",
+      "score": 0.9,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0164,
+        "reject_threshold": 0.0,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 0
+      },
+      "latency_ms": 10191.5,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "对于基础模型，Transformer 的 dropout 比例是 0.1 。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "sentence",
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.9,
+            "papers": 1,
+            "precisions": [
+              "sentence"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.9
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "p2",
+      "category": "point",
+      "question": "Transformer 的多头注意力用了几个头？",
+      "level": "verified",
+      "score": 0.65,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0164,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 0
+      },
+      "latency_ms": 2669.3,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "Transformer 的多头注意力用了 8 个头 。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "sentence",
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.65,
+            "papers": 1,
+            "precisions": [
+              "sentence"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.65
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "p3",
+      "category": "point",
+      "question": "BERT-Base 有多少层 transformer block？",
+      "level": "needs_check",
+      "score": 0.525,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 1,
+        "unsupported": 0
+      },
+      "missing": [
+        {
+          "code": "weak_match",
+          "text": "证据句与原话重合度低于验证线",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "1 句需要人工核对：证据句与原话重合度低于验证线"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0161,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 4377.3,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "needs_check",
+          "text": "BERT-Base 有 12 层 transformer block 。",
+          "missing": [
+            "weak_match"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.525,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "BERT",
+              "Base"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.525
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "p4",
+      "category": "point",
+      "question": "LoRA 在 GPT-3 上使用的秩 r 是多少？",
+      "level": "verified",
+      "score": 0.9,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.016,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 4359.9,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "LoRA 在 GPT-3 上使用的秩 r 可以低至一或二 。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.9,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "GPT",
+              "LoRA"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.9
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "p5",
+      "category": "point",
+      "question": "ViT-Base 的 patch 大小是多少？",
+      "level": "verified",
+      "score": 0.775,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 1,
+        "top_raw_score": 0.0163,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 2428.1,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "ViT-Base 的 patch 大小是 16×16 。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.775,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "Base",
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.775
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "p6",
+      "category": "point",
+      "question": "ViT 的隐藏层维度是多少？",
+      "level": "verified",
+      "score": 0.7333,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 1,
+        "top_raw_score": 0.0159,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 3520.8,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "ViT 的隐藏层维度根据不同的模型版本有所不同，例如ViT-Base版本的隐藏层维度是768。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.7333,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.7333
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "t1",
+      "category": "table",
+      "question": "Transformer 在 WMT 2014 英德翻译任务上的 BLEU 分数是多少？",
+      "level": "verified",
+      "score": 0.9,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.0164,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 0
+      },
+      "latency_ms": 4189.0,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "Transformer（大模型）在WMT 2014英德翻译任务上的BLEU分数是28.4 。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "sentence",
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.9,
+            "papers": 1,
+            "precisions": [
+              "sentence"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.9
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "t2",
+      "category": "table",
+      "question": "ViT-H/14 在 ImageNet 上的 top-1 准确率是多少？",
+      "level": "verified",
+      "score": 0.6571,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 1,
+        "top_raw_score": 0.0161,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 4696.0,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "ViT-H/14 在 ImageNet 上的 top-1 准确率是 88.55 ± 0.04",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.6571,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.6571
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "t3",
+      "category": "table",
+      "question": "LoRA 在 GPT-3 上把可训练参数减少了多少倍？",
+      "level": "verified",
+      "score": 0.5971,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [
+        "全部 1 句都能在原文中直接找到对应句子"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0164,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 3981.3,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "LoRA 在 GPT-3 175B 上将可训练参数数量减少至约4.7M，相对于原始模型的175,255.8M参数量而言，减少了大约37,288.5倍。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.5971,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "GPT",
+              "LoRA"
+            ],
+            "comparative": true,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.5971
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "t4",
+      "category": "table",
+      "question": "BERT-Large 的参数量是多少？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 4,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 4
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 3
+        },
+        {
+          "code": "no_match",
+          "text": "引用的片段里找不到能支撑这句话的句子",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 4 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.0149,
+        "reject_threshold": 0.015,
+        "retrieval_weak": true,
+        "query_type": "point",
+        "block_located": 0
+      },
+      "latency_ms": 3768.7,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": true
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "unsupported",
+          "text": "根据提供的编号片段，没有直接提到BERT-Large的具体参数数量。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": true
+          }
+        },
+        {
+          "claim_id": "c3",
+          "level": "unsupported",
+          "text": "片段2中提及了ViT模型的不同版本的参数量，但并未提供关于BERT-Large参数量的信息。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": true
+          }
+        },
+        {
+          "claim_id": "c4",
+          "level": "unsupported",
+          "text": "对于BERT-Large的确切参数数目，当前引用材料内缺乏明确数值描述。",
+          "missing": [
+            "no_match"
+          ],
+          "status": "unsupported",
+          "reason": "引用的片段里找不到能支撑这句话的句子",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "c1",
+      "category": "compare",
+      "question": "ViT 和 BERT 哪个模型参数量更大？",
+      "level": "needs_check",
+      "score": 0.1222,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 6,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 5
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 4
+        },
+        {
+          "code": "no_match",
+          "text": "引用的片段里找不到能支撑这句话的句子",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "5 句没有找到证据（已保留，未删除）"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.0159,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 7130.8,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "根据片段信息，ViT-Huge模型的参数量为632M ，而关于BERT的具体参数量没有直接提供。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.7333,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.7333
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "unsupported",
+          "text": "但是，提到ViT的配置基于BERT的设置，并且“Base”和“Large”模型是直接从BERT采纳的。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [
+              "Base",
+              "Large"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c3",
+          "level": "unsupported",
+          "text": "因此，可以推测ViT中提到的最大模型（ViT-Huge）的参数量632M大于或等于原始BERT中的相应版本。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": true,
+            "caps_terms": [
+              "Huge",
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": true,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c4",
+          "level": "unsupported",
+          "text": "然而，由于缺少关于BERT确切参数数量的信息，我们无法得出准确的比较结果。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c5",
+          "level": "unsupported",
+          "text": "但就给出的数据而言，ViT-Huge模型至少在提及的规模上拥有632M参数。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": true,
+            "caps_terms": [
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c6",
+          "level": "unsupported",
+          "text": "对于更精确的对比，需要具体到每个模型的确切版本及其参数量。",
+          "missing": [
+            "no_match"
+          ],
+          "status": "unsupported",
+          "reason": "引用的片段里找不到能支撑这句话的句子",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 2,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": true,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "c2",
+      "category": "compare",
+      "question": "LoRA 微调和全量微调在显存占用上有什么区别？",
+      "level": "needs_check",
+      "score": 0.3,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 3,
+        "verified": 0,
+        "needs_check": 1,
+        "unsupported": 2
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 2
+        },
+        {
+          "code": "single_paper",
+          "text": "仅单篇论文支持，跨文献结论需再核一篇",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "1 句需要人工核对：这句话没有引用标注、仅单篇论文支持，跨文献结论需再核一篇",
+        "另有 2 句没有找到证据（已保留，未删除）"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 1,
+        "top_raw_score": 0.0164,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "compare",
+        "block_located": 1
+      },
+      "latency_ms": 7105.9,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "使用LoRA进行微调可以显著减少显存占用。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": true,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "unsupported",
+          "text": "具体来说，对于大型Transformer模型使用Adam优化器时，如果r远小于dmodel，通过不需要为冻结的参数存储优化器状态，可以将VRAM使用量减少多达2/3。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": true,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c3",
+          "level": "needs_check",
+          "text": "在GPT-3 175B上，训练期间的VRAM消耗从1.2TB降低到350GB 。",
+          "missing": [
+            "single_paper"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.9,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": true,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.9
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "c3",
+      "category": "compare",
+      "question": "Transformer 与 BERT 的训练目标有什么不同？",
+      "level": "needs_check",
+      "score": 0.25,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 4,
+        "verified": 0,
+        "needs_check": 3,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_match",
+          "text": "引用的片段里找不到能支撑这句话的句子",
+          "claims": 1
+        },
+        {
+          "code": "weak_match",
+          "text": "证据句与原话重合度低于验证线",
+          "claims": 3
+        },
+        {
+          "code": "cross_section",
+          "text": "证据由多处片段拼接而成，属于推断而非直引",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "3 句需要人工核对：引用的片段里找不到能支撑这句话的句子、证据句与原话重合度低于验证线",
+        "另有 1 句没有找到证据（已保留，未删除）"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 4,
+        "top_raw_score": 0.0163,
+        "reject_threshold": 0.0,
+        "retrieval_weak": false,
+        "query_type": "compare",
+        "block_located": 2
+      },
+      "latency_ms": 9208.4,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "needs_check",
+          "text": "Transformer 的训练目标是在机器翻译任务中最小化损失，以提高 BLEU 分数 。",
+          "missing": [
+            "weak_match"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "sentence",
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.5,
+            "papers": 1,
+            "precisions": [
+              "sentence"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": false,
+            "caps_terms": [
+              "BLEU"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.5
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "needs_check",
+          "text": "而 BERT 的训练目标是通过双向编码表示从 Transformer 中进行无标签文本的预训练，并同时考虑上下文，从而在广泛的任务上达到最佳性能 。",
+          "missing": [
+            "weak_match",
+            "cross_section"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.25,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": false,
+            "caps_terms": [
+              "BERT"
+            ],
+            "comparative": false,
+            "inferential": true,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.25
+          }
+        },
+        {
+          "claim_id": "c3",
+          "level": "needs_check",
+          "text": "此外，BERT 还使用了“遮蔽语言模型”（MLM）预训练目标来缓解单向性约束，以及下一句预测任务作为其训练的一部分 。",
+          "missing": [
+            "weak_match"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.25,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "reference"
+            ],
+            "numeric_claim": false,
+            "caps_terms": [
+              "BERT",
+              "MLM"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.25
+          }
+        },
+        {
+          "claim_id": "c4",
+          "level": "unsupported",
+          "text": "总的来说，两者的区别主要在于应用场景（机器翻译 vs 通用 NLP 任务）、是否考虑双向信息以及具体的预训练方法 。",
+          "missing": [
+            "no_match"
+          ],
+          "status": "unsupported",
+          "reason": "引用的片段里找不到能支撑这句话的句子",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 2,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [
+              "NLP"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "c4",
+      "category": "compare",
+      "question": "ViT 和 BERT 分别用什么数据做预训练？",
+      "level": "needs_check",
+      "score": 0.7,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 2,
+        "verified": 1,
+        "needs_check": 1,
+        "unsupported": 0
+      },
+      "missing": [
+        {
+          "code": "weak_match",
+          "text": "证据句与原话重合度低于验证线",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "1 句需要人工核对：证据句与原话重合度低于验证线"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0164,
+        "reject_threshold": 0.0,
+        "retrieval_weak": false,
+        "query_type": "compare",
+        "block_located": 2
+      },
+      "latency_ms": 4253.7,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "ViT 使用 ImageNet-21k 数据集或 JFT-300M 数据集进行预训练 。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.9,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "JFT",
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.9
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "needs_check",
+          "text": "BERT 的预训练数据未在提供的片段中明确指出 。",
+          "missing": [
+            "weak_match"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 2,
+            "supported": 2,
+            "best_score": 0.5,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "figure"
+            ],
+            "numeric_claim": false,
+            "caps_terms": [
+              "BERT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.5
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "c5",
+      "category": "compare",
+      "question": "这几篇论文里，哪个报告的 ImageNet 准确率最高？",
+      "level": "needs_check",
+      "score": 0.4857,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 1,
+        "unsupported": 0
+      },
+      "missing": [
+        {
+          "code": "weak_match",
+          "text": "证据句与原话重合度低于验证线",
+          "claims": 1
+        },
+        {
+          "code": "single_paper",
+          "text": "仅单篇论文支持，跨文献结论需再核一篇",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "1 句需要人工核对：证据句与原话重合度低于验证线、仅单篇论文支持，跨文献结论需再核一篇"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 1,
+        "top_raw_score": 0.0159,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "compare",
+        "block_located": 1
+      },
+      "latency_ms": 5354.7,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "needs_check",
+          "text": "根据提供的片段，最高的ImageNet准确率为88.55%，由Vision Transformer (ViT)模型在JFT-300M数据集上预训练后达到。",
+          "missing": [
+            "weak_match",
+            "single_paper"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.4857,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.4857
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "i1",
+      "category": "infer",
+      "question": "为什么 Transformer 需要位置编码？",
+      "level": "needs_check",
+      "score": 0.5,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 1,
+        "unsupported": 0
+      },
+      "missing": [
+        {
+          "code": "weak_match",
+          "text": "证据句与原话重合度低于验证线",
+          "claims": 1
+        },
+        {
+          "code": "cross_section",
+          "text": "证据由多处片段拼接而成，属于推断而非直引",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "1 句需要人工核对：证据句与原话重合度低于验证线、证据由多处片段拼接而成，属于推断而非直引"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.032,
+        "reject_threshold": 0.03,
+        "retrieval_weak": false,
+        "query_type": "generic",
+        "block_located": 1
+      },
+      "latency_ms": 2587.5,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "needs_check",
+          "text": "位置编码在Transformer中是必要的，因为它们帮助模型理解序列中各个元素的位置信息，从而保留了顺序信息。",
+          "missing": [
+            "weak_match",
+            "cross_section"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.5,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": true,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.5
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "i2",
+      "category": "infer",
+      "question": "LoRA 为什么能降低显存占用？",
+      "level": "needs_check",
+      "score": 0.4143,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 2,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_match",
+          "text": "引用的片段里找不到能支撑这句话的句子",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "1 句没有找到证据（已保留，未删除）"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.0164,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 4754.4,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "verified",
+          "text": "LoRA 能降低显存占用是因为它减少了需要存储的优化器状态的数量，对于大型Transformer使用Adam训练时，如果r远小于dmodel，则可以减少高达2/3的VRAM使用量 。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.8286,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [
+              "LoRA"
+            ],
+            "comparative": true,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.8286
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "unsupported",
+          "text": "此外，通过仅更新低秩矩阵A和B，而保持预训练权重冻结，进一步减少了需要计算梯度和维护优化器状态的参数数量，从而提高了训练效率并降低了硬件进入门槛 。",
+          "missing": [
+            "no_match"
+          ],
+          "status": "unsupported",
+          "reason": "引用的片段里找不到能支撑这句话的句子",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": true,
+            "inferential": true,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "i3",
+      "category": "infer",
+      "question": "ViT 为什么需要大规模数据预训练？",
+      "level": "needs_check",
+      "score": 0.2583,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 3,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 2
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        },
+        {
+          "code": "no_match",
+          "text": "引用的片段里找不到能支撑这句话的句子",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "2 句没有找到证据（已保留，未删除）"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.0328,
+        "reject_threshold": 0.03,
+        "retrieval_weak": false,
+        "query_type": "generic",
+        "block_located": 1
+      },
+      "latency_ms": 5568.4,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "ViT 在训练数据不足的情况下，缺乏CNN固有的平移等变性和局部性这样的归纳偏差，因此在少量数据上预训练时泛化效果不佳。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [
+              "ViT"
+            ],
+            "comparative": false,
+            "inferential": true,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "verified",
+          "text": "但是，当在大规模数据集（如14M-300M张图片）上进行预训练后，ViT可以达到很好的结果，并且能够很好地迁移到数据量较少的任务中。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.775,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.775
+          }
+        },
+        {
+          "claim_id": "c3",
+          "level": "unsupported",
+          "text": "这表明大规模预训练能够克服初始的归纳偏差限制，使模型学习到有效的特征表示。",
+          "missing": [
+            "no_match"
+          ],
+          "status": "unsupported",
+          "reason": "引用的片段里找不到能支撑这句话的句子",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": true,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "i4",
+      "category": "infer",
+      "question": "BERT 的 next sentence prediction 任务有什么用？",
+      "level": "needs_check",
+      "score": 0.425,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 4,
+        "verified": 0,
+        "needs_check": 3,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        },
+        {
+          "code": "weak_match",
+          "text": "证据句与原话重合度低于验证线",
+          "claims": 2
+        },
+        {
+          "code": "entity_mismatch",
+          "text": "结论中的专有名词未在引用片段中出现",
+          "claims": 1
+        },
+        {
+          "code": "cross_section",
+          "text": "证据由多处片段拼接而成，属于推断而非直引",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "3 句需要人工核对：这句话没有引用标注、证据句与原话重合度低于验证线",
+        "另有 1 句没有找到证据（已保留，未删除）"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.0159,
+        "reject_threshold": 0.0,
+        "retrieval_weak": false,
+        "query_type": "compare",
+        "block_located": 3
+      },
+      "latency_ms": 7648.5,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "needs_check",
+          "text": "BERT 的 next sentence prediction (NSP) 任务旨在训练模型理解两个句子之间的关系，这对问答和自然语言推理等下游任务非常有益。",
+          "missing": [
+            "weak_match",
+            "entity_mismatch"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.3,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": false,
+            "caps_terms": [
+              "BERT",
+              "NSP"
+            ],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.3
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "unsupported",
+          "text": "具体来说，当选择预训练的例子中的句子A和B时，50%的情况下B是A的实际后续句子（标记为IsNext），而另外50%的情况它来自语料库中的随机句子（标记为NotNext）。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c3",
+          "level": "needs_check",
+          "text": "这帮助BERT在被微调用于如问答和自然语言推断的任务时表现更佳。",
+          "missing": [
+            "weak_match"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.5,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.5
+          }
+        },
+        {
+          "claim_id": "c4",
+          "level": "needs_check",
+          "text": "实验结果表明移除NSP任务会显著降低QNLI、MNLI以及SQuAD 1.1上的性能。",
+          "missing": [
+            "cross_section"
+          ],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.9,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": true,
+            "inferential": true,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.9
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "i5",
+      "category": "infer",
+      "question": "多头注意力相比单头注意力的优势是什么？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_match",
+          "text": "引用的片段里找不到能支撑这句话的句子",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 4,
+        "top_raw_score": 0.0162,
+        "reject_threshold": 0.0,
+        "retrieval_weak": false,
+        "query_type": "compare",
+        "block_located": 0
+      },
+      "latency_ms": 3909.7,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "多头注意力机制允许模型在不同位置的不同表示子空间中联合关注信息，而单个注意力头的平均化会抑制这种能力 。",
+          "missing": [
+            "no_match"
+          ],
+          "status": "unsupported",
+          "reason": "引用的片段里找不到能支撑这句话的句子",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o1",
+      "category": "out_of_scope",
+      "question": "这篇论文的作者获得过图灵奖吗？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0328,
+        "reject_threshold": 0.03,
+        "retrieval_weak": false,
+        "query_type": "generic",
+        "block_located": 0
+      },
+      "latency_ms": 2895.8,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o2",
+      "category": "out_of_scope",
+      "question": "GPT-5 的参数量是多少？",
+      "level": "needs_check",
+      "score": 0.1857,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 3,
+        "verified": 1,
+        "needs_check": 0,
+        "unsupported": 2
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 2
+        }
+      ],
+      "notes": [
+        "2 句没有找到证据（已保留，未删除）"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0158,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 1
+      },
+      "latency_ms": 3462.4,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c2",
+          "level": "unsupported",
+          "text": "给定的片段中并没有提供关于GPT-5的具体参数量信息。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        },
+        {
+          "claim_id": "c3",
+          "level": "verified",
+          "text": "片段内提到的最大模型是GPT-3，其参数量为1750亿（175 billion），但没有提及GPT-5的信息。",
+          "missing": [],
+          "status": "supported",
+          "reason": null,
+          "locate": {
+            "precision": "block",
+            "note": "块级定位（该片段未建立句级锚点）"
+          },
+          "signals": {
+            "evidence": 1,
+            "supported": 1,
+            "best_score": 0.5571,
+            "papers": 1,
+            "precisions": [
+              "block"
+            ],
+            "kinds": [
+              "paragraph"
+            ],
+            "numeric_claim": true,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false,
+            "sem_score": null,
+            "effective_score": 0.5571
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o3",
+      "category": "out_of_scope",
+      "question": "该方法申请了哪个专利？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.032,
+        "reject_threshold": 0.03,
+        "retrieval_weak": false,
+        "query_type": "generic",
+        "block_located": 0
+      },
+      "latency_ms": 3244.8,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o4",
+      "category": "out_of_scope",
+      "question": "Transformer 训练用了多少块 TPU？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0159,
+        "reject_threshold": 0.015,
+        "retrieval_weak": false,
+        "query_type": "point",
+        "block_located": 0
+      },
+      "latency_ms": 3842.9,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o5",
+      "category": "out_of_scope",
+      "question": "这几篇论文各自的引用次数是多少？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 4,
+        "top_raw_score": 0.0157,
+        "reject_threshold": 0.0,
+        "retrieval_weak": false,
+        "query_type": "compare",
+        "block_located": 0
+      },
+      "latency_ms": 2856.9,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o6",
+      "category": "out_of_scope",
+      "question": "这本书由哪家出版社出版？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 2,
+        "top_raw_score": 0.0315,
+        "reject_threshold": 0.03,
+        "retrieval_weak": false,
+        "query_type": "generic",
+        "block_located": 0
+      },
+      "latency_ms": 2118.8,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答。",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": false
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o7",
+      "category": "out_of_scope",
+      "question": "作者在 2025 年的后续工作是什么？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 5,
+        "top_raw_score": 0.0277,
+        "reject_threshold": 0.03,
+        "retrieval_weak": true,
+        "query_type": "generic",
+        "block_located": 0
+      },
+      "latency_ms": 2134.9,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "o8",
+      "category": "out_of_scope",
+      "question": "这个模型的商业授权价格是多少？",
+      "level": "unsupported",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 6,
+      "counts": {
+        "claims": 1,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 1
+      },
+      "missing": [
+        {
+          "code": "no_citation",
+          "text": "这句话没有引用标注",
+          "claims": 1
+        }
+      ],
+      "notes": [
+        "全部 1 句都没有找到原文支撑，已原样保留供人工判断"
+      ],
+      "signals": {
+        "sources": 6,
+        "papers": 3,
+        "top_raw_score": 0.0136,
+        "reject_threshold": 0.015,
+        "retrieval_weak": true,
+        "query_type": "point",
+        "block_located": 0
+      },
+      "latency_ms": 1925.4,
+      "claims": [
+        {
+          "claim_id": "c1",
+          "level": "unsupported",
+          "text": "无法回答",
+          "missing": [
+            "no_citation"
+          ],
+          "status": "unsupported",
+          "reason": "这句话没有引用标注",
+          "locate": {
+            "precision": null,
+            "note": null
+          },
+          "signals": {
+            "evidence": 0,
+            "supported": 0,
+            "best_score": 0.0,
+            "papers": 0,
+            "precisions": [],
+            "kinds": [],
+            "numeric_claim": false,
+            "caps_terms": [],
+            "comparative": false,
+            "inferential": false,
+            "retrieval_weak": true
+          }
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "h1",
+      "category": "chitchat",
+      "question": "你好，你能做什么？",
+      "level": "not_applicable",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 0,
+      "counts": {
+        "claims": 0,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [],
+      "signals": {
+        "sources": 0,
+        "papers": 0,
+        "top_raw_score": null,
+        "reject_threshold": null,
+        "retrieval_weak": false,
+        "query_type": "chitchat",
+        "block_located": 0
+      },
+      "latency_ms": 1653.4,
+      "claims": [],
+      "error": null
+    },
+    {
+      "id": "h2",
+      "category": "chitchat",
+      "question": "谢谢！",
+      "level": "not_applicable",
+      "score": 0.0,
+      "rejected": false,
+      "reject_reason": null,
+      "n_sources": 0,
+      "counts": {
+        "claims": 0,
+        "verified": 0,
+        "needs_check": 0,
+        "unsupported": 0
+      },
+      "missing": [],
+      "notes": [],
+      "signals": {
+        "sources": 0,
+        "papers": 0,
+        "top_raw_score": null,
+        "reject_threshold": null,
+        "retrieval_weak": false,
+        "query_type": "chitchat",
+        "block_located": 0
+      },
+      "latency_ms": 828.6,
+      "claims": [],
+      "error": null
+    }
+  ]
+}

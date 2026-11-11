@@ -5,6 +5,7 @@ services:
   qdrant:
     image: qdrant/qdrant:v1.11.0
     container_name: ai4s-qdrant
+    restart: unless-stopped
     ports:
       - "6333:6333"
     volumes:
@@ -22,6 +23,7 @@ services:
   minio:
     image: minio/minio:RELEASE.2024-06-13T22-53-53Z
     container_name: ai4s-minio
+    restart: unless-stopped
     entrypoint: ["/bin/sh", "/init-minio.sh"]
     ports:
       - "9000:9000"
@@ -44,6 +46,7 @@ services:
   redis:
     image: redis:7-alpine
     container_name: ai4s-redis
+    restart: unless-stopped
     ports:
       - "6379:6379"
     volumes:
@@ -62,6 +65,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: ai4s-api
+    restart: unless-stopped
     ports:
       - "8000:8000"
     environment:
@@ -87,10 +91,26 @@ services:
       S2_API_KEY: ${S2_API_KEY:-}
       JUDGE_USERNAME: ${JUDGE_USERNAME:-judge}
       JUDGE_PASSWORD: ${JUDGE_PASSWORD:-ai4s2024}
+      # 结构化生成协议（SSE）。关掉 STREAM_ENABLED 后 /qa/stream 直接 503，
+      # 前端会退回一次性 /qa/ask —— 出问题时要能一键回到旧链路，而不是回滚镜像。
+      STREAM_ENABLED: ${STREAM_ENABLED:-true}
+      CLAIM_MIN_EVIDENCE: ${CLAIM_MIN_EVIDENCE:-0.15}
+      STREAM_LOG_ENABLED: ${STREAM_LOG_ENABLED:-true}
+      STREAM_HEARTBEAT_S: ${STREAM_HEARTBEAT_S:-8}
       # HuggingFace 国内镜像，加速 embedding 模型下载
       HF_ENDPOINT: "https://hf-mirror.com"
       # 禁用 Xet 下载通道（不走镜像站会 401），强制普通 HTTPS 下载
       HF_HUB_DISABLE_XET: "1"
+      # 课题级元数据库；api 与 worker 共享同一个文件，靠 WAL 并发写
+      DB_PATH: "/app/data/ai4s.db"
+      # 长文档解析的工作目录（流式下载的 PDF + 断点状态），必须落在持久卷上
+      INGEST_WORK_DIR: "/app/data/ingest"
+      # 精排与数值规则召回的开关。改这里 = 一键关掉做 A/B，
+      # 也可以只改单个请求（POST /qa/ask 传 "rerank": false）而不动服务端。
+      RERANK_ENABLED: ${RERANK_ENABLED:-true}
+      RERANK_MODEL: ${RERANK_MODEL:-Xenova/ms-marco-MiniLM-L-6-v2}
+      RERANK_TIMEOUT_MS: ${RERANK_TIMEOUT_MS:-1500}
+      NUMERIC_RECALL_ENABLED: ${NUMERIC_RECALL_ENABLED:-true}
     networks:
       - ai4s-net
     depends_on:
@@ -102,6 +122,7 @@ services:
         condition: service_healthy
     volumes:
       - model_cache:/app/.cache
+      - app_data:/app/data
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health/"]
       interval: 15s
@@ -114,6 +135,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: ai4s-worker
+    restart: unless-stopped
     command: celery -A app.tasks.celery_app worker -l info -c 1 -n worker@%h -B
     environment:
       TEMPERATURE: "0"
@@ -140,6 +162,10 @@ services:
       HF_ENDPOINT: "https://hf-mirror.com"
       # 禁用 Xet 下载通道（不走镜像站会 401），强制普通 HTTPS 下载
       HF_HUB_DISABLE_XET: "1"
+      # 课题级元数据库；api 与 worker 共享同一个文件，靠 WAL 并发写
+      DB_PATH: "/app/data/ai4s.db"
+      # 长文档解析的工作目录（流式下载的 PDF + 断点状态），必须落在持久卷上
+      INGEST_WORK_DIR: "/app/data/ingest"
     networks:
       - ai4s-net
     depends_on:
@@ -151,10 +177,12 @@ services:
         condition: service_healthy
     volumes:
       - model_cache:/app/.cache
+      - app_data:/app/data
     healthcheck:
       test: ["CMD-SHELL", "celery -A app.tasks.celery_app inspect ping --timeout 5 || exit 1"]
-      interval: 20s
-      timeout: 10s
+      # celery inspect 自身要 5s，加上解释器启动接近 10s，原先 timeout: 10s 会被判超时
+      interval: 30s
+      timeout: 25s
       retries: 8
       start_period: 120s
 
@@ -165,10 +193,15 @@ services:
       args:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-}
     container_name: ai4s-web
+    restart: unless-stopped
     ports:
       - "3000:3000"
     environment:
       PORT: "3000"
+      # Next.js standalone 默认绑定 $HOSTNAME（容器内即容器 ID），
+      # 只监听容器 IP 而不绑 0.0.0.0，导致 localhost:3000 探不通、
+      # 健康检查永远 unhealthy（外部经 web:3000 访问却是正常的）。
+      HOSTNAME: "0.0.0.0"
     networks:
       - ai4s-net
     depends_on:
@@ -181,6 +214,86 @@ services:
       retries: 10
       start_period: 60s
 
+  # 公网入口的第一跳：Nginx 网关。
+  # 之所以单独一层，是因为 Next.js 的 rewrites 有 30 秒硬性超时，
+  # 而 LLM 生成类接口要 40~90 秒；/api/* 由这里直连 FastAPI 并放宽到 300s。
+  gateway:
+    image: nginx:alpine
+    container_name: ai4s-gateway
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - ai4s-net
+    depends_on:
+      web:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+
+  # Cloudflare 命名隧道：把 demo.mabokai.site 的出站连接接到网关上。
+  # token 放在 .env 的 CLOUDFLARE_TUNNEL_TOKEN（.env 已被 gitignore）。
+  # 因为挂在 profile 下，平时 `docker compose up -d` 不会动它，
+  # 需要隧道时用 `docker compose --profile tunnel up -d` 或直接跑 deploy/start-all.sh。
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: ai4s-tunnel
+    restart: unless-stopped
+    profiles: ["tunnel"]
+    # --protocol http2：强制走 TCP 443。默认的 QUIC(UDP) 在国内部分运营商线路上
+    # 会被限速/丢包，表现为网页首字节 2s~60s 剧烈抖动、加载卡死。
+    # TUNNEL_EDGE_IP_VERSION=4：本机没有可用 IPv6，cloudflared 默认 auto 会先试
+    # IPv6 边缘地址再回退，实测白等数秒。
+    command: tunnel --no-autoupdate run --protocol http2 --token ${CLOUDFLARE_TUNNEL_TOKEN:?请先在 .env 中设置 CLOUDFLARE_TUNNEL_TOKEN}
+    environment:
+      TUNNEL_EDGE_IP_VERSION: "4"
+    networks:
+      - ai4s-net
+    depends_on:
+      gateway:
+        condition: service_started
+
+  # 国内隧道（cpolar）：Cloudflare 隧道在国际出口拥塞时（实测晚高峰回源丢包
+  # 60~75%，连 231 字节的图标都传不完）的替代入口。cpolar 走国内节点，
+  # 不受国际出口影响。
+  #
+  # 同样是 profile，不影响 `docker compose up -d`：
+  #   docker compose --profile cpolar up -d cpolar
+  # 前提是 .env 里有 CPOLAR_AUTHTOKEN（https://dashboard.cpolar.com/auth 复制）。
+  #
+  # 配置模板在 deploy/cpolar.yml，token 用 __CPOLAR_TOKEN__ 占位，
+  # 启动时 sed 替换到 /tmp 再加载 —— 明文 token 不进 git。
+  cpolar:
+    image: probezy/cpolar:latest
+    container_name: ai4s-cpolar
+    restart: unless-stopped
+    profiles: ["cpolar"]
+    environment:
+      # 用 `:-` 而不是 `:?`：`${VAR:?}` 在变量缺失时会让**所有** compose 命令
+      # 直接失败（连 `docker compose ps` 都跑不了），即使这个服务没被启用。
+      CPOLAR_AUTHTOKEN: ${CPOLAR_AUTHTOKEN:-}
+    volumes:
+      - ./deploy/cpolar.yml:/opt/cpolar.yml:ro
+    entrypoint: /bin/sh
+    command:
+      - -c
+      - |
+        if [ -z "$$CPOLAR_AUTHTOKEN" ]; then
+          echo "CPOLAR_AUTHTOKEN 为空，cpolar 不建隧道。在 .env 填入后 docker compose restart cpolar。" >&2
+          # 不用 exit 0：restart: unless-stopped 下退出会被反复拉起，日志刷屏。
+          # 挂住进程，容器保持 running，配好 token 重启即可。
+          exec tail -f /dev/null
+        fi
+        sed "s|__CPOLAR_TOKEN__|$${CPOLAR_AUTHTOKEN}|" /opt/cpolar.yml > /tmp/cpolar.yml
+        exec cpolar start-all -dashboard=on -daemon=on -config=/tmp/cpolar.yml -log=stdout
+    networks:
+      - ai4s-net
+    depends_on:
+      gateway:
+        condition: service_started
+
 networks:
   ai4s-net:
     driver: bridge
@@ -190,3 +303,5 @@ volumes:
   minio_data:
   redis_data:
   model_cache:
+  # 课题级元数据库（SQLite 单文件），api 与 worker 共享
+  app_data:
