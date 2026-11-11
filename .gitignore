@@ -33,3 +33,13 @@ lib.json
 
 # 技术文档 PDF 构建中间产物
 /docs/.build/
+
+# 2026-11-11 提交前清理：以下文件曾误入库（早于规则写入索引），已从索引移出、
+# 本地保留。规则用完整文件名而非通配，避免误伤将来同前缀的正常文件。
+compose-code.txt
+compose-config-code.txt
+compose-config-out.txt
+compose-err.txt
+push-to-github.sh
+push-to-github.bat
+Attention_is_All_You_Need_*.pdf

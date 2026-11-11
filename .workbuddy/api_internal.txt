@@ -1,2 +1,0 @@
-﻿STATUS 200 {"status":"ok","version":"v1.0.0"}
-

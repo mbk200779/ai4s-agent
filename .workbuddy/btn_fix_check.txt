@@ -1,3 +1,0 @@
-﻿STATUS: 200
-hasUploadSection: True
-hasUploadCard: True

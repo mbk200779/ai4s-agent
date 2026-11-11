@@ -1,5 +1,0 @@
-﻿  File "/app/app/tasks/tasks.py", line 337, in merge_parsed_chunks
-  File "/app/app/tasks/tasks.py", line 281, in merge_parsed_chunks
-  File "/app/app/services/vector_store.py", line 92, in index_fragments
-  File "/app/app/services/vector_store.py", line 184, in delete_chunks
-

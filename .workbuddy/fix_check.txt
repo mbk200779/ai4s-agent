@@ -1,2 +1,0 @@
-﻿STATUS: 200
-hasTransition: True

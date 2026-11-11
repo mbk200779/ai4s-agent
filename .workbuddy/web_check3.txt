@@ -1,2 +1,0 @@
-﻿STATUS: 200
-pink100=True sky100=True violet100=True rounded2xl=True

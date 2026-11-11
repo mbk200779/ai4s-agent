@@ -1,7 +1,0 @@
-﻿
-  19: <unknown>
-  20: __libc_start_main
-  21: _start
-    
-2026-11-03T05:56:37.339938Z ERROR qdrant::startup: Panic occurred in file lib/sparse/src/index/inverted_index/inverted_index_ram.rs at line 63: index out of bounds: the len is 103 but the index is 104    
-

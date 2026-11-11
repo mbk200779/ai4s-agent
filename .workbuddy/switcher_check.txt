@@ -1,2 +1,0 @@
-﻿STATUS: 200
-hasSwitcher: False

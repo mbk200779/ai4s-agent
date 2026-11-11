@@ -1,2 +1,0 @@
-﻿cssStatus: 200
-hasCream: True
