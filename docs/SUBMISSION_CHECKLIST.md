@@ -21,10 +21,10 @@
 
 | 要求项 | 状态 | 位置 / 现状 | 说明 |
 |---|---|---|---|
-| 托管平台 GitHub / Gitee（Public 或评审可访问） | ⚠️ | `github.com/mbk200779/ai4s-agent` | 代码与 11 个提交已在本地就绪；**推送被 SSH 公钥未配置阻塞**。仓库需设为 Public |
+| 托管平台 GitHub / Gitee（Public 或评审可访问） | ⚠️ | `github.com/mbk200779/ai4s-agent` | 代码与 **15 个提交**已在本地就绪（其中 9 个待推送）；**推送被 SSH 公钥未配置阻塞**。仓库需设为 Public |
 | 代码规范（结构清晰、有效注释、主流规范） | ✅ | `backend/app/`、`frontend/src/` | 模块按职责拆分；关键决策写在代码注释里（如 `embed_threads` 为什么定 8、`RERANK_ALPHA` 为什么是 0.2）；Python 侧统一 docstring 与类型注解，TS 侧开启 strict |
 | README（项目介绍、技术架构、安装运行、团队信息） | ✅ | `README.md` | 已重写：功能一览、架构图、8 容器职责、快速开始、环境变量、评测结果、评审账号、文档索引、团队信息 |
-| Git 记录（完整历史，体现真实开发过程） | ✅ | `git log` | 11 个提交，跨度 2026-10-22 → 11-11，含 `init` / `feat` / `fix` / `docs` / `merge`，不是一次性导入 |
+| Git 记录（完整历史，体现真实开发过程） | ✅ | `git log` | 15 个提交，跨度 2026-10-22 → 11-11，含 `init` / `feat` / `fix` / `docs` / `merge`，不是一次性导入 |
 | 环境配置（变量模板 + 依赖清单） | ✅ | `.env.example`（13 组）、`backend/requirements.txt`、`frontend/package.json`、`docker-compose.yml` | 模板只放占位符，密钥全部走环境变量；**已核对代码实际读取的每个配置项，模板中不存在的项也补进 compose，避免「文档写了但设了不生效」** |
 
 **代码规范补充说明**：密钥扫描已做（`sk-` / JWT / token / password 四类正则扫全部待提交文件，无命中）；`.env` 在 `.gitignore` 内；`lib.json` 等临时抓包文件已排除。
@@ -77,7 +77,7 @@
 
 | 要求项 | 状态 | 现状 |
 |---|---|---|
-| 可公网访问的在线演示地址 | ⚠️ | `https://demo.mabokai.site` 已配置（Cloudflare 隧道），但**国际出口丢包导致 1/3~3/3 波动**。备选：cpolar 国内隧道（配置已就绪，缺 authtoken） |
+| 可公网访问的在线演示地址 | ⚠️ | `https://demo.mabokai.site` 已配置（Cloudflare 隧道）。刚实测 3 次：两次 200（9.7s / 20s）、一次超时——**能通但慢且不稳**。备选：cpolar 国内隧道（配置就绪，缺 authtoken） |
 | 评审期间保持服务可用 | ⚠️ | 依赖本机常开。已配：Docker 自启、容器 `restart: unless-stopped`、电源永不睡眠；加固脚本 `deploy/演示加固-右键管理员运行.bat` 需你以管理员运行一次 |
 | 需登录则提供测试账号 | ✅ | `judge` / `ai4s2024`（`.env.example` 与 README 均已写明） |
 
