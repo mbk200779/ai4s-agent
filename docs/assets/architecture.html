@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;background:#ffffff;}
+  #stage{width:1100px;height:700px;background:#ffffff;}
+</style>
+</head>
+<body>
+<div id="stage">
+<svg width="1100" height="700" viewBox="0 0 1100 700" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei, Segoe UI, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7c8fa6"/>
+    </marker>
+    <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f766e"/>
+    </marker>
+    <linearGradient id="gUser" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f2f7fd"/><stop offset="100%" stop-color="#dae7f6"/>
+    </linearGradient>
+    <linearGradient id="gApp" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fcfb"/><stop offset="100%" stop-color="#e3f0ed"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 分层底板 -->
+  <rect x="12" y="24" width="800" height="112" rx="10" fill="#fbfcfe" stroke="#e6ecf3"/>
+  <rect x="12" y="146" width="800" height="100" rx="10" fill="#fbfcfe" stroke="#e6ecf3"/>
+  <rect x="12" y="256" width="800" height="84" rx="10" fill="#fbfcfe" stroke="#e6ecf3"/>
+  <rect x="12" y="350" width="800" height="118" rx="10" fill="#fbfcfe" stroke="#e6ecf3"/>
+  <rect x="12" y="480" width="800" height="128" rx="10" fill="#fbfcfe" stroke="#e6ecf3"/>
+
+  <g font-size="15" fill="#9aa9ba">
+    <text x="26" y="46">接入</text>
+    <text x="26" y="168">公网入口</text>
+    <text x="26" y="278">网关</text>
+    <text x="26" y="372">应用层</text>
+    <text x="26" y="502">数据层</text>
+  </g>
+
+  <!-- 用户 -->
+  <rect x="200" y="56" width="370" height="64" rx="8" fill="url(#gUser)" stroke="#b4c9e2"/>
+  <text x="385" y="84" text-anchor="middle" font-size="20" fill="#1b3a5c">科研用户 / 评审浏览器</text>
+  <text x="385" y="107" text-anchor="middle" font-size="15" fill="#64748b">问答 · 引用回跳 PDF · 流式输出</text>
+
+  <!-- 公网入口 -->
+  <rect x="30" y="178" width="360" height="58" rx="8" fill="#ffffff" stroke="#c7d2e0"/>
+  <text x="210" y="203" text-anchor="middle" font-size="19" fill="#1b3a5c">cloudflared 隧道</text>
+  <text x="210" y="224" text-anchor="middle" font-size="15" fill="#64748b">出站长连接，无需公网 IP</text>
+
+  <rect x="420" y="178" width="360" height="58" rx="8" fill="#ffffff" stroke="#c7d2e0" stroke-dasharray="5 4"/>
+  <text x="600" y="203" text-anchor="middle" font-size="19" fill="#1b3a5c">cpolar（备用入口）</text>
+  <text x="600" y="224" text-anchor="middle" font-size="15" fill="#64748b">国际出口拥塞时切换</text>
+
+  <!-- 网关 -->
+  <rect x="120" y="288" width="580" height="48" rx="8" fill="#ffffff" stroke="#c7d2e0"/>
+  <text x="410" y="318" text-anchor="middle" font-size="19" fill="#1b3a5c">gateway · nginx :8080　—　静态资源 + /api 反向代理</text>
+
+  <!-- 应用层 -->
+  <rect x="20" y="382" width="230" height="80" rx="8" fill="url(#gApp)" stroke="#a3cdc3"/>
+  <text x="135" y="409" text-anchor="middle" font-size="19" fill="#0b4f4a">web · Next.js :3000</text>
+  <text x="135" y="432" text-anchor="middle" font-size="15" fill="#4b6b67">问答 · 论文库 · 图谱</text>
+  <text x="135" y="452" text-anchor="middle" font-size="15" fill="#4b6b67">综述 · 写作 · 评测</text>
+
+  <rect x="285" y="382" width="230" height="80" rx="8" fill="url(#gApp)" stroke="#a3cdc3"/>
+  <text x="400" y="409" text-anchor="middle" font-size="19" fill="#0b4f4a">worker · Celery</text>
+  <text x="400" y="432" text-anchor="middle" font-size="15" fill="#4b6b67">解析 · 分块 · 嵌入</text>
+  <text x="400" y="452" text-anchor="middle" font-size="15" fill="#4b6b67">入库 · 索引重建</text>
+
+  <rect x="550" y="382" width="230" height="80" rx="8" fill="url(#gApp)" stroke="#a3cdc3"/>
+  <text x="665" y="409" text-anchor="middle" font-size="19" fill="#0b4f4a">api · FastAPI :8000</text>
+  <text x="665" y="432" text-anchor="middle" font-size="15" fill="#4b6b67">检索 · 生成 · 校验</text>
+  <text x="665" y="452" text-anchor="middle" font-size="15" fill="#4b6b67">置信分级 · 流式协议</text>
+
+  <!-- 数据层 -->
+  <rect x="20" y="512" width="180" height="80" rx="8" fill="#ffffff" stroke="#c7d2e0"/>
+  <text x="110" y="540" text-anchor="middle" font-size="19" fill="#1b3a5c">Qdrant</text>
+  <text x="110" y="564" text-anchor="middle" font-size="15" fill="#64748b">向量索引</text>
+
+  <rect x="220" y="512" width="180" height="80" rx="8" fill="#ffffff" stroke="#c7d2e0"/>
+  <text x="310" y="540" text-anchor="middle" font-size="19" fill="#1b3a5c">MinIO</text>
+  <text x="310" y="564" text-anchor="middle" font-size="15" fill="#64748b">PDF · 页面图</text>
+
+  <rect x="420" y="512" width="180" height="80" rx="8" fill="#ffffff" stroke="#c7d2e0"/>
+  <text x="510" y="540" text-anchor="middle" font-size="19" fill="#1b3a5c">Redis</text>
+  <text x="510" y="564" text-anchor="middle" font-size="15" fill="#64748b">任务队列</text>
+
+  <rect x="620" y="512" width="180" height="80" rx="8" fill="#ffffff" stroke="#c7d2e0"/>
+  <text x="710" y="540" text-anchor="middle" font-size="19" fill="#1b3a5c">SQLite</text>
+  <text x="710" y="564" text-anchor="middle" font-size="15" fill="#64748b">论文 · 版本</text>
+
+  <!-- 外部依赖竖条 -->
+  <rect x="832" y="350" width="252" height="258" rx="10" fill="#fffdf6" stroke="#e3d5b0"/>
+  <text x="848" y="374" font-size="15" fill="#9c8447">外部依赖（HTTPS）</text>
+
+  <text x="848" y="404" font-size="18" fill="#7c5c1a" font-weight="600">LiteLLM 模型网关</text>
+  <text x="848" y="426" font-size="15" fill="#7a6a45">GPT / Claude / Qwen</text>
+  <text x="848" y="446" font-size="15" fill="#7a6a45">temperature=0</text>
+  <text x="848" y="466" font-size="15" fill="#7a6a45">主模型 / 降本 / 多模态</text>
+
+  <line x1="848" y1="484" x2="1068" y2="484" stroke="#eadfc2"/>
+
+  <text x="848" y="510" font-size="18" fill="#7c5c1a" font-weight="600">学术数据源</text>
+  <text x="848" y="532" font-size="15" fill="#7a6a45">arXiv API / OAI-PMH</text>
+  <text x="848" y="552" font-size="15" fill="#7a6a45">Semantic Scholar</text>
+  <text x="848" y="572" font-size="15" fill="#7a6a45">OpenAlex · Crossref</text>
+
+  <!-- 连线 -->
+  <g stroke="#7c8fa6" stroke-width="1.8" fill="none" marker-end="url(#ar)">
+    <path d="M330 120 L210 174"/>
+    <path d="M440 120 L590 174"/>
+    <path d="M210 236 L320 284"/>
+    <path d="M590 236 L480 284"/>
+    <path d="M230 336 L140 378"/>
+    <path d="M400 336 L400 378"/>
+    <path d="M590 336 L660 378"/>
+  </g>
+
+  <g stroke="#7c8fa6" stroke-width="1.8" fill="none" marker-end="url(#ar)">
+    <path d="M135 462 L112 508"/>
+    <path d="M370 462 L315 508"/>
+    <path d="M450 462 L505 508"/>
+    <path d="M665 462 L710 508"/>
+  </g>
+
+  <path d="M790 410 L828 410" stroke="#0f766e" stroke-width="1.8" fill="none" marker-end="url(#ar2)"/>
+
+  <!-- 图例 -->
+  <g font-size="15" fill="#64748b">
+    <line x1="24" y1="640" x2="66" y2="640" stroke="#7c8fa6" stroke-width="1.8" marker-end="url(#ar)"/>
+    <text x="76" y="645">同步调用</text>
+    <line x1="176" y1="640" x2="218" y2="640" stroke="#0f766e" stroke-width="1.8" marker-end="url(#ar2)"/>
+    <text x="228" y="645">外部网络</text>
+    <text x="360" y="645">同处 bridge 网络 ai4s-net，服务名即 DNS；虚线框为可选组件</text>
+  </g>
+</svg>
+</div>
+</body>
+</html>
