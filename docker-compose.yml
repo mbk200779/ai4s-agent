@@ -111,6 +111,15 @@ services:
       RERANK_MODEL: ${RERANK_MODEL:-Xenova/ms-marco-MiniLM-L-6-v2}
       RERANK_TIMEOUT_MS: ${RERANK_TIMEOUT_MS:-1500}
       NUMERIC_RECALL_ENABLED: ${NUMERIC_RECALL_ENABLED:-true}
+      RERANK_ALPHA: ${RERANK_ALPHA:-0.2}
+      # 嵌入线程数：8 是实测最优（见 config.py 的 embed_threads 注释）
+      EMBED_THREADS: ${EMBED_THREADS:-8}
+      # 分级置信阈值（07 起替代二值拒答）。改这里即可改分档，不需动代码。
+      CONFIDENCE_VERIFIED_SCORE: ${CONFIDENCE_VERIFIED_SCORE:-0.55}
+      CONFIDENCE_NEEDS_CHECK_SCORE: ${CONFIDENCE_NEEDS_CHECK_SCORE:-0.15}
+      CONFIDENCE_CROSS_PAPER_MIN_SOURCES: ${CONFIDENCE_CROSS_PAPER_MIN_SOURCES:-2}
+      # 索引 pipeline 版本：每个版本一个 collection，升级模型/分块必须递增
+      PIPELINE_VERSION: ${PIPELINE_VERSION:-v1.0.0}
     networks:
       - ai4s-net
     depends_on:
@@ -166,6 +175,18 @@ services:
       DB_PATH: "/app/data/ai4s.db"
       # 长文档解析的工作目录（流式下载的 PDF + 断点状态），必须落在持久卷上
       INGEST_WORK_DIR: "/app/data/ingest"
+      # 以下与 api 保持一致：worker 里也会跑嵌入、精排与综述分句，
+      # 两处口径不同会出现"入库时按 8 线程、问答时按默认线程"这类难查的差异。
+      RERANK_ENABLED: ${RERANK_ENABLED:-true}
+      RERANK_MODEL: ${RERANK_MODEL:-Xenova/ms-marco-MiniLM-L-6-v2}
+      RERANK_TIMEOUT_MS: ${RERANK_TIMEOUT_MS:-1500}
+      RERANK_ALPHA: ${RERANK_ALPHA:-0.2}
+      NUMERIC_RECALL_ENABLED: ${NUMERIC_RECALL_ENABLED:-true}
+      EMBED_THREADS: ${EMBED_THREADS:-8}
+      CONFIDENCE_VERIFIED_SCORE: ${CONFIDENCE_VERIFIED_SCORE:-0.55}
+      CONFIDENCE_NEEDS_CHECK_SCORE: ${CONFIDENCE_NEEDS_CHECK_SCORE:-0.15}
+      CONFIDENCE_CROSS_PAPER_MIN_SOURCES: ${CONFIDENCE_CROSS_PAPER_MIN_SOURCES:-2}
+      PIPELINE_VERSION: ${PIPELINE_VERSION:-v1.0.0}
     networks:
       - ai4s-net
     depends_on:

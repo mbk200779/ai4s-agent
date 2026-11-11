@@ -33,7 +33,7 @@ graph TB
 | 向量化与去重 | `backend/app/services/vector_store.py` | chunk 向量 + paper_meta 引用关系，双重去重 |
 | 批量入库脚本 | `backend/scripts/ingest.py` | PDF 目录 / arXiv ID 列表批量入队 |
 
-**关键决策**：唯一键使用 `arxiv_id+version`，叠加 `body_hash` 精确去重 + `bge-m3` 正文 embedding 相似度（阈值 0.96）语义去重。这样既能拒绝重复上传，也能合并不同文件名但内容相同的稿件，还能识别 arXiv 小版本差异。
+**关键决策**：唯一键使用 `arxiv_id+version`，叠加 `body_hash` 精确去重 + `e5-large` 正文 embedding 相似度（阈值 0.96）语义去重。这样既能拒绝重复上传，也能合并不同文件名但内容相同的稿件，还能识别 arXiv 小版本差异。
 
 ### 2.2 结构化 PDF 解析
 
@@ -51,7 +51,7 @@ graph TB
 
 | 组件 | 文件 | 职责 |
 |---|---|---|
-| 检索服务 | `backend/app/services/retrieval_service.py` | dense(bge-m3) + sparse(BM25) 双路召回 + RRF 融合 |
+| 检索服务 | `backend/app/services/retrieval_service.py` | dense(e5-large) + sparse(BM25) 双路召回 + RRF 融合 |
 | 向量库 | `backend/app/services/vector_store.py` | Qdrant named vectors，统一 fragment 索引 |
 
 **关键决策**：显式拆分 `dense_search` 与 `sparse_search`，再用无参数 RRF（k=60）融合，不训练、不调权重，结果稳定可复现；返回片段必须携带 `page`/`paragraph`/`bbox`/`kind`，供前端溯源高亮。

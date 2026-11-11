@@ -1,5 +1,5 @@
 """
-检索层：dense(bge-m3) + sparse(BM25) 双路召回，RRF 融合排序。
+检索层：dense(e5-large) + sparse(BM25) 双路召回，RRF 融合排序。
 关键设计决策：dense 与 sparse 两路分别检索，使用无参数的 RRF（k=60）
 融合排序，避免学习权重，保证结果稳定、可复现、可解释。
 """

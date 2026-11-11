@@ -25,7 +25,7 @@ class VectorStoreService:
     关键设计决策：
     - chunk 与论文元数据分两个 collection 存储：chunk 负责检索与溯源，paper_meta 负责
       去重、唯一键与引用关系（references/citations/influentialCitationCount）。
-    - paper_meta 使用全文 dense embedding 作为向量，支持基于 bge-m3 相似度的正文去重。
+    - paper_meta 使用全文 dense embedding 作为向量，支持基于 e5-large 相似度的正文去重。
     - **chunk collection 是按索引版本分的**（见 services/index_version.py）：
       一个 pipeline 签名一个 collection，切版本 = 换指针，不搬数据。
       元数据 collection 不版本化——它不参与检索排序，换 embedding 模型只影响
@@ -454,7 +454,7 @@ class VectorStoreService:
         self, text: str, threshold: float = 0.96, top_k: int = 1
     ) -> Optional[Dict[str, Any]]:
         """
-        基于正文 bge-m3 embedding 相似度查找重复论文。
+        基于正文 e5-large embedding 相似度查找重复论文。
         关键设计决策：在精确 hash 之外增加语义相似度去重，可捕获
         不同文件名、同内容、或 arxiv 小版本差异的重复。
         """
