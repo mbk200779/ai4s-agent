@@ -75,6 +75,11 @@ services:
       QDRANT_COLLECTION: "${QDRANT_COLLECTION:-ai4s_papers}"
       QDRANT_PAPER_META_COLLECTION: ${QDRANT_PAPER_META_COLLECTION:-ai4s_paper_meta}
       REDIS_URL: "redis://redis:6379/0"
+      # 解析进程 RSS 软上限。7168 面向 16GB 机器：实测单篇峰值 ViT(22页/82片段)
+      # 6093MB、BERT(16页/58片段) 4512MB，4096 会在 structuring 阶段误杀。
+      # 超限只影响单篇内部（worker_max_tasks_per_child=1 已保证每篇独立起步）。
+      # 8GB 机器请显式设 4096，见 backend/app/services/ingest/limits.py 的预算说明。
+      INGEST_RSS_SOFT_LIMIT_MB: ${INGEST_RSS_SOFT_LIMIT_MB:-7168}
       MINIO_ENDPOINT: "minio:9000"
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
@@ -153,6 +158,11 @@ services:
       QDRANT_COLLECTION: "${QDRANT_COLLECTION:-ai4s_papers}"
       QDRANT_PAPER_META_COLLECTION: ${QDRANT_PAPER_META_COLLECTION:-ai4s_paper_meta}
       REDIS_URL: "redis://redis:6379/0"
+      # 解析进程 RSS 软上限。7168 面向 16GB 机器：实测单篇峰值 ViT(22页/82片段)
+      # 6093MB、BERT(16页/58片段) 4512MB，4096 会在 structuring 阶段误杀。
+      # 超限只影响单篇内部（worker_max_tasks_per_child=1 已保证每篇独立起步）。
+      # 8GB 机器请显式设 4096，见 backend/app/services/ingest/limits.py 的预算说明。
+      INGEST_RSS_SOFT_LIMIT_MB: ${INGEST_RSS_SOFT_LIMIT_MB:-7168}
       MINIO_ENDPOINT: "minio:9000"
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
