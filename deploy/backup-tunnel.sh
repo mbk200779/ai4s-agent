@@ -19,14 +19,31 @@ die() { echo "✗ $*" >&2; exit 1; }
 command -v docker >/dev/null 2>&1 || die "没有 docker 命令，请先启动 Docker Desktop"
 
 current_url() {
-    docker logs "$NAME" 2>&1 | grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' | head -1
+    # 取最后一条：容器若被重启过，日志里会有多个域名，前面那些已经作废
+    docker logs "$NAME" 2>&1 | grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' | tail -1
+}
+
+probe() {
+    # 只看能不能真的拿到 200。快速隧道的域名可能在容器还活着的时候被 Cloudflare 回收，
+    # 此时解析直接 NXDOMAIN（curl 0.01 秒返回 000），单纯打印域名会误导人。
+    local code
+    code="$(curl -s --noproxy '*' -o /dev/null -m 15 -w '%{http_code}' "$1/" 2>/dev/null || true)"
+    code="${code: -3}"
+    [ -z "$code" ] && code="000"
+    echo "$code"
 }
 
 if [ "$ACTION" = "status" ]; then
-    [ -z "$(docker ps -q -f "name=^${NAME}$")" ] && die "容器 $NAME 未运行"
+    [ -z "$(docker ps -q -f "name=^${NAME}$")" ] && die "容器 $NAME 未运行，用 start 重建"
     URL="$(current_url)"
     [ -z "$URL" ] && die "容器在跑但没拿到域名，看日志：docker logs $NAME"
-    echo "$URL"
+    CODE="$(probe "$URL")"
+    if [ "$CODE" = "200" ]; then
+        echo "$URL"
+    else
+        echo "$URL   ← HTTP $CODE，域名已失效（容器活着也没用），跑 start 重建" >&2
+        exit 2
+    fi
     exit 0
 fi
 
@@ -65,10 +82,8 @@ echo "→ 域名  $URL"
 for i in $(seq 1 15); do
     sleep 4
     # curl 的 -w 在超时/失败时也会先输出状态码，再以非 0 退出；
-    # 若写成 `|| echo 000` 会拼成 000000，所以统一取末 3 位。
-    CODE="$(curl -s --noproxy '*' -o /dev/null -m 10 -w '%{http_code}' "$URL/" 2>/dev/null || true)"
-    CODE="${CODE: -3}"
-    [ -z "$CODE" ] && CODE="000"
+    # 若写成 `|| echo 000` 会拼成 000000，probe 里统一取末 3 位。
+    CODE="$(probe "$URL")"
     echo "  自检 $i: HTTP $CODE"
     [ "$CODE" = "200" ] && break
 done
