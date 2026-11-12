@@ -1,6 +1,6 @@
 # 提交材料清单（对照官方 2.1–2.5）
 
-> 最后更新：2026-11-11　|　对应官方要求文档「2. 作品提交要求」
+> 最后更新：2026-11-12　|　对应官方要求文档「2. 作品提交要求」
 >
 > 图例：✅ 已就绪　⚠️ 有条件就绪（需注意）　⬜ 待完成（需你操作或录制）
 
@@ -8,7 +8,7 @@
 
 | # | 事项 | 状态 | 谁来做 |
 |---|---|---|---|
-| 1 | ~~加 SSH 公钥到 GitHub，完成推送~~ 已完成 2026-11-11 21:55 | ✅ | — |
+| 1 | 完成推送（27 个提交，远程 HEAD `9acc310`） | ✅ | — |
 | 2 | 录制 5–8 分钟演示视频并导出 1080p MP4 | ⬜ | 你（按 DEMO_SCRIPT 操作，我在旁边给逐段口播稿） |
 | 3 | 确认在线演示地址可访问 | ✅ | 已完成：`https://demo.mabokai.site`（固定域名，公网页面与本地逐字节一致） |
 | 4 | 官网提交（截止前统一提交） | ⬜ | 你 |
@@ -21,13 +21,32 @@
 
 | 要求项 | 状态 | 位置 / 现状 | 说明 |
 |---|---|---|---|
-| 托管平台 GitHub / Gitee（Public 或评审可访问） | ✅ | `github.com/mbk200779/ai4s-agent` | 17 个提交已全部推送（远程 HEAD `0802d49`），仓库 Public。走 HTTPS + Windows 凭据管理器，不再依赖 SSH 公钥 |
+| 托管平台 GitHub / Gitee（Public 或评审可访问） | ✅ | `github.com/mbk200779/ai4s-agent` | 27 个提交已全部推送（远程 HEAD `9acc310`），仓库 Public。走 HTTPS + Windows 凭据管理器，不再依赖 SSH 公钥；本机到 GitHub 有「DNS 给坏 IP」的问题，推送统一用 `./deploy/push-retry.sh`（见本节末） |
 | 代码规范（结构清晰、有效注释、主流规范） | ✅ | `backend/app/`、`frontend/src/` | 模块按职责拆分；关键决策写在代码注释里（如 `embed_threads` 为什么定 8、`RERANK_ALPHA` 为什么是 0.2）；Python 侧统一 docstring 与类型注解，TS 侧开启 strict |
 | README（项目介绍、技术架构、安装运行、团队信息） | ✅ | `README.md` | 已重写：功能一览、架构图、8 容器职责、快速开始、环境变量、评测结果、评审账号、文档索引、团队信息 |
-| Git 记录（完整历史，体现真实开发过程） | ✅ | `git log` | 17 个提交，跨度 2026-10-22 → 11-11，含 `init` / `feat` / `fix` / `docs` / `merge`，不是一次性导入 |
+| Git 记录（完整历史，体现真实开发过程） | ✅ | `git log` | 27 个提交，跨度 2026-10-22 → 11-12，含 `init` / `feat` / `fix` / `docs` / `merge`，不是一次性导入 |
 | 环境配置（变量模板 + 依赖清单） | ✅ | `.env.example`（13 组）、`backend/requirements.txt`、`frontend/package.json`、`docker-compose.yml` | 模板只放占位符，密钥全部走环境变量；**已核对代码实际读取的每个配置项，模板中不存在的项也补进 compose，避免「文档写了但设了不生效」** |
 
 **代码规范补充说明**：密钥扫描已做（`sk-` / JWT / token / password 四类正则扫全部待提交文件，无命中）；`.env` 在 `.gitignore` 内；`lib.json` 等临时抓包文件已排除。
+
+**推不上去怎么办**（2026-11-12 实测踩坑）：
+
+`git push` 报 `Failed to connect to github.com:443 after 21000 ms`，**不是账号、凭据、仓库的问题**，是本机 DNS 把 `github.com` 解析到 `20.205.243.166`，而这个 IP 时常不可达；同一时刻 `140.82.114.3` 是通的。git 默认只用 DNS 给的那一个 IP，所以一直连不上。
+
+处置：一条命令，自动探测可用 IP 再推。
+
+```bash
+cd /d/workbuddy/2026-10-21-16-54-36
+./deploy/push-retry.sh
+```
+
+手工等价写法（已知可用 IP 时）：
+
+```bash
+git -c http.curloptResolve=github.com:443:140.82.114.3 push origin main
+```
+
+两个附带教训：① 一定要先 `cd` 进仓库根目录，在主目录里敲 `git push` 只会得到 `not a git repository`；② 终端里 IDE 注入的 `http_proxy` 会让 curl/git 报 `CONNECT tunnel failed, response 502`，脚本已自动清掉这些变量。
 
 ## 2.2 演示视频
 
@@ -103,7 +122,7 @@
 | 截止前通过官网统一提交 | ⬜ | 待你操作 |
 | API 密钥等敏感信息不得出现在公开仓库 | ✅ | `.env` 已忽略；全仓库密钥扫描无命中；`.env.example` 只含占位符；评审账号是特意公开的（官方要求提供） |
 | 提交后不得修改 | — | 建议先全部本地验一遍再交 |
-| 材料不完整将影响评审 | ⚠️ | 当前唯一硬缺口是**演示视频**与**推送** |
+| 材料不完整将影响评审 | ⚠️ | 推送已完成（远程 HEAD `9acc310`），当前唯一硬缺口是**演示视频** |
 
 ---
 
@@ -124,7 +143,12 @@ start docs/AI4S学术研究Agent-技术文档.pdf
 
 # 5. 仓库状态干净
 git status -sb
+
+# 6. 远端和本地一致（两个数都应是 0）
+git fetch -q origin && git rev-list --left-right --count origin/main...main
 ```
+
+> 第 6 步若报连不上 GitHub，用 `./deploy/push-retry.sh` 推送（它会自动挑可用 IP），推送成功后两数自然归零。
 
 ## 关联文档
 
