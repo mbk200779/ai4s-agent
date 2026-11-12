@@ -9,6 +9,9 @@
     python scripts/gen_submission_manifest.py                  # 输出到当前目录的 提交材料清单.md
     python scripts/gen_submission_manifest.py <输出路径.md>
 
+产物定位：官方 2.1–2.5 未要求提交「材料清单」，所以生成物只用于本机逐项核对、
+以及打包时的文件数 / 体积比对，**不随提交包分发**。
+
 注意：`git ls-files` 默认 `core.quotepath=true`，中文路径会被转成八进制转义，
 所以这里显式带 `-c core.quotepath=false`。
 """
@@ -87,10 +90,10 @@ def main() -> int:
         "| 官方条目 | 对应材料 | 在本包中的位置 |",
         "|---|---|---|",
         "| 2.1 托管与代码 | 全部源码 + README + 环境配置 + Git 记录 | `backend/`、`frontend/`、`deploy/`、`scripts/`、`README.md`、`.env.example`、`docker-compose.yml`；Git 历史见 GitHub 仓库（未复制 `.git`） |",
-        "| 2.2 演示视频 | **已录制**：8 分 05 秒 / 1920×1032 / 134.1 MB / 含讲解音轨 | `演示视频/AI4S学术研究Agent-演示.mp4`，逐字稿 `演示视频录制脚本.md`、`docs/DEMO_SCRIPT.md` |",
+        "| 2.2 演示视频 | **已录制**：8 分 05 秒 / 1920×1032 / 134.1 MB / 含讲解音轨 | `演示视频/AI4S学术研究Agent-演示.mp4`；成片参数与设计取舍见 `docs/DEMO_SCRIPT.md` 文首 |",
         "| 2.3 技术文档 | PDF + Markdown 源 | `docs/AI4S学术研究Agent-技术文档.pdf`、`docs/技术文档.md`、`docs/TECH_DOC.md` |",
         "| 2.4 在线演示 | 部署配置、隧道、自检与保活脚本 | `deploy/`、`docker-compose.yml`、`docs/2.24`、`docs/2.25` |",
-        "| 2.5 提交注意 | 清单与密钥自查 | `docs/SUBMISSION_CHECKLIST.md` |",
+        "| 2.5 提交注意 | 密钥自查与可用性自检 | `README.md`（密钥扫描结论）、`deploy/demo-check.sh`、`docs/2.25` |",
         "",
         "## 三、逐项文件清单",
         "",
