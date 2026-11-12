@@ -1,0 +1,4 @@
+# Windows 上 git 默认 core.autocrlf=true，会把 .sh 检出成 CRLF，
+# 导致 Git Bash 报 `env: 'bash\r': No such file` 或 `: command not found`。
+# 这里强制 shell 脚本在仓库和检出两侧都是 LF。
+*.sh text eol=lf
