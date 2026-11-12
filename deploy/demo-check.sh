@@ -126,6 +126,28 @@ for c in ai4s_papers ai4s_paper_meta; do
   fi
 done
 
+# 写入通道：Qdrant 1.11.0 的稀疏倒排索引有 panic（issue #5231），一旦触发，
+# 检索照常、写入全 500 —— 现场表现就是"导入必失败、删论文也删不掉"，而问答一切正常，
+# 极易误判成解析器问题。这里只读检查，不写探测点。
+qv=$(curl -sS -m 8 "http://localhost:6333/" 2>/dev/null \
+      | python -c "import sys,json;print(json.load(sys.stdin).get('version',''))" 2>/dev/null || echo "")
+if [[ -n "$qv" ]]; then
+  panic=$(docker logs ai4s-qdrant --since 24h 2>&1 | grep -c "inverted_index_ram" || true)
+  panic=${panic:-0}
+  case "$qv" in
+    1.11.*)
+      bad "Qdrant $qv 有已知稀疏索引 panic（issue #5231），写入随时会挂"
+      hint "docker compose up -d qdrant —— 镜像已改 v1.12.4，重启即生效" ;;
+    *)
+      if [[ "$panic" -gt 0 ]]; then
+        bad "Qdrant $qv 近 24h 出现 $panic 次 inverted_index_ram panic（导入会失败）"
+        hint "见 docs/2.25「写入通道是否坏了」；重启只短期有效，先确认镜像版本"
+      else
+        ok "写入通道（Qdrant $qv，近 24h 无稀疏索引 panic）"
+      fi ;;
+  esac
+fi
+
 # ---------- 5. 入库队列 ----------
 say ""
 say "==> 入库队列"

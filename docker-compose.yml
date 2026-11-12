@@ -3,7 +3,10 @@
 # 对象存储初始化内嵌在 minio 容器启动脚本中，不额外创建一次性服务，保证一键起停后恰好 6 个服务。
 services:
   qdrant:
-    image: qdrant/qdrant:v1.11.0
+    # 1.11.0 存在 sparse 倒排索引 remove 越界 panic（issue #5231 / PR #5232）：
+    # 写入被中断后 InvertedIndexRam 内部错位，此后任何 upsert/delete 都 500
+    # "channel closed"，但读仍正常，表现为"能查不能写"。1.12.4 含该修复。
+    image: qdrant/qdrant:v1.12.4
     container_name: ai4s-qdrant
     restart: unless-stopped
     ports:
