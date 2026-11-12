@@ -83,6 +83,11 @@ services:
       # 超限只影响单篇内部（worker_max_tasks_per_child=1 已保证每篇独立起步）。
       # 8GB 机器请显式设 4096，见 backend/app/services/ingest/limits.py 的预算说明。
       INGEST_RSS_SOFT_LIMIT_MB: ${INGEST_RSS_SOFT_LIMIT_MB:-7168}
+      # 扫描件 OCR：官方测试用例含纯图像 PDF，不开就解析出空文本。
+      # 镜像内已装 tesseract（eng + chi_sim），只在无文本层的页上生效。
+      INGEST_OCR_ENABLED: ${INGEST_OCR_ENABLED:-true}
+      INGEST_OCR_LANG: ${INGEST_OCR_LANG:-eng}
+      INGEST_OCR_DPI: ${INGEST_OCR_DPI:-200}
       MINIO_ENDPOINT: "minio:9000"
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
@@ -166,6 +171,11 @@ services:
       # 超限只影响单篇内部（worker_max_tasks_per_child=1 已保证每篇独立起步）。
       # 8GB 机器请显式设 4096，见 backend/app/services/ingest/limits.py 的预算说明。
       INGEST_RSS_SOFT_LIMIT_MB: ${INGEST_RSS_SOFT_LIMIT_MB:-7168}
+      # 扫描件 OCR：官方测试用例含纯图像 PDF，不开就解析出空文本。
+      # 镜像内已装 tesseract（eng + chi_sim），只在无文本层的页上生效。
+      INGEST_OCR_ENABLED: ${INGEST_OCR_ENABLED:-true}
+      INGEST_OCR_LANG: ${INGEST_OCR_LANG:-eng}
+      INGEST_OCR_DPI: ${INGEST_OCR_DPI:-200}
       MINIO_ENDPOINT: "minio:9000"
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}

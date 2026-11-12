@@ -163,7 +163,7 @@ bash deploy/demo-check.sh   # 上台前 30 秒自检
 
 | 文档 | 内容 |
 |---|---|
-| [`docs/AI4S学术研究Agent-技术文档.pdf`](docs/AI4S学术研究Agent-技术文档.pdf) | **提交用技术文档（21 页）**，含架构、AI 方案、实现、评测、创新点 |
+| [`docs/AI4S学术研究Agent-技术文档.pdf`](docs/AI4S学术研究Agent-技术文档.pdf) | **提交用技术文档（23 页）**，含架构、AI 方案、实现、评测、创新点 |
 | [`docs/技术文档.md`](docs/技术文档.md) | 上文的 Markdown 源 |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | 模块架构与 Prompt 版本记录 |
 | [`演示视频录制脚本.md`](演示视频录制脚本.md) | 5~8 分钟演示视频**逐字稿**（10 段、时间点、操作、台词、输入文本） |

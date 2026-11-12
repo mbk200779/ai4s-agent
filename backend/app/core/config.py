@@ -66,10 +66,11 @@ class Settings(BaseSettings):
     # 前端会退化成"页级定位 + 未建立精细锚点"提示——这正是历史文档的表现，
     # 所以这个开关同时是"复现旧行为"的开关。
     anchor_enabled: bool = True
-    # 扫描件 OCR。默认关：tesseract 与语言包不在默认镜像里，
-    # 打开后每页都要试一次 get_textpage_ocr，缺依赖时是纯浪费。
+    # 扫描件 OCR。镜像内已装 tesseract（含 eng / chi_sim），默认开：
+    # 官方测试用例里有纯图像 PDF（1706.03762v1_img.pdf），关掉就解析出空文本。
+    # 只在「本页没有文本层」时才调用，正常论文不受影响。
     # 打开后该页锚点自动标 precision='ocr'，前端画虚框并注明「OCR 定位」。
-    ingest_ocr_enabled: bool = False
+    ingest_ocr_enabled: bool = True
     ingest_ocr_lang: str = "eng"
     ingest_ocr_dpi: int = 200
 

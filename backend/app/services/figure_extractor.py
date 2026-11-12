@@ -37,6 +37,8 @@ class FigureExtractor:
         figures: List[Dict[str, Any]] = []
         image_list = page.get_images(full=True)
         text_blocks = [b for b in page.get_text("blocks") if b[6] == 0]  # type 0 = text
+        page_area = abs(page.rect)
+        page_has_text = bool(page.get_text().strip())
 
         for img_index, img in enumerate(image_list, start=1):
             xref = img[0]
@@ -50,6 +52,17 @@ class FigureExtractor:
 
             # 通过 image bbox 匹配最近文本块作为 caption
             img_bbox = page.get_image_bbox(img)
+
+            # 整页扫描图不是「配图」，它就是这一页本身：
+            # 1) 扫描件没有文本层，整页图会被当成分图送去视觉模型，模型往往回一段
+            #    「当然，可以帮您撰写图表说明……」的客套话，最后被当成正文片段入索引；
+            # 2) 正文 PDF 里的整页大图（跨栏图、整页表）同理，送视觉模型也是浪费额度。
+            # 面积占比 ≥ 0.9 或本页无文本层，一律跳过，正文交给 OCR 路径。
+            if page_area > 0 and abs(img_bbox) / page_area >= 0.9:
+                continue
+            if not page_has_text:
+                continue
+
             caption = self._find_nearest_caption(text_blocks, img_bbox, page.rect)
 
             key = f"{arxiv_id}/{version}/figures/page_{page_idx:04d}_fig_{img_index:03d}.png"

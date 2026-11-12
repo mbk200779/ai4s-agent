@@ -26,6 +26,17 @@ RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r re
 RUN apt-get update && apt-get install -y --no-install-recommends fonts-noto-cjk \
     && rm -rf /var/lib/apt/lists/*
 
+# OCR 引擎：扫描件（无文本层）靠 PyMuPDF 的 get_textpage_ocr 调 tesseract 出文字。
+# 官方测试用例含 1706.03762v1_img.pdf 这类纯图像 PDF，没有这一步解析结果就是空文本。
+# chi_sim 顺带装上：中文扫描件同理，缺语言包时 get_textpage_ocr 会直接抛异常。
+# 位置放在 pip 之后：apt 层变动不该让整个 Python 依赖重装一遍。
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    tesseract-ocr \
+    tesseract-ocr-eng \
+    tesseract-ocr-chi-sim \
+    && rm -rf /var/lib/apt/lists/*
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/5/tessdata
+
 # 下载 embedding 模型到镜像层（可选；运行时也会自动下载到 /app/.cache）
 # 关键设计决策：模型落盘 /app/.cache，挂载为命名卷，防止容器重建导致重复下载与随机 diff。
 ENV FASTEMBED_CACHE_PATH=/app/.cache/fastembed
